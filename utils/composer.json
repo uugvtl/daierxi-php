@@ -1,0 +1,7 @@
+{
+    "require-dev": {
+        "phalcon/incubator": "^3.2",
+        "phpunit/phpunit": "^6.2",
+        "mockery/mockery": "^0.9.9"
+    }
+}
