@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./Bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         verbose="true"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="true">
+    <testsuite name="Phalcon - Testsuite">
+        <directory>./</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">/Users/leon/workspaces/wwwroot/daierxi/App/</directory>
+            <directory suffix=".php">/Users/leon/workspaces/wwwroot/daierxi/deploy/</directory>
+            <directory suffix=".php">/Users/leon/workspaces/wwwroot/daierxi/helpers/</directory>
+            <!--<exclude>-->
+                <!--<directory suffix=".phtml">d:/wamp/app_hss/</directory>-->
+                <!--<directory suffix=".php">d:/wamp/app_hss/tests/</directory>-->
+            <!--</exclude>-->
+        </whitelist>
+    </filter>
+
+</phpunit>

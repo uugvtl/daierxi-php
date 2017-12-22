@@ -1,0 +1,56 @@
+<?php 
+ return array (
+  42 => 
+  array (
+    0 => 
+    array (
+      'menu_id' => '42',
+      'text' => '刷新',
+      'op_id' => '9',
+      'symbol' => 'refresh',
+      'glyph' => 'xf021@FontAwesome',
+      'disabled' => '0',
+      'position' => '1',
+    ),
+    1 => 
+    array (
+      'menu_id' => '42',
+      'text' => '搜索',
+      'op_id' => '10',
+      'symbol' => 'search',
+      'glyph' => 'xf002@FontAwesome',
+      'disabled' => '0',
+      'position' => '1',
+    ),
+    2 => 
+    array (
+      'menu_id' => '42',
+      'text' => '详情',
+      'op_id' => '44',
+      'symbol' => 'detail',
+      'glyph' => 'xf0f6@FontAwesome',
+      'disabled' => '0',
+      'position' => '2',
+    ),
+    3 => 
+    array (
+      'menu_id' => '42',
+      'text' => '打印出库单',
+      'op_id' => '54',
+      'symbol' => 'poutput',
+      'glyph' => 'xf02f@FontAwesome',
+      'disabled' => '0',
+      'position' => '2',
+    ),
+    4 => 
+    array (
+      'menu_id' => '42',
+      'text' => '发货',
+      'op_id' => '56',
+      'symbol' => 'deliver',
+      'glyph' => 'xf0d1@FontAwesome',
+      'disabled' => '1',
+      'position' => '1',
+    ),
+  ),
+);

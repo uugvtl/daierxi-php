@@ -1,0 +1,38 @@
+a:2:{s:15:"multi_timestamp";a:2:{s:100:"/Users/leon/workspaces/wwwroot/qinpeng/src/runtime/cache/dependency/ec21fa56f531ac25fdd932fae4d2c57a";s:21:"0.06352700 1511931160";s:100:"/Users/leon/workspaces/wwwroot/qinpeng/src/runtime/cache/dependency/f7b72678c5cd5cc70982cc1ba23e296a";s:21:"0.06539100 1511931160";}s:4:"data";s:8823:"a:5:{i:0;a:7:{s:8:"goods_id";s:4:"5124";s:17:"sku_material_rate";s:944:"a:21:{s:8:&quot;JDTM0016&quot;;s:4:&quot;0.07&quot;;s:8:&quot;LJAV0041&quot;;s:4:&quot;0.22&quot;;s:8:&quot;SFRT0021&quot;;s:4:&quot;0.04&quot;;s:8:&quot;SSSS0001&quot;;s:3:&quot;9.5&quot;;s:8:&quot;HLSL0017&quot;;s:1:&quot;1&quot;;s:8:&quot;HTYF0022&quot;;s:3:&quot;0.5&quot;;s:8:&quot;HTTC0018&quot;;s:1:&quot;4&quot;;s:8:&quot;LMJH0008&quot;;s:1:&quot;4&quot;;s:8:&quot;SZLH0025&quot;;s:1:&quot;4&quot;;s:8:&quot;YZMY0027&quot;;s:1:&quot;1&quot;;s:8:&quot;BLYD0049&quot;;s:4:&quot;0.25&quot;;s:8:&quot;LJVE0028&quot;;s:3:&quot;0.5&quot;;s:8:&quot;JCYJ0029&quot;;s:3:&quot;2.2&quot;;s:8:&quot;XASY0050&quot;;s:3:&quot;0.4&quot;;s:8:&quot;WLEW0004&quot;;s:3:&quot;0.3&quot;;s:8:&quot;YLML0020&quot;;s:3:&quot;9.5&quot;;s:8:&quot;WLMY0006&quot;;s:3:&quot;0.1&quot;;s:8:&quot;LCBY0047&quot;;s:3:&quot;0.4&quot;;s:8:&quot;LCEB0046&quot;;s:3:&quot;0.5&quot;;s:8:&quot;BLCM0053&quot;;s:3:&quot;0.5&quot;;s:8:&quot;LJVY0055&quot;;s:1:&quot;1&quot;;}";s:15:"deionized_water";s:7:"62.0200";s:17:"sku_recipe_weight";s:159:"a:1:{i:0;a:3:{s:6:&quot;sku_id&quot;;s:5:&quot;47723&quot;;s:6:&quot;sku_sn&quot;;s:9:&quot;XGLFS-001&quot;;s:13:&quot;recipe_weight&quot;;s:1:&quot;5&quot;;}}";s:12:"recipe_craft";s:798:"1.将生产用具用75%酒精喷洒消毒,并用干毛巾擦干.
+2.将A相原料加入至乳化锅,边搅拌边加热至85℃，将B相原料加入至A相中，乳化锅抽取真空-0.05Mpa ，搅拌均质至料体完全
+  溶解（必须无胶团 物）.
+3.将C相原料加入至油锅中，加热至80℃，并完全溶解。
+4.乳化锅抽取真空-0.05Mpa,将完全溶解的C相缓缓抽入至AB相中,搅拌均质5min
+5.将D相原料入至ABC相中,乳化锅抽取真空-0.05Mpa,搅拌均质3min.保温20min,温至40℃.
+6.将F相搅拌至完全溶解，备用。
+7.将E.F.G.H.相原料依次加入至ABCD相中，乳化锅抽取真空-0.05Mpa,搅拌均质ABCDEFGH相料体3min.并至ABCDEFGH相完
+  全分散均匀。
+8.边降温边搅拌10min.
+9.取样送检,合格后用200目滤布过滤.";s:10:"water_item";s:1:"A";s:10:"goods_name";s:15:"雪光亮肤霜";}i:1;a:7:{s:8:"goods_id";s:4:"5123";s:17:"sku_material_rate";s:944:"a:21:{s:8:&quot;JDTM0016&quot;;s:4:&quot;0.07&quot;;s:8:&quot;LJAV0041&quot;;s:4:&quot;0.22&quot;;s:8:&quot;SFRT0021&quot;;s:4:&quot;0.04&quot;;s:8:&quot;SSSS0001&quot;;s:3:&quot;9.5&quot;;s:8:&quot;HLSL0017&quot;;s:1:&quot;1&quot;;s:8:&quot;HTYF0022&quot;;s:3:&quot;0.5&quot;;s:8:&quot;HTTC0018&quot;;s:1:&quot;4&quot;;s:8:&quot;LMJH0008&quot;;s:1:&quot;4&quot;;s:8:&quot;YZMY0027&quot;;s:1:&quot;1&quot;;s:8:&quot;BLYD0049&quot;;s:4:&quot;0.25&quot;;s:8:&quot;LJVE0028&quot;;s:3:&quot;0.5&quot;;s:8:&quot;JCYJ0029&quot;;s:3:&quot;2.2&quot;;s:8:&quot;XASY0050&quot;;s:3:&quot;0.4&quot;;s:8:&quot;WLEW0004&quot;;s:3:&quot;0.3&quot;;s:8:&quot;YLML0020&quot;;s:3:&quot;9.5&quot;;s:8:&quot;WLMY0006&quot;;s:3:&quot;0.1&quot;;s:8:&quot;LCBY0047&quot;;s:3:&quot;0.4&quot;;s:8:&quot;LCEB0046&quot;;s:3:&quot;0.5&quot;;s:8:&quot;BLCM0053&quot;;s:3:&quot;0.5&quot;;s:8:&quot;SFTX0054&quot;;s:1:&quot;1&quot;;s:8:&quot;SZLH0025&quot;;s:1:&quot;4&quot;;}";s:15:"deionized_water";s:7:"62.0200";s:17:"sku_recipe_weight";s:159:"a:1:{i:0;a:3:{s:6:&quot;sku_id&quot;;s:5:&quot;47722&quot;;s:6:&quot;sku_sn&quot;;s:9:&quot;XGLFY-001&quot;;s:13:&quot;recipe_weight&quot;;s:1:&quot;5&quot;;}}";s:12:"recipe_craft";s:798:"1.将生产用具用75%酒精喷洒消毒,并用干毛巾擦干.
+2.将A相原料加入至乳化锅,边搅拌边加热至85℃，将B相原料加入至A相中，乳化锅抽取真空-0.05Mpa ，搅拌均质至料体完全
+  溶解（必须无胶团 物）.
+3.将C相原料加入至油锅中，加热至80℃，并完全溶解。
+4.乳化锅抽取真空-0.05Mpa,将完全溶解的C相缓缓抽入至AB相中,搅拌均质5min
+5.将D相原料入至ABC相中,乳化锅抽取真空-0.05Mpa,搅拌均质3min.保温20min,温至40℃.
+6.将F相搅拌至完全溶解，备用。
+7.将E.F.G.H.相原料依次加入至ABCD相中，乳化锅抽取真空-0.05Mpa,搅拌均质ABCDEFGH相料体3min.并至ABCDEFGH相完
+  全分散均匀。
+8.边降温边搅拌10min.
+9.取样送检,合格后用200目滤布过滤.";s:10:"water_item";s:1:"A";s:10:"goods_name";s:15:"雪光亮肤乳";}i:2;a:7:{s:8:"goods_id";s:4:"5122";s:17:"sku_material_rate";s:499:"a:11:{s:8:&quot;LCQP0023&quot;;s:3:&quot;0.5&quot;;s:8:&quot;JDTM0016&quot;;s:4:&quot;0.05&quot;;s:8:&quot;SSSS0001&quot;;s:3:&quot;2.5&quot;;s:8:&quot;HLSL0017&quot;;s:1:&quot;2&quot;;s:8:&quot;LJDF0024&quot;;s:1:&quot;1&quot;;s:8:&quot;HTTC0018&quot;;s:1:&quot;4&quot;;s:8:&quot;HTYF0022&quot;;s:3:&quot;0.5&quot;;s:8:&quot;YLML0020&quot;;s:3:&quot;9.5&quot;;s:8:&quot;SFRT0021&quot;;s:5:&quot;0.055&quot;;s:8:&quot;LCEB0046&quot;;s:3:&quot;1.2&quot;;s:8:&quot;LCBY0047&quot;;s:3:&quot;0.4&quot;;}";s:15:"deionized_water";s:7:"80.2950";s:17:"sku_recipe_weight";s:162:"a:1:{i:0;a:3:{s:6:&quot;sku_id&quot;;s:5:&quot;47721&quot;;s:6:&quot;sku_sn&quot;;s:10:&quot;XGLFMM-001&quot;;s:13:&quot;recipe_weight&quot;;s:2:&quot;20&quot;;}}";s:12:"recipe_craft";s:607:"1.将生产用具用75%酒精喷洒消毒,并用干毛巾擦干.
+2.将A相原料加入至乳化锅,边搅拌边加热至85℃，将B相原料加入至A相中，乳化锅抽取真空-0.05Mpa ，搅拌均质至料体完全
+  溶解（必须无胶团 物）.保温20Min,降温至40℃
+3.将C、D、E、相原料、依次加入至AB相中,乳化锅抽取真空-0.05Mpa ,搅拌均质至ABCDE料体完全溶解（必须无胶团物）.
+4.将F相搅拌均匀后.缓缓加入至ABCDE相中，搅拌均质至ABCDEF料体2min以上，并至ABCDEF相料体完全溶解。
+5.取样送检,合格后用200目滤布过滤.";s:10:"water_item";s:1:"A";s:10:"goods_name";s:18:"雪光亮肤面膜";}i:3;a:7:{s:8:"goods_id";s:4:"5121";s:17:"sku_material_rate";s:499:"a:11:{s:8:&quot;LCQP0023&quot;;s:3:&quot;0.2&quot;;s:8:&quot;JDTM0016&quot;;s:4:&quot;0.05&quot;;s:8:&quot;SSSS0001&quot;;s:3:&quot;2.5&quot;;s:8:&quot;HLSL0017&quot;;s:1:&quot;2&quot;;s:8:&quot;LJDF0024&quot;;s:1:&quot;1&quot;;s:8:&quot;HTTC0018&quot;;s:1:&quot;4&quot;;s:8:&quot;HTYF0022&quot;;s:3:&quot;0.5&quot;;s:8:&quot;YLML0020&quot;;s:3:&quot;9.5&quot;;s:8:&quot;SFRT0021&quot;;s:5:&quot;0.055&quot;;s:8:&quot;LCEB0046&quot;;s:3:&quot;1.2&quot;;s:8:&quot;LCBY0047&quot;;s:3:&quot;0.4&quot;;}";s:15:"deionized_water";s:7:"80.5950";s:17:"sku_recipe_weight";s:159:"a:1:{i:0;a:3:{s:6:&quot;sku_id&quot;;s:5:&quot;47720&quot;;s:6:&quot;sku_sn&quot;;s:9:&quot;XGJHY-001&quot;;s:13:&quot;recipe_weight&quot;;s:1:&quot;2&quot;;}}";s:12:"recipe_craft";s:607:"1.将生产用具用75%酒精喷洒消毒,并用干毛巾擦干.
+2.将A相原料加入至乳化锅,边搅拌边加热至85℃，将B相原料加入至A相中，乳化锅抽取真空-0.05Mpa ，搅拌均质至料体完全
+  溶解（必须无胶团 物）.保温20Min,降温至40℃
+3.将C、D、E、相原料、依次加入至AB相中,乳化锅抽取真空-0.05Mpa ,搅拌均质至ABCDE料体完全溶解（必须无胶团物）.
+4.将F相搅拌均匀后.缓缓加入至ABCDE相中，搅拌均质至ABCDEF料体2min以上，并至ABCDEF相料体完全溶解。
+5.取样送检,合格后用200目滤布过滤.";s:10:"water_item";s:1:"A";s:10:"goods_name";s:15:"雪光精华液";}i:4;a:7:{s:8:"goods_id";s:4:"5120";s:17:"sku_material_rate";s:457:"a:10:{s:8:&quot;LXLS0011&quot;;s:3:&quot;4.5&quot;;s:8:&quot;JCYJ0029&quot;;s:1:&quot;6&quot;;s:8:&quot;XASY0050&quot;;s:4:&quot;0.15&quot;;s:8:&quot;HLSL0017&quot;;s:2:&quot;10&quot;;s:8:&quot;XAML0040&quot;;s:2:&quot;45&quot;;s:8:&quot;LJJZ0051&quot;;s:3:&quot;0.1&quot;;s:8:&quot;LJHS0052&quot;;s:3:&quot;0.2&quot;;s:8:&quot;HTYF0022&quot;;s:3:&quot;0.5&quot;;s:8:&quot;WLNM0042&quot;;s:5:&quot;0.025&quot;;s:8:&quot;XLMY0010&quot;;s:4:&quot;0.03&quot;;}";s:15:"deionized_water";s:7:"35.4950";s:17:"sku_recipe_weight";s:160:"a:1:{i:0;a:3:{s:6:&quot;sku_id&quot;;s:5:&quot;47719&quot;;s:6:&quot;sku_sn&quot;;s:9:&quot;XGJMR-001&quot;;s:13:&quot;recipe_weight&quot;;s:2:&quot;30&quot;;}}";s:12:"recipe_craft";s:677:"1.将生产用具用75%酒精喷洒消毒,并用干毛巾擦干.
+2.将B相原料加入至乳化锅,边搅拌边加热至80℃，并至B相原料完全溶解。
+3.将C相加入至B相中，搅拌均质3min,并至料体完全溶解（必须无胶团 物）。
+4.将A相原料加入至BC相中，搅拌均质3min,并至料体完全溶解（必须无胶团 物）。
+5.保温20min,降温至45℃.
+6.将D相加入至ABC相中，乳化锅抽取真空-0.03Mpa ,搅拌均质2min,并至料体完全溶解（必须无胶团 物）。
+7.乳化锅抽取真空-0.03Mpa，20转/min,搅拌20min，降温至40℃，并至料体完全均匀光滑.
+8.取样送检,合格后用100目滤布过滤.";s:10:"water_item";s:1:"B";s:10:"goods_name";s:15:"雪光洁面乳";}}";}
