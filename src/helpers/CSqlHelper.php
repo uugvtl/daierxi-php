@@ -176,14 +176,14 @@ class CSqlHelper extends CBaseHelper
      * @param int   $mode           插入模式，1:普通，2:忽略主键，3:REPLACE模式
      * @return string               sql语句
      */
-    public function getCreateString(array $params, $table, $mode=$this->SQL_CREATE_INSERT)
+    public function getCreateString(array $params, $table, $mode=CSqlHelper::SQL_CREATE_INSERT)
     {
         $insert = " INSERT INTO ";
 
         $aInsert = array(
-            $this->SQL_CREATE_INSERT       => " INSERT INTO ",
-            $this->SQL_CREATE_IGNORE       => " INSERT IGNORE INTO ",
-            $this->SQL_CREATE_REPLACE      => " REPLACE INTO "
+            CSqlHelper::SQL_CREATE_INSERT       => " INSERT INTO ",
+            CSqlHelper::SQL_CREATE_IGNORE       => " INSERT IGNORE INTO ",
+            CSqlHelper::SQL_CREATE_REPLACE      => " REPLACE INTO "
         );
 
         $insert = isset($aInsert[$mode])?$aInsert[$mode]:$insert;

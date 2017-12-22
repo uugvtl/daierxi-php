@@ -512,7 +512,7 @@ class CArrayHelper extends CBaseHelper
      */
     public function arr2xml($arr)
     {
-        $xml = "<xml>";
+        $xml = '<xml>';
         foreach ($arr as $key=>$val)
         {
             if (is_numeric($val))

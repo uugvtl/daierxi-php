@@ -16,7 +16,7 @@ class CBadwordsHelper  extends CBaseHelper
      */
     public function filter($words)
     {
-        $badwords = array_combine($this->$badwords,array_fill(0,count($this->$badwords),'*'));
+        $badwords = array_combine(CBadwordsHelper::$badwords,array_fill(0,count(CBadwordsHelper::$badwords),'*'));
 
         if (is_string($words))
         {

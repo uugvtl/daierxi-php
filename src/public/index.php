@@ -95,7 +95,8 @@ catch (Exception $e){
 
     if(extension_loaded('xdebug'))
     {
-        echo CErrorsHelper::formatExceptionTrace($e->getTraceAsString());
+        $errorHelper = CErrorsHelper::getInstance();
+        echo $errorHelper->formatExceptionTrace($e->getTraceAsString());
     }
 
 }

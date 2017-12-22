@@ -8,7 +8,6 @@ set_time_limit(0);
  */
 use Phalcon\Di\FactoryDefault\Cli as CliDI;
 use Phalcon\CLI\Console as ConsoleApp;
-use Phalcon\Exception;
 
 define('CLI', 1);
 require_once './deploy/bootstrap.php';
@@ -97,12 +96,7 @@ class Console extends ConsoleApp
 }
 
 
-try {
-    // 处理参数
-    $console = new Console();
-    $console->main($argv);
-} catch (Exception $e) {
-    echo $e->getMessage();
-    exit(255);
-}
+// 处理参数
+$console = new Console();
+$console->main($argv);
 
