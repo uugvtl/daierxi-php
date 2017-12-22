@@ -4,7 +4,6 @@ use Phalcon\Mvc\User\Plugin;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
 use Exception;
-
 /**
  * 异常事件处理基类
  * User: leon
@@ -14,7 +13,7 @@ use Exception;
  * Class NotFoundPlugin
  * @package App\Globals\Plugins
  */
-class NotFoundPlugin extends Plugin
+class NotPagePlugin extends Plugin
 {
     /**
      * 页面404处理
