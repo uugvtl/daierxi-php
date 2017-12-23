@@ -1,4 +1,7 @@
 <?php
+namespace App\Helpers;
+use Phalcon\Exception;
+
 /**
  * Created by PhpStorm.
  * User: leon

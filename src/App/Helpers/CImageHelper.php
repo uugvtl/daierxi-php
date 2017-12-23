@@ -1,4 +1,5 @@
 <?php
+namespace App\Helpers;
 class CImageHelper extends CBaseHelper
 {
     /**

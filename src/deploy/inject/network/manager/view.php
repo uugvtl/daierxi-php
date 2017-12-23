@@ -1,7 +1,7 @@
 <?php
+use App\Helpers\CFileHelper;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt;
-
 $view = new View();
 $view->setViewsDir(SRC_PATH .'/templates/manager/views/');
 $view->setLayoutsDir('../layouts/');

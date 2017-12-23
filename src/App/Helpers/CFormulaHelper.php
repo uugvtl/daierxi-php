@@ -1,4 +1,5 @@
 <?php
+namespace App\Helpers;
 /**
  * 项目用到的相关数学算法
  * Created by PhpStorm.

@@ -1,10 +1,5 @@
 <?php
-/**
- * 视图注入类
- * User: leon
- * Date: 16/8/25
- * Time: 16:15
- */
+use App\Helpers\CFileHelper;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt;
 

@@ -1,4 +1,5 @@
 <?php
+namespace App\Helpers;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -22,7 +23,7 @@ abstract class CBaseHelper
     /**
      * 创建__clone方法防止对象被复制克隆
      */
-    final private function __clone(){}
+    private function __clone(){}
 
     /**
      * 只在生成成实例的时候运行一次

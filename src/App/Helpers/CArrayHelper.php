@@ -1,4 +1,7 @@
 <?php
+namespace App\Helpers;
+use stdClass;
+
 class CArrayHelper extends CBaseHelper
 {
 

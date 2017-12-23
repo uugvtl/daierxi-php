@@ -2,10 +2,10 @@
 namespace App\Network\Common;
 use App\Globals\Finals\Result;
 use App\Globals\Traits\TranslationTrait;
-use CJsonHelper;
+use App\Helpers\CArrayHelper;
+use App\Helpers\CJsonHelper;
 use Phalcon\Mvc\Controller;
 use Phalcon\Config;
-use CArrayHelper;
 /**
  * Created by PhpStorm.
  * User: leon

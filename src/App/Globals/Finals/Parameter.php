@@ -1,7 +1,8 @@
 <?php
 namespace App\Globals\Finals;
 use App\Globals\Bases\BaseClass;
-use CArrayHelper;
+use App\Helpers\CArrayHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon

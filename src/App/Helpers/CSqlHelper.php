@@ -1,4 +1,5 @@
 <?php
+namespace App\Helpers;
 /**
  * Created by PhpStorm.
  * User: leon
