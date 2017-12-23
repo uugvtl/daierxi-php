@@ -1,6 +1,5 @@
 <?php
 namespace App\Helpers;
-use function array_unique;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -30,35 +29,15 @@ class CFileHelper extends CBaseHelper
         $it->rewind();
         while($it->valid()) {
             if (!$it->isDot()) {
-                $files[] = $it->getSubPathName();
-                $dirs[] = $it->getSubPath();
+                $dirName = $it->getSubPathName();
+                $fileName = $it->getSubPath();
+
+                $files[$dirName] = $dirName;
+                $dirs[$fileName] = $fileName;
             }
 
             $it->next();
         }
-
-//        while(list($k,$path)=each($dirs))
-//        {
-//            $absDirPath = "{$dir}/{$path}";     // 当前要遍历的目录的绝对路径
-//            $handle = opendir($absDirPath); // 打开目录句柄
-//            readdir($handle);               // 先调用两次 readdir() 过滤 . 和 ..
-//            readdir($handle);               // 避免在 while 循环中 if 判断
-//            while(false !== $item=readdir($handle))
-//            {
-//                $relPath = $path?"{$path}{$item}":$item;   // 子项目相对路径
-//                $absPath = "{$dir}/{$relPath}"; // 子项目绝对路径
-//                if(is_dir($absPath))        // 如果是一个目录，则存入到数组 $dirs
-//                    $dirs[] = $relPath.'/';
-//                else                        // 否则是一个文件，则存入到数组 $files
-//                    $files[] = $relPath;
-//            }
-//            closedir($handle); // 关闭目录句柄
-//        }
-//        unset($k);
-
-        $dirs = array_unique($dirs);
-        $files = array_unique($files);
-
 
         array_walk($dirs,function(&$dir) use ($currentDirName){
             if($currentDirName)
