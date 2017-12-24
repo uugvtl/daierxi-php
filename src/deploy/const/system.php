@@ -8,7 +8,6 @@
 define('BACKSLASH',                         '\\');                                                  //反斜线常量定义
 define('CACHE_LIFETIME',                    172800);                                                //缓存默认存储时间
 define('DEFAULT_PASSWORD',                  88888888);                                              //默认登入密码
-define('PROJ_PATH',                         SRC_PATH     . '/..');
 define('APP_PATH',                          SRC_PATH     . '/App');                                 //应用代码目录
 define('PUBLIC_PATH',                       SRC_PATH     . '/public');                              //站点路径
 define('ASSETS_PATH',                       PUBLIC_PATH  . '/assets');                              //资源路径
@@ -19,9 +18,6 @@ define('GLOBALS_PATH',                      APP_PATH     . '/Globals');         
 define('INTERFACES_PATH',                   APP_PATH     . '/Interfaces');                          //接口类路径
 define('NETWORK_PATH',                      APP_PATH     . '/Network');                             //网络程序路径
 define('PROGRAMMES_PATH',                   APP_PATH     . '/Programmes');                          //代码公共类路径
-
-
-
 
 
 define('DEPLOY_PATH',                       SRC_PATH     . '/deploy');                              //部署路径
@@ -39,7 +35,7 @@ define('LOGIN_MANAGER',                     'Managers');                        
 define('SUPER_MANAGER',                     1);                                                     //超级管理员ID
 
 /* 目录相关常量定义 BEGIN */
-define('RUNTIME_PATH',                      PROJ_PATH    . '/runtime');                             //运行时目录
+define('RUNTIME_PATH',                      SRC_PATH    . '/runtime');                              //运行时目录
 define('DEPENDENCY_CACHE_DIR',              RUNTIME_PATH . '/cache/dependency/');                   //缓存依赖目录
 define('GENERAL_CACHE_DIR',                 RUNTIME_PATH . '/cache/general/');                      //共公数据缓存目录
 /* 目录相关常量定义 FINISH */
