@@ -100,6 +100,7 @@ class MainTask extends AppTask
             require 'phar://{$file}/public/index.php';
             __HALT_COMPILER();"
         );
+
         $phar->stopBuffering();
 
         // 压缩格式
