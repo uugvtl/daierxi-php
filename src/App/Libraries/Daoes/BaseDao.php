@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries\Cases\Daoes;
+namespace App\Libraries\Daoes;
 use App\Globals\Bases\BaseSingle;
 use App\Helpers\CFileHelper;
 use App\Helpers\CStringHelper;

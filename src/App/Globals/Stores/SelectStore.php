@@ -6,7 +6,7 @@ use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Finals\PageSlice;
 use App\Helpers\CFileHelper;
-use App\Libraries\Cases\Daoes\CacheDao;
+use App\Libraries\Daoes\CacheDao;
 /**
  * Created by PhpStorm.
  * User: leon

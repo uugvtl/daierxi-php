@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases;
-use App\Libraries\Cases\Daoes\CacheDao;
+use App\Libraries\Daoes\CacheDao;
 
 /**
  * Created by PhpStorm.
@@ -15,13 +15,13 @@ abstract class BaseStore extends BaseClass
 {
     /**
      * 操作数据的封状工具类
-     * @var CacheDao
+     * @var \App\Libraries\Daoes\CacheDao
      */
     protected $dao;
 
     /**
      * 获取的查询数据DAO
-     * @return CacheDao
+     * @return \App\Libraries\Daoes\CacheDao
      */
     public function getDao()
     {

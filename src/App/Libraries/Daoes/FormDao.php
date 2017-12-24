@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries\Cases\Daoes;
+namespace App\Libraries\Daoes;
 /**
  * Created by PhpStorm.
  * User: leon

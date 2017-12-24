@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries\Cases\Daoes;
+namespace App\Libraries\Daoes;
 use Phalcon\Db;
 use Phalcon\Db\AdapterInterface;
 /**

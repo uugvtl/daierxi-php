@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries\Cases\Daoes;
+namespace App\Libraries\Daoes;
 use App\Globals\Finals\PageSlice;
 use App\Helpers\CArrayHelper;
 use App\Helpers\CFileHelper;
@@ -7,6 +7,7 @@ use App\Helpers\CJsonHelper;
 use App\Helpers\CStringHelper;
 use App\Libraries\Caching\Dependencies\CFileCacheDependency;
 use Phalcon\Cache\BackendInterface;
+use phalcon\Config;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,6 +16,7 @@ use Phalcon\Cache\BackendInterface;
  *
  * Class QueryDao
  * @package App\Libraries\Cases
+ * @property Config $config
  */
 class CacheDao extends BaseDao
 {

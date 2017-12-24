@@ -4,7 +4,7 @@ use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
 use App\Helpers\CSqlHelper;
-use App\Libraries\Cases\Daoes\FormDao;
+use App\Libraries\Daoes\FormDao;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -18,7 +18,7 @@ class DeleteStore extends FormStore
 {
     /**
      * 操作数据的封状工具类
-     * @var FormDao
+     * @var \App\Libraries\Daoes\FormDao
      */
     protected $dao;
 

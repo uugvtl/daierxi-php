@@ -2,7 +2,7 @@
 namespace App\Globals\Bases\Sqlangs;
 use App\Globals\Bases\BaseClass;
 use App\Libraries\Caching\Dependencies\CFileCacheDependency;
-use App\Libraries\Cases\Daoes\BaseDao;
+use App\Libraries\Daoes\BaseDao;
 /**
  * Created by PhpStorm.
  * User: leon

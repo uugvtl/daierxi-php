@@ -1,7 +1,7 @@
 <?php
 namespace App\Globals\Stores\Selects;
 use App\Globals\Stores\SelectStore;
-use App\Libraries\Cases\Daoes\CacheDao;
+use App\Libraries\Daoes\CacheDao;
 /**
  * Created by PhpStorm.
  * User: leon

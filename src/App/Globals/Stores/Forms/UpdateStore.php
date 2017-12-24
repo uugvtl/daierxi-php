@@ -5,7 +5,7 @@ use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
 use App\Helpers\CSqlHelper;
-use App\Libraries\Cases\Daoes\FormDao;
+use App\Libraries\Daoes\FormDao;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -93,7 +93,7 @@ class UpdateStore extends FormStore
 
     /**
      * 获取的查询数据DAO
-     * @return FormDao
+     * @return \App\Libraries\Daoes\FormDao
      */
     public function getDao()
     {
