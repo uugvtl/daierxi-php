@@ -9,11 +9,6 @@ use Phalcon\Loader;
 $loader = new Loader();
 $loader->registerDirs(explode(':', get_include_path()), true);
 
-
-$loader->registerDirs(array(
-    SRC_PATH.'/helpers'
-), true);
-
 $aNamespeces = require DEPLOY_PATH . '/namespaces.php';
 $loader->registerNamespaces($aNamespeces, true);
 

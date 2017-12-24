@@ -85,18 +85,21 @@ class MainTask extends AppTask
         $nsHelper = CNsHelper::getInstance();
         $nsHelper->createFile();
 
-//        $namespaceBuilder = NamespaceFounder::getInstance();
-//        $namespaceBuilder->createFile();
-
-//        $phar = new Phar('../bin/app.phar', FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME, 'app.phar');
+//        $file = 'app.phar';
+//        $phar = new Phar('../bin/'.$file, FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME, $file);
 //        // 建立压缩目录
-//        $phar->buildFromDirectory(SRC_PATH . '/');
+//        $phar->buildFromDirectory(SRC_PATH.DS.'../src');
+//
+//        $phar->setStub("<?php
+//            Phar::mapPhar('{$file}');
+//            require 'phar://{$file}/public/index.php';
+//            __HALT_COMPILER();
+/*            ?>");*/
+//
 //        // 压缩php文件的入口文件
-//        $phar->setStub($phar->createDefaultStub('cli.php', 'index.php'));
+////        $phar->setStub($phar->createDefaultStub('bootstrap.php'));
 //        // 压缩格式
 //        $phar->compressFiles(Phar::GZ);
-
         echo "namespace init done!.\n";
-
     }
 }

@@ -1,10 +1,8 @@
 <?php
-/**
- * web入口文件
- */
 use Phalcon\Mvc\Application             as WebApplication;
 use Phalcon\DI\FactoryDefault;
-require_once '../deploy/bootstrap.php';
+use App\Helpers\CErrorsHelper;
+require_once '../bootstrap.php';
 class Application extends WebApplication
 {
     /**
