@@ -1,4 +1,3 @@
 .idea/
 utils/
-runtime/
-bin/
+src/runtime/
