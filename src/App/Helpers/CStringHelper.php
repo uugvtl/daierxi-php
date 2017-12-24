@@ -679,7 +679,7 @@ class CStringHelper extends CBaseHelper
      * @param boolean $suffix 截断显示字符
      * @return string
      */
-    public static  function msubstr($str, $start=0, $length, $charset="utf-8", $suffix=true) {
+    public function msubstr($str, $start=0, $length, $charset="utf-8", $suffix=true) {
         if(function_exists("mb_substr"))
             $slice = mb_substr($str, $start, $length, $charset);
         elseif(function_exists('iconv_substr')) {
