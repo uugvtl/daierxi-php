@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases\Sqlangs\Selects;
-use App\Globals\Bases\Sqlangs\BaseSelect;
+use App\Globals\Bases\Sqlangs\BaseWhere;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Globals\Bases\Sqlangs\BaseSelect;
  * Class NoneSelect
  * @package App\Globals\Sqlangs\Selects
  */
-abstract class HideSelect extends BaseSelect
+abstract class HideWhere extends BaseWhere
 {
     /**
      * 获取最终型态的where条件的where语句

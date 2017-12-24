@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases\Sqlangs\Selects;
-use App\Globals\Bases\Sqlangs\BaseSelect;
+use App\Globals\Bases\Sqlangs\BaseWhere;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Globals\Bases\Sqlangs\BaseSelect;
  * Class WholeSelect
  * @package App\Globals\Sqlangs\Selects
  */
-abstract class ShowSelect extends BaseSelect
+abstract class ShowWhere extends BaseWhere
 {
     protected function getWhere()
     {

@@ -2,7 +2,7 @@
 namespace App\Globals\Stores;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Bases\Sqlangs\BaseFields;
-use App\Globals\Bases\Sqlangs\BaseSelect;
+use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Finals\PageSlice;
 use App\Helpers\CFileHelper;
@@ -29,7 +29,7 @@ abstract class SelectStore extends BaseStore
     protected $fieldsInstance;
 
     /**
-     * @var BaseSelect
+     * @var BaseWhere
      */
     protected $selectInstance;
 

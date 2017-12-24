@@ -33,16 +33,16 @@ abstract class BaseTable extends BaseClass
     protected $tableList=[];
 
     /**
-     * @var BaseSelect
+     * @var BaseWhere
      */
     protected $selectInstance;
 
     /**
      * 初始化查询条件实例
-     * @param BaseSelect $selectInstance
+     * @param BaseWhere $selectInstance
      * @return static
      */
-    public function initSelect(BaseSelect $selectInstance)
+    public function initSelect(BaseWhere $selectInstance)
     {
         $this->selectInstance = $selectInstance;
         return $this;

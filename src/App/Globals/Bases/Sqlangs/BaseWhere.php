@@ -9,10 +9,10 @@ use App\Helpers\CStringHelper;
  * Date: 2016/11/23
  * Time: 16:55
  *
- * Class BaseSelect
+ * Class BaseWhere
  * @package App\Globals\Sqlangs\Selects
  */
-abstract class BaseSelect extends BaseClass
+abstract class BaseWhere extends BaseClass
 {
 
     /**
