@@ -10,7 +10,7 @@ use Phalcon\Di\FactoryDefault\Cli as CliDI;
 use Phalcon\CLI\Console as ConsoleApp;
 
 define('CLI', 1);
-require_once './bootstrap.php';
+require_once 'bootstrap.php';
 class Console extends ConsoleApp
 {
     /**

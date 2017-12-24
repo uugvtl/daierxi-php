@@ -5,7 +5,7 @@ class IndexController extends ModuleController
 {
     public function indexAction()
     {
-        echo 123;
+//        echo 123;
 //        $resultBo = Result::createInstance();
 //        $resultBo->setProperty('ok', 1);
 //        echo $this->db->escapeString("abc");die;
