@@ -2,9 +2,6 @@
 namespace App\Console\Modules\Mission\Tasks;
 use App\Console\Modules\Mission\Common\AppTask;
 use App\Helpers\CNsHelper;
-use FilesystemIterator;
-use Phar;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -84,29 +81,6 @@ class MainTask extends AppTask
      */
     public function namespaceAction()
     {
-        $file = 'app.phar';
-
-        $phar = new Phar('../bin/'.$file, FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME, $file);
-
-        // 开始打包
-        $phar->startBuffering();
-
-        // 建立压缩目录
-        $phar->buildFromDirectory(SRC_PATH . '/');
-
-        // 设置入口
-        $phar->setStub("<?php
-            Phar::mapPhar('{$file}');
-            require 'phar://{$file}/public/index.php';
-            __HALT_COMPILER();"
-        );
-
-        $phar->stopBuffering();
-
-        // 压缩格式
-        $phar->compressFiles(Phar::GZ);
-
-
         $nsHelper = CNsHelper::getInstance();
         $nsHelper->createFile();
         echo "namespace init done!.\n";

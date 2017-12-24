@@ -1,5 +1,6 @@
 <?php
 namespace App\Globals\Bases;
+use Phalcon\Mvc\User\Component;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +10,7 @@ namespace App\Globals\Bases;
  * Class BaseSingle
  * @package App\Globals\Bases
  */
-abstract class BaseSingle  extends BaseClass
+abstract class BaseSingle  extends Component
 {
     /**
      * @var array 实例缓存
@@ -19,7 +20,25 @@ abstract class BaseSingle  extends BaseClass
     /**
      * 创建__clone方法防止对象被复制克隆
      */
-    final private function __clone(){}
+    private function __clone(){}
+
+    /**
+     * SingleBase constructor.
+     * protected标记的构造方法
+     */
+    private function __construct(){}
+
+
+    /**
+     * 只在生成成实例的时候运行一次
+     */
+    protected function onceConstruct(){}
+
+
+    /**
+     * 初始化,在实例生成之后运行
+     */
+    protected function afterInstance(){}
 
 
     /**
