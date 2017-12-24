@@ -14,7 +14,7 @@ namespace App\Globals\Finals;
  * @property string $msg;
  * @property int    $code
  */
-final class Result
+final class Responder
 {
     public $toggle;
     public $total;
@@ -44,23 +44,23 @@ final class Result
 
     /**
      * 初始化单例
-     * @return static
+     * @return Responder
      */
     public static function getInstance()
     {
         $static = null;
         $className = get_called_class();
 
-        if(isset(Result::$_instanceCache[$className]))
+        if(isset(Responder::$_instanceCache[$className]))
         {
-            $static = Result::$_instanceCache[$className];
+            $static = Responder::$_instanceCache[$className];
         }
 
         if(empty($static))
         {
             $static = new static();
             $static->onceConstruct();
-            Result::$_instanceCache[$className] = $static;
+            Responder::$_instanceCache[$className] = $static;
 
             $static->toggle = false;
             $static->total = 0;

@@ -34,5 +34,4 @@ abstract class BaseClass extends Component
         $me->afterInstance();
         return $me;
     }
-
 }

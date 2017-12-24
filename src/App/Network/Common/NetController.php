@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Common;
-use App\Globals\Finals\Result;
+use App\Globals\Finals\Responder;
 use App\Globals\Traits\TranslationTrait;
 use App\Helpers\CArrayHelper;
 use App\Helpers\CJsonHelper;
@@ -35,10 +35,10 @@ abstract class NetController extends Controller
     }
 
     /**
-     * @param Result $resultBo
+     * @param Responder $resultBo
      * @return void
      */
-    protected function toJsonData(Result $resultBo)
+    protected function toJsonData(Responder $resultBo)
     {
         $json = array(
             'total'=>$resultBo->total,
@@ -54,10 +54,10 @@ abstract class NetController extends Controller
     }
 
     /**
-     * @param Result $resultBo
+     * @param Responder $resultBo
      * @return void
      */
-    protected function toJsonMsg(Result $resultBo)
+    protected function toJsonMsg(Responder $resultBo)
     {
         $json = array(
             'success'=>$resultBo->toggle,
