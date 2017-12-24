@@ -1,3 +1,0 @@
-<?php 
-define("WECHAT_ACCESS_TOKEN", "yS-8qnn4j2Q1YVoTgN2urQvrXu8cDn-SP_RhqJRngW3_OsYVoJacBQPuvl6wevDS3hd1tF7PjoAH-P4-st3OqemIxDo5sTNTfgvj6eYZafjCwst2eM0Wr-IOF8X9rOqsVXKeAHAACP");
-define("WECHAT_EXPIRES_TIME", 1478858083);
