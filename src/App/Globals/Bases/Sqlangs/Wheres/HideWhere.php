@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Bases\Sqlangs\Selects;
+namespace App\Globals\Bases\Sqlangs\Wheres;
 use App\Globals\Bases\Sqlangs\BaseWhere;
 /**
  * Created by PhpStorm.

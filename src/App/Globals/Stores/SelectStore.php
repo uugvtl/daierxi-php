@@ -205,9 +205,9 @@ abstract class SelectStore extends BaseStore
     /**
      * 只在生成成实例的时候运行一次
      */
-    protected function onceConstruct()
+    protected function afterInstance()
     {
-        parent::onceConstruct();
+        parent::afterInstance();
 
         $fileHelper = CFileHelper::getInstance();
 

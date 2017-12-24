@@ -14,23 +14,13 @@ abstract class BaseClass extends Component
 {
     use TranslationTrait;
 
-    /**
-     * SingleBase constructor.
-     * protected标记的构造方法
-     */
     private function __construct(){}
-
-
-    /**
-     * 只在生成成实例的时候运行一次
-     */
-    protected function onceConstruct(){}
-
 
     /**
      * 初始化,在实例生成之后运行
      */
     protected function afterInstance(){}
+
 
     /**
      * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
@@ -41,7 +31,7 @@ abstract class BaseClass extends Component
     {
         $me = new static();/* @var $me static */
         $me->setEventsManager($me->eventsManager);
-        $me->onceConstruct();
+        $me->afterInstance();
         return $me;
     }
 

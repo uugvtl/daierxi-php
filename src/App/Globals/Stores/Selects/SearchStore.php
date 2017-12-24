@@ -16,9 +16,9 @@ class SearchStore extends SelectStore
     /**
      * 只在生成成实例的时候运行一次
      */
-    protected function onceConstruct()
+    protected function afterInstance()
     {
-        parent::onceConstruct();
+        parent::afterInstance();
 
         $cacheInstance = require INJECT_PATH .'/cache.php';
         $this->dao = CacheDao::getInstance();

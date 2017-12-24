@@ -32,11 +32,6 @@ abstract class BaseFields extends BaseClass
      */
     protected $groupstmt;
 
-    /**
-     * 初始化,在实例生成之后运行
-     */
-    protected function afterInstance(){}
-
 
     /**
      * 返回要获取SQL字段列表

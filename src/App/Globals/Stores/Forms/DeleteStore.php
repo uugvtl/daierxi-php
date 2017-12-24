@@ -35,9 +35,9 @@ class DeleteStore extends FormStore
     /**
      * 只在生成成实例的时候运行一次
      */
-    protected function onceConstruct()
+    protected function afterInstance()
     {
-        parent::onceConstruct();
+        parent::afterInstance();
         $this->dao = FormDao::getInstance();
     }
 
