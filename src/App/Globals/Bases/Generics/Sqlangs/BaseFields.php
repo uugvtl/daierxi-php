@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Bases\Sqlangs;
-use App\Globals\Bases\BaseClass;
+namespace App\Globals\Bases\Generics\Sqlangs;
+use App\Globals\Bases\BaseGeneric;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Globals\Bases\BaseClass;
  * Class BaseFields
  * @package App\Globals\Sqlangs\Fields
  */
-abstract class BaseFields extends BaseClass
+abstract class BaseFields extends BaseGeneric
 {
     /**
      * @var string[]

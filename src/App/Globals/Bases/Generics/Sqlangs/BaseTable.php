@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Bases\Sqlangs;
-use App\Globals\Bases\BaseClass;
+namespace App\Globals\Bases\Generics\Sqlangs;
+use App\Globals\Bases\BaseGeneric;
 use App\Libraries\Caching\Dependencies\CFileCacheDependency;
 use App\Libraries\Daoes\BaseDao;
 /**
@@ -12,7 +12,7 @@ use App\Libraries\Daoes\BaseDao;
  * Class BaseTable
  * @package App\Globals\Sqlangs\Tables
  */
-abstract class BaseTable extends BaseClass
+abstract class BaseTable extends BaseGeneric
 {
     /**
      * 关联表名称 例 user u LEFT JOIN user_extra ue ON u.uesr_id=ue.user_id

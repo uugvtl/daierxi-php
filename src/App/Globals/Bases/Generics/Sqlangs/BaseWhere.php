@@ -1,8 +1,7 @@
 <?php
-namespace App\Globals\Bases\Sqlangs;
-use App\Globals\Bases\BaseClass;
+namespace App\Globals\Bases\Generics\Sqlangs;
+use App\Globals\Bases\BaseGeneric;
 use App\Helpers\StringHelper;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,7 +11,7 @@ use App\Helpers\StringHelper;
  * Class BaseWhere
  * @package App\Globals\Sqlangs\Selects
  */
-abstract class BaseWhere extends BaseClass
+abstract class BaseWhere extends BaseGeneric
 {
 
     /**
@@ -45,7 +44,7 @@ abstract class BaseWhere extends BaseClass
      */
     protected function getCondition()
     {
-        return [];//$this->getParameter()->get();
+        return $this->getParameter()->get();
     }
 
 

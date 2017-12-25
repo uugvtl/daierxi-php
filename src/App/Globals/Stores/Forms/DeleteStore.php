@@ -1,7 +1,7 @@
 <?php
 namespace App\Globals\Stores\Forms;
-use App\Globals\Bases\Sqlangs\BaseWhere;
-use App\Globals\Bases\Sqlangs\BaseTable;
+use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
+use App\Globals\Bases\Generics\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
 use App\Helpers\SqlHelper;
 use App\Libraries\Daoes\FormDao;
@@ -23,12 +23,12 @@ class DeleteStore extends FormStore
     protected $dao;
 
     /**
-     * @var  BaseWhere
+     * @var  \App\Globals\Bases\Generics\Sqlangs\BaseWhere
      */
     protected $selectInstance;
 
     /**
-     * @var BaseTable
+     * @var \App\Globals\Bases\Generics\Sqlangs\BaseTable
      */
     protected $tableInstance;
 

@@ -1,8 +1,8 @@
 <?php
 namespace App\Globals\Stores\Forms;
-use App\Globals\Bases\Sqlangs\BaseFields;
-use App\Globals\Bases\Sqlangs\BaseWhere;
-use App\Globals\Bases\Sqlangs\BaseTable;
+use App\Globals\Bases\Generics\Sqlangs\BaseFields;
+use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
+use App\Globals\Bases\Generics\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
 use App\Helpers\SqlHelper;
 use App\Libraries\Daoes\FormDao;
@@ -29,7 +29,7 @@ class UpdateStore extends FormStore
     protected $fieldsInstance;
 
     /**
-     * @var  BaseWhere
+     * @var  \App\Globals\Bases\Generics\Sqlangs\BaseWhere
      */
     protected $selectInstance;
 

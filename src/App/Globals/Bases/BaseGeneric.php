@@ -18,6 +18,9 @@ abstract class BaseGeneric extends BaseClass implements IGenericable
      */
     private $parameter;
 
+    /**
+     * @var boolean
+     */
     private $generalize;
 
     /**
