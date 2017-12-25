@@ -4,7 +4,7 @@ use App\Globals\Bases\Sqlangs\BaseFields;
 use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
-use App\Helpers\CSqlHelper;
+use App\Helpers\SqlHelper;
 use App\Libraries\Daoes\FormDao;
 /**
  * Created by PhpStorm.
@@ -62,7 +62,7 @@ class UpdateStore extends FormStore
      */
     public function commit()
     {
-        $sqlHelper = CSqlHelper::getInstance();
+        $sqlHelper = SqlHelper::getInstance();
         $fields = $this->fieldsInstance->getFields();
         $subjoin = $this->fieldsInstance->getOriginal();
         $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
@@ -79,7 +79,7 @@ class UpdateStore extends FormStore
      */
     public function submit()
     {
-        $sqlHelper = CSqlHelper::getInstance();
+        $sqlHelper = SqlHelper::getInstance();
         $fields     = $this->fieldsInstance->getFields();
         $subjoin    = $this->fieldsInstance->getOriginal();
         $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();

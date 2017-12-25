@@ -8,7 +8,7 @@ namespace App\Helpers;
  *
  * Class CSqlHelper
  */
-class CSqlHelper extends CBaseHelper
+class SqlHelper extends BaseHelper
 {
     /**
      * 生成 INSERT INTO 这样的语句
@@ -177,14 +177,14 @@ class CSqlHelper extends CBaseHelper
      * @param int   $mode           插入模式，1:普通，2:忽略主键，3:REPLACE模式
      * @return string               sql语句
      */
-    public function getCreateString(array $params, $table, $mode=CSqlHelper::SQL_CREATE_INSERT)
+    public function getCreateString(array $params, $table, $mode=SqlHelper::SQL_CREATE_INSERT)
     {
         $insert = " INSERT INTO ";
 
         $aInsert = array(
-            CSqlHelper::SQL_CREATE_INSERT       => " INSERT INTO ",
-            CSqlHelper::SQL_CREATE_IGNORE       => " INSERT IGNORE INTO ",
-            CSqlHelper::SQL_CREATE_REPLACE      => " REPLACE INTO "
+            SqlHelper::SQL_CREATE_INSERT       => " INSERT INTO ",
+            SqlHelper::SQL_CREATE_IGNORE       => " INSERT IGNORE INTO ",
+            SqlHelper::SQL_CREATE_REPLACE      => " REPLACE INTO "
         );
 
         $insert = isset($aInsert[$mode])?$aInsert[$mode]:$insert;

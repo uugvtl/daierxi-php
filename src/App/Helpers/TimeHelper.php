@@ -22,7 +22,7 @@ namespace App\Helpers;
  * @package system.utils
  * @since 1.0
  */
-class CTimeHelper extends CBaseHelper
+class TimeHelper extends BaseHelper
 {
 
     /**

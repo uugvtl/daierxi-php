@@ -1,7 +1,7 @@
 <?php
 namespace App\Console\Modules\Mission\Tasks;
 use App\Console\Modules\Mission\Common\AppTask;
-use App\Helpers\CNsHelper;
+use App\Helpers\NsHelper;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -81,7 +81,7 @@ class MainTask extends AppTask
      */
     public function namespaceAction()
     {
-        $nsHelper = CNsHelper::getInstance();
+        $nsHelper = NsHelper::getInstance();
         $nsHelper->createFile();
         echo "namespace init done!.\n";
     }

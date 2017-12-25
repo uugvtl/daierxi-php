@@ -1,5 +1,5 @@
 <?php
-use App\Helpers\CFileHelper;
+use App\Helpers\FileHelper;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt;
 
@@ -13,7 +13,7 @@ $view->registerEngines(array(
     ".volt" => function($view, $di){
 
         $compiledPath = RUNTIME_PATH . "/volt/frontend";
-        $fileHelper = CFileHelper::getInstance();
+        $fileHelper = FileHelper::getInstance();
         $fileHelper->createDir($compiledPath);
 
         $volt = new Volt($view, $di);

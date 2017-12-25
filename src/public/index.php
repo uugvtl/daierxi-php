@@ -1,7 +1,7 @@
 <?php
 use Phalcon\Mvc\Application             as WebApplication;
 use Phalcon\DI\FactoryDefault;
-use App\Helpers\CErrorsHelper;
+use App\Helpers\ErrorsHelper;
 require_once '../bootstrap.php';
 class Application extends WebApplication
 {
@@ -93,7 +93,7 @@ catch (Exception $e){
 
     if(extension_loaded('xdebug'))
     {
-        $errorHelper = CErrorsHelper::getInstance();
+        $errorHelper = ErrorsHelper::getInstance();
         echo $errorHelper->formatExceptionTrace($e->getTraceAsString());
     }
 

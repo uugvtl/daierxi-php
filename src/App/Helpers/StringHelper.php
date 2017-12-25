@@ -9,7 +9,7 @@ use DateTime;
  *
  * Class CStringHelper
  */
-class CStringHelper extends CBaseHelper
+class StringHelper extends BaseHelper
 {
 
     /**

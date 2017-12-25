@@ -8,7 +8,7 @@ namespace App\Helpers;
  *
  * Class CBadwordsHelper
  */
-class CBadwordsHelper  extends CBaseHelper
+class BadwordsHelper  extends BaseHelper
 {
     /**
      * 处理敏感词
@@ -17,7 +17,7 @@ class CBadwordsHelper  extends CBaseHelper
      */
     public function filter($words)
     {
-        $badwords = array_combine(CBadwordsHelper::$badwords,array_fill(0,count(CBadwordsHelper::$badwords),'*'));
+        $badwords = array_combine(BadwordsHelper::$badwords,array_fill(0,count(BadwordsHelper::$badwords),'*'));
 
         if (is_string($words))
         {

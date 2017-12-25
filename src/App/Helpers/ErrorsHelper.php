@@ -6,7 +6,7 @@ namespace App\Helpers;
  * Date: 2016/11/17
  * Time: 15:09
  */
-class CErrorsHelper extends CBaseHelper
+class ErrorsHelper extends BaseHelper
 {
     /**
      * 格式化异常信息

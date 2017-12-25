@@ -9,7 +9,7 @@ namespace App\Helpers;
  * Class CNsHelper
  * @package App\Helpers
  */
-class CNsHelper extends CBaseHelper
+class NsHelper extends BaseHelper
 {
     /**
      * 生成命名空间文件
@@ -18,7 +18,7 @@ class CNsHelper extends CBaseHelper
     public function createFile()
     {
 
-        $fileHelper = CFileHelper::getInstance();
+        $fileHelper = FileHelper::getInstance();
         list($nsPath) = $fileHelper->findRecursivePath(APP_PATH);
 
         if($nsPath)

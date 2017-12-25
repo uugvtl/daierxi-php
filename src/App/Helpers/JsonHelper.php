@@ -8,7 +8,7 @@ use Phalcon\Exception;
  * Date: 2017/4/23
  * Time: 02:43
  */
-class CJsonHelper extends CBaseHelper
+class JsonHelper extends BaseHelper
 {
     /**
      * Encodes an arbitrary variable into JSON format

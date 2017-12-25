@@ -2,8 +2,8 @@
 namespace App\Network\Common;
 use App\Globals\Finals\Responder;
 use App\Globals\Traits\TranslationTrait;
-use App\Helpers\CArrayHelper;
-use App\Helpers\CJsonHelper;
+use App\Helpers\ArrayHelper;
+use App\Helpers\JsonHelper;
 use Phalcon\Mvc\Controller;
 use Phalcon\Config;
 /**
@@ -47,7 +47,7 @@ abstract class NetController extends Controller
         );
         $json['success'] = $resultBo->toggle ? true:false;
 
-        $jsonHelper = CJsonHelper::getInstance();
+        $jsonHelper = JsonHelper::getInstance();
 
         $this->response->setContent($jsonHelper->encode($json));
         $this->response->send();
@@ -64,7 +64,7 @@ abstract class NetController extends Controller
             'code'=>$resultBo->code,
             'msg' =>$resultBo->msg
         );
-        $jsonHelper = CJsonHelper::getInstance();
+        $jsonHelper = JsonHelper::getInstance();
         $this->response->setContent($jsonHelper->encode($json));
         $this->response->send();
     }
@@ -108,7 +108,7 @@ abstract class NetController extends Controller
      */
     protected function getPrimaryIds()
     {
-        $arrayHelper = CArrayHelper::getInstance();
+        $arrayHelper = ArrayHelper::getInstance();
 
         $aId = array();
         $ids = $this->request->getPost('ids');

@@ -2,7 +2,7 @@
 namespace App\Helpers;
 use stdClass;
 
-class CArrayHelper extends CBaseHelper
+class ArrayHelper extends BaseHelper
 {
 
     /**

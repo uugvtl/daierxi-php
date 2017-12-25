@@ -8,7 +8,7 @@ namespace App\Helpers;
  *
  * Class CWebHelper
  */
-class CWebHelper extends CBaseHelper
+class WebHelper extends BaseHelper
 {
     /**
      * 获取标准域名

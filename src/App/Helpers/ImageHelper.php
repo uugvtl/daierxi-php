@@ -1,6 +1,6 @@
 <?php
 namespace App\Helpers;
-class CImageHelper extends CBaseHelper
+class ImageHelper extends BaseHelper
 {
     /**
      * 返回文件的扩展名
@@ -28,7 +28,7 @@ class CImageHelper extends CBaseHelper
         $strBase64 = '';
         if(is_file($filePath))
         {
-            $fileHelper = CFileHelper::getInstance();
+            $fileHelper = FileHelper::getInstance();
             $mimeType = $fileHelper->getMimeTypeByExtension($filePath);
             $strBase64 = "data:{$mimeType};base64,";
             $fp = fopen($filePath, 'rb');

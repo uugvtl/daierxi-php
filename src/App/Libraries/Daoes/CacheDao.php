@@ -1,10 +1,10 @@
 <?php
 namespace App\Libraries\Daoes;
 use App\Globals\Finals\PageSlice;
-use App\Helpers\CArrayHelper;
-use App\Helpers\CFileHelper;
-use App\Helpers\CJsonHelper;
-use App\Helpers\CStringHelper;
+use App\Helpers\ArrayHelper;
+use App\Helpers\FileHelper;
+use App\Helpers\JsonHelper;
+use App\Helpers\StringHelper;
 use App\Libraries\Caching\Dependencies\CFileCacheDependency;
 use Phalcon\Cache\BackendInterface;
 use phalcon\Config;
@@ -61,7 +61,7 @@ class CacheDao extends BaseDao
             $sort = $request->getQuery('sort');
             $dir = $request->getQuery('dir');
 
-            $jsonHelper = CJsonHelper::getInstance();
+            $jsonHelper = JsonHelper::getInstance();
 
             $sorts = $jsonHelper->decode($sort);
             if(json_last_error() == JSON_ERROR_NONE)
@@ -69,7 +69,7 @@ class CacheDao extends BaseDao
                 if(is_array($sorts))
                 {
 
-                    $arrayHelper = CArrayHelper::getInstance();
+                    $arrayHelper = ArrayHelper::getInstance();
                     $stmt = $arrayHelper->reduce(function ($result, $rows) use (&$split) {
                         $result.= $split. " {$rows['property']} {$rows['direction']}";
                         $split = ',';
@@ -144,7 +144,7 @@ class CacheDao extends BaseDao
      */
     public function clearCache($className)
     {
-        $stringHelper = CStringHelper::getInstance();
+        $stringHelper = StringHelper::getInstance();
         $className  = $stringHelper->cryptString($className);
 
         $aOptions   = $this->cacheInstance->getOptions();
@@ -153,7 +153,7 @@ class CacheDao extends BaseDao
         $toggle = false;
         if(is_dir($cacheDir))
         {
-            $fileHelper = CFileHelper::getInstance();
+            $fileHelper = FileHelper::getInstance();
             $fileHelper->removeDirectory($cacheDir);
             $toggle = true;
         }
@@ -793,7 +793,7 @@ class CacheDao extends BaseDao
      */
     protected function setCacheFileMode($key)
     {
-        $fileHelper = CFileHelper::getInstance();
+        $fileHelper = FileHelper::getInstance();
         $cacheOption = $this->cacheInstance->getOptions();
         $cachePath = $cacheOption['cacheDir'].md5($key);
         $fileHelper->chmodFile($cachePath);

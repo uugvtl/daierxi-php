@@ -7,7 +7,7 @@ namespace App\Helpers;
  * Time: 15:49
  * Class CSingleHelper
  */
-abstract class CBaseHelper
+abstract class BaseHelper
 {
 
     /**
@@ -31,7 +31,18 @@ abstract class CBaseHelper
     protected function onceConstruct(){}
 
     /**
-     * 初始化单例
+     * 手动初始化模板方法--可以被子类实现
+     * @param array ...$args
+     * @return static
+     */
+    public function init(...$args)
+    {
+        unset($args);
+        return $this;
+    }
+
+    /**
+     * 实例产生方法
      * @return static
      */
     public static function getInstance()
@@ -39,16 +50,16 @@ abstract class CBaseHelper
         $static = null;
         $className = get_called_class();
 
-        if(isset(CBaseHelper::$_instanceCache[$className]))
+        if(isset(BaseHelper::$_instanceCache[$className]))
         {
-            $static = CBaseHelper::$_instanceCache[$className];
+            $static = BaseHelper::$_instanceCache[$className];
         }
 
         if(empty($static))
         {
             $static = new static();
             $static->onceConstruct();
-            CBaseHelper::$_instanceCache[$className] = $static;
+            BaseHelper::$_instanceCache[$className] = $static;
         }
 
         return $static;

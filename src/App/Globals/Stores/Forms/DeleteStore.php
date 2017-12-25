@@ -3,7 +3,7 @@ namespace App\Globals\Stores\Forms;
 use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
-use App\Helpers\CSqlHelper;
+use App\Helpers\SqlHelper;
 use App\Libraries\Daoes\FormDao;
 /**
  * Created by PhpStorm.
@@ -55,7 +55,7 @@ class DeleteStore extends FormStore
      */
     public function commit()
     {
-        $sqlHelper = CSqlHelper::getInstance();
+        $sqlHelper = SqlHelper::getInstance();
         $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
         $where = $this->selectInstance->get();
         $alias = $this->tableInstance->getAliasTable();
@@ -71,7 +71,7 @@ class DeleteStore extends FormStore
      */
     public function submit()
     {
-        $sqlHelper = CSqlHelper::getInstance();
+        $sqlHelper = SqlHelper::getInstance();
 
         $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
         $where = $this->selectInstance->get();

@@ -5,7 +5,7 @@ use App\Globals\Bases\Sqlangs\BaseFields;
 use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Bases\Sqlangs\BaseTable;
 use App\Globals\Finals\PageSlice;
-use App\Helpers\CFileHelper;
+use App\Helpers\FileHelper;
 use App\Libraries\Daoes\CacheDao;
 /**
  * Created by PhpStorm.
@@ -209,7 +209,7 @@ abstract class SelectStore extends BaseStore
     {
         parent::afterInstance();
 
-        $fileHelper = CFileHelper::getInstance();
+        $fileHelper = FileHelper::getInstance();
 
         $cacheInstance = require INJECT_PATH .'/cache.php';
         $this->dao = CacheDao::getInstance();

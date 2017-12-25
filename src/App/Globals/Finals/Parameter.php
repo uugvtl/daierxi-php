@@ -1,7 +1,7 @@
 <?php
 namespace App\Globals\Finals;
 use App\Globals\Bases\BaseClass;
-use App\Helpers\CArrayHelper;
+use App\Helpers\ArrayHelper;
 
 /**
  * Created by PhpStorm.
@@ -34,7 +34,7 @@ final class Parameter extends BaseClass
      */
     public function merge(array $params)
     {
-        $arrayHelper = CArrayHelper::getInstance();
+        $arrayHelper = ArrayHelper::getInstance();
         $this->params = $arrayHelper->mergeArray($this->params, $params);
         return $this;
     }

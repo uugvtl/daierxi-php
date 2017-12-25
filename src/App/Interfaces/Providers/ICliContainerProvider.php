@@ -18,5 +18,5 @@ interface ICliContainerProvider  extends IMockContainerProvider
      * @param array $params
      * @return Responder
      */
-    public function doInitResult(array $params=[]);
+    public function doInitResponder(array $params=[]);
 }

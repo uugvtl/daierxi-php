@@ -1,7 +1,7 @@
 <?php
 namespace App\Globals\Bases\Sqlangs;
 use App\Globals\Bases\BaseClass;
-use App\Helpers\CStringHelper;
+use App\Helpers\StringHelper;
 
 /**
  * Created by PhpStorm.
@@ -57,7 +57,7 @@ abstract class BaseWhere extends BaseClass
      */
     protected function getQuoteValue($value, $isLike=false)
     {
-        $stringHelper = CStringHelper::getInstance();
+        $stringHelper = StringHelper::getInstance();
 
         $value = $stringHelper->encode($value);
         if($isLike)

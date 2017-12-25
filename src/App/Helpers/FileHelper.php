@@ -10,7 +10,7 @@ use RecursiveIteratorIterator;
  * @package system.utils
  * @since 1.0
  */
-class CFileHelper extends CBaseHelper
+class FileHelper extends BaseHelper
 {
 
     /**
@@ -347,7 +347,7 @@ class CFileHelper extends CBaseHelper
     {
         static $extensions,$customExtensions=array();
         if($magicFile===null && $extensions===null)
-            $extensions=CFileHelper::$mimeTypes;
+            $extensions=FileHelper::$mimeTypes;
         elseif($magicFile!==null && !isset($customExtensions[$magicFile]))
             $customExtensions[$magicFile]=require($magicFile);
         if(($ext=pathinfo($file,PATHINFO_EXTENSION))!=='')

@@ -10,7 +10,7 @@ namespace App\Helpers;
  * Class CMathHelper
  * @package helpers
  */
-class CFormulaHelper extends CBaseHelper
+class FormulaHelper extends BaseHelper
 {
     /**
      * 计算配方单品中材料所在比例

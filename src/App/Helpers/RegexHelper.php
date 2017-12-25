@@ -1,6 +1,6 @@
 <?php
 namespace App\Helpers;
-class CRegexHelper extends CBaseHelper
+class RegexHelper extends BaseHelper
 {
     /**
      * 获取中国大陆手机号码的验证规则

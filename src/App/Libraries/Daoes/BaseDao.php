@@ -1,8 +1,8 @@
 <?php
 namespace App\Libraries\Daoes;
 use App\Globals\Bases\BaseSingle;
-use App\Helpers\CFileHelper;
-use App\Helpers\CStringHelper;
+use App\Helpers\FileHelper;
+use App\Helpers\StringHelper;
 use App\Libraries\Caching\Dependencies\CFileCacheDependency;
 use Phalcon\Db;
 /**
@@ -82,7 +82,7 @@ abstract class BaseDao extends BaseSingle
     public function getCacheDependency($filename, $identity=null)
     {
         $dir = $this->getCacheDependencyDir($identity);
-        $stringHelper = CStringHelper::getInstance();
+        $stringHelper = StringHelper::getInstance();
 
         $filepath = $dir.$stringHelper->cryptString($filename);
         if(!is_file($filepath))
@@ -101,8 +101,8 @@ abstract class BaseDao extends BaseSingle
      */
     private function createCacheDependency($filename, $identity=null)
     {
-        $stringHelper = CStringHelper::getInstance();
-        $fileHelper = CFileHelper::getInstance();
+        $stringHelper = StringHelper::getInstance();
+        $fileHelper = FileHelper::getInstance();
 
         $dir = $this->getCacheDependencyDir($identity);
         $filename = $stringHelper->cryptString($filename);
@@ -141,7 +141,7 @@ abstract class BaseDao extends BaseSingle
         $dir = DEPENDENCY_CACHE_DIR;
         if($identity) $dir.= $identity.'/';
 
-        $fileHelper = CFileHelper::getInstance();
+        $fileHelper = FileHelper::getInstance();
         $fileHelper->createDir($dir);
 
         return $dir;
