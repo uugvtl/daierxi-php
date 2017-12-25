@@ -10,7 +10,7 @@ use App\Libraries\Daoes\CacheDao;
  * Class BaseStore
  * @package App\Globals\Bases
  */
-abstract class BaseStore extends BaseClass
+abstract class BaseStore extends BaseSingle
 {
     /**
      * 操作数据的封状工具类

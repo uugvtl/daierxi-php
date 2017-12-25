@@ -1,6 +1,5 @@
 <?php
 namespace App\Libraries\Daoes;
-use App\Globals\Finals\PageSlice;
 use App\Helpers\ArrayHelper;
 use App\Helpers\FileHelper;
 use App\Helpers\JsonHelper;
@@ -163,11 +162,11 @@ class CacheDao extends BaseDao
 
     /**
      * 获取有缓存依赖的缓存数据
-     * @param string $key                                   缓存键名
-     * @param array|CFileCacheDependency    $dependency     文件缓存依赖对象
-     * @param mixed $callback                               数据源--回调函数
-     * @param array $parameter                              回调函数使用的参数
-     * @return mixed                                        数据库查询数据
+     * @param string $key                                                   缓存键名
+     * @param CFileCacheDependency[]|CFileCacheDependency    $dependency    文件缓存依赖对象
+     * @param mixed $callback                                               数据源--回调函数
+     * @param array $parameter                                              回调函数使用的参数
+     * @return mixed                                                        数据库查询数据
      */
     public function getCache($key, $dependency, $callback, $parameter=array())
     {
@@ -237,7 +236,7 @@ class CacheDao extends BaseDao
     /**
      * 获取以数据库查询数据为基础的缓存--一条数据
      * @param string                        $sql			SQL语句
-     * @param array|CFileCacheDependency    $dependency     文件缓存依赖对象
+     * @param CFileCacheDependency[]|CFileCacheDependency    $dependency     文件缓存依赖对象
      * @return mixed                                        数据库查询数据
      */
     public function getCacheRow($sql, $dependency)
@@ -300,41 +299,6 @@ class CacheDao extends BaseDao
         }
 
         return $records ? $records : array();
-    }
-
-
-
-    /**
-     * 获取SQL的分页语句
-     * @param PageSlice $pageSlice  数据分断对象
-     * @return string				分页的SQL语句
-     */
-    public function getPagingLimit(PageSlice $pageSlice)
-    {
-        $limit	= (int)$pageSlice->getLimit();
-        $page   = (int)$pageSlice->getPage();
-
-        $offset = self::getPageOffset($page, $limit);
-        $paging = " LIMIT {$offset}, {$limit}";
-
-        return $paging;
-    }
-
-    /**
-     * 获取分页时的页码数与查询数据偏移量
-     * @param int $page				页码数
-     * @param int $limit			每页记录数
-     * @return int				    偏移量
-     */
-    protected function getPageOffset($page, $limit)
-    {
-        $limit	= (int)$limit;
-        $page	= (int)$page;
-
-        $page	= 0>$page-1?0:$page-1;
-
-        $offset = $page*$limit;
-        return (int)$offset;
     }
 
     /**

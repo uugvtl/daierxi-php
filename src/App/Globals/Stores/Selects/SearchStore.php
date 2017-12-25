@@ -35,7 +35,7 @@ class SearchStore extends SelectStore
         $pagingLimit= $this->getPagingLimit();
 
         $columns    = $this->fieldsInstance->getColumns();
-        $where      = $this->selectInstance->get();
+        $where      = $this->whereInstance->get();
 
         $table = $this->tableInstance->getJoinTable();
 
@@ -60,7 +60,7 @@ class SearchStore extends SelectStore
      */
     public function getCount()
     {
-        $where = $this->selectInstance->get();
+        $where = $this->whereInstance->get();
 
         $table = $this->tableInstance->getJoinTable();
 
@@ -102,7 +102,7 @@ class SearchStore extends SelectStore
 
         $table  = $this->tableInstance->getJoinTable();
 
-        $where = $this->selectInstance->get();
+        $where = $this->whereInstance->get();
 
         $sql = "SELECT
                     {$columns}
@@ -124,7 +124,7 @@ class SearchStore extends SelectStore
 
         $table  = $this->tableInstance->getJoinTable();
 
-        $where = $this->selectInstance->get();
+        $where = $this->whereInstance->get();
 
         $sql = "SELECT
                     {$columns}

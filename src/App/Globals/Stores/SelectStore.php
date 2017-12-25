@@ -31,7 +31,7 @@ abstract class SelectStore extends BaseStore
     /**
      * @var BaseWhere
      */
-    protected $selectInstance;
+    protected $whereInstance;
 
     /**
      * @var BaseTable
@@ -43,7 +43,7 @@ abstract class SelectStore extends BaseStore
     {
         $this->fieldsInstance = $args[0];
         $this->tableInstance  = $args[1];
-        $this->selectInstance = $args[2];
+        $this->whereInstance  = $args[2];
         return $this;
     }
 
@@ -80,7 +80,7 @@ abstract class SelectStore extends BaseStore
         $pagingLimit= $this->getPagingLimit();
 
         $columns    = $this->fieldsInstance->getColumns();
-        $where      = $this->selectInstance->get();
+        $where      = $this->whereInstance->get();
 
         $table = $this->tableInstance->getJoinTable();
 
@@ -107,7 +107,7 @@ abstract class SelectStore extends BaseStore
      */
     public function getCount()
     {
-        $where = $this->selectInstance->get();
+        $where = $this->whereInstance->get();
 
         $table = $this->tableInstance->getJoinTable();
 
@@ -151,7 +151,7 @@ abstract class SelectStore extends BaseStore
 
         $table  = $this->tableInstance->getJoinTable();
 
-        $where = $this->selectInstance->get();
+        $where = $this->whereInstance->get();
 
         $cacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
 
@@ -175,7 +175,7 @@ abstract class SelectStore extends BaseStore
 
         $table  = $this->tableInstance->getJoinTable();
 
-        $where = $this->selectInstance->get();
+        $where = $this->whereInstance->get();
 
         $cacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
 

@@ -1,15 +1,17 @@
 <?php
 namespace App\Globals\Bases;
 use App\Globals\Traits\TranslationTrait;
-use Phalcon\Config;
+use Phalcon\Mvc\User\Component;
 /**
- * 所有单例类的基类:此类的子类需要自己实现单例方法--需要自己实现getInstance静态方法:本类中有例子,可以实现传参初始化
- * User: Leon
- * Date: 2016/3/7
- * Time: 12:10
- * @property Config $config
+ * Created by PhpStorm.
+ * User: leon
+ * Date: 25/12/17
+ * Time: 21:34
+ *
+ * Class BaseComponent
+ * @package App\Globals\Bases
  */
-abstract class BaseClass
+class BaseComponent extends Component
 {
     use TranslationTrait;
 
@@ -20,6 +22,7 @@ abstract class BaseClass
      */
     protected function afterInstance(){}
 
+
     /**
      * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
      * 返回此类的子类实例
@@ -28,6 +31,7 @@ abstract class BaseClass
     public static function getInstance()
     {
         $me = new static();/* @var $me static */
+        $me->setEventsManager($me->eventsManager);
         $me->afterInstance();
         return $me;
     }
