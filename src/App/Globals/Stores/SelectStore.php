@@ -1,10 +1,6 @@
 <?php
 namespace App\Globals\Stores;
 use App\Globals\Bases\BaseStore;
-use App\Globals\Bases\Generics\Sqlangs\BaseFields;
-use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
-use App\Globals\Bases\Generics\Sqlangs\BaseTable;
-use App\Globals\Finals\PageSlice;
 use App\Helpers\FileHelper;
 use App\Libraries\Daoes\CacheDao;
 /**
@@ -19,57 +15,17 @@ use App\Libraries\Daoes\CacheDao;
 abstract class SelectStore extends BaseStore
 {
     /**
-     * @var PageSlice
+     * 操作数据的封状工具类
+     * @var CacheDao
      */
-    protected $pageSlice;
+    private $dao;
 
-    /**
-     * @var BaseFields
-     */
-    protected $fieldsInstance;
-
-    /**
-     * @var BaseWhere
-     */
-    protected $whereInstance;
-
-    /**
-     * @var BaseTable
-     */
-    protected $tableInstance;
-
-
-    public function construct(...$args)
+    public function init(...$args)
     {
-        $this->fieldsInstance = $args[0];
-        $this->tableInstance  = $args[1];
-        $this->whereInstance  = $args[2];
+        $total = (int)$args[0];
+        $this->getStoreInjecter()->getPageInstance()->setTotal($total);
         return $this;
     }
-
-
-    /**
-     * 初始化分页功能
-     * @param int $total
-     * @return static
-     */
-    public function initPaging($total)
-    {
-        $this->pageSlice = PageSlice::getInstance();
-        $this->pageSlice->setTotal($total);
-        return $this;
-    }
-
-
-    /**
-     * 返回分页对象
-     * @return PageSlice
-     */
-    public function getPageSlice()
-    {
-        return $this->pageSlice;
-    }
-
 
     /**
      * 获取一组列表数据
@@ -79,17 +35,20 @@ abstract class SelectStore extends BaseStore
     {
         $pagingLimit= $this->getPagingLimit();
 
-        $columns    = $this->fieldsInstance->getColumns();
-        $where      = $this->whereInstance->get();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table = $this->tableInstance->getJoinTable();
+        $columns= $fieldsInstance->getColumns();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
-        $aCacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
+        $aCacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
 
         $orderBy = $this->dao->getSortStmt();
-        $orderBy = $orderBy ? $orderBy : $this->fieldsInstance->getOrderStmt();
+        $orderBy = $orderBy ? $orderBy : $fieldsInstance->getOrderStmt();
 
-        $groupBy = $this->fieldsInstance->getGroupStmt();
+        $groupBy = $fieldsInstance->getGroupStmt();
 
         $sql = "SELECT
                     {$columns}
@@ -107,13 +66,16 @@ abstract class SelectStore extends BaseStore
      */
     public function getCount()
     {
-        $where = $this->whereInstance->get();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table = $this->tableInstance->getJoinTable();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
-        $aCacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
+        $aCacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
 
-        $groupBy = $this->fieldsInstance->getGroupStmt();
+        $groupBy = $fieldsInstance->getGroupStmt();
 
         if(empty($groupBy))
         {
@@ -147,13 +109,15 @@ abstract class SelectStore extends BaseStore
      */
     public function getRow()
     {
-        $columns = $this->fieldsInstance->getColumns();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table  = $this->tableInstance->getJoinTable();
+        $columns= $fieldsInstance->getColumns();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
-        $where = $this->whereInstance->get();
-
-        $cacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
+        $cacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
 
         $sql = "SELECT
                     {$columns}
@@ -171,13 +135,15 @@ abstract class SelectStore extends BaseStore
      */
     public function getOne()
     {
-        $columns = $this->fieldsInstance->getColumns();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table  = $this->tableInstance->getJoinTable();
+        $columns= $fieldsInstance->getColumns();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
-        $where = $this->whereInstance->get();
-
-        $cacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
+        $cacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
 
         $sql = "SELECT
                     {$columns}
@@ -196,9 +162,11 @@ abstract class SelectStore extends BaseStore
      */
     protected function getPagingLimit()
     {
+        $pageSlice = $this->getStoreInjecter()->getPageInstance();
+
         $stmt = '';
-        if($this->pageSlice)
-            $stmt = $this->pageSlice->getPagingLimit();
+        if($pageSlice)
+            $stmt = $pageSlice->getPagingLimit();
         return $stmt;
     }
 

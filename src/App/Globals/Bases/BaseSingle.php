@@ -10,7 +10,7 @@ use Phalcon\Mvc\User\Component;
  * Class BaseSingle
  * @package App\Globals\Bases
  */
-abstract class BaseSingle  extends Component
+abstract class BaseSingle extends Component
 {
     /**
      * @var array 实例缓存

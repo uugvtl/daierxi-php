@@ -17,12 +17,6 @@ use App\Libraries\Daoes\FormDao;
 class DeleteStore extends FormStore
 {
     /**
-     * 操作数据的封状工具类
-     * @var FormDao
-     */
-    protected $dao;
-
-    /**
      * @var  BaseWhere
      */
     protected $selectInstance;

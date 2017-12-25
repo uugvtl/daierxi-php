@@ -1,7 +1,7 @@
 <?php
 namespace App\Globals\Stores\Selects;
 use App\Globals\Stores\SelectStore;
-use App\Libraries\Daoes\CacheDao;
+use App\Libraries\Daoes\FormDao;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,15 +14,17 @@ use App\Libraries\Daoes\CacheDao;
 class SearchStore extends SelectStore
 {
     /**
+     * 操作数据的封状工具类
+     * @var FormDao
+     */
+    private $dao;
+
+    /**
      * 只在生成成实例的时候运行一次
      */
     protected function afterInstance()
     {
-        parent::afterInstance();
-
-        $cacheInstance = require INJECT_PATH .'/cache.php';
-        $this->dao = CacheDao::getInstance();
-        $this->dao->init($cacheInstance);
+        $this->dao = FormDao::getInstance();
     }
 
 
@@ -34,15 +36,18 @@ class SearchStore extends SelectStore
     {
         $pagingLimit= $this->getPagingLimit();
 
-        $columns    = $this->fieldsInstance->getColumns();
-        $where      = $this->whereInstance->get();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table = $this->tableInstance->getJoinTable();
+        $columns= $fieldsInstance->getColumns();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
         $orderBy = $this->dao->getSortStmt();
-        $orderBy = $orderBy ? $orderBy : $this->fieldsInstance->getOrderStmt();
+        $orderBy = $orderBy ? $orderBy : $fieldsInstance->getOrderStmt();
 
-        $groupBy = $this->fieldsInstance->getGroupStmt();
+        $groupBy = $fieldsInstance->getGroupStmt();
 
         $sql = "SELECT
                     {$columns}
@@ -60,11 +65,15 @@ class SearchStore extends SelectStore
      */
     public function getCount()
     {
-        $where = $this->whereInstance->get();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table = $this->tableInstance->getJoinTable();
+        $where = $whereInstance->get();
 
-        $groupBy = $this->fieldsInstance->getGroupStmt();
+        $table = $tableInstance->getJoinTable();
+
+        $groupBy = $fieldsInstance->getGroupStmt();
 
         if(empty($groupBy))
         {
@@ -98,11 +107,13 @@ class SearchStore extends SelectStore
      */
     public function getRow()
     {
-        $columns = $this->fieldsInstance->getColumns();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table  = $this->tableInstance->getJoinTable();
-
-        $where = $this->whereInstance->get();
+        $columns= $fieldsInstance->getColumns();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
         $sql = "SELECT
                     {$columns}
@@ -120,11 +131,13 @@ class SearchStore extends SelectStore
      */
     public function getOne()
     {
-        $columns = $this->fieldsInstance->getColumns();
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table  = $this->tableInstance->getJoinTable();
-
-        $where = $this->whereInstance->get();
+        $columns= $fieldsInstance->getColumns();
+        $table  = $tableInstance->getJoinTable();
+        $where  = $whereInstance->get();
 
         $sql = "SELECT
                     {$columns}

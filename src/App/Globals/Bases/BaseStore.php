@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases;
-use App\Libraries\Daoes\CacheDao;
+use App\Injecters\StoreInjecter;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,18 +13,27 @@ use App\Libraries\Daoes\CacheDao;
 abstract class BaseStore extends BaseSingle
 {
     /**
-     * 操作数据的封状工具类
-     * @var CacheDao
+     * @var StoreInjecter
      */
-    protected $dao;
+    private $storeInjecter;
+
 
     /**
-     * 获取的查询数据DAO
-     * @return CacheDao
+     * @param StoreInjecter $injecter
+     * @return $this
      */
-    public function getDao()
+    public function setStoreInjecter(StoreInjecter $injecter)
     {
-        return $this->dao;
+        $this->storeInjecter = $injecter;
+        return $this;
+    }
+
+    /**
+     * @return StoreInjecter
+     */
+    public function getStoreInjecter()
+    {
+        return $this->storeInjecter;
     }
 
 }

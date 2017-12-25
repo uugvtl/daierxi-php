@@ -1,7 +1,9 @@
 <?php
 namespace App\Libraries\Daoes;
 use App\Globals\Bases\BaseSingle;
+use App\Helpers\ArrayHelper;
 use App\Helpers\FileHelper;
+use App\Helpers\JsonHelper;
 use App\Helpers\StringHelper;
 use App\Libraries\Caching\Dependencies\CFileCacheDependency;
 use Phalcon\Db;
@@ -53,6 +55,51 @@ abstract class BaseDao extends BaseSingle
     {
         $records = $this->db->fetchAll($sql, $mode);
         return $records ? $records:array();
+    }
+
+    /**
+     * 获取排序语句
+     * @param string $aliasTable        表别名
+     * @return string                   排序语句
+     */
+    public function getSortStmt($aliasTable='')
+    {
+        $stmt = $split = '';
+
+        if($this->di->has('request'))
+        {
+            $request = $this->request;
+
+            $sort = $request->getQuery('sort');
+            $dir = $request->getQuery('dir');
+
+            $jsonHelper = JsonHelper::getInstance();
+
+            $sorts = $jsonHelper->decode($sort);
+            if(json_last_error() == JSON_ERROR_NONE)
+            {
+                if(is_array($sorts))
+                {
+
+                    $arrayHelper = ArrayHelper::getInstance();
+                    $stmt = $arrayHelper->reduce(function ($result, $rows) use (&$split) {
+                        $result.= $split. " {$rows['property']} {$rows['direction']}";
+                        $split = ',';
+                        return $result;
+                    }, $sorts, " ORDER BY ");
+                }
+            }
+            else
+            {
+                if($sort && $dir)
+                {
+                    if($aliasTable) $aliasTable.='.';
+                    $stmt = " ORDER BY {$aliasTable}{$sort} {$dir}";
+                }
+            }
+        }
+
+        return $stmt;
     }
 
 

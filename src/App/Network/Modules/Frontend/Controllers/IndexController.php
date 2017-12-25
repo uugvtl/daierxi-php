@@ -1,7 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Controllers;
 use App\Globals\Finals\Responder;
-use App\Globals\Stores\Selects\CacheStore;
 use App\Network\Modules\ModuleController;
 class IndexController extends ModuleController
 {
@@ -29,8 +28,5 @@ class IndexController extends ModuleController
 
     public function storeAction()
     {
-        $cacheStore = CacheStore::getInstance();
-        $dao = $cacheStore->getDao();
-        var_dump($dao);
     }
 }
