@@ -1,8 +1,5 @@
 <?php
 namespace App\Globals\Stores\Forms;
-use App\Globals\Bases\Generics\Sqlangs\BaseFields;
-use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
-use App\Globals\Bases\Generics\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
 use App\Helpers\SqlHelper;
 use App\Libraries\Daoes\FormDao;
@@ -17,20 +14,6 @@ use App\Libraries\Daoes\FormDao;
  */
 class UpdateStore extends FormStore
 {
-    /**
-     * @var BaseFields
-     */
-    protected $fieldsInstance;
-
-    /**
-     * @var  BaseWhere
-     */
-    protected $selectInstance;
-
-    /**
-     * @var BaseTable
-     */
-    protected $tableInstance;
 
     /**
      * 只在生成成实例的时候运行一次
@@ -42,13 +25,6 @@ class UpdateStore extends FormStore
     }
 
 
-    public function construct(...$args)
-    {
-        $this->fieldsInstance = $args[0];
-        $this->tableInstance  = $args[1];
-        $this->selectInstance = $args[2];
-        return $this;
-    }
 
     /**
      * 带事务更新
@@ -57,13 +33,19 @@ class UpdateStore extends FormStore
     public function commit()
     {
         $sqlHelper = SqlHelper::getInstance();
-        $fields = $this->fieldsInstance->getFields();
-        $subjoin = $this->fieldsInstance->getOriginal();
-        $table = $this->tableInstance->getJoinTable();
-        $where = $this->selectInstance->get();
-        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $subjoin);
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+
+        $fields     = $fieldsInstance->getFields();
+        $original   = $fieldsInstance->getOriginal();
+
+        $table = $tableInstance->getJoinTable();
+        $where = $whereInstance->get();
+
+        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
         $numbers = $this->dao->commit($sql);
-        $numbers && $this->dao->updateCacheDependency($this->tableInstance->getTableList());
+        $numbers && $this->dao->updateCacheDependency($tableInstance->getTableList());
         return $numbers;
     }
 
@@ -74,25 +56,20 @@ class UpdateStore extends FormStore
     public function submit()
     {
         $sqlHelper = SqlHelper::getInstance();
-        $fields     = $this->fieldsInstance->getFields();
-        $subjoin    = $this->fieldsInstance->getOriginal();
-        $table = $this->tableInstance->getJoinTable();
-        $where = $this->selectInstance->get();
-        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $subjoin);
+
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+
+        $fields     = $fieldsInstance->getFields();
+        $original   = $fieldsInstance->getOriginal();
+        $table      = $tableInstance->getJoinTable();
+        $where      = $whereInstance->get();
+
+        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
         $numbers = $this->dao->submit($sql);
-        $numbers && $this->dao->updateCacheDependency($this->tableInstance->getTableList());
+        $numbers && $this->dao->updateCacheDependency($tableInstance->getTableList());
         return $numbers;
     }
-
-
-    /**
-     * 获取的查询数据DAO
-     * @return FormDao
-     */
-    public function getDao()
-    {
-        return $this->dao;
-    }
-
 
 }

@@ -1,7 +1,5 @@
 <?php
 namespace App\Globals\Stores\Forms;
-use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
-use App\Globals\Bases\Generics\Sqlangs\BaseTable;
 use App\Globals\Stores\FormStore;
 use App\Helpers\SqlHelper;
 use App\Libraries\Daoes\FormDao;
@@ -16,15 +14,6 @@ use App\Libraries\Daoes\FormDao;
  */
 class DeleteStore extends FormStore
 {
-    /**
-     * @var  BaseWhere
-     */
-    protected $selectInstance;
-
-    /**
-     * @var BaseTable
-     */
-    protected $tableInstance;
 
     /**
      * 只在生成成实例的时候运行一次
@@ -36,13 +25,6 @@ class DeleteStore extends FormStore
     }
 
 
-    public function init(...$args)
-    {
-        $this->selectInstance = $args[0];
-        $this->tableInstance = $args[1];
-        return $this;
-    }
-
     /**
      * 带事务删除
      * @return int
@@ -50,12 +32,18 @@ class DeleteStore extends FormStore
     public function commit()
     {
         $sqlHelper = SqlHelper::getInstance();
-        $table = $this->tableInstance->getJoinTable();
-        $where = $this->selectInstance->get();
-        $alias = $this->tableInstance->getAliasTable();
+
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+
+        $table = $tableInstance->getJoinTable();
+        $alias = $tableInstance->getAliasTable();
+        $where = $whereInstance->get();
+
+
         $sql = $sqlHelper->getDeleteString($table, $where, $alias);
         $numbers = $this->dao->commit($sql);
-        $numbers && $this->dao->updateCacheDependency($this->tableInstance->getTableList());
+        $numbers && $this->dao->updateCacheDependency($tableInstance->getTableList());
         return $numbers;
     }
 
@@ -67,24 +55,17 @@ class DeleteStore extends FormStore
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = $this->tableInstance->getJoinTable();
-        $where = $this->selectInstance->get();
-        $alias = $this->tableInstance->getAliasTable();
+        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
+        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+
+        $table = $tableInstance->getJoinTable();
+        $alias = $tableInstance->getAliasTable();
+        $where = $whereInstance->get();
+
         $sql = $sqlHelper->getDeleteString($table, $where, $alias);
         $numbers = $this->dao->submit($sql);
-        $numbers && $this->dao->updateCacheDependency($this->tableInstance->getTableList());
+        $numbers && $this->dao->updateCacheDependency($tableInstance->getTableList());
         return $numbers;
     }
-
-
-    /**
-     * 获取的查询数据DAO
-     * @return FormDao
-     */
-    public function getDao()
-    {
-        return $this->dao;
-    }
-
 
 }
