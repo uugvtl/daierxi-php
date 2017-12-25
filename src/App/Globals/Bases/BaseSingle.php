@@ -40,6 +40,17 @@ abstract class BaseSingle  extends Component
      */
     protected function afterInstance(){}
 
+    /**
+     * 初始化模板方法，子类可以进行overload
+     * @param array ...$args
+     * @return static
+     */
+    public function init(...$args)
+    {
+        unset($args);
+        return $this;
+    }
+
 
     /**
      * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消

@@ -29,7 +29,7 @@ class UpdateStore extends FormStore
     protected $fieldsInstance;
 
     /**
-     * @var  \App\Globals\Bases\Generics\Sqlangs\BaseWhere
+     * @var  BaseWhere
      */
     protected $selectInstance;
 
@@ -65,7 +65,7 @@ class UpdateStore extends FormStore
         $sqlHelper = SqlHelper::getInstance();
         $fields = $this->fieldsInstance->getFields();
         $subjoin = $this->fieldsInstance->getOriginal();
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
         $where = $this->selectInstance->get();
         $sql = $sqlHelper->getUpdateString($fields, $table, $where, $subjoin);
         $numbers = $this->dao->commit($sql);
@@ -82,7 +82,7 @@ class UpdateStore extends FormStore
         $sqlHelper = SqlHelper::getInstance();
         $fields     = $this->fieldsInstance->getFields();
         $subjoin    = $this->fieldsInstance->getOriginal();
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
         $where = $this->selectInstance->get();
         $sql = $sqlHelper->getUpdateString($fields, $table, $where, $subjoin);
         $numbers = $this->dao->submit($sql);
@@ -93,7 +93,7 @@ class UpdateStore extends FormStore
 
     /**
      * 获取的查询数据DAO
-     * @return \App\Libraries\Daoes\FormDao
+     * @return FormDao
      */
     public function getDao()
     {

@@ -32,21 +32,6 @@ abstract class BaseTable extends BaseGeneric
      */
     protected $tableList=[];
 
-    /**
-     * @var BaseWhere
-     */
-    protected $selectInstance;
-
-    /**
-     * 初始化查询条件实例
-     * @param BaseWhere $selectInstance
-     * @return static
-     */
-    public function initSelect(BaseWhere $selectInstance)
-    {
-        $this->selectInstance = $selectInstance;
-        return $this;
-    }
 
     /**
      * @param BaseDao $dao

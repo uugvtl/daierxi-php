@@ -82,7 +82,7 @@ abstract class SelectStore extends BaseStore
         $columns    = $this->fieldsInstance->getColumns();
         $where      = $this->selectInstance->get();
 
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
 
         $aCacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
 
@@ -109,7 +109,7 @@ abstract class SelectStore extends BaseStore
     {
         $where = $this->selectInstance->get();
 
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
 
         $aCacheDependency = $this->tableInstance->getCacheDependencyInstances($this->dao);
 
@@ -213,7 +213,7 @@ abstract class SelectStore extends BaseStore
 
         $cacheInstance = require INJECT_PATH .'/cache.php';
         $this->dao = CacheDao::getInstance();
-        $this->dao->construct($cacheInstance);
+        $this->dao->init($cacheInstance);
         /* 生成后台文件缓存目录--以类名作为目录名 BEGIN */
         $className      = get_called_class();
         $classNameDir   = str_replace('\\', '/', $className).'/';

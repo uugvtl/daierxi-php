@@ -18,17 +18,17 @@ class DeleteStore extends FormStore
 {
     /**
      * 操作数据的封状工具类
-     * @var \App\Libraries\Daoes\FormDao
+     * @var FormDao
      */
     protected $dao;
 
     /**
-     * @var  \App\Globals\Bases\Generics\Sqlangs\BaseWhere
+     * @var  BaseWhere
      */
     protected $selectInstance;
 
     /**
-     * @var \App\Globals\Bases\Generics\Sqlangs\BaseTable
+     * @var BaseTable
      */
     protected $tableInstance;
 
@@ -42,7 +42,7 @@ class DeleteStore extends FormStore
     }
 
 
-    public function construct(...$args)
+    public function init(...$args)
     {
         $this->selectInstance = $args[0];
         $this->tableInstance = $args[1];
@@ -56,7 +56,7 @@ class DeleteStore extends FormStore
     public function commit()
     {
         $sqlHelper = SqlHelper::getInstance();
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
         $where = $this->selectInstance->get();
         $alias = $this->tableInstance->getAliasTable();
         $sql = $sqlHelper->getDeleteString($table, $where, $alias);
@@ -73,7 +73,7 @@ class DeleteStore extends FormStore
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
         $where = $this->selectInstance->get();
         $alias = $this->tableInstance->getAliasTable();
         $sql = $sqlHelper->getDeleteString($table, $where, $alias);

@@ -39,7 +39,7 @@ class CacheDao extends BaseDao
     private $cacheInstance;
 
 
-    public function construct(...$args)
+    public function init(...$args)
     {
         $this->cacheInstance = $args[0];
         return $this;

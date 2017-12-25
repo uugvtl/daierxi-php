@@ -22,7 +22,7 @@ class SearchStore extends SelectStore
 
         $cacheInstance = require INJECT_PATH .'/cache.php';
         $this->dao = CacheDao::getInstance();
-        $this->dao->construct($cacheInstance);
+        $this->dao->init($cacheInstance);
     }
 
 
@@ -37,7 +37,7 @@ class SearchStore extends SelectStore
         $columns    = $this->fieldsInstance->getColumns();
         $where      = $this->selectInstance->get();
 
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
 
         $orderBy = $this->dao->getSortStmt();
         $orderBy = $orderBy ? $orderBy : $this->fieldsInstance->getOrderStmt();
@@ -62,7 +62,7 @@ class SearchStore extends SelectStore
     {
         $where = $this->selectInstance->get();
 
-        $table = $this->tableInstance->initSelect($this->selectInstance)->getJoinTable();
+        $table = $this->tableInstance->getJoinTable();
 
         $groupBy = $this->fieldsInstance->getGroupStmt();
 
