@@ -1,6 +1,6 @@
 <?php
 namespace App\Interfaces;
-use App\Globals\Finals\Parameter;
+use App\Injecters\GenericInjecter;
 
 /**
  * Created by PhpStorm.
@@ -27,21 +27,24 @@ interface IGenericable
     public function isGeneralize();
 
     /**
-     * 设置参数实例
-     * @param Parameter $parameter
+     * @param GenericInjecter $injecter
      * @return $this
      */
-    public function setParameter(Parameter $parameter);
+    public function setGenericInjecter(GenericInjecter $injecter);
 
     /**
-     * 克隆参数实例
-     * @param Parameter $parameter
+     * @param GenericInjecter $injecter
      * @return $this
      */
-    public function cloneParameter(Parameter $parameter);
+    public function cloneGenericInjecter(GenericInjecter $injecter);
 
     /**
-     * @return Parameter
+     * @return GenericInjecter
      */
-    public function getParameter();
+    public function getGenericInjecter();
+
+
+
+
+
 }

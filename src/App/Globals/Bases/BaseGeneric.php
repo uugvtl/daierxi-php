@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases;
-use App\Globals\Finals\Parameter;
+use App\Injecters\GenericInjecter;
 use App\Interfaces\IGenericable;
 /**
  * Created by PhpStorm.
@@ -13,15 +13,16 @@ use App\Interfaces\IGenericable;
  */
 abstract class BaseGeneric extends BaseClass implements IGenericable
 {
-    /**
-     * @var Parameter
-     */
-    private $parameter;
 
     /**
      * @var boolean
      */
     private $generalize;
+
+    /**
+     * @var GenericInjecter
+     */
+    private $genericInjecter;
 
     /**
      * 设置是否使用泛化实例
@@ -44,33 +45,31 @@ abstract class BaseGeneric extends BaseClass implements IGenericable
     }
 
     /**
-     * 设置参数实例
-     * @param Parameter $parameter
+     * @param GenericInjecter $injecter
      * @return $this
      */
-    public function setParameter(Parameter $parameter)
+    public function setGenericInjecter(GenericInjecter $injecter)
     {
-        $this->parameter = $parameter;
+        $this->genericInjecter = $injecter;
         return $this;
     }
 
     /**
-     * 克隆参数实例
-     * @param Parameter $parameter
+     * @param GenericInjecter $injecter
      * @return $this
      */
-    public function cloneParameter(Parameter $parameter)
+    public function cloneGenericInjecter(GenericInjecter $injecter)
     {
-        $this->parameter = clone $parameter;
+        $this->genericInjecter = clone $injecter;
         return $this;
     }
 
     /**
-     * @return Parameter
+     * @return GenericInjecter
      */
-    public function getParameter()
+    public function getGenericInjecter()
     {
-        return $this->parameter;
+        return $this->genericInjecter;
     }
 
 }

@@ -1,5 +1,6 @@
 <?php
-namespace App\Helpers;
+namespace App\Globals\Finals;
+use App\Globals\Bases\BaseClass;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +10,7 @@ namespace App\Helpers;
  * Class DistributerHelper
  * @package App\Helpers
  */
-class DistributeHelper extends BaseHelper
+final class Distributer extends BaseClass
 {
     /**
      * 控制器名称
@@ -22,6 +23,7 @@ class DistributeHelper extends BaseHelper
      * @var string
      */
     private $actName;
+
     /**
      * 不带有命名空间的类名称
      * @var string
