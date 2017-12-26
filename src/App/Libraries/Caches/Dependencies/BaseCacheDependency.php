@@ -1,14 +1,5 @@
 <?php
 /**
- * CCacheDependency class file.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
-
-/**
  * CCacheDependency is the base class for cache dependency classes.
  *
  * CCacheDependency implements the {@link ICacheDependency} interface.
@@ -23,9 +14,15 @@
  * @package system.caching.dependencies
  * @since 1.0
  */
-namespace App\Libraries\Caching\Dependencies;
-abstract class CCacheDependency
+namespace App\Libraries\Caches\Dependencies;
+abstract class BaseCacheDependency
 {
+    /**
+     * @var string the name of the file whose last modification time is used to
+     * check if the dependency has been changed.
+     */
+    protected $key;
+
     /**
      * @var boolean Whether this dependency is reusable or not.
      * If set to true, dependent data for this cache dependency will only be generated once per request.
@@ -44,6 +41,11 @@ abstract class CCacheDependency
 
     private $_hash;
     private $_data;
+
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * Evaluates the dependency by generating and saving the data related with dependency.

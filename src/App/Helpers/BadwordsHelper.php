@@ -1,5 +1,7 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  *  Created by PhpStorm.
  * User: leon
@@ -8,7 +10,7 @@ namespace App\Helpers;
  *
  * Class CBadwordsHelper
  */
-class BadwordsHelper  extends BaseHelper
+class BadwordsHelper  extends BaseSingle
 {
     /**
      * 处理敏感词

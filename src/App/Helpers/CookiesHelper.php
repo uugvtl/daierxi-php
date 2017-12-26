@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
 use Phalcon\Http\Response\Cookies;
 /**
  * Created by PhpStorm.
@@ -10,7 +11,7 @@ use Phalcon\Http\Response\Cookies;
  * Class CCookiesHelper
  * @package App\Helpers
  */
-class CookiesHelper extends BaseHelper
+class CookiesHelper extends BaseSingle
 {
     /**
      * @var Cookies

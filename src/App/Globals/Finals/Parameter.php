@@ -18,12 +18,12 @@ final class Parameter extends BaseClass
 
     /**
      * 初始化参数
-     * @param array $params
+     * @param array $args
      * @return $this
      */
-    public function init(array $params)
+    public function init(...$args)
     {
-        $this->params = $params;
+        $this->params = $args[0];
         return $this;
     }
 

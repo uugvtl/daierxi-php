@@ -1,6 +1,6 @@
 <?php
 namespace App\Providers;
-use App\Globals\Bases\BaseSingle;
+use App\Modulars\ModularSingle;
 use App\Interfaces\Providers\IMockContainerProvider;
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ use App\Interfaces\Providers\IMockContainerProvider;
  * Class MockContainerProvider
  * @package App\Network\Providers
  */
-abstract class BaseContainerProvider extends BaseSingle implements IMockContainerProvider
+abstract class ModularContainerProvider extends ModularSingle implements IMockContainerProvider
 {
 //    use SpreadTrait;
 //

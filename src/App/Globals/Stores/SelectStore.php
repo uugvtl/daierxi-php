@@ -1,8 +1,9 @@
 <?php
 namespace App\Globals\Stores;
+use App\Libraries\Caches\BaseCache;
 use App\Globals\Bases\BaseStore;
 use App\Helpers\FileHelper;
-use App\Libraries\Daoes\CacheDao;
+use App\Libraries\Caches\FileCache;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,9 +17,9 @@ abstract class SelectStore extends BaseStore
 {
     /**
      * 操作数据的封状工具类
-     * @var CacheDao
+     * @var BaseCache
      */
-    private $dao;
+    protected $cache;
 
     public function init(...$args)
     {
@@ -43,9 +44,9 @@ abstract class SelectStore extends BaseStore
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $aCacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
+        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
 
-        $orderBy = $this->dao->getSortStmt();
+        $orderBy = $this->cache->getDao()->getSortStmt();
         $orderBy = $orderBy ? $orderBy : $fieldsInstance->getOrderStmt();
 
         $groupBy = $fieldsInstance->getGroupStmt();
@@ -56,7 +57,7 @@ abstract class SelectStore extends BaseStore
                     {$table}
                 WHERE
                     1=1 {$where} {$groupBy} {$orderBy} {$pagingLimit};\n";
-        return $this->dao->getCacheAll($sql, $aCacheDependency);
+        return $this->cache->getAll($sql, $aCacheDependency);
     }
 
 
@@ -73,7 +74,7 @@ abstract class SelectStore extends BaseStore
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $aCacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
+        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
 
         $groupBy = $fieldsInstance->getGroupStmt();
 
@@ -100,7 +101,7 @@ abstract class SelectStore extends BaseStore
                             1=1 {$where} {$groupBy}
                     ) tmp;";
         }
-        return $this->dao->getCacheOne($sql, $aCacheDependency);
+        return $this->cache->getOne($sql, $aCacheDependency);
     }
 
     /**
@@ -117,7 +118,7 @@ abstract class SelectStore extends BaseStore
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $cacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
+        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
 
         $sql = "SELECT
                     {$columns}
@@ -125,7 +126,7 @@ abstract class SelectStore extends BaseStore
                     {$table}
                 WHERE
                     1=1 {$where};\n";
-        $rows = $this->dao->getCacheRow($sql, $cacheDependency);
+        $rows = $this->cache->getRow($sql, $aCacheDependency);
         return $rows;
     }
 
@@ -143,7 +144,7 @@ abstract class SelectStore extends BaseStore
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $cacheDependency = $tableInstance->getCacheDependencyInstances($this->dao);
+        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
 
         $sql = "SELECT
                     {$columns}
@@ -151,7 +152,7 @@ abstract class SelectStore extends BaseStore
                     {$table}
                 WHERE
                     1=1 {$where};\n";
-        $rows = $this->dao->getCacheOne($sql, $cacheDependency);
+        $rows = $this->cache->getOne($sql, $aCacheDependency);
         return $rows;
     }
 
@@ -173,15 +174,13 @@ abstract class SelectStore extends BaseStore
     /**
      * 只在生成成实例的时候运行一次
      */
-    protected function afterInstance()
+    protected function onceConstruct()
     {
-        parent::afterInstance();
-
         $fileHelper = FileHelper::getInstance();
 
         $cacheInstance = require INJECT_PATH .'/cache.php';
-        $this->dao = CacheDao::getInstance();
-        $this->dao->init($cacheInstance);
+        $this->cache = FileCache::getInstance();
+        $this->cache->init($cacheInstance);
         /* 生成后台文件缓存目录--以类名作为目录名 BEGIN */
         $className      = get_called_class();
         $classNameDir   = str_replace('\\', '/', $className).'/';

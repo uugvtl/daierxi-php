@@ -1,12 +1,14 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  * Created by PhpStorm.
  * User: leon
  * Date: 2016/11/17
  * Time: 15:09
  */
-class ErrorsHelper extends BaseHelper
+class ErrorsHelper extends BaseSingle
 {
     /**
      * 格式化异常信息

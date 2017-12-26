@@ -1,11 +1,8 @@
 <?php
 namespace App\Libraries\Daoes;
-use App\Globals\Bases\BaseSingle;
 use App\Helpers\ArrayHelper;
-use App\Helpers\FileHelper;
 use App\Helpers\JsonHelper;
-use App\Helpers\StringHelper;
-use App\Libraries\Caching\Dependencies\CFileCacheDependency;
+use Phalcon\Mvc\User\Plugin;
 use Phalcon\Db;
 /**
  * Created by PhpStorm.
@@ -16,46 +13,75 @@ use Phalcon\Db;
  * Class BaseDao
  * @package App\Libraries\Cases\Daoes
  */
-abstract class BaseDao extends BaseSingle
+abstract class BaseDao extends Plugin
 {
 
     /**
-     * 从数据库获取一个数据
-     * @param string $sql       SQL查询语句
-     * @return mixed            单个数据,如果无数据则返回false
-     * @return bool
+     * @var array 实例缓存
      */
-    public function fetchOne($sql)
+    private static $_instanceCache=array();
+
+    /**
+     * 创建__clone方法防止对象被复制克隆
+     */
+    private function __clone(){}
+
+    /**
+     * SingleBase constructor.
+     * protected标记的构造方法
+     */
+    private function __construct(){}
+
+
+    /**
+     * 只在生成成实例的时候运行一次
+     */
+    protected function onceConstruct(){}
+
+
+    /**
+     * 初始化,在实例生成之后运行
+     */
+    protected function afterInstance(){}
+
+    /**
+     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
+     * 返回此类的子类实例
+     * @return static
+     */
+    public static function getInstance()
     {
-        $data = false;
-        $rows = $this->db->fetchOne($sql, Db::FETCH_NUM);
-        if($rows) $data = $rows[0];
-        return is_null($data) ? false : $data ;
+        $static = null;
+        $className = get_called_class();
+
+        if(isset(self::$_instanceCache[$className]))
+        {
+            $static = self::$_instanceCache[$className];
+        }
+
+        if(empty($static))
+        {
+            $static = new static();
+            $static->setEventsManager($static->eventsManager);
+            $static->onceConstruct();
+            self::$_instanceCache[$className] = $static;
+        }
+
+        $static->afterInstance();
+        return $static;
     }
 
     /**
-     * 获取数据，因为有时需要先查出数据再更新
-     * @param string $sql
-     * @param int $mode         数据结构方式:默认关联数据方式
-     * @return array
+     * 初始化模板方法，子类可以进行overload
+     * @param array ...$args
+     * @return static
      */
-    public function fetchRow($sql, $mode=Db::FETCH_ASSOC)
+    public function init(...$args)
     {
-        $rows = $this->db->fetchOne($sql, $mode);
-        return $rows ? $rows : array();
+        unset($args);
+        return $this;
     }
 
-    /**
-     *从数据库获取多条记录数据
-     * @param string $sql       SQL查询语句
-     * @param int $mode         数据结构方式:默认关联数据方式
-     * @return array|boolean    一条记录数据,如果无数据则返回false
-     */
-    public function fetchAll($sql, $mode=Db::FETCH_ASSOC)
-    {
-        $records = $this->db->fetchAll($sql, $mode);
-        return $records ? $records:array();
-    }
 
     /**
      * 获取排序语句
@@ -102,95 +128,88 @@ abstract class BaseDao extends BaseSingle
         return $stmt;
     }
 
+    /**
+     * PDO事务提交--删除数据
+     * @param string|array    $sql  sql语句
+     * @return int                  影响行数
+     */
+    abstract public function remove($sql);
 
     /**
-     * 更新缓存依赖
-     * @param string|array $aCacheDependencyFile    一组依赖文件名称--表名称
-     * @param mixed $identity                       标识，可以是登陆用户id
-     * @return boolean                              更新成功返回true,否则返回false
+     * 不带事务的删除
+     * @param string|array $sql     sql语句
+     * @return int                  影响行数
      */
-    public function updateCacheDependency($aCacheDependencyFile, $identity=null)
-    {
-        if(!is_array($aCacheDependencyFile))
-        {
-            $aCacheDependencyFile  = array($aCacheDependencyFile);
-        }
+    abstract public function delete($sql);
 
-        return $this->mappingCreateCacheDependency($aCacheDependencyFile, $identity);
-    }
+    /**
+     * PDO事务提交--新增数据
+     * @param string    $sql		        sql语句
+     * @return int				            成功返回录入数据的id,否则0
+     */
+    abstract public function create($sql);
+
+    /**
+     * PDO事务提交
+     * @param string|array  $sql            sql语句
+     * @return int			                影响行数
+     */
+    abstract public function commit($sql);
+
+    /**
+     * 无事务的新增数据
+     * @param string    $sql		        sql语句
+     * @return int				            成功返回录入数据的id,否则0
+     */
+    abstract public function insert($sql);
+
+    /**
+     * @param string|array    $sql		    sql语句
+     * @return int				            成功返回影响数量,否则0
+     */
+    abstract public function submit($sql);
+
+    /**
+     * 事务开始
+     * @return bool
+     */
+    abstract public function start();
+
+    /**
+     * 事务完成
+     * @return bool
+     */
+    abstract public function end();
+
+    /**
+     * 事务回滚
+     * @return bool
+     */
+    abstract public function rollBack();
 
 
     /**
-     * 通过文件名获取缓存文件依赖对象--保存在缓存文件依赖目录:selete操作使用
-     * @param string    $filename           文件名
-     * @param mixed     $identity           身份标识
-     * @return CFileCacheDependency         缓存文件依赖对象
+     * 从数据库获取一个数据
+     * @param string $sql       SQL查询语句
+     * @return mixed            单个数据,如果无数据则返回false
+     * @return bool
      */
-    public function getCacheDependency($filename, $identity=null)
-    {
-        $dir = $this->getCacheDependencyDir($identity);
-        $stringHelper = StringHelper::getInstance();
-
-        $filepath = $dir.$stringHelper->cryptString($filename);
-        if(!is_file($filepath))
-            $this->createCacheDependency($filename, $identity);
-
-        return new CFileCacheDependency($filepath);
-    }
-
+    abstract public function fetchOne($sql);
 
     /**
-     * 新建缓存文件依赖文件--保存在缓存文件依赖目录:create,update,delete操作使用
-     * 在以上操作中，可以生成多个缓存依赖文件给不同的查询使用
-     * @param string $filename      文件名
-     * @param mixed $identity       标识，可以是登陆用户id
-     * @return boolean              生成文件或是修改文件的时间成功返回true,否则返回false
+     * 获取数据，因为有时需要先查出数据再更新
+     * @param string $sql
+     * @param int $mode         数据结构方式:默认关联数据方式
+     * @return array
      */
-    private function createCacheDependency($filename, $identity=null)
-    {
-        $stringHelper = StringHelper::getInstance();
-        $fileHelper = FileHelper::getInstance();
-
-        $dir = $this->getCacheDependencyDir($identity);
-        $filename = $stringHelper->cryptString($filename);
-        $filepath = $dir.$filename;
-        $toggle =  (bool)$fileHelper->createFile($filepath, microtime());
-        return $toggle;
-    }
+    abstract public function fetchRow($sql, $mode=Db::FETCH_ASSOC);
 
     /**
-     * 批量生成缓存文件依赖文件
-     * @param array $aFileDependency    文件名列表
-     * @param mixed $identity           标识，可以是登陆用户id
-     * @return boolean                  成功返回true,否则返回false
+     *从数据库获取多条记录数据
+     * @param string $sql       SQL查询语句
+     * @param int $mode         数据结构方式:默认关联数据方式
+     * @return array|boolean    一条记录数据,如果无数据则返回false
      */
-    private function mappingCreateCacheDependency(array $aFileDependency, $identity=null)
-    {
-        $toggle = false;
-        if($aFileDependency)
-        {
-            foreach ($aFileDependency as $fileDependency)
-            {
-                $toggle = $this->createCacheDependency($fileDependency, $identity);
-                if(!$toggle)break;
-            }
-        }
-        return $toggle;
-    }
+    abstract public function fetchAll($sql, $mode=Db::FETCH_ASSOC);
 
-    /**
-     * 获取缓存文件依赖目录名称
-     * @param mixed   $identity         登陆用户id
-     * @return string                   目录名称
-     */
-    private function getCacheDependencyDir($identity=null)
-    {
-        $dir = DEPENDENCY_CACHE_DIR;
-        if($identity) $dir.= $identity.'/';
-
-        $fileHelper = FileHelper::getInstance();
-        $fileHelper->createDir($dir);
-
-        return $dir;
-    }
 }

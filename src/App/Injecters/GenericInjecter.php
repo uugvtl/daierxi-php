@@ -16,7 +16,7 @@ use App\Globals\Finals\Distributer;
 class GenericInjecter extends BaseClass
 {
     /**
-     * @var \App\Globals\Finals\Distributer
+     * @var Distributer
      */
     private $distributer;
 
@@ -32,7 +32,7 @@ class GenericInjecter extends BaseClass
     }
 
     /**
-     * @param \App\Globals\Finals\Distributer $distributer
+     * @param Distributer $distributer
      * @return $this
      */
     public function setDistributer(Distributer $distributer)
@@ -43,7 +43,7 @@ class GenericInjecter extends BaseClass
 
 
     /**
-     * @return \App\Globals\Finals\Distributer
+     * @return Distributer
      */
     public function getDistributer()
     {

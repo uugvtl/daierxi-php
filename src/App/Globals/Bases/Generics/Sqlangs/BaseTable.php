@@ -1,8 +1,6 @@
 <?php
 namespace App\Globals\Bases\Generics\Sqlangs;
 use App\Globals\Bases\BaseGeneric;
-use App\Libraries\Caching\Dependencies\CFileCacheDependency;
-use App\Libraries\Daoes\BaseDao;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -31,22 +29,6 @@ abstract class BaseTable extends BaseGeneric
      * @var string[]
      */
     protected $tableList=[];
-
-
-    /**
-     * @param BaseDao $dao
-     * @return CFileCacheDependency[]
-     */
-    public function getCacheDependencyInstances(BaseDao $dao)
-    {
-        $cacheDependencyInstances = [];
-        foreach ($this->tableList as $table)
-        {
-            $cacheDependencyInstances[] = $dao->getCacheDependency($table);
-        }
-
-        return $cacheDependencyInstances;
-    }
 
 
     /**

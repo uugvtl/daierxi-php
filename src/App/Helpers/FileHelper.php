@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -10,7 +11,7 @@ use RecursiveIteratorIterator;
  * @package system.utils
  * @since 1.0
  */
-class FileHelper extends BaseHelper
+class FileHelper extends BaseSingle
 {
 
     /**

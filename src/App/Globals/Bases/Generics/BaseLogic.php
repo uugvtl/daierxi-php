@@ -1,6 +1,8 @@
 <?php
 namespace App\Globals\Bases\Distributers;
 use App\Globals\Bases\BaseGeneric;
+use App\Interfaces\IRunnable;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +12,7 @@ use App\Globals\Bases\BaseGeneric;
  * Class BaseLogic
  * @package App\Globals
  */
-abstract class BaseLogic extends BaseGeneric
+abstract class BaseLogic extends BaseGeneric  implements IRunnable
 {
 
 }

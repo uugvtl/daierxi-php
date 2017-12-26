@@ -44,22 +44,22 @@ abstract class BaseWhere extends BaseGeneric
      */
     protected function getCondition()
     {
-        return $this->getParameter()->get();
+        return $this->getGenericInjecter()->getParameter()->get();
     }
 
 
     /**
      * 获符合SQL语句使用的字符串数据值
      * @param string $value         字符串
-     * @param bool  $isLike         是否用于LIKE查询
+     * @param bool  $likeStmt         是否用于LIKE查询
      * @return string               转义后的字符串
      */
-    protected function getQuoteValue($value, $isLike=false)
+    protected function getQuoteValue($value, $likeStmt=false)
     {
         $stringHelper = StringHelper::getInstance();
 
         $value = $stringHelper->encode($value);
-        if($isLike)
+        if($likeStmt)
             $value = "%{$value}%";
 
         $value = $stringHelper->quoteValue($value);

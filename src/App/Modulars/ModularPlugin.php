@@ -1,17 +1,17 @@
 <?php
-namespace App\Globals\Bases;
+namespace App\Modulars;
 use App\Globals\Traits\TranslationTrait;
-use Phalcon\Mvc\User\Component;
+use Phalcon\Mvc\User\Plugin;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 25/12/17
- * Time: 21:34
+ * Date: 26/12/17
+ * Time: 13:40
  *
- * Class BaseComponent
- * @package App\Globals\Bases
+ * Class ModularPlugin
+ * @package App\Modulars
  */
-class BaseComponent extends Component
+abstract class ModularPlugin extends Plugin
 {
     use TranslationTrait;
 
@@ -30,7 +30,7 @@ class BaseComponent extends Component
      */
     public static function getInstance()
     {
-        $me = new static();/* @var $me static */
+        $me = new static();
         $me->setEventsManager($me->eventsManager);
         $me->afterInstance();
         return $me;

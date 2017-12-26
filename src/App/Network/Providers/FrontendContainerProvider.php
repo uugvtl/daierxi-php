@@ -40,7 +40,7 @@ abstract class FrontendContainerProvider extends CtrlContainerProvider
 //    /**
 //     * 获取数据列表
 //     * @param array $condz
-//     * @return Result
+//     * @return Responder
 //     */
 //    public function getQueryResult(array $condz= [])
 //    {

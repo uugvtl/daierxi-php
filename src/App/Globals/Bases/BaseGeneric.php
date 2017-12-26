@@ -48,16 +48,6 @@ abstract class BaseGeneric extends BaseClass implements IGenericable
      * @param GenericInjecter $injecter
      * @return $this
      */
-    public function setGenericInjecter(GenericInjecter $injecter)
-    {
-        $this->genericInjecter = $injecter;
-        return $this;
-    }
-
-    /**
-     * @param GenericInjecter $injecter
-     * @return $this
-     */
     public function cloneGenericInjecter(GenericInjecter $injecter)
     {
         $this->genericInjecter = clone $injecter;

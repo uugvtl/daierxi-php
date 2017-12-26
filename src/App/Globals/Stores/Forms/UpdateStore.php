@@ -2,7 +2,6 @@
 namespace App\Globals\Stores\Forms;
 use App\Globals\Stores\FormStore;
 use App\Helpers\SqlHelper;
-use App\Libraries\Daoes\FormDao;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,17 +13,6 @@ use App\Libraries\Daoes\FormDao;
  */
 class UpdateStore extends FormStore
 {
-
-    /**
-     * 只在生成成实例的时候运行一次
-     */
-    protected function afterInstance()
-    {
-        parent::afterInstance();
-        $this->dao = FormDao::getInstance();
-    }
-
-
 
     /**
      * 带事务更新
@@ -44,8 +32,8 @@ class UpdateStore extends FormStore
         $where = $whereInstance->get();
 
         $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
-        $numbers = $this->dao->commit($sql);
-        $numbers && $this->dao->updateCacheDependency($tableInstance->getTableList());
+        $numbers = $this->cache->getDao()->commit($sql);
+        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
         return $numbers;
     }
 
@@ -67,8 +55,8 @@ class UpdateStore extends FormStore
         $where      = $whereInstance->get();
 
         $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
-        $numbers = $this->dao->submit($sql);
-        $numbers && $this->dao->updateCacheDependency($tableInstance->getTableList());
+        $numbers = $this->cache->getDao()->submit($sql);
+        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
         return $numbers;
     }
 

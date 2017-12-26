@@ -1,5 +1,7 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  * CTimestamp represents a timestamp.
  *
@@ -22,7 +24,7 @@ namespace App\Helpers;
  * @package system.utils
  * @since 1.0
  */
-class TimeHelper extends BaseHelper
+class TimeHelper extends BaseSingle
 {
 
     /**

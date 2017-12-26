@@ -1,8 +1,9 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
 use stdClass;
 
-class ArrayHelper extends BaseHelper
+class ArrayHelper extends BaseSingle
 {
 
     /**

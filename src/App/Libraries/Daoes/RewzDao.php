@@ -28,6 +28,206 @@ class RewzDao extends BaseDao
     }
 
     /**
+     * PDO事务提交--删除数据
+     * @param string|array    $sql  sql语句
+     * @return int                  影响行数
+     */
+    public function remove($sql)
+    {
+        $numbers = 0;
+
+        if(is_string($sql))
+        {
+            $this->rewz->begin();
+            $this->rewz->execute($sql);
+            $numbers = $this->rewz->affectedRows();
+            $this->rewz->commit();
+        }
+
+        if(is_array($sql))
+        {
+            $this->rewz->begin();
+
+            foreach ($sql as $s)
+            {
+                if($s)
+                {
+                    $this->rewz->execute($s);
+                }
+            }
+            $numbers = $this->rewz->affectedRows();
+            $this->rewz->commit();
+
+        }
+
+        return $numbers;
+    }
+
+    /**
+     * 不带事务的删除
+     * @param string|array $sql     sql语句
+     * @return int                  影响行数
+     */
+    public function delete($sql)
+    {
+        $numbers = 0;
+
+        if(is_string($sql))
+        {
+            $this->rewz->execute($sql);
+            $numbers = $this->rewz->affectedRows();
+        }
+
+        if(is_array($sql))
+        {
+            foreach ($sql as $s)
+            {
+                if($s)
+                {
+                    $this->rewz->execute($s);
+                }
+            }
+            $numbers = $this->rewz->affectedRows();
+
+        }
+
+        return $numbers;
+    }
+
+    /**
+     * PDO事务提交--新增数据
+     * @param string    $sql		        sql语句
+     * @return int				            成功返回录入数据的id,否则0
+     */
+    public function create($sql)
+    {
+
+        $lastId = 0;
+
+        if($sql)
+        {
+            $this->rewz->begin();
+
+            $this->rewz->execute($sql);
+            $lastId = $this->rewz->lastInsertId();
+
+            $this->rewz->commit();
+        }
+
+        return $lastId;
+    }
+
+    /**
+     * PDO事务提交
+     * @param string|array  $sql            sql语句
+     * @return int			                影响行数
+     */
+    public function commit($sql)
+    {
+
+        $numbers = 0;
+
+        if(is_string($sql))
+        {
+            $this->rewz->begin();
+            $this->rewz->execute($sql);
+            $numbers = $this->rewz->affectedRows();
+            $this->rewz->commit();
+        }
+
+        if(is_array($sql))
+        {
+            $this->rewz->begin();
+
+            foreach ($sql as $s)
+            {
+                if($s)
+                {
+                    $this->rewz->execute($s);
+                }
+            }
+            $numbers = $this->rewz->affectedRows();
+            $this->rewz->commit();
+
+        }
+
+        return $numbers;
+
+    }
+
+    /**
+     * 无事务的新增数据
+     * @param string    $sql		        sql语句
+     * @return int				            成功返回录入数据的id,否则0
+     */
+    public function insert($sql)
+    {
+        $this->rewz->execute($sql);
+        $lastId = $this->rewz->lastInsertId();
+
+        return $lastId;
+    }
+
+    /**
+     * @param string|array    $sql		    sql语句
+     * @return int				            成功返回影响数量,否则0
+     */
+    public function submit($sql)
+    {
+
+        $numbers = 0;
+
+        if(is_string($sql))
+        {
+            $this->rewz->execute($sql);
+            $numbers = $this->rewz->affectedRows();
+        }
+
+        if(is_array($sql))
+        {
+            foreach ($sql as $s)
+            {
+                if($s)
+                {
+                    $this->rewz->execute($s);
+                }
+            }
+
+            $numbers = $this->rewz->affectedRows();
+
+        }
+
+        return $numbers;
+    }
+
+    /**
+     * 事务开始
+     * @return bool
+     */
+    public function start()
+    {
+        return $this->rewz->begin();
+    }
+
+    /**
+     * 事务完成
+     * @return bool
+     */
+    public function end()
+    {
+        return $this->rewz->commit();
+    }
+
+    /**
+     * 事务回滚
+     * @return bool
+     */
+    public function rollBack()
+    {
+        return $this->rewz->rollback();
+    }
+
+    /**
      * 从数据库获取一个数据
      * @param string $sql       SQL查询语句
      * @return mixed            单个数据,如果无数据则返回false

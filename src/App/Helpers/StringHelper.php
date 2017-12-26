@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
 use DateTime;
 /**
  * Created by PhpStorm.
@@ -9,7 +10,7 @@ use DateTime;
  *
  * Class CStringHelper
  */
-class StringHelper extends BaseHelper
+class StringHelper extends BaseSingle
 {
 
     /**

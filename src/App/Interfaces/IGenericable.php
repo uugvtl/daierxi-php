@@ -26,11 +26,6 @@ interface IGenericable
      */
     public function isGeneralize();
 
-    /**
-     * @param GenericInjecter $injecter
-     * @return $this
-     */
-    public function setGenericInjecter(GenericInjecter $injecter);
 
     /**
      * @param GenericInjecter $injecter
@@ -42,9 +37,6 @@ interface IGenericable
      * @return GenericInjecter
      */
     public function getGenericInjecter();
-
-
-
 
 
 }

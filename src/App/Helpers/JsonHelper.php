@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
 use Phalcon\Exception;
 
 /**
@@ -8,7 +9,7 @@ use Phalcon\Exception;
  * Date: 2017/4/23
  * Time: 02:43
  */
-class JsonHelper extends BaseHelper
+class JsonHelper extends BaseSingle
 {
     /**
      * Encodes an arbitrary variable into JSON format

@@ -1,6 +1,8 @@
 <?php
 namespace App\Helpers;
-class RegexHelper extends BaseHelper
+use App\Globals\Bases\BaseSingle;
+
+class RegexHelper extends BaseSingle
 {
     /**
      * 获取中国大陆手机号码的验证规则

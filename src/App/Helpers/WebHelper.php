@@ -1,5 +1,7 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -8,7 +10,7 @@ namespace App\Helpers;
  *
  * Class CWebHelper
  */
-class WebHelper extends BaseHelper
+class WebHelper extends BaseSingle
 {
     /**
      * 获取标准域名

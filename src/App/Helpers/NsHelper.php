@@ -1,5 +1,7 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +11,7 @@ namespace App\Helpers;
  * Class CNsHelper
  * @package App\Helpers
  */
-class NsHelper extends BaseHelper
+class NsHelper extends BaseSingle
 {
     /**
      * 生成命名空间文件

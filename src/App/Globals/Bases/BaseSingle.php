@@ -1,21 +1,24 @@
 <?php
 namespace App\Globals\Bases;
-use Phalcon\Mvc\User\Component;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 2017/3/18
- * Time: 01:33
- *
- * Class BaseSingle
- * @package App\Globals\Bases
+ * Date: 22/12/17
+ * Time: 15:49
+ * Class CSingleHelper
  */
-abstract class BaseSingle extends Component
+abstract class BaseSingle
 {
+
     /**
      * @var array 实例缓存
      */
     private static $_instanceCache=array();
+
+    /**
+     * protected标记的构造方法
+     */
+    private function __construct(){}
 
     /**
      * 创建__clone方法防止对象被复制克隆
@@ -23,25 +26,12 @@ abstract class BaseSingle extends Component
     private function __clone(){}
 
     /**
-     * SingleBase constructor.
-     * protected标记的构造方法
-     */
-    private function __construct(){}
-
-
-    /**
      * 只在生成成实例的时候运行一次
      */
     protected function onceConstruct(){}
 
-
     /**
-     * 初始化,在实例生成之后运行
-     */
-    protected function afterInstance(){}
-
-    /**
-     * 初始化模板方法，子类可以进行overload
+     * 手动初始化模板方法--可以被子类实现
      * @param array ...$args
      * @return static
      */
@@ -51,10 +41,8 @@ abstract class BaseSingle extends Component
         return $this;
     }
 
-
     /**
-     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
-     * 返回此类的子类实例
+     * 实例产生方法
      * @return static
      */
     public static function getInstance()
@@ -70,13 +58,12 @@ abstract class BaseSingle extends Component
         if(empty($static))
         {
             $static = new static();
-            $static->setEventsManager($static->eventsManager);
             $static->onceConstruct();
             BaseSingle::$_instanceCache[$className] = $static;
         }
 
-        $static->afterInstance();
         return $static;
+
     }
 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries\Caching\Dependencies;
+namespace App\Libraries\Caches\Dependencies;
 use Phalcon\Exception;
 /**
  * CFileCacheDependency represents a dependency based on a file's last modification time.
@@ -13,13 +13,8 @@ use Phalcon\Exception;
  * @package system.caching.dependencies
  * @since 1.0
  */
-class CFileCacheDependency extends CCacheDependency
+class FileCacheDependency extends BaseCacheDependency
 {
-    /**
-     * @var string the name of the file whose last modification time is used to
-     * check if the dependency has been changed.
-     */
-    public $fileName;
 
     /**
      * Constructor.
@@ -27,7 +22,7 @@ class CFileCacheDependency extends CCacheDependency
      */
     public function __construct($fileName=null)
     {
-        $this->fileName=$fileName;
+        $this->key=$fileName;
     }
 
     /**
@@ -38,9 +33,9 @@ class CFileCacheDependency extends CCacheDependency
      */
     protected function generateDependentData()
     {
-        if(is_file($this->fileName))
-            return file_get_contents($this->fileName);
+        if(is_file($this->key))
+            return file_get_contents($this->key);
         else
-            throw new Exception('CFileCacheDependency.fileName cannot be empty.');
+            throw new Exception('App\Libraries\Caches\Dependencies\FileCacheDependency.fileName cannot be empty.');
     }
 }

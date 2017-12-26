@@ -17,7 +17,6 @@ abstract class BaseStore extends BaseSingle
      */
     private $storeInjecter;
 
-
     /**
      * @param StoreInjecter $injecter
      * @return $this
@@ -35,5 +34,4 @@ abstract class BaseStore extends BaseSingle
     {
         return $this->storeInjecter;
     }
-
 }

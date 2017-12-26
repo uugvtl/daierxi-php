@@ -21,6 +21,17 @@ abstract class BaseClass
     protected function afterInstance(){}
 
     /**
+     * 手动初始化模板方法--可以被子类实现
+     * @param array ...$args
+     * @return static
+     */
+    public function init(...$args)
+    {
+        unset($args);
+        return $this;
+    }
+
+    /**
      * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
      * 返回此类的子类实例
      * @return static

@@ -1,5 +1,7 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  * 项目用到的相关数学算法
  * Created by PhpStorm.
@@ -10,7 +12,7 @@ namespace App\Helpers;
  * Class CMathHelper
  * @package helpers
  */
-class FormulaHelper extends BaseHelper
+class FormulaHelper extends BaseSingle
 {
     /**
      * 计算配方单品中材料所在比例

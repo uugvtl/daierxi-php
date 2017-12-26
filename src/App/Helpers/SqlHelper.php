@@ -1,5 +1,7 @@
 <?php
 namespace App\Helpers;
+use App\Globals\Bases\BaseSingle;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -8,7 +10,7 @@ namespace App\Helpers;
  *
  * Class CSqlHelper
  */
-class SqlHelper extends BaseHelper
+class SqlHelper extends BaseSingle
 {
     /**
      * 生成 INSERT INTO 这样的语句

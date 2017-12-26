@@ -1,6 +1,8 @@
 <?php
 namespace App\Helpers;
-class ImageHelper extends BaseHelper
+use App\Globals\Bases\BaseSingle;
+
+class ImageHelper extends BaseSingle
 {
     /**
      * 返回文件的扩展名
