@@ -10,7 +10,7 @@ use App\Globals\Bases\BaseSingle;
  * Class BaseFactory
  * @package App\Factories\Generics
  */
-abstract class ModularFactory extends BaseSingle
+abstract class BaseFactory extends BaseSingle
 {
 
 }

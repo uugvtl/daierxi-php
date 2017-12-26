@@ -1,5 +1,5 @@
 <?php
-namespace App\Modulars;
+namespace App\Frames;
 use Phalcon\Mvc\User\Plugin;
 /**
  * Created by PhpStorm.
@@ -10,7 +10,7 @@ use Phalcon\Mvc\User\Plugin;
  * Class BaseSingle
  * @package App\Globals\Bases
  */
-abstract class ModularSingle extends Plugin
+abstract class FrameSingle extends Plugin
 {
     /**
      * @var array 实例缓存
@@ -62,9 +62,9 @@ abstract class ModularSingle extends Plugin
         $static = null;
         $className = get_called_class();
 
-        if(isset(ModularSingle::$_instanceCache[$className]))
+        if(isset(FrameSingle::$_instanceCache[$className]))
         {
-            $static = ModularSingle::$_instanceCache[$className];
+            $static = FrameSingle::$_instanceCache[$className];
         }
 
         if(empty($static))
@@ -72,7 +72,7 @@ abstract class ModularSingle extends Plugin
             $static = new static();
             $static->setEventsManager($static->eventsManager);
             $static->onceConstruct();
-            ModularSingle::$_instanceCache[$className] = $static;
+            FrameSingle::$_instanceCache[$className] = $static;
         }
 
         $static->afterInstance();

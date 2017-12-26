@@ -1,5 +1,5 @@
 <?php
-namespace App\Modulars;
+namespace App\Frames;
 use App\Globals\Traits\TranslationTrait;
 use Phalcon\Mvc\User\Plugin;
 /**
@@ -11,7 +11,7 @@ use Phalcon\Mvc\User\Plugin;
  * Class ModularPlugin
  * @package App\Modulars
  */
-abstract class ModularPlugin extends Plugin
+abstract class FrameClass extends Plugin
 {
     use TranslationTrait;
 
