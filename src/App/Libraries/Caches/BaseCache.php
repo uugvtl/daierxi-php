@@ -4,7 +4,8 @@ use App\Globals\Bases\BaseSingle;
 use App\Helpers\FileHelper;
 use App\Helpers\StringHelper;
 use App\Libraries\Caches\Dependencies\BaseCacheDependency;
-use App\Libraries\Daoes\BaseDao;
+use App\Libraries\Daoes\FrameDao;
+use InvalidArgumentException;
 use Phalcon\Cache\BackendInterface;
 use Phalcon\Config;
 /**
@@ -38,13 +39,18 @@ abstract class BaseCache extends BaseSingle
     protected $cache;
 
     /**
-     * @var BaseDao
+     * @var FrameDao
      */
     protected $dao;
 
     public function init(...$args)
     {
-        $this->cache    = $args[0];
+        $cache = $args[0];
+        if($cache instanceof BackendInterface)
+            $this->cache    = $cache;
+        else
+            throw new InvalidArgumentException('tripleInteger function only accepts BackendInterface. Input was: '.$cache);
+
         return $this;
     }
 
@@ -89,7 +95,7 @@ abstract class BaseCache extends BaseSingle
 
 
     /**
-     * @return BaseDao
+     * @return FrameDao
      */
     public function getDao()
     {

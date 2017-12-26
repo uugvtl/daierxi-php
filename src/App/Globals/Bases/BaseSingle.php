@@ -1,5 +1,7 @@
 <?php
 namespace App\Globals\Bases;
+use App\Globals\Traits\TranslationTrait;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,6 +11,7 @@ namespace App\Globals\Bases;
  */
 abstract class BaseSingle
 {
+    use TranslationTrait;
 
     /**
      * @var array 实例缓存

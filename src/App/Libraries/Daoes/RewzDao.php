@@ -11,7 +11,7 @@ use Phalcon\Db\AdapterInterface;
  * Class RewzDao
  * @package App\Libraries\Cases\Daoes
  */
-class RewzDao extends BaseDao
+class RewzDao extends FrameDao
 {
     /**
      * @var AdapterInterface

@@ -11,7 +11,7 @@ use Phalcon\Db;
  * Class ExecuteDao
  * @package App\Libraries\Cases
  */
-class FormDao extends BaseDao
+class AppDao extends FrameDao
 {
     /**
      * PDO事务提交--删除数据
