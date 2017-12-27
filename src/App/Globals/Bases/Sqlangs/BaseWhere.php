@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Bases\Generics\Sqlangs;
+namespace App\Globals\Bases\Sqlangs;
 use App\Globals\Bases\BaseGeneric;
 use App\Helpers\StringHelper;
 /**

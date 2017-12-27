@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases\Generics\Sqlangs\Wheres;
-use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
+use App\Globals\Bases\Sqlangs\BaseWhere;
 /**
  * Created by PhpStorm.
  * User: leon

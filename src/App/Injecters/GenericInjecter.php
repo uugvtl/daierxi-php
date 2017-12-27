@@ -16,6 +16,11 @@ use App\Globals\Finals\Distributer;
 class GenericInjecter extends BaseClass
 {
     /**
+     * @var boolean
+     */
+    private $generalize;
+
+    /**
      * 泛化类基类所在的包名称
      * @var string
      */
@@ -120,6 +125,26 @@ class GenericInjecter extends BaseClass
     public function getPackage()
     {
         return $this->package;
+    }
+
+    /**
+     * 设置是否使用泛化实例
+     * @param bool $boolean     使用为true,否则为false
+     * @return $this
+     */
+    public function setGeneralize($boolean=false)
+    {
+        $this->generalize = $boolean;
+        return $this;
+    }
+
+    /**
+     * 判断是否使用泛化实例
+     * @return bool
+     */
+    public function isGeneralize()
+    {
+        return $this->generalize;
     }
 
 }

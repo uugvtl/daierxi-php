@@ -1,6 +1,9 @@
 <?php
 namespace App\Creators\Generics\Queries;
 use App\Creators\BaseCreator;
+use App\Globals\Bases\Distributers\BaseService;
+use App\Helpers\InstanceHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,7 +15,11 @@ use App\Creators\BaseCreator;
  */
 class ServiceCreator extends BaseCreator
 {
-    public function createInstance($classname, ...$args)
+    public function create($classname, ...$args)
     {
+        $instanceHelper = InstanceHelper::getInstance();
+        $service = $instanceHelper->build(BaseService::class, $classname);
+
+        return $service->init($args)->setGenericInjecter($this->genericInjecter);
     }
 }

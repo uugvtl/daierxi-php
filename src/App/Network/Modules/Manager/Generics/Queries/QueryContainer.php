@@ -1,6 +1,10 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries;
+use App\Creators\BaseCreator;
+use App\Creators\Generics\Queries\ServiceCreator;
 use App\Globals\Bases\Generics\BaseContainer;
+use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,19 +16,16 @@ use App\Globals\Bases\Generics\BaseContainer;
  */
 class QueryContainer extends BaseContainer
 {
-//    /**
-//     * @var QueryFactory
-//     */
-//    protected $serviceFactory;
+    /**
+     * @var BaseCreator
+     */
+    private $serviceCreator;
 
     public function run()
     {
-//        $this->serviceFactory = $this->getSpread()?
-//            QueryFactory::getFactory(PackageConst::PACKAGE, $this->getSpread()):
-//            QueryFactory::getFactory(PackageConst::PACKAGE);
-//        $this->getSpread() || $this->serviceFactory->setBaseClass('QueryService');
-//
-//        $service = $this->serviceFactory->createInstance($this->distributer);
-//        return $service->launch();
+        $this->serviceCreator = ServiceCreator::getInstance();
+        $this->serviceCreator->init($this->getGenericInjecter());
+        $service = $this->serviceCreator->create(QueryService::class);
+        $service->run();
     }
 }

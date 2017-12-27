@@ -20,8 +20,7 @@ abstract class BaseCreator extends BaseSingle
      * @param array ...$args        扩展参数
      * @return mixed
      */
-    abstract public function createInstance($classname, ...$args);
-
+    abstract public function create($classname, ...$args);
 
     /**
      * @var GenericInjecter
