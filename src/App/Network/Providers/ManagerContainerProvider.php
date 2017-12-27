@@ -1,5 +1,7 @@
 <?php
 namespace App\Network\Providers;
+use App\Globals\Finals\Responder;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -37,17 +39,14 @@ abstract class ManagerContainerProvider extends CtrlContainerProvider
 //        return $container->launch();
 //    }
 //
-//    /**
-//     * 获取数据列表
-//     * @param array $condz
-//     * @return Result
-//     */
+    /**
+     * 获取数据列表
+     * @param array $condz
+     * @return Responder
+     */
 //    public function getQueryResult(array $condz= [])
 //    {
-//        $this->parameter->init($condz);
-//        $factory = QueryFactory::getFactory(QueryPackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(QueryPackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IQueryContainer */
-//        return $container->launch();
+//
 //    }
 //
 //

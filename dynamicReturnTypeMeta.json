@@ -1,0 +1,9 @@
+{
+  "methodCalls": [
+    {
+      "class": "\\App\\Libraries\\Creator",
+      "method": "make",
+      "position": 0
+    }
+  ]
+}

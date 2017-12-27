@@ -12,6 +12,4 @@ namespace App\Network\Modules\Manager\Generics\Queries;
 interface PackageConst
 {
     const PACKAGE = __NAMESPACE__;
-
-    const CONTAINER = 'QueryContainer';
 }

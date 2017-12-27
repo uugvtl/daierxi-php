@@ -23,7 +23,6 @@ class IndexController extends ModuleController
 
     public function indexAction()
     {
-        echo 'ok1';
     }
 
     public function storeAction()

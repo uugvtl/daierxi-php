@@ -31,7 +31,7 @@ interface IGenericable
      * @param GenericInjecter $injecter
      * @return $this
      */
-    public function cloneGenericInjecter(GenericInjecter $injecter);
+    public function setGenericInjecter(GenericInjecter $injecter);
 
     /**
      * @return GenericInjecter
