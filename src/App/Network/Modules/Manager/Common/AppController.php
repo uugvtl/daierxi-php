@@ -1,6 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Common;
+use App\Globals\Finals\Distributer;
 use App\Network\Modules\ModuleController;
+use App\Network\Providers\ManagerContainerProvider;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -25,10 +28,18 @@ abstract class AppController extends ModuleController
 //        return $resultBo->toggle;
 //    }
 //
-//    public function initialize()
-//    {
-//        $distributer = DispatcherFounder::getInstance($this->dispatcher, $this->dispatcher->getControllerName());
-//        $this->provider = ManagerContainerProvider::getInstance();
-//        $this->provider->setDistributer($distributer);
-//    }
+    public function initialize()
+    {
+        $dispatcher = $this->dispatcher;
+        $distributer = Distributer::getInstance();
+
+        $ctrlName   = $dispatcher->getControllerName();
+        $actName    = $dispatcher->getActionName();
+        $fileName   = $dispatcher->getControllerName();
+
+        $distributer->init($ctrlName, $actName, $fileName);
+
+        $this->provider = ManagerContainerProvider::getInstance();
+        $this->provider->init($distributer);
+    }
 }

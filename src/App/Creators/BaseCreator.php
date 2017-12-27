@@ -1,20 +1,28 @@
 <?php
-namespace App\Factories\Generics;
+namespace App\Creators;
 use App\Globals\Bases\BaseSingle;
 use App\Injecters\GenericInjecter;
 use InvalidArgumentException;
-
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 26/12/17
- * Time: 13:12
+ * Date: 28/12/17
+ * Time: 00:22
  *
- * Class BaseFactory
- * @package App\Factories\Generics
+ * Class BaseCreator
+ * @package App\Creators
  */
-abstract class BaseFactory extends BaseSingle
+abstract class BaseCreator extends BaseSingle
 {
+    /**
+     * 新建类实例
+     * @param string $classname     类的全名，例如BaseCreator::class 这样
+     * @param array ...$args        扩展参数
+     * @return mixed
+     */
+    abstract public function createInstance($classname, ...$args);
+
+
     /**
      * @var GenericInjecter
      */
@@ -30,10 +38,4 @@ abstract class BaseFactory extends BaseSingle
 
         return $this;
     }
-
-//    abstract public function createService();
-//
-//    abstract public function createRepository();
-//
-//    abstract public function createLogic();
 }

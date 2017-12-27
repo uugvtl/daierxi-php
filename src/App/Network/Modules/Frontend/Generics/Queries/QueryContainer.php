@@ -1,6 +1,8 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries;
 use App\Globals\Bases\Generics\BaseContainer;
+use App\Globals\Finals\Responder;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -19,6 +21,8 @@ class QueryContainer extends BaseContainer
 
     public function run()
     {
+
+        return Responder::getInstance();
 //        $this->serviceFactory = $this->getSpread()?
 //            QueryFactory::getFactory(PackageConst::PACKAGE, $this->getSpread()):
 //            QueryFactory::getFactory(PackageConst::PACKAGE);

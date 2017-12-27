@@ -1,9 +1,9 @@
 {
   "methodCalls": [
     {
-      "class": "\\App\\Libraries\\Creator",
-      "method": "make",
-      "position": 1
+      "class": "\\App\\Creators\\BaseCreator",
+      "method": "createInstance",
+      "position": 0
     }
   ]
 }

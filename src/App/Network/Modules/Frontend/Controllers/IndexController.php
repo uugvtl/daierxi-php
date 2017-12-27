@@ -1,8 +1,8 @@
 <?php
 namespace App\Network\Modules\Frontend\Controllers;
 use App\Globals\Finals\Responder;
-use App\Network\Modules\ModuleController;
-class IndexController extends ModuleController
+use App\Network\Modules\Frontend\Common\AppController;
+class IndexController extends AppController
 {
     public function tokenAction()
     {
@@ -23,6 +23,10 @@ class IndexController extends ModuleController
 
     public function indexAction()
     {
+        $condz = $this->getSearchParams();
+
+        $responder = $this->provider->getQueryResponder($condz);
+        $this->toJsonData($responder);
     }
 
     public function storeAction()
