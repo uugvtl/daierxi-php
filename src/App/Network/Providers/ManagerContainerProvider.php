@@ -1,9 +1,24 @@
 <?php
 namespace App\Network\Providers;
 use App\Globals\Finals\Responder;
-use App\Libraries\Creator;
+use App\Interfaces\Adapters\IShowAdapter;
+use App\Network\Modules\Manager\Generics\Creates\CreateContainer;
+use App\Network\Modules\Manager\Generics\Creates\PackageCreateConst;
+
+use App\Network\Modules\Manager\Generics\Exports\ExportContainer;
+use App\Network\Modules\Manager\Generics\Exports\PackageExportConst;
+
+use App\Network\Modules\Manager\Generics\Prints\PackagePrintConst;
+
+use App\Network\Modules\Manager\Generics\Prints\PrintContainer;
 use App\Network\Modules\Manager\Generics\Queries\PackageQueryConst;
 use App\Network\Modules\Manager\Generics\Queries\QueryContainer;
+
+use App\Network\Modules\Manager\Generics\Modifies\ModifyContainer;
+use App\Network\Modules\Manager\Generics\Modifies\PackageModifyConst;
+
+use App\Network\Modules\Manager\Generics\Removes\PackageRemoveConst;
+use App\Network\Modules\Manager\Generics\Removes\RemoveContainer;
 
 /**
  * Created by PhpStorm.
@@ -14,40 +29,49 @@ use App\Network\Modules\Manager\Generics\Queries\QueryContainer;
  * Class ManagerContainerProvider
  * @package App\Network\Providers
  */
-abstract class ManagerContainerProvider extends CtrlContainerProvider
+class ManagerContainerProvider extends CtrlContainerProvider
 {
-//    /**
-//     * 导出数据列表
-//     * @param array $condz
-//     * @return IExportAdapter
-//     */
-//    public function doExportResult(array $condz= [])
-//    {
-//        $this->parameter->init($condz);
-//        $factory = ExportFactory::getFactory(ExportPackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(ExportPackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IExportContainer */
-//        return $container->launch();
-//    }
-//
-//    /**
-//     * 显示打印数据
-//     * @param array $condz            需要删除数据主键列表
-//     * @return IPrintAdapter
-//     */
-//    public function doPrintResult(array $condz= [])
-//    {
-//        $this->parameter->init($condz);
-//        $factory = PrintFactory::getFactory(PrintPackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(PrintPackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IPrintContainer */
-//        return $container->launch();
-//    }
-//
+    /**
+     * 导出数据列表
+     * @param array $condz
+     * @return IShowAdapter
+     */
+    public function getExportAdapter(array $condz= [])
+    {
+        $this->parameter->init($condz);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackageExportConst::PACKAGE);
+
+        $container = ExportContainer::getInstance();
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+    }
+
+    /**
+     * 显示打印数据
+     * @param array $condz            需要删除数据主键列表
+     * @return IShowAdapter
+     */
+    public function getPrintAdapter(array $condz= [])
+    {
+        $this->parameter->init($condz);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackagePrintConst::PACKAGE);
+
+        $container = PrintContainer::getInstance();
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+    }
+
+
     /**
      * 获取数据列表
      * @param array $condz
      * @return Responder
      */
-    public function getQueryResult(array $condz= [])
+    public function getQueryResponder(array $condz= [])
     {
         $this->parameter->init($condz);
 
@@ -55,60 +79,77 @@ abstract class ManagerContainerProvider extends CtrlContainerProvider
         $this->genericInjecter->setParameter($this->parameter);
         $this->genericInjecter->setPackage(PackageQueryConst::PACKAGE);
 
-        $container = Creator::make(QueryContainer::class, QueryContainer::class);
+        $container = QueryContainer::getInstance();
         return $container->setGenericInjecter($this->genericInjecter)->run();
     }
 
 
-//    /**
-//     * 保存数据--当只有一组ID列表时使用
-//     * @param array $aId
-//     * @return Result
-//     */
-//    public function getPrimaryResult(array $aId)
-//    {
-//        $this->parameter->init($aId);
-//        $factory = FormFactory::getFactory(FormPackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(FormPackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IFormContainer */
-//        return $container->launch();
-//    }
-//
-//    /**
-//     * 新增数据--兼容多主键数据
-//     * @param array $posts                  需要保存的数据
-//     * @return Result
-//     */
-//    public function getCreateResult(array $posts)
-//    {
-//        $this->parameter->init($posts);
-//        $factory = FormFactory::getFactory(FormPackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(FormPackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IFormContainer */
-//        return $container->launch();
-//    }
-//
-//    /**
-//     * 更新数据--兼容多主键数据
-//     * @param array $posts                  需要保存的数据
-//     * @return Result
-//     */
-//    public function getCommitResult(array $posts)
-//    {
-//        $this->parameter->init($posts);
-//        $factory = FormFactory::getFactory(FormPackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(FormPackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IFormContainer */
-//        return $container->launch();
-//    }
-//
-//    /**
-//     * 删除数据
-//     * @param array $aId            需要删除数据主键列表
-//     * @return Result
-//     */
-//    public function getRemoveResult(array $aId=[])
-//    {
-//        $this->parameter->init($aId);
-//        $factory = RemoveFactory::getFactory(RemovePackageConst::PACKAGE, $this->getSpread());
-//        $container = $factory->setBaseClass(RemovePackageConst::CONTAINER)->createInstance($this->distributer);/* @var $container IRemoveContainer */
-//        return $container->launch();
-//    }
+    /**
+     * 保存数据--当只有一组ID列表时使用
+     * @param array $aId
+     * @return Responder
+     */
+    public function getPrimaryResponder(array $aId)
+    {
+        $this->parameter->init($aId);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackageModifyConst::PACKAGE);
+
+        $container = ModifyContainer::getInstance();
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+
+    }
+
+    /**
+     * 新增数据--兼容多主键数据
+     * @param array $posts                  需要保存的数据
+     * @return Responder
+     */
+    public function getCreateResponder(array $posts)
+    {
+        $this->parameter->init($posts);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackageCreateConst::PACKAGE);
+
+        $container = CreateContainer::getInstance();
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+    }
+
+    /**
+     * 更新数据--兼容多主键数据
+     * @param array $posts                  需要保存的数据
+     * @return Responder
+     */
+    public function getCommitResponder(array $posts)
+    {
+        $this->parameter->init($posts);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackageModifyConst::PACKAGE);
+
+        $container = ModifyContainer::getInstance();
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+    }
+
+    /**
+     * 删除数据
+     * @param array $aId            需要删除数据主键列表
+     * @return Responder
+     */
+    public function getDeleteResponder(array $aId=[])
+    {
+        $this->parameter->init($aId);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackageRemoveConst::PACKAGE);
+
+        $container = RemoveContainer::getInstance();
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+    }
 }

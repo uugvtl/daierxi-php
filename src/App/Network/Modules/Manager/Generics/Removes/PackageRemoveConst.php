@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Deletes;
+namespace App\Network\Modules\Manager\Generics\Removes;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +9,7 @@ namespace App\Network\Modules\Manager\Generics\Deletes;
  * Interface PackageDeleteConst
  * @package App\Network\Modules\Manager\Generics\Deletes
  */
-interface PackageDeleteConst
+interface PackageRemoveConst
 {
     const PACKAGE = __NAMESPACE__;
 }

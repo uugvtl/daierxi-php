@@ -14,7 +14,6 @@ use App\Interfaces\Adapters\IShowAdapter;
  */
 interface INetContainerProvider extends IMockContainerProvider
 {
-
     /**
      * 导出数据列表
      * @param array $condz
@@ -62,5 +61,5 @@ interface INetContainerProvider extends IMockContainerProvider
      * @param array $aId            需要删除数据主键列表
      * @return Responder
      */
-    public function getRemoveResponder(array $aId);
+    public function getDeleteResponder(array $aId);
 }
