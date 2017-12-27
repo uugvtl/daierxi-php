@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Providers;
 use App\Interfaces\Providers\INetContainerProvider;
-use App\Providers\FrameContainerProvider;
+use App\Providers\BaseContainerProvider;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,4 +11,4 @@ use App\Providers\FrameContainerProvider;
  * Class ContainerProvider
  * @package App\Network\Providers
  */
-abstract class CtrlContainerProvider extends FrameContainerProvider implements INetContainerProvider{}
+abstract class CtrlContainerProvider extends BaseContainerProvider implements INetContainerProvider{}

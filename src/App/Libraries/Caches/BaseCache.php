@@ -49,7 +49,7 @@ abstract class BaseCache extends BaseSingle
         if($cache instanceof BackendInterface)
             $this->cache    = $cache;
         else
-            throw new InvalidArgumentException('tripleInteger function only accepts BackendInterface. Input was: '.$cache);
+            throw new InvalidArgumentException('tripleInteger function only accepts Interface BackendInterface. Input was: '.$cache);
 
         return $this;
     }

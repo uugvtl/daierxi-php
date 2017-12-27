@@ -14,10 +14,13 @@ abstract class Creator
     /**
      * 创造类实例
      * @param string $classname     类的全名
+     * @param array ...$args        参数
      * @return mixed
+     *
      */
-    public static function make($classname)
+    public static function make($classname, ...$args)
     {
+        unset($args);
         return call_user_func(array($classname, 'getInstance'));
     }
 }

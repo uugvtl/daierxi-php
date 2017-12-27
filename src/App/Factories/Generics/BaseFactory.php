@@ -1,6 +1,9 @@
 <?php
 namespace App\Factories\Generics;
 use App\Globals\Bases\BaseSingle;
+use App\Injecters\GenericInjecter;
+use InvalidArgumentException;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,4 +15,25 @@ use App\Globals\Bases\BaseSingle;
  */
 abstract class BaseFactory extends BaseSingle
 {
+    /**
+     * @var GenericInjecter
+     */
+    protected $genericInjecter;
+
+    public function init(...$args)
+    {
+        $injecter = $args[0];
+        if($injecter instanceof GenericInjecter)
+            $this->genericInjecter = $args[0];
+        else
+            throw new InvalidArgumentException('tripleInteger function only accepts Class GenericInjecter. Input was: '.$injecter);
+
+        return $this;
+    }
+
+    abstract public function createService();
+    
+    abstract public function createRepository();
+
+    abstract public function createLogic();
 }

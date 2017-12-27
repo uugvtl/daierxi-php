@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries;
+namespace App\Network\Modules\Manager\Generics\Updates;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +9,7 @@ namespace App\Network\Modules\Manager\Generics\Queries;
  * Interface PackageConst
  * @package App\Network\Modules\Manager\Generics\Queries
  */
-interface PackageConst
+interface PackageUpdateConst
 {
     const PACKAGE = __NAMESPACE__;
 }

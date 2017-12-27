@@ -1,7 +1,9 @@
 <?php
 namespace App\Globals\Bases\Generics;
 use App\Globals\Bases\BaseGeneric;
+use App\Globals\Bases\Distributers\BaseService;
 use App\Interfaces\IRunnable;
+use App\Libraries\Creator;
 
 /**
  * Created by PhpStorm.
@@ -14,4 +16,9 @@ use App\Interfaces\IRunnable;
  */
 abstract class BaseContainer extends BaseGeneric implements IRunnable
 {
+    protected function createService()
+    {
+        $this->getGenericInjecter()->getDistributer()->getPath();
+        Creator::make('', BaseService::class);
+    }
 }

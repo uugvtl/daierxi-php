@@ -1,6 +1,9 @@
 <?php
 namespace App\Network\Providers;
 use App\Globals\Finals\Responder;
+use App\Libraries\Creator;
+use App\Network\Modules\Manager\Generics\Queries\PackageQueryConst;
+use App\Network\Modules\Manager\Generics\Queries\QueryContainer;
 
 /**
  * Created by PhpStorm.
@@ -44,12 +47,19 @@ abstract class ManagerContainerProvider extends CtrlContainerProvider
      * @param array $condz
      * @return Responder
      */
-//    public function getQueryResult(array $condz= [])
-//    {
-//
-//    }
-//
-//
+    public function getQueryResult(array $condz= [])
+    {
+        $this->parameter->init($condz);
+
+        $this->genericInjecter->setDistributer($this->distributer);
+        $this->genericInjecter->setParameter($this->parameter);
+        $this->genericInjecter->setPackage(PackageQueryConst::PACKAGE);
+
+        $container = Creator::make(QueryContainer::class, QueryContainer::class);
+        return $container->setGenericInjecter($this->genericInjecter)->run();
+    }
+
+
 //    /**
 //     * 保存数据--当只有一组ID列表时使用
 //     * @param array $aId

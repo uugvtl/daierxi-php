@@ -25,7 +25,7 @@ class GenericInjecter extends BaseClass
      * 产生泛化类的基类名称
      * @var string
      */
-    private $baseClass;
+    private $baseFile;
 
     /**
      * @var Distributer
@@ -82,15 +82,14 @@ class GenericInjecter extends BaseClass
         return $this->parameter;
     }
 
-
     /**
      * 设置泛化类基类的名称
-     * @param string $baseClass
+     * @param string $baseFile
      * @return $this
      */
-    public function setBaseClass($baseClass)
+    public function setBaseFile($baseFile)
     {
-        $this->baseClass = $baseClass;
+        $this->baseFile = $baseFile;
         return $this;
     }
 
@@ -98,9 +97,9 @@ class GenericInjecter extends BaseClass
      * 获取泛化类基类的名称
      * @return string
      */
-    public function getBaseClass()
+    public function getBaseFile()
     {
-        return $this->baseClass;
+        return $this->baseFile;
     }
 
     /**
@@ -122,4 +121,5 @@ class GenericInjecter extends BaseClass
     {
         return $this->package;
     }
+
 }
