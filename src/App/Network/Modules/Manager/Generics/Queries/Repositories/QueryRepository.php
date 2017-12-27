@@ -2,6 +2,7 @@
 namespace App\Network\Modules\Manager\Generics\Queries\Repositories;
 use App\Creators\BaseCreator;
 use App\Creators\Generics\Queries\LogicCreator;
+use App\Creators\Sqlangs\QueryCreator;
 use App\Globals\Bases\Generics\BaseRepository;
 use App\Network\Modules\Manager\Generics\Queries\Logics\QueryLogic;
 
@@ -21,12 +22,23 @@ class QueryRepository extends BaseRepository
      */
     private $logicCreator;
 
+    /**
+     * @var BaseCreator
+     */
+    private $sqlangCreator;
 
-    public function run()
+    protected function afterInstance()
     {
         $this->logicCreator = LogicCreator::getInstance();
         $this->logicCreator->init($this->getGenericInjecter());
 
+        $this->sqlangCreator = QueryCreator::getInstance();
+        $this->sqlangCreator->init($this->getGenericInjecter());
+    }
+
+
+    public function run()
+    {
         $logic = $this->logicCreator->create(QueryLogic::class);
         $logic->run();
     }

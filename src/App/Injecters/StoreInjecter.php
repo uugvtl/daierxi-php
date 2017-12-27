@@ -1,9 +1,9 @@
 <?php
 namespace App\Injecters;
 use App\Globals\Bases\BaseClass;
-use App\Globals\Bases\Generics\Sqlangs\BaseFields;
-use App\Globals\Bases\Generics\Sqlangs\BaseTable;
-use App\Globals\Bases\Generics\Sqlangs\BaseWhere;
+use App\Globals\Bases\Sqlangs\BaseFields;
+use App\Globals\Bases\Sqlangs\BaseTable;
+use App\Globals\Bases\Sqlangs\BaseWhere;
 use App\Globals\Finals\PageSlice;
 
 /**
