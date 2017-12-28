@@ -13,4 +13,14 @@ use App\Globals\Bases\BaseGeneric;
 abstract class GenericService extends BaseGeneric
 {
 
+    /**
+     * @return GenericRepository
+     */
+    abstract protected function createRepository();
+
+    /**
+     * @return GenericLogic
+     */
+    abstract protected function createLogic();
+
 }

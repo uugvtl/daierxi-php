@@ -36,7 +36,7 @@ class QueryContainer extends GenericContainer
             $package = $genericInjecter->getPackage();
             $path = $genericInjecter->getDistributer()->getPath();
 
-            $classname = $package.BACKSLASH.$path;
+            $classname = $package.BACKSLASH.$path.'Service';
 
             $service = $instanceHelper->build(QueryService::class, $classname);
         }

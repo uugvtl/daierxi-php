@@ -22,12 +22,9 @@ class IndexContainerTest extends UnitTestCase
             $distributer->init('Index', 'Index', 'Index');
         /** act */
             $provider = FrontendContainerProvider::getInstance();
-            $provider->init($distributer);
+            $provider->init($distributer);//->setGeneralize(YES);
         /** assert */
             $resultBo = $provider->getQueryResponder($params);
-            $this->assertTrue($resultBo->toggle);
-            $this->assertGreaterThan(0, $resultBo->total);
+            $this->assertFalse($resultBo->toggle);
     }
 }
-
-//'Goods\Cate', 'Index', 'Cate'

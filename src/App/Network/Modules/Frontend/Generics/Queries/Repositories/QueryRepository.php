@@ -1,10 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Repositories;
-use App\Creators\BaseCreator;
-use App\Creators\Generics\Queries\LogicCreator;
-use App\Creators\Sqlangs\QueryCreator;
+use App\Globals\Finals\Responder;
 use App\Network\Generics\Queries\GenericRepository;
-use App\Network\Modules\Manager\Generics\Queries\Logics\QueryLogic;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,30 +13,29 @@ use App\Network\Modules\Manager\Generics\Queries\Logics\QueryLogic;
  */
 class QueryRepository extends GenericRepository
 {
-    /**
-     * @var BaseCreator
-     */
-    private $logicCreator;
-
-    /**
-     * @var BaseCreator
-     */
-    private $sqlangCreator;
-
-    protected function afterInstance()
-    {
-        $this->logicCreator = LogicCreator::getInstance();
-        $this->logicCreator->init($this->getGenericInjecter());
-
-        $this->sqlangCreator = QueryCreator::getInstance();
-        $this->sqlangCreator->init($this->getGenericInjecter());
-    }
+//    /**
+//     * @var BaseCreator
+//     */
+//    private $logicCreator;
+//
+//    /**
+//     * @var BaseCreator
+//     */
+//    private $sqlangCreator;
+//
+//    protected function afterInstance()
+//    {
+//        $this->logicCreator = LogicCreator::getInstance();
+//        $this->logicCreator->init($this->getGenericInjecter());
+//
+//        $this->sqlangCreator = QueryCreator::getInstance();
+//        $this->sqlangCreator->init($this->getGenericInjecter());
+//    }
 
 
     public function run()
     {
-        $logic = $this->logicCreator->create(QueryLogic::class);
-        $logic->run();
+        return Responder::getInstance();
     }
 
     /**
