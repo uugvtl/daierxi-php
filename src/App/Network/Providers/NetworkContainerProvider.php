@@ -14,7 +14,7 @@ use App\Providers\BaseContainerProvider;
  * Class ContainerProvider
  * @package App\Network\Providers
  */
-abstract class NetContainerProvider extends BaseContainerProvider implements INetContainerProvider
+abstract class NetworkContainerProvider extends BaseContainerProvider implements INetContainerProvider
 {
     /**
      * 产生 container 容器

@@ -24,7 +24,7 @@ use App\Network\Modules\Frontend\Generics\Removes\RemoveContainer;
  * Class FrontContainerProvider
  * @package App\Network\Providers
  */
-class FrontendContainerProvider extends NetContainerProvider
+class FrontendContainerProvider extends NetworkContainerProvider
 {
     /**
      * 导出数据列表

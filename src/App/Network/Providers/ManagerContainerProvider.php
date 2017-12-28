@@ -29,7 +29,7 @@ use App\Network\Modules\Manager\Generics\Removes\RemoveContainer;
  * Class ManagerContainerProvider
  * @package App\Network\Providers
  */
-class ManagerContainerProvider extends NetContainerProvider
+class ManagerContainerProvider extends NetworkContainerProvider
 {
     /**
      * 导出数据列表
