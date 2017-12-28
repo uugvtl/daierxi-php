@@ -6,7 +6,6 @@ use App\Globals\Finals\Parameter;
 use App\Injecters\GenericInjecter;
 use App\Interfaces\Providers\IMockContainerProvider;
 use InvalidArgumentException;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -28,10 +27,6 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
      */
     protected $parameter;
 
-    /**
-     * @var GenericInjecter
-     */
-    protected $genericInjecter;
 
     public function init(...$args)
     {
@@ -43,9 +38,16 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
             throw new InvalidArgumentException('tripleInteger function only accepts Class Distributer. Input was: '.$distributer);
 
         $this->parameter = Parameter::getInstance();
-        $this->genericInjecter = GenericInjecter::getInstance();
 
         return $this;
+    }
+
+    /**
+     * @return GenericInjecter
+     */
+    protected function createGenericInjecter()
+    {
+        return GenericInjecter::getInstance();
     }
 
 }

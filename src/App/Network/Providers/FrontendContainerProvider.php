@@ -35,12 +35,14 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($condz);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackageExportConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackageExportConst::PACKAGE);
 
         $container = ExportContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
     }
 
     /**
@@ -52,12 +54,14 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($condz);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackagePrintConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackagePrintConst::PACKAGE);
 
         $container = PrintContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
     }
 
 
@@ -70,12 +74,14 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($condz);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackageQueryConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackageQueryConst::PACKAGE);
 
         $container = QueryContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
     }
 
 
@@ -88,12 +94,14 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($aId);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackageModifyConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackageModifyConst::PACKAGE);
 
         $container = ModifyContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
 
     }
 
@@ -106,12 +114,14 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($posts);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackageCreateConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackageCreateConst::PACKAGE);
 
         $container = CreateContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
     }
 
     /**
@@ -123,12 +133,14 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($posts);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackageModifyConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackageModifyConst::PACKAGE);
 
         $container = ModifyContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
     }
 
     /**
@@ -140,11 +152,13 @@ class FrontendContainerProvider extends CtrlContainerProvider
     {
         $this->parameter->init($aId);
 
-        $this->genericInjecter->setDistributer($this->distributer);
-        $this->genericInjecter->setParameter($this->parameter);
-        $this->genericInjecter->setPackage(PackageRemoveConst::PACKAGE);
+        $genericInjecter = $this->createGenericInjecter();
+
+        $genericInjecter->setDistributer($this->distributer);
+        $genericInjecter->setParameter($this->parameter);
+        $genericInjecter->setPackage(PackageRemoveConst::PACKAGE);
 
         $container = RemoveContainer::getInstance();
-        return $container->setGenericInjecter($this->genericInjecter)->run();
+        return $container->setGenericInjecter($genericInjecter)->run();
     }
 }

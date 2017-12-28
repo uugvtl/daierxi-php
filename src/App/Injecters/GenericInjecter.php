@@ -27,12 +27,6 @@ class GenericInjecter extends BaseClass
     private $package;
 
     /**
-     * 产生泛化类的基类名称
-     * @var string
-     */
-    private $baseFile;
-
-    /**
      * @var Distributer
      */
     private $distributer;
@@ -87,25 +81,6 @@ class GenericInjecter extends BaseClass
         return $this->parameter;
     }
 
-    /**
-     * 设置泛化类基类的名称
-     * @param string $baseFile
-     * @return $this
-     */
-    public function setBaseFile($baseFile)
-    {
-        $this->baseFile = $baseFile;
-        return $this;
-    }
-
-    /**
-     * 获取泛化类基类的名称
-     * @return string
-     */
-    public function getBaseFile()
-    {
-        return $this->baseFile;
-    }
 
     /**
      * 设置泛化类基类所在的包名称
@@ -142,7 +117,7 @@ class GenericInjecter extends BaseClass
      * 判断是否使用泛化实例
      * @return bool
      */
-    public function isGeneralize()
+    public function hasGeneralize()
     {
         return $this->generalize;
     }
