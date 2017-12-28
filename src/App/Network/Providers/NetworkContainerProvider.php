@@ -36,6 +36,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
         $genericInjecter->setDistributer($distributer);
         $genericInjecter->setParameter($parameter);
         $genericInjecter->setPackage($package);
+        $genericInjecter->setGeneralize($this->hasGeneralize());
 
         $instanceHelper = InstanceHelper::getInstance();
         $container = $instanceHelper->build(GenericContainer::class, $classname);

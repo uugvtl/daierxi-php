@@ -1,7 +1,8 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries;
-use App\Globals\Finals\Responder;
+use App\Helpers\InstanceHelper;
 use App\Network\Generics\GenericContainer;
+use App\Network\Modules\Frontend\Generics\Queries\Services\QueryService;
 
 /**
  * Created by PhpStorm.
@@ -14,21 +15,37 @@ use App\Network\Generics\GenericContainer;
  */
 class QueryContainer extends GenericContainer
 {
-//    /**
-//     * @var QueryFactory
-//     */
-//    protected $serviceFactory;
-
     public function run()
     {
+        $service = $this->createService();
+        return $service->run();
 
-        return Responder::getInstance();
-//        $this->serviceFactory = $this->getSpread()?
-//            QueryFactory::getFactory(PackageConst::PACKAGE, $this->getSpread()):
-//            QueryFactory::getFactory(PackageConst::PACKAGE);
-//        $this->getSpread() || $this->serviceFactory->setBaseClass('QueryService');
-//
-//        $service = $this->serviceFactory->createInstance($this->distributer);
-//        return $service->launch();
+    }
+
+    /**
+     * @return QueryService
+     */
+    protected function createService()
+    {
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $genericInjecter = $this->getGenericInjecter()->getClone();
+
+        if($genericInjecter->hasGeneralize())
+        {
+            $package = $genericInjecter->getPackage();
+            $path = $genericInjecter->getDistributer()->getPath();
+
+            $classname = $package.BACKSLASH.$path;
+
+            $service = $instanceHelper->build(QueryService::class, $classname);
+        }
+        else
+        {
+
+            $service = $instanceHelper->build(QueryService::class, QueryService::class);
+        }
+
+        return $service->setGenericInjecter($genericInjecter);
     }
 }

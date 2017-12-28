@@ -14,13 +14,8 @@ use App\Interfaces\IRunnable;
 abstract class GenericContainer extends BaseGeneric implements IRunnable
 {
 
-    protected function createService()
-    {
-        $this->getGenericInjecter();
-
-//        $this->serviceCreator = ServiceCreator::getInstance();
-//        $this->serviceCreator->init($this->getGenericInjecter());
-//        $service = $this->serviceCreator->create(QueryService::class);
-//        $service->run();
-    }
+    /**
+     * @return mixed
+     */
+    abstract protected function createService();
 }

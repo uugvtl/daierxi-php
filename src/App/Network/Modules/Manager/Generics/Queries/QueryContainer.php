@@ -1,7 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries;
-use App\Creators\BaseCreator;
-use App\Creators\Generics\Queries\ServiceCreator;
+use App\Helpers\InstanceHelper;
 use App\Network\Generics\GenericContainer;
 use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
 /**
@@ -15,16 +14,38 @@ use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
  */
 class QueryContainer extends GenericContainer
 {
-    /**
-     * @var BaseCreator
-     */
-    private $serviceCreator;
 
     public function run()
     {
-        $this->serviceCreator = ServiceCreator::getInstance();
-        $this->serviceCreator->init($this->getGenericInjecter());
-        $service = $this->serviceCreator->create(QueryService::class);
-        $service->run();
+        $service = $this->createService();
+        return $service->run();
+
+    }
+
+    /**
+     * @return QueryService
+     */
+    protected function createService()
+    {
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $genericInjecter = $this->getGenericInjecter()->getClone();
+
+        if($genericInjecter->hasGeneralize())
+        {
+            $package = $genericInjecter->getPackage();
+            $path = $genericInjecter->getDistributer()->getPath();
+
+            $classname = $package.BACKSLASH.$path;
+
+            $service = $instanceHelper->build(QueryService::class, $classname);
+        }
+        else
+        {
+
+            $service = $instanceHelper->build(QueryService::class, QueryService::class);
+        }
+
+        return $service->setGenericInjecter($genericInjecter);
     }
 }

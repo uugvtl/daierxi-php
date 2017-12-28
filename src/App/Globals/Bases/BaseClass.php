@@ -43,6 +43,9 @@ abstract class BaseClass
         return $me;
     }
 
+    /**
+     * @return static
+     */
     public function getClone()
     {
         return clone $this;

@@ -11,7 +11,7 @@ set_include_path(
 );
 
 require_once SRC_PATH . '/deploy/const/unittest.php';
-require_once SCAFFOLD_PATH. '/loaders/network/loader.php';
+require_once DEPLOY_PATH. '/loader.php';                                            //载入loader配置文件
 
 // Required for phalcon/incubator
-require_once __DIR__ . "/../unittests/vendor/autoload.php";
+require_once __DIR__ . "/../utils/vendor/autoload.php";
