@@ -14,20 +14,6 @@ use App\Injecters\GenericInjecter;
 interface IGenericable
 {
     /**
-     * 设置是否使用泛化实例
-     * @param bool $boolean     使用为true,否则为false
-     * @return $this
-     */
-    public function setGeneralize($boolean=false);
-
-    /**
-     * 判断是否使用泛化实例
-     * @return bool
-     */
-    public function isGeneralize();
-
-
-    /**
      * @param GenericInjecter $injecter
      * @return $this
      */

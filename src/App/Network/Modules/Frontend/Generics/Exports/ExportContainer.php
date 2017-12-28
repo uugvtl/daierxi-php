@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Exports;
-use App\Globals\Bases\Generics\BaseContainer;
+use App\Network\Generics\GenericContainer;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +11,7 @@ use App\Globals\Bases\Generics\BaseContainer;
  * Class ExportContainer
  * @package App\Network\Modules\Frontend\Generics\Exports
  */
-class ExportContainer extends BaseContainer
+class ExportContainer extends GenericContainer
 {
     public function run()
     {

@@ -5,53 +5,55 @@ use App\Helpers\SqlHelper;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 8/8/17
- * Time: 16:18
+ * Date: 15/8/17
+ * Time: 03:12
  *
- * Class DeleteStore
+ * Class UpdateStore
  * @package App\Globals\Stores
  */
-class DeleteStore extends FormStore
+class ModifyStore extends FormStore
 {
-
     /**
-     * 带事务删除
+     * 带事务更新
      * @return int
      */
     public function commit()
     {
         $sqlHelper = SqlHelper::getInstance();
-
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
         $tableInstance  = $this->getStoreInjecter()->getTableInstance();
         $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
+        $fields     = $fieldsInstance->getFields();
+        $original   = $fieldsInstance->getOriginal();
+
         $table = $tableInstance->getJoinTable();
-        $alias = $tableInstance->getAliasTable();
         $where = $whereInstance->get();
 
-
-        $sql = $sqlHelper->getDeleteString($table, $where, $alias);
+        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
         $numbers = $this->cache->getDao()->commit($sql);
         $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
         return $numbers;
     }
 
     /**
-     * 无事务删除--需要手动开启事务
+     * 无事务更新--需要手动开启事务
      * @return int
      */
     public function submit()
     {
         $sqlHelper = SqlHelper::getInstance();
 
+        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
         $tableInstance  = $this->getStoreInjecter()->getTableInstance();
         $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
 
-        $table = $tableInstance->getJoinTable();
-        $alias = $tableInstance->getAliasTable();
-        $where = $whereInstance->get();
+        $fields     = $fieldsInstance->getFields();
+        $original   = $fieldsInstance->getOriginal();
+        $table      = $tableInstance->getJoinTable();
+        $where      = $whereInstance->get();
 
-        $sql = $sqlHelper->getDeleteString($table, $where, $alias);
+        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
         $numbers = $this->cache->getDao()->submit($sql);
         $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
         return $numbers;

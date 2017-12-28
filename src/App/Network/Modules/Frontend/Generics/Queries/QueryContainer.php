@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries;
-use App\Globals\Bases\Generics\BaseContainer;
 use App\Globals\Finals\Responder;
+use App\Network\Generics\GenericContainer;
 
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ use App\Globals\Finals\Responder;
  * Class QueryContainer
  * @package App\Network\Modules\Frontend\Generics\Queries
  */
-class QueryContainer extends BaseContainer
+class QueryContainer extends GenericContainer
 {
 //    /**
 //     * @var QueryFactory

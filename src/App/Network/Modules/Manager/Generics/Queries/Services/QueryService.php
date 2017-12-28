@@ -2,7 +2,7 @@
 namespace App\Network\Modules\Manager\Generics\Queries\Services;
 use App\Creators\BaseCreator;
 use App\Creators\Generics\Queries\RepositoryCreator;
-use App\Globals\Bases\Distributers\BaseService;
+use App\Network\Generics\Queries\GenericService;
 use App\Network\Modules\Manager\Generics\Queries\Repositories\QueryRepository;
 /**
  * Created by PhpStorm.
@@ -13,7 +13,7 @@ use App\Network\Modules\Manager\Generics\Queries\Repositories\QueryRepository;
  * Class QueryService
  * @package App\Network\Modules\Manager\Generics\Queries\Services
  */
-class QueryService extends BaseService
+class QueryService extends GenericService
 {
 
     /**

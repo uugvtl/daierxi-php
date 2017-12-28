@@ -38,8 +38,13 @@ abstract class BaseClass
      */
     public static function getInstance()
     {
-        $me = new static();/* @var $me static */
+        $me = new static();
         $me->afterInstance();
         return $me;
+    }
+
+    public function getClone()
+    {
+        return clone $this;
     }
 }

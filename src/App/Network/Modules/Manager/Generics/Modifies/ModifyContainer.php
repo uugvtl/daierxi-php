@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies;
-use App\Globals\Bases\Generics\BaseContainer;
+use App\Network\Generics\GenericContainer;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +11,7 @@ use App\Globals\Bases\Generics\BaseContainer;
  * Class ModifyContainer
  * @package App\Network\Modules\Manager\Generics\Modifies
  */
-class ModifyContainer extends BaseContainer
+class ModifyContainer extends GenericContainer
 {
     public function run()
     {

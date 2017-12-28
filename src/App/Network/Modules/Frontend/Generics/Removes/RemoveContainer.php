@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Removes;
-use App\Globals\Bases\Generics\BaseContainer;
+use App\Network\Generics\GenericContainer;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Globals\Bases\Generics\BaseContainer;
  * Class RemoveContainer
  * @package App\Network\Modules\Frontend\Generics\Removes
  */
-class RemoveContainer extends BaseContainer
+class RemoveContainer extends GenericContainer
 {
     public function run()
     {

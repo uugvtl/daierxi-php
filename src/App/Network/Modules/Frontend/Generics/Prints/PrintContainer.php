@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Prints;
-use App\Globals\Bases\Generics\BaseContainer;
+use App\Network\Generics\GenericContainer;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +11,7 @@ use App\Globals\Bases\Generics\BaseContainer;
  * Class PrintContainer
  * @package App\Network\Modules\Frontend\Generics\Prints
  */
-class PrintContainer extends BaseContainer
+class PrintContainer extends GenericContainer
 {
     public function run()
     {

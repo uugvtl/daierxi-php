@@ -2,9 +2,8 @@
 namespace App\Network\Modules\Manager\Generics\Queries;
 use App\Creators\BaseCreator;
 use App\Creators\Generics\Queries\ServiceCreator;
-use App\Globals\Bases\Generics\BaseContainer;
+use App\Network\Generics\GenericContainer;
 use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,7 +13,7 @@ use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
  * Class QueryContainer
  * @package App\Network\Modules\Manager\Generics\Queries
  */
-class QueryContainer extends BaseContainer
+class QueryContainer extends GenericContainer
 {
     /**
      * @var BaseCreator

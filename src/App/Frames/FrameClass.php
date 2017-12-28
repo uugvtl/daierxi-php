@@ -35,4 +35,9 @@ abstract class FrameClass extends Plugin
         $me->afterInstance();
         return $me;
     }
+
+    public function getClone()
+    {
+        return clone $this;
+    }
 }

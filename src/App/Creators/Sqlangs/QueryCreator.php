@@ -1,7 +1,6 @@
 <?php
 namespace App\Creators\Sqlangs;
 use App\Creators\BaseCreator;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,6 +14,11 @@ class QueryCreator extends BaseCreator
 {
     public function create($classname, ...$args)
     {
+//        $instanceHelper = InstanceHelper::getInstance();
+//        $store = $instanceHelper->build(SelectStore::class, $classname);
 
+//        return $store->setStoreInjecter();
+
+//        return $service->init($args)->setGenericInjecter($this->genericInjecter);
     }
 }

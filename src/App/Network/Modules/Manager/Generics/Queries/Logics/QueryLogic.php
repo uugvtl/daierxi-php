@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Logics;
-use App\Globals\Bases\Distributers\BaseLogic;
+use App\Network\Generics\Queries\GenericLogic;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Globals\Bases\Distributers\BaseLogic;
  * Class QueryLogic
  * @package App\Network\Modules\Manager\Generics\Queries\Logics
  */
-class QueryLogic extends BaseLogic
+class QueryLogic extends GenericLogic
 {
 
     public function run()

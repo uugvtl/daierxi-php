@@ -3,9 +3,8 @@ namespace App\Network\Modules\Manager\Generics\Queries\Repositories;
 use App\Creators\BaseCreator;
 use App\Creators\Generics\Queries\LogicCreator;
 use App\Creators\Sqlangs\QueryCreator;
-use App\Globals\Bases\Generics\BaseRepository;
+use App\Network\Generics\Queries\GenericRepository;
 use App\Network\Modules\Manager\Generics\Queries\Logics\QueryLogic;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,7 +14,7 @@ use App\Network\Modules\Manager\Generics\Queries\Logics\QueryLogic;
  * Class QueryRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Repositories
  */
-class QueryRepository extends BaseRepository
+class QueryRepository extends GenericRepository
 {
     /**
      * @var BaseCreator
