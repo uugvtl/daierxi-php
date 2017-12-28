@@ -24,7 +24,7 @@ use App\Network\Modules\Frontend\Generics\Removes\RemoveContainer;
  * Class FrontContainerProvider
  * @package App\Network\Providers
  */
-class FrontendContainerProvider extends CtrlContainerProvider
+class FrontendContainerProvider extends NetContainerProvider
 {
     /**
      * 导出数据列表
@@ -33,16 +33,8 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getExportAdapter(array $condz= [])
     {
-        $this->parameter->init($condz);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackageExportConst::PACKAGE);
-
-        $container = ExportContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
+        $container = $this->createContainer($condz, PackageExportConst::PACKAGE, ExportContainer::class);
+        return $container->run();
     }
 
     /**
@@ -52,16 +44,8 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getPrintAdapter(array $condz= [])
     {
-        $this->parameter->init($condz);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackagePrintConst::PACKAGE);
-
-        $container = PrintContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
+        $container = $this->createContainer($condz, PackagePrintConst::PACKAGE, PrintContainer::class);
+        return $container->run();
     }
 
 
@@ -72,16 +56,8 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getQueryResponder(array $condz= [])
     {
-        $this->parameter->init($condz);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackageQueryConst::PACKAGE);
-
-        $container = QueryContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
+        $container = $this->createContainer($condz, PackageQueryConst::PACKAGE, QueryContainer::class);
+        return $container->run();
     }
 
 
@@ -92,17 +68,8 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getPrimaryResponder(array $aId)
     {
-        $this->parameter->init($aId);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackageModifyConst::PACKAGE);
-
-        $container = ModifyContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
-
+        $container = $this->createContainer($aId, PackageModifyConst::PACKAGE, ModifyContainer::class);
+        return $container->run();
     }
 
     /**
@@ -112,16 +79,8 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getCreateResponder(array $posts)
     {
-        $this->parameter->init($posts);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackageCreateConst::PACKAGE);
-
-        $container = CreateContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
+        $container = $this->createContainer($posts, PackageCreateConst::PACKAGE, CreateContainer::class);
+        return $container->run();
     }
 
     /**
@@ -131,16 +90,8 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getCommitResponder(array $posts)
     {
-        $this->parameter->init($posts);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackageModifyConst::PACKAGE);
-
-        $container = ModifyContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
+        $container = $this->createContainer($posts, PackageModifyConst::PACKAGE, ModifyContainer::class);
+        return $container->run();
     }
 
     /**
@@ -150,15 +101,7 @@ class FrontendContainerProvider extends CtrlContainerProvider
      */
     public function getDeleteResponder(array $aId=[])
     {
-        $this->parameter->init($aId);
-
-        $genericInjecter = $this->createGenericInjecter();
-
-        $genericInjecter->setDistributer($this->distributer);
-        $genericInjecter->setParameter($this->parameter);
-        $genericInjecter->setPackage(PackageRemoveConst::PACKAGE);
-
-        $container = RemoveContainer::getInstance();
-        return $container->setGenericInjecter($genericInjecter)->run();
+        $container = $this->createContainer($aId, PackageRemoveConst::PACKAGE, RemoveContainer::class);
+        return $container->run();
     }
 }

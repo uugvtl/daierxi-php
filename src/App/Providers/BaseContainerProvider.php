@@ -3,7 +3,6 @@ namespace App\Providers;
 use App\Globals\Bases\BaseSingle;
 use App\Globals\Finals\Distributer;
 use App\Globals\Finals\Parameter;
-use App\Injecters\GenericInjecter;
 use App\Interfaces\Providers\IMockContainerProvider;
 use InvalidArgumentException;
 /**
@@ -20,12 +19,17 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
     /**
      * @var Distributer
      */
-    protected $distributer;
+    private $distributer;
 
     /**
      * @var Parameter
      */
-    protected $parameter;
+    private $parameter;
+
+    /**
+     * @var boolean
+     */
+    private $generalize;
 
 
     public function init(...$args)
@@ -43,11 +47,39 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
     }
 
     /**
-     * @return GenericInjecter
+     * 设置是否使用泛化实例
+     * @param bool $boolean     使用为true,否则为false
+     * @return $this
      */
-    protected function createGenericInjecter()
+    public function setGeneralize($boolean=false)
     {
-        return GenericInjecter::getInstance();
+        $this->generalize = $boolean;
+        return $this;
+    }
+
+    /**
+     * 判断是否使用泛化实例
+     * @return bool
+     */
+    public function hasGeneralize()
+    {
+        return $this->generalize;
+    }
+
+    /**
+     * @return Distributer
+     */
+    protected function getDistributer()
+    {
+        return $this->distributer;
+    }
+
+    /**
+     * @return Parameter
+     */
+    protected function getParameter()
+    {
+        return $this->parameter;
     }
 
 }
