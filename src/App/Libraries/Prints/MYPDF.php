@@ -9,7 +9,7 @@ use TCPDF;
  * Time: 14:42
  *
  * Class MYPDF
- * @package App\Libraries\Prints
+ * @package App\Libraries\Printing
  */
 class MYPDF extends TCPDF
 {

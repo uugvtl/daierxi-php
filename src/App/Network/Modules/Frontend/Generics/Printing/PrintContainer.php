@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Frontend\Generics\Prints;
+namespace App\Network\Modules\Frontend\Generics\Printing;
 use App\Network\Generics\GenericContainer;
 
 /**
@@ -9,7 +9,7 @@ use App\Network\Generics\GenericContainer;
  * Time: 19:52
  *
  * Class PrintContainer
- * @package App\Network\Modules\Frontend\Generics\Prints
+ * @package App\Network\Modules\Frontend\Generics\Printing
  */
 class PrintContainer extends GenericContainer
 {

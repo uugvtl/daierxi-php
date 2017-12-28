@@ -8,9 +8,9 @@ use App\Network\Modules\Manager\Generics\Creates\PackageCreateConst;
 use App\Network\Modules\Manager\Generics\Exports\ExportContainer;
 use App\Network\Modules\Manager\Generics\Exports\PackageExportConst;
 
-use App\Network\Modules\Manager\Generics\Prints\PackagePrintConst;
+use App\Network\Modules\Manager\Generics\Printing\PackagePrintConst;
 
-use App\Network\Modules\Manager\Generics\Prints\PrintContainer;
+use App\Network\Modules\Manager\Generics\Printing\PrintContainer;
 use App\Network\Modules\Manager\Generics\Queries\PackageQueryConst;
 use App\Network\Modules\Manager\Generics\Queries\QueryContainer;
 

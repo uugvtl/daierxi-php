@@ -33,7 +33,7 @@ return [
 	APP_NS.'\Network\Modules\Manager'    => APP_PATH . '/Network/Modules/Manager',
 	APP_NS.'\Network\Modules\Manager\Controllers'    => APP_PATH . '/Network/Modules/Manager/Controllers',
 	APP_NS.'\Libraries\Tables'    => APP_PATH . '/Libraries/Tables',
-	APP_NS.'\Libraries\Prints'    => APP_PATH . '/Libraries/Prints',
+	APP_NS.'\Libraries\Prints'    => APP_PATH . '/Libraries/Printing',
 	APP_NS.'\Libraries\Daoes'    => APP_PATH . '/Libraries/Daoes',
 	APP_NS.'\Libraries\Caching\Dependencies'    => APP_PATH . '/Libraries/Caching/Dependencies',
 	APP_NS.'\Injecters'    => APP_PATH . '/Injecters',

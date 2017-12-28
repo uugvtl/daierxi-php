@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Frontend\Generics\Prints;
+namespace App\Network\Modules\Manager\Generics\Printing;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Network\Modules\Frontend\Generics\Prints;
  * Time: 19:29
  *
  * Interface PackagePrintConst
- * @package App\Network\Modules\Frontend\Generics\Prints
+ * @package App\Network\Modules\Manager\Generics\Printing
  */
 interface PackagePrintConst
 {
