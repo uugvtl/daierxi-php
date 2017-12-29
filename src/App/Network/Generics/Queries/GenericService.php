@@ -48,4 +48,37 @@ abstract class GenericService extends BaseGeneric
         return $classname;
     }
 
+    protected function createLogicInstance()
+    {
+        $logicName      = $this->getLogicClassString();
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $genericInjecter = $this->getCloneGenericInjecter();
+
+        $logic = $instanceHelper->build(GenericLogic::class, $logicName);
+        return $logic->setGenericInjecter($genericInjecter);
+    }
+
+
+    /**
+     * @return string
+     */
+    private function getLogicClassString()
+    {
+        $genericInjecter = $this->getGenericInjecter();
+        $package = $genericInjecter->getPackage();
+
+        if($this->getGenericInjecter()->hasGeneralize())
+        {
+            $path = $genericInjecter->getDistributer()->getPath();
+            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
+        }
+        else
+        {
+            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.'QueryLogic';
+        }
+
+        return $classname;
+    }
+
 }
