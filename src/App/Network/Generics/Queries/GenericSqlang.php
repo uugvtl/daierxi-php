@@ -8,7 +8,10 @@ use App\Globals\Sqlangs\BaseTable;
 use App\Globals\Sqlangs\BaseWhere;
 use App\Globals\Stores\Selects\CacheStore;
 use App\Helpers\InstanceHelper;
+use App\Injecters\GenericInjecter;
 use App\Injecters\SqlangInjecter;
+use const BACKSLASH;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -20,6 +23,23 @@ use App\Injecters\SqlangInjecter;
  */
 abstract class GenericSqlang extends BaseGeneric
 {
+    /**
+     * @var string
+     */
+    private $catalog;
+
+
+    /**
+     * @param $catalog
+     * @return $this
+     */
+    final public function setCatalog($catalog)
+    {
+        $this->catalog = $catalog;
+        return $this;
+    }
+
+
     /**
      * @return BaseStore
      */
@@ -44,14 +64,17 @@ abstract class GenericSqlang extends BaseGeneric
         return $cacheStore;
     }
 
+    protected function afterInstance()
+    {
+        $this->catalog = 'Queries';
+    }
+
     protected function createFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getGenericInjecter();
-        $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
-        $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$path.'Fields';
+        $classname = $this->getClassPath($genericInjecter).'Fields';
 
         $fieldsInstance = $instanceHelper->build(BaseFields::class, $classname);
 
@@ -64,9 +87,7 @@ abstract class GenericSqlang extends BaseGeneric
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getGenericInjecter();
-        $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
-        $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$path.'Table';
+        $classname = $this->getClassPath($genericInjecter).'Table';
 
         $fieldsInstance = $instanceHelper->build(BaseTable::class, $classname);
 
@@ -78,12 +99,30 @@ abstract class GenericSqlang extends BaseGeneric
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getGenericInjecter();
-        $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
-        $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$path.'Where';
+        $classname = $this->getClassPath($genericInjecter).'Where';
 
         $fieldsInstance = $instanceHelper->build(BaseWhere::class, $classname);
 
         return $fieldsInstance->init($genericInjecter->getParameter()->get());
+    }
+
+    /**
+     * 获取 Sqlang 相关实例的所在命名空间
+     * @param GenericInjecter $genericInjecter
+     * @return string
+     */
+    private function getClassPath(GenericInjecter $genericInjecter)
+    {
+        $package = $genericInjecter->getPackage();
+        $path = $genericInjecter->getDistributer()->getPath();
+        return $package.BACKSLASH.'Sqlangs'.BACKSLASH.$this->getCatalog().BACKSLASH.$path;
+    }
+
+    /**
+     * @return string
+     */
+    final protected function getCatalog()
+    {
+        return $this->catalog;
     }
 }

@@ -14,36 +14,8 @@ use App\Helpers\InstanceHelper;
  */
 abstract class GenericRepository extends BaseGeneric
 {
-//    /**
-//     * @return SelectStore
-//     */
-//    protected function getStoreCreator()
-//    {
-//
-//    }
 
-//    protected function getFieldsClassString()
-//    {
-//        $genericInjecter = $this->getGenericInjecter();
-//        $package = $genericInjecter->getPackage();
-//
-//        if($this->getGenericInjecter()->hasGeneralize())
-//        {
-//            $path = $genericInjecter->getDistributer()->getPath();
-//
-//            $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$path.'Fields';
-//        }
-//        else
-//        {
-//            $fileName = $genericInjecter->getDistributer()->getFileName();
-//            $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$fileName.'Fields';
-//
-//        }
-//
-//        return $classname;
-//    }
-
-    final protected function createLogicInstance()
+    protected function createLogicInstance()
     {
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();

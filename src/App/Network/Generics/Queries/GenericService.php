@@ -14,7 +14,7 @@ use App\Helpers\InstanceHelper;
 abstract class GenericService extends BaseGeneric
 {
 
-    final protected function createRepositoryInstance()
+    protected function createRepositoryInstance()
     {
         $repositoryName = $this->getRepositoryClassString();
         $instanceHelper = InstanceHelper::getInstance();
