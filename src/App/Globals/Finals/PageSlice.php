@@ -122,7 +122,7 @@ final class PageSlice extends BaseClass
      * 获取分段数量
      * @return int
      */
-    public function getPageNumbers()
+    public function getPages()
     {
         return ceil($this->total / $this->limit);
     }
@@ -131,7 +131,7 @@ final class PageSlice extends BaseClass
      * 获取分页时的页码数与查询数据偏移量
      * @return int				    偏移量
      */
-    public function getPageOffset()
+    public function getOffset()
     {
         $limit	= (int)$this->limit;
         $page	= (int)$this->page;
@@ -149,7 +149,7 @@ final class PageSlice extends BaseClass
     public function getPagingLimit()
     {
         $limit	= $this->getLimit();
-        $offset = $this->getPageOffset();
+        $offset = $this->getOffset();
         $paging = " LIMIT {$offset}, {$limit}";
 
         return $paging;

@@ -20,9 +20,12 @@ class ModifyStore extends FormStore
     public function commit()
     {
         $sqlHelper = SqlHelper::getInstance();
-        $fieldsInstance = $this->getSqlangInjecter()->getFieldsInstance();
-        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
-        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
+
+        $sqlangInjecter = $this->getSqlangInjecter();
+
+        $fieldsInstance = $sqlangInjecter->getFieldsInstance();
+        $tableInstance  = $sqlangInjecter->getTableInstance();
+        $whereInstance  = $sqlangInjecter->getWhereInstance();
 
         $fields     = $fieldsInstance->getFields();
         $original   = $fieldsInstance->getOriginal();
@@ -44,9 +47,11 @@ class ModifyStore extends FormStore
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $fieldsInstance = $this->getSqlangInjecter()->getFieldsInstance();
-        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
-        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
+        $sqlangInjecter = $this->getSqlangInjecter();
+
+        $fieldsInstance = $sqlangInjecter->getFieldsInstance();
+        $tableInstance  = $sqlangInjecter->getTableInstance();
+        $whereInstance  = $sqlangInjecter->getWhereInstance();
 
         $fields     = $fieldsInstance->getFields();
         $original   = $fieldsInstance->getOriginal();
