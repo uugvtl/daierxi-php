@@ -12,5 +12,8 @@ use App\Globals\Bases\BaseGeneric;
  */
 abstract class GenericRepository extends BaseGeneric
 {
-
+//    /**
+//     * @return GenericRepository
+//     */
+//    abstract protected function createSelectStore();
 }

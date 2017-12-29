@@ -23,22 +23,25 @@ class QueryService extends GenericService
     }
 
 
-    protected function createRepository()
+    final protected function createRepository()
     {
         $repositoryName = $this->getRepositoryName();
         $instanceHelper = InstanceHelper::getInstance();
 
+        $genericInjecter = $this->getCloneGenericInjecter();
+
         $repository = $instanceHelper->build(QueryRepository::class, $repositoryName);
-        return $repository->setGenericInjecter($this->getGenericInjecter()->getClone());
+        return $repository->setGenericInjecter($genericInjecter);
     }
 
-    protected function createLogic()
+    final protected function createLogic()
     {
         $logicName      = $this->getLogicName();
         $instanceHelper = InstanceHelper::getInstance();
+        $genericInjecter = $this->getCloneGenericInjecter();
 
         $logic = $instanceHelper->build(QueryLogic::class, $logicName);
-        return $logic->setGenericInjecter($this->getGenericInjecter()->getClone());
+        return $logic->setGenericInjecter($genericInjecter);
     }
 
     /**

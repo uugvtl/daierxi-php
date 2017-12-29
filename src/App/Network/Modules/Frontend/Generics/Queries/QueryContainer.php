@@ -3,6 +3,7 @@ namespace App\Network\Modules\Frontend\Generics\Queries;
 use App\Helpers\InstanceHelper;
 use App\Network\Generics\GenericContainer;
 use App\Network\Modules\Frontend\Generics\Queries\Services\QueryService;
+use const BACKSLASH;
 
 /**
  * Created by PhpStorm.
@@ -29,14 +30,14 @@ class QueryContainer extends GenericContainer
     {
         $instanceHelper = InstanceHelper::getInstance();
 
-        $genericInjecter = $this->getGenericInjecter()->getClone();
+        $genericInjecter = $this->getCloneGenericInjecter();
 
         if($genericInjecter->hasGeneralize())
         {
             $package = $genericInjecter->getPackage();
             $path = $genericInjecter->getDistributer()->getPath();
 
-            $classname = $package.BACKSLASH.$path.'Service';
+            $classname = $package.BACKSLASH.'Services'.BACKSLASH.$path.'Service';
 
             $service = $instanceHelper->build(QueryService::class, $classname);
         }

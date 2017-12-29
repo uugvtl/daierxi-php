@@ -2,9 +2,7 @@
 namespace App\Globals\Stores\Selects;
 use App\Globals\Stores\SelectStore;
 use App\Helpers\FileHelper;
-use App\Libraries\Caches\BaseCache;
 use App\Libraries\Caches\NotCache;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,12 +14,6 @@ use App\Libraries\Caches\NotCache;
  */
 class SearchStore extends SelectStore
 {
-    /**
-     * 操作数据的封状工具类
-     * @var BaseCache
-     */
-    protected $cache;
-
     /**
      * 只在生成成实例的时候运行一次
      */

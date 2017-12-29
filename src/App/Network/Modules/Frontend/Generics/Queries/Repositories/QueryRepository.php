@@ -13,26 +13,6 @@ use App\Network\Generics\Queries\GenericRepository;
  */
 class QueryRepository extends GenericRepository
 {
-//    /**
-//     * @var BaseCreator
-//     */
-//    private $logicCreator;
-//
-//    /**
-//     * @var BaseCreator
-//     */
-//    private $sqlangCreator;
-//
-//    protected function afterInstance()
-//    {
-//        $this->logicCreator = LogicCreator::getInstance();
-//        $this->logicCreator->init($this->getGenericInjecter());
-//
-//        $this->sqlangCreator = QueryCreator::getInstance();
-//        $this->sqlangCreator->init($this->getGenericInjecter());
-//    }
-
-
     public function run()
     {
         return Responder::getInstance();
@@ -64,5 +44,8 @@ class QueryRepository extends GenericRepository
     {
         return 0;
     }
+
+
+
 
 }

@@ -23,4 +23,6 @@ abstract class GenericService extends BaseGeneric
      */
     abstract protected function createLogic();
 
+
+
 }

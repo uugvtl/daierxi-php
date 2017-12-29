@@ -21,7 +21,7 @@ abstract class BaseGeneric extends BaseClass implements IGenericable
     private $genericInjecter;
 
 
-    public function setGenericInjecter(GenericInjecter $injecter)
+    final public function setGenericInjecter(GenericInjecter $injecter)
     {
         $this->genericInjecter = $injecter;
         return $this;
@@ -30,9 +30,17 @@ abstract class BaseGeneric extends BaseClass implements IGenericable
     /**
      * @return GenericInjecter
      */
-    public function getGenericInjecter()
+    final public function getGenericInjecter()
     {
         return $this->genericInjecter;
     }
 
+    /**
+     * 可以overwrite 此方法，主要是用来写是否可以泛化
+     * @return GenericInjecter
+     */
+    protected function getCloneGenericInjecter()
+    {
+        return $this->getGenericInjecter()->getClone();
+    }
 }

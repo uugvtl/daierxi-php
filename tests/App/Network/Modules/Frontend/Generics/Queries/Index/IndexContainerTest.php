@@ -22,7 +22,7 @@ class IndexContainerTest extends UnitTestCase
             $distributer->init('Index', 'Index', 'Index');
         /** act */
             $provider = FrontendContainerProvider::getInstance();
-            $provider->init($distributer);//->setGeneralize(YES);
+            $provider->init($distributer)->setGeneralize(YES);
         /** assert */
             $resultBo = $provider->getQueryResponder($params);
             $this->assertFalse($resultBo->toggle);

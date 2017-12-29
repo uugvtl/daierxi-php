@@ -13,29 +13,33 @@ use App\Helpers\StringHelper;
  */
 abstract class BaseWhere extends BaseGeneric
 {
+    /**
+     * @var bool
+     */
+    private $nothing;
 
     /**
      * @return string
      */
-    public function get()
+    final public function get()
     {
         $where = '';
-        $where.= $this->beforeGetWhere();
-        $where.= $this->getWhere();
-        $where.= $this->afterGetWhere();
+        $where.= $this->beforeGetStmt();
+        $where.= $this->getStmt();
+        $where.= $this->afterGetStmt();
 
         return $this->getJudgeWhere($where);
     }
 
-
     /**
-     * 获取最终型态的where条件的where语句
-     * @param string $where         SQL语句中的where条件语句
-     * @return string               可能是原语句，也可能是永远无法获取数据的where条件语句
+     * 条件不存的时候，是否返还为空       返回空条件为true,否则为false
+     * @param bool $nothing
+     * @return $this
      */
-    protected function getJudgeWhere($where='')
+    protected function setNothing($nothing=false)
     {
-        return $where;
+        $this->nothing = (bool)$nothing;
+        return $this;
     }
 
     /**
@@ -71,7 +75,7 @@ abstract class BaseWhere extends BaseGeneric
      * getWhere的后置回调函数用
      * @return string
      */
-    protected function afterGetWhere()
+    protected function afterGetStmt()
     {
         return '';
     }
@@ -80,11 +84,30 @@ abstract class BaseWhere extends BaseGeneric
      * getWhere的前置回调函数用
      * @return string
      */
-    protected function beforeGetWhere()
+    protected function beforeGetStmt()
     {
         return '';
     }
 
-    abstract protected function getWhere();
+    /**
+     * 获取Where 条件语句
+     * @return string
+     */
+    protected function getStmt()
+    {
+        return '';
+    }
+
+    /**
+     * 获取最终型态的where条件的where语句
+     * @param string $where         SQL语句中的where条件语句
+     * @return string               可能是原语句，也可能是永远无法获取数据的where条件语句
+     */
+    private function getJudgeWhere($where='')
+    {
+        if($this->nothing)
+            empty($where) && $where = " AND FALSE";
+        return $where;
+    }
 
 }
