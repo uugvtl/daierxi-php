@@ -1,7 +1,6 @@
 <?php
 namespace App\Globals\Finals;
 use App\Globals\Bases\BaseClass;
-
 /**
  * 数据分段获取类--可以用于数组分段
  * User: leon

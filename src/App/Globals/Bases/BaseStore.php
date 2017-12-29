@@ -23,24 +23,16 @@ abstract class BaseStore extends BaseSingle
     /**
      * @var SqlangInjecter
      */
-    private $storeInjecter;
+    private $sqlangInjecter;
 
     /**
      * @param SqlangInjecter $injecter
      * @return $this
      */
-    public function setStoreInjecter(SqlangInjecter $injecter)
+    public function setSqlangInjecter(SqlangInjecter $injecter)
     {
-        $this->storeInjecter = $injecter;
+        $this->sqlangInjecter = $injecter;
         return $this;
-    }
-
-    /**
-     * @return SqlangInjecter
-     */
-    public function getStoreInjecter()
-    {
-        return $this->storeInjecter;
     }
 
     /**
@@ -51,9 +43,9 @@ abstract class BaseStore extends BaseSingle
     {
         $pagingLimit= $this->getPagingLimit();
 
-        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
-        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
-        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+        $fieldsInstance = $this->getSqlangInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
+        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
 
         $columns= $fieldsInstance->getColumns();
         $table  = $tableInstance->getJoinTable();
@@ -82,9 +74,9 @@ abstract class BaseStore extends BaseSingle
      */
     public function getCount()
     {
-        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
-        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
-        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+        $fieldsInstance = $this->getSqlangInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
+        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
 
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
@@ -125,9 +117,9 @@ abstract class BaseStore extends BaseSingle
      */
     public function getRow()
     {
-        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
-        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
-        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+        $fieldsInstance = $this->getSqlangInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
+        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
 
         $columns= $fieldsInstance->getColumns();
         $table  = $tableInstance->getJoinTable();
@@ -151,9 +143,9 @@ abstract class BaseStore extends BaseSingle
      */
     public function getOne()
     {
-        $fieldsInstance = $this->getStoreInjecter()->getFieldsInstance();
-        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
-        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+        $fieldsInstance = $this->getSqlangInjecter()->getFieldsInstance();
+        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
+        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
 
         $columns= $fieldsInstance->getColumns();
         $table  = $tableInstance->getJoinTable();
@@ -176,13 +168,21 @@ abstract class BaseStore extends BaseSingle
      * 获取分页SQL语句
      * @return string
      */
-    protected function getPagingLimit()
+    final protected function getPagingLimit()
     {
-        $pageSlice = $this->getStoreInjecter()->getPageInstance();
+        $pageSlice = $this->getSqlangInjecter()->getPageInstance();
 
         $stmt = '';
         if($pageSlice)
             $stmt = $pageSlice->getPagingLimit();
         return $stmt;
+    }
+
+    /**
+     * @return SqlangInjecter
+     */
+    final protected function getSqlangInjecter()
+    {
+        return $this->sqlangInjecter;
     }
 }

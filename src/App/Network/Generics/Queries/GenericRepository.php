@@ -1,6 +1,8 @@
 <?php
 namespace App\Network\Generics\Queries;
 use App\Globals\Bases\BaseGeneric;
+use App\Helpers\InstanceHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -19,4 +21,59 @@ abstract class GenericRepository extends BaseGeneric
 //    {
 //
 //    }
+
+//    protected function getFieldsClassString()
+//    {
+//        $genericInjecter = $this->getGenericInjecter();
+//        $package = $genericInjecter->getPackage();
+//
+//        if($this->getGenericInjecter()->hasGeneralize())
+//        {
+//            $path = $genericInjecter->getDistributer()->getPath();
+//
+//            $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$path.'Fields';
+//        }
+//        else
+//        {
+//            $fileName = $genericInjecter->getDistributer()->getFileName();
+//            $classname = $package.BACKSLASH.'Sqlangs'.BACKSLASH.$fileName.'Fields';
+//
+//        }
+//
+//        return $classname;
+//    }
+
+    final protected function createLogicInstance()
+    {
+        $logicName      = $this->getLogicClassString();
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $genericInjecter = $this->getCloneGenericInjecter();
+
+        $logic = $instanceHelper->build(GenericLogic::class, $logicName);
+        return $logic->setGenericInjecter($genericInjecter);
+    }
+
+
+    /**
+     * @return string
+     */
+    private function getLogicClassString()
+    {
+        $genericInjecter = $this->getGenericInjecter();
+        $package = $genericInjecter->getPackage();
+
+        if($this->getGenericInjecter()->hasGeneralize())
+        {
+            $path = $genericInjecter->getDistributer()->getPath();
+            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
+        }
+        else
+        {
+            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.'QueryLogic';
+        }
+
+        return $classname;
+    }
+
 }

@@ -22,8 +22,8 @@ class RemoveStore extends FormStore
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
-        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
+        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
 
         $table = $tableInstance->getJoinTable();
         $alias = $tableInstance->getAliasTable();
@@ -44,8 +44,8 @@ class RemoveStore extends FormStore
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $tableInstance  = $this->getStoreInjecter()->getTableInstance();
-        $whereInstance  = $this->getStoreInjecter()->getWhereInstance();
+        $tableInstance  = $this->getSqlangInjecter()->getTableInstance();
+        $whereInstance  = $this->getSqlangInjecter()->getWhereInstance();
 
         $table = $tableInstance->getJoinTable();
         $alias = $tableInstance->getAliasTable();

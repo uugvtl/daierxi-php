@@ -17,7 +17,7 @@ abstract class SelectStore extends BaseStore
     public function init(...$args)
     {
         $total = (int)$args[0];
-        $this->getStoreInjecter()->getPageInstance()->setTotal($total);
+        $this->getSqlangInjecter()->getPageInstance()->setTotal($total);
         return $this;
     }
 

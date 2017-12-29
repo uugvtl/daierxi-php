@@ -23,7 +23,7 @@ class SqlangInjecter extends BaseClass
     private $fieldsInstance;
 
     /**
-     * @var \App\Globals\Sqlangs\BaseTable
+     * @var BaseTable
      */
     private $tableInstance;
 
@@ -66,7 +66,7 @@ class SqlangInjecter extends BaseClass
     }
 
     /**
-     * @param \App\Globals\Sqlangs\BaseWhere $whereInstance
+     * @param BaseWhere $whereInstance
      * @return SqlangInjecter
      */
     public function setWhereInstance(BaseWhere $whereInstance)
@@ -96,7 +96,7 @@ class SqlangInjecter extends BaseClass
 
     /**
      * 获取 Store 用到的table 实例
-     * @return \App\Globals\Sqlangs\BaseTable
+     * @return BaseTable
      */
     public function getTableInstance()
     {
