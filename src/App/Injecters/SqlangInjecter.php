@@ -15,7 +15,7 @@ use App\Globals\Finals\PageSlice;
  * Class StoreInjecter
  * @package App\Injecters
  */
-class StoreInjecter extends BaseClass
+class SqlangInjecter extends BaseClass
 {
     /**
      * @var BaseFields
@@ -37,9 +37,17 @@ class StoreInjecter extends BaseClass
      */
     private $pageInstance;
 
+    public function __clone()
+    {
+        $this->fieldsInstance = clone $this->fieldsInstance;
+        $this->tableInstance = clone $this->tableInstance;
+        $this->whereInstance = clone $this->whereInstance;
+        $this->pageInstance = clone $this->pageInstance;
+    }
+
     /**
      * @param BaseFields $fieldsInstance
-     * @return StoreInjecter
+     * @return SqlangInjecter
      */
     public function setFieldsInstance(BaseFields $fieldsInstance)
     {
@@ -49,7 +57,7 @@ class StoreInjecter extends BaseClass
 
     /**
      * @param BaseTable $tableInstance
-     * @return StoreInjecter
+     * @return SqlangInjecter
      */
     public function setTableInstance(BaseTable $tableInstance)
     {
@@ -59,7 +67,7 @@ class StoreInjecter extends BaseClass
 
     /**
      * @param BaseWhere $whereInstance
-     * @return StoreInjecter
+     * @return SqlangInjecter
      */
     public function setWhereInstance(BaseWhere $whereInstance)
     {
@@ -69,7 +77,7 @@ class StoreInjecter extends BaseClass
 
     /**
      * @param PageSlice $pageInstance
-     * @return StoreInjecter
+     * @return SqlangInjecter
      */
     public function setPageInstance(PageSlice $pageInstance)
     {

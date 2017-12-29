@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Bases;
-use App\Injecters\StoreInjecter;
+use App\Injecters\SqlangInjecter;
 use App\Libraries\Caches\BaseCache;
 
 /**
@@ -21,22 +21,22 @@ abstract class BaseStore extends BaseSingle
     protected $cache;
 
     /**
-     * @var StoreInjecter
+     * @var SqlangInjecter
      */
     private $storeInjecter;
 
     /**
-     * @param StoreInjecter $injecter
+     * @param SqlangInjecter $injecter
      * @return $this
      */
-    public function setStoreInjecter(StoreInjecter $injecter)
+    public function setStoreInjecter(SqlangInjecter $injecter)
     {
         $this->storeInjecter = $injecter;
         return $this;
     }
 
     /**
-     * @return StoreInjecter
+     * @return SqlangInjecter
      */
     public function getStoreInjecter()
     {
