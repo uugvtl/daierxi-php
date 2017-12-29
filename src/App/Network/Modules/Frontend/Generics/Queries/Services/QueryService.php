@@ -19,12 +19,12 @@ class QueryService extends GenericService
 
     public function run()
     {
-        $repository = $this->createRepository();
+        $repository = $this->createRepositoryInstance();
         return $repository->run();
     }
 
 
-    protected function createRepository()
+    protected function createRepositoryInstance()
     {
         $repositoryName = $this->getRepositoryName();
         $instanceHelper = InstanceHelper::getInstance();
@@ -33,7 +33,7 @@ class QueryService extends GenericService
         return $repository->setGenericInjecter($this->getGenericInjecter()->getClone());
     }
 
-    protected function createLogic()
+    protected function createLogicInstance()
     {
         $logicName      = $this->getLogicName();
         $instanceHelper = InstanceHelper::getInstance();

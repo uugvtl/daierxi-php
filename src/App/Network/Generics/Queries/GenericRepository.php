@@ -13,7 +13,10 @@ use App\Globals\Bases\BaseGeneric;
 abstract class GenericRepository extends BaseGeneric
 {
 //    /**
-//     * @return GenericRepository
+//     * @return SelectStore
 //     */
-//    abstract protected function createSelectStore();
+//    protected function getStoreCreator()
+//    {
+//
+//    }
 }

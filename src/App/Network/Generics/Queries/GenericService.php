@@ -16,12 +16,12 @@ abstract class GenericService extends BaseGeneric
     /**
      * @return GenericRepository
      */
-    abstract protected function createRepository();
+    abstract protected function createRepositoryInstance();
 
     /**
      * @return GenericLogic
      */
-    abstract protected function createLogic();
+    abstract protected function createLogicInstance();
 
 
 

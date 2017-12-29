@@ -18,14 +18,14 @@ class QueryService extends GenericService
 
     public function run()
     {
-        $repository = $this->createRepository();
+        $repository = $this->createRepositoryInstance();
         return $repository->run();
     }
 
 
-    final protected function createRepository()
+    final protected function createRepositoryInstance()
     {
-        $repositoryName = $this->getRepositoryName();
+        $repositoryName = $this->getRepositoryClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getCloneGenericInjecter();
@@ -34,10 +34,11 @@ class QueryService extends GenericService
         return $repository->setGenericInjecter($genericInjecter);
     }
 
-    final protected function createLogic()
+    final protected function createLogicInstance()
     {
-        $logicName      = $this->getLogicName();
+        $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
+
         $genericInjecter = $this->getCloneGenericInjecter();
 
         $logic = $instanceHelper->build(QueryLogic::class, $logicName);
@@ -47,7 +48,7 @@ class QueryService extends GenericService
     /**
      * @return string
      */
-    private function getRepositoryName()
+    private function getRepositoryClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
 
@@ -70,7 +71,7 @@ class QueryService extends GenericService
     /**
      * @return string
      */
-    private function getLogicName()
+    private function getLogicClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
 

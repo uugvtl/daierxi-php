@@ -25,7 +25,15 @@ abstract class BaseCreator extends BaseSingle
     /**
      * @var GenericInjecter
      */
-    protected $genericInjecter;
+    private $genericInjecter;
+
+    /**
+     * @return GenericInjecter
+     */
+    final protected function getGenericInjecter()
+    {
+        return $this->genericInjecter;
+    }
 
     public function init(...$args)
     {
