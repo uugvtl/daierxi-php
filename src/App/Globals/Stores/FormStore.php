@@ -2,7 +2,6 @@
 namespace App\Globals\Stores;
 use App\Globals\Bases\BaseStore;
 use App\Helpers\FileHelper;
-use App\Libraries\Caches\BaseCache;
 use App\Libraries\Caches\NotCache;
 /**
  * Created by PhpStorm.
@@ -15,11 +14,6 @@ use App\Libraries\Caches\NotCache;
  */
 abstract class FormStore extends BaseStore
 {
-    /**
-     * 操作数据的封状工具类
-     * @var BaseCache
-     */
-    protected $cache;
 
     abstract public function commit();
 
