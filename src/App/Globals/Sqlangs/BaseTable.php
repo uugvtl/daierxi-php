@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Bases\Sqlangs;
-use App\Globals\Bases\BaseGeneric;
+namespace App\Globals\Sqlangs;
+use App\Globals\Bases\BaseClass;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Globals\Bases\BaseGeneric;
  * Class BaseTable
  * @package App\Globals\Sqlangs\Tables
  */
-abstract class BaseTable extends BaseGeneric
+abstract class BaseTable extends BaseClass
 {
     /**
      * 关联表名称 例 user u LEFT JOIN user_extra ue ON u.uesr_id=ue.user_id

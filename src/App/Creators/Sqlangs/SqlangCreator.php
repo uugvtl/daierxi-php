@@ -1,8 +1,6 @@
 <?php
 namespace App\Creators\Sqlangs;
 use App\Creators\BaseCreator;
-use App\Globals\Finals\PageSlice;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,30 +10,65 @@ use App\Globals\Finals\PageSlice;
  * Class SqlangCreator
  * @package App\Creators\Sqlangs
  */
-class SqlangCreator extends BaseCreator
+abstract class SqlangCreator extends BaseCreator
 {
+    private $sqlangName;
+
+    protected function onceConstruct()
+    {
+
+    }
+
     public function create($classname, ...$args)
     {
         $this->getGenericInjecter();
     }
 
-    protected function getPageInstance()
+    /**
+     * @param string $sqlangName
+     * @return $this
+     */
+    final public function setSqlangName($sqlangName)
     {
-        return PageSlice::getInstance();
+        $this->sqlangName = $sqlangName;
+        return $this;
     }
 
-    protected function getFieldsInstance()
+    final protected function getSqlangName()
     {
-
+        return $this->sqlangName;
     }
 
-    protected function getTableInstance()
-    {
-
-    }
-
-    protected function getWhereInstance()
-    {
-
-    }
+//    protected function getPageInstance()
+//    {
+//        return PageSlice::getInstance();
+//    }
+//
+//    protected function getFieldsInstance()
+//    {
+//        $genericInjecter = $this->getGenericInjecter();
+//        $package = $genericInjecter->getPackage();
+//
+//        if($this->getGenericInjecter()->hasGeneralize())
+//        {
+//            $path = $genericInjecter->getDistributer()->getPath();
+//            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
+//        }
+//        else
+//        {
+//            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.'QueryLogic';
+//        }
+//
+//        return $classname;
+//    }
+//
+//    protected function getTableInstance()
+//    {
+//
+//    }
+//
+//    protected function getWhereInstance()
+//    {
+//
+//    }
 }

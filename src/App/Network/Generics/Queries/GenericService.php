@@ -2,8 +2,6 @@
 namespace App\Network\Generics\Queries;
 use App\Globals\Bases\BaseGeneric;
 use App\Helpers\InstanceHelper;
-use const BACKSLASH;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,17 +13,6 @@ use const BACKSLASH;
  */
 abstract class GenericService extends BaseGeneric
 {
-
-//    /**
-//     * @return GenericRepository
-//     */
-//    abstract protected function createRepositoryInstance();
-//
-//    /**
-//     * @return GenericLogic
-//     */
-//    abstract protected function createLogicInstance();
-
 
     final protected function createRepositoryInstance()
     {

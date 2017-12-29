@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Bases\Sqlangs;
-use App\Globals\Bases\BaseGeneric;
+namespace App\Globals\Sqlangs;
+use App\Globals\Bases\BaseClass;
 use App\Helpers\StringHelper;
 /**
  * Created by PhpStorm.
@@ -11,12 +11,22 @@ use App\Helpers\StringHelper;
  * Class BaseWhere
  * @package App\Globals\Sqlangs\Selects
  */
-abstract class BaseWhere extends BaseGeneric
+abstract class BaseWhere extends BaseClass
 {
     /**
      * @var bool
      */
     private $nothing;
+
+    /**
+     * @var array
+     */
+    private $condition;
+
+    public function init(...$args)
+    {
+        $this->condition = $args[0];
+    }
 
     /**
      * @return string
@@ -48,7 +58,7 @@ abstract class BaseWhere extends BaseGeneric
      */
     protected function getCondition()
     {
-        return $this->getGenericInjecter()->getParameter()->get();
+        return $this->condition;
     }
 
 

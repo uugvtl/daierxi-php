@@ -1,9 +1,9 @@
 <?php
 namespace App\Injecters;
 use App\Globals\Bases\BaseClass;
-use App\Globals\Bases\Sqlangs\BaseFields;
-use App\Globals\Bases\Sqlangs\BaseTable;
-use App\Globals\Bases\Sqlangs\BaseWhere;
+use App\Globals\Sqlangs\BaseFields;
+use App\Globals\Sqlangs\BaseTable;
+use App\Globals\Sqlangs\BaseWhere;
 use App\Globals\Finals\PageSlice;
 
 /**
@@ -23,7 +23,7 @@ class SqlangInjecter extends BaseClass
     private $fieldsInstance;
 
     /**
-     * @var BaseTable
+     * @var \App\Globals\Sqlangs\BaseTable
      */
     private $tableInstance;
 
@@ -66,7 +66,7 @@ class SqlangInjecter extends BaseClass
     }
 
     /**
-     * @param BaseWhere $whereInstance
+     * @param \App\Globals\Sqlangs\BaseWhere $whereInstance
      * @return SqlangInjecter
      */
     public function setWhereInstance(BaseWhere $whereInstance)
@@ -96,7 +96,7 @@ class SqlangInjecter extends BaseClass
 
     /**
      * 获取 Store 用到的table 实例
-     * @return BaseTable
+     * @return \App\Globals\Sqlangs\BaseTable
      */
     public function getTableInstance()
     {
