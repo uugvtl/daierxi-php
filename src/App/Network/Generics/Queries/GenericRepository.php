@@ -2,8 +2,7 @@
 namespace App\Network\Generics\Queries;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Generics\BaseRepository;
-use App\Globals\Stores\Selects\CacheStore;
-
+use App\Globals\Stores\SelectStore;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -22,7 +21,7 @@ abstract class GenericRepository extends BaseRepository
     {
         $injecter = $this->createSqlangInjecter();
 
-        $cacheStore = CacheStore::getInstance();
+        $cacheStore = SelectStore::getInstance();
         $cacheStore->setSqlangInjecter($injecter);
 
         return $cacheStore;

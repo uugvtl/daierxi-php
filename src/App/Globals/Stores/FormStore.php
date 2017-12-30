@@ -12,17 +12,8 @@ use App\Libraries\Caches\NotCache;
  * Class ExecuteStore
  * @package App\Globals\Stores
  */
-abstract class FormStore extends BaseStore
+class FormStore extends BaseStore
 {
-
-    abstract public function commit();
-
-    abstract public function submit();
-
-    abstract public function remove();
-
-    abstract public function delete();
-
     /**
      * 只在生成成实例的时候运行一次
      */

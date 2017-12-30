@@ -12,7 +12,7 @@ use App\Libraries\Caches\FileCache;
  * Class SelectStore
  * @package App\Globals\Stores
  */
-abstract class SelectStore extends BaseStore
+class SelectStore extends BaseStore
 {
     /**
      * 只在生成成实例的时候运行一次

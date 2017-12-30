@@ -2,7 +2,7 @@
 namespace App\Network\Generics\Removes;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Generics\BaseRepository;
-use App\Globals\Stores\Selects\CacheStore;
+use App\Globals\Stores\FormStore;
 
 /**
  * Created by PhpStorm.
@@ -22,7 +22,7 @@ abstract class GenericRepository extends BaseRepository
     {
         $injecter = $this->createSqlangInjecter();
 
-        $cacheStore = CacheStore::getInstance();
+        $cacheStore = FormStore::getInstance();
         $cacheStore->setSqlangInjecter($injecter);
 
         return $cacheStore;
