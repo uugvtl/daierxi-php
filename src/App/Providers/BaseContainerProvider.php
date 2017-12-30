@@ -39,7 +39,7 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
         if($distributer instanceof Distributer)
             $this->distributer = $args[0];
         else
-            throw new InvalidArgumentException('tripleInteger function only accepts Class Distributer. Input was: '.$distributer);
+            throw new InvalidArgumentException('init method only accepts Class Distributer. Input was: '.$distributer);
 
         $this->parameter = Parameter::getInstance();
 

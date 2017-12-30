@@ -49,7 +49,7 @@ abstract class BaseCache extends BaseSingle
         if($cache instanceof BackendInterface)
             $this->cache    = $cache;
         else
-            throw new InvalidArgumentException('tripleInteger function only accepts Interface BackendInterface. Input was: '.$cache);
+            throw new InvalidArgumentException('init method only accepts Interface BackendInterface. Input was: '.$cache);
 
         return $this;
     }
@@ -57,7 +57,7 @@ abstract class BaseCache extends BaseSingle
     /**
      * 获取以数据库查询数据为基础的缓存--单项数据
      * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
+     * @param BaseCacheDependency[]         $dependencies   文件缓存依赖对象
      * @return mixed                                        数据库查询数据
      */
     abstract public function getOne($sql, array $dependencies);
