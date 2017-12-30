@@ -1,7 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing;
-use App\Network\Generics\GenericContainer;
-
+use App\Network\Generics\Printing\GenericContainer;
 /**
  * Created by PhpStorm.
  * User: leon

@@ -20,7 +20,7 @@ abstract class BaseService extends BaseGeneric
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
 
-        if($this->getGenericInjecter()->hasGeneralize())
+        if($genericInjecter->hasGeneralize())
         {
             $path = $genericInjecter->getDistributer()->getPath();
 
@@ -28,7 +28,7 @@ abstract class BaseService extends BaseGeneric
         }
         else
         {
-            $classname = $package.BACKSLASH.'Repositories'.BACKSLASH.'QueryRepository';
+            $classname = $package.BACKSLASH.'Repositories'.BACKSLASH.$genericInjecter->getBaseClassString();
 
         }
 
@@ -44,14 +44,14 @@ abstract class BaseService extends BaseGeneric
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
 
-        if($this->getGenericInjecter()->hasGeneralize())
+        if($genericInjecter->hasGeneralize())
         {
             $path = $genericInjecter->getDistributer()->getPath();
             $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
         }
         else
         {
-            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.'QueryLogic';
+            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$genericInjecter->getBaseClassString();
         }
 
         return $classname;

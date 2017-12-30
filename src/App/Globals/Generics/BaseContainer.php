@@ -1,0 +1,38 @@
+<?php
+namespace App\Globals\Generics;
+use App\Globals\Bases\BaseGeneric;
+/**
+ * Created by PhpStorm.
+ * User: leon
+ * Date: 30/12/17
+ * Time: 16:39
+ *
+ * Class BaseContainer
+ * @package App\Globals\Generics
+ */
+abstract class BaseContainer extends BaseGeneric
+{
+    /**
+     * @return mixed
+     */
+    abstract protected function createService();
+
+    protected function getServiceClassString()
+    {
+
+        $genericInjecter = $this->getGenericInjecter();
+        $package = $genericInjecter->getPackage();
+        $path = $genericInjecter->getDistributer()->getPath();
+
+        if($genericInjecter->hasGeneralize())
+        {
+            $classname = $package.BACKSLASH.'Services'.BACKSLASH.$path.'Service';
+        }
+        else
+        {
+            $classname = $package.BACKSLASH.'Services'.BACKSLASH.$genericInjecter->getBaseClassString();
+        }
+
+        return $classname;
+    }
+}

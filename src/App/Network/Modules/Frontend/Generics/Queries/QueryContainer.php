@@ -1,10 +1,8 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries;
 use App\Helpers\InstanceHelper;
-use App\Network\Generics\GenericContainer;
+use App\Network\Generics\Queries\GenericContainer;
 use App\Network\Modules\Frontend\Generics\Queries\Services\QueryService;
-use const BACKSLASH;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -28,25 +26,17 @@ class QueryContainer extends GenericContainer
      */
     protected function createService()
     {
+        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
+
+        $this->getGenericInjecter()->setBaseClassString('QueryService');
+        $servicename = $this->getServiceClassString();
+
         $instanceHelper = InstanceHelper::getInstance();
 
-        $genericInjecter = $this->getCloneGenericInjecter();
+        $serviceInstance = $instanceHelper->build(QueryService::class, $servicename);
+        $serviceInstance->setGenericInjecter($cloneGenericInjecter);
 
-        if($genericInjecter->hasGeneralize())
-        {
-            $package = $genericInjecter->getPackage();
-            $path = $genericInjecter->getDistributer()->getPath();
+        return $serviceInstance;
 
-            $classname = $package.BACKSLASH.'Services'.BACKSLASH.$path.'Service';
-
-            $service = $instanceHelper->build(QueryService::class, $classname);
-        }
-        else
-        {
-
-            $service = $instanceHelper->build(QueryService::class, QueryService::class);
-        }
-
-        return $service->setGenericInjecter($genericInjecter);
     }
 }

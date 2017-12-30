@@ -70,9 +70,6 @@ abstract class BaseRepository extends BaseGeneric
     }
 
 
-
-
-
     protected function createFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();

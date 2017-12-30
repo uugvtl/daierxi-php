@@ -19,6 +19,10 @@ abstract class FormStore extends BaseStore
 
     abstract public function submit();
 
+    abstract public function remove();
+
+    abstract public function delete();
+
     /**
      * 只在生成成实例的时候运行一次
      */

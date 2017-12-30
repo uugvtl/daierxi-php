@@ -1,24 +1,24 @@
 <?php
-namespace App\Network\Generics\Queries;
+namespace App\Network\Generics\Modifies;
 use App\Globals\Generics\BaseService;
 use App\Helpers\InstanceHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 28/12/17
- * Time: 18:44
+ * Date: 30/12/17
+ * Time: 16:05
  *
  * Class GenericService
- * @package App\Network\Generics\Queries
+ * @package App\Network\Generics\Creates
  */
 abstract class GenericService extends BaseService
 {
-
     protected function createRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->getGenericInjecter()->setBaseClassString('QueryRepository');
+        $this->getGenericInjecter()->setBaseClassString('ModifyRepository');
         $repositoryName = $this->getRepositoryClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -30,7 +30,7 @@ abstract class GenericService extends BaseService
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('QueryLogic');
+        $this->$this->getGenericInjecter()->setBaseClassString('ModifyLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -39,5 +39,4 @@ abstract class GenericService extends BaseService
         $logic = $instanceHelper->build(GenericLogic::class, $logicName);
         return $logic->setGenericInjecter($cloneGenericInjecter);
     }
-
 }

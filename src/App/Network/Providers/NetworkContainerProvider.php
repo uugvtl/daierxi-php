@@ -1,9 +1,9 @@
 <?php
 namespace App\Network\Providers;
+use App\Globals\Generics\BaseContainer;
 use App\Helpers\InstanceHelper;
 use App\Injecters\GenericInjecter;
 use App\Interfaces\Providers\INetContainerProvider;
-use App\Network\Generics\GenericContainer;
 use App\Providers\BaseContainerProvider;
 /**
  * Created by PhpStorm.
@@ -21,7 +21,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
      * @param array $params         参数
      * @param string $package       包名称
      * @param string $classname     类名称
-     * @return GenericContainer
+     * @return BaseContainer
      */
     protected function createContainer(array $params, $package, $classname)
     {
@@ -39,7 +39,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
         $genericInjecter->setGeneralize($this->hasGeneralize());
 
         $instanceHelper = InstanceHelper::getInstance();
-        $container = $instanceHelper->build(GenericContainer::class, $classname);
+        $container = $instanceHelper->build(BaseContainer::class, $classname);
         return $container->setGenericInjecter($genericInjecter);
 
     }

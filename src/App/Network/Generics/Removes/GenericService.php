@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Generics\Queries;
+namespace App\Network\Generics\Removes;
 use App\Globals\Generics\BaseService;
 use App\Helpers\InstanceHelper;
 /**
@@ -9,7 +9,7 @@ use App\Helpers\InstanceHelper;
  * Time: 18:44
  *
  * Class GenericService
- * @package App\Network\Generics\Queries
+ * @package App\Network\Generics\Removes
  */
 abstract class GenericService extends BaseService
 {
@@ -18,7 +18,7 @@ abstract class GenericService extends BaseService
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->getGenericInjecter()->setBaseClassString('QueryRepository');
+        $this->getGenericInjecter()->setBaseClassString('RemoveRepository');
         $repositoryName = $this->getRepositoryClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -30,11 +30,9 @@ abstract class GenericService extends BaseService
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('QueryLogic');
+        $this->$this->getGenericInjecter()->setBaseClassString('RemoveLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
-
-
 
         $logic = $instanceHelper->build(GenericLogic::class, $logicName);
         return $logic->setGenericInjecter($cloneGenericInjecter);

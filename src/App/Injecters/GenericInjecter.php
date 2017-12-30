@@ -15,6 +15,15 @@ use App\Globals\Finals\Distributer;
  */
 class GenericInjecter extends BaseClass
 {
+
+    /**
+     * 泛化类的基类名称
+     * @var string
+     */
+    private $baseClassString;
+
+
+
     /**
      * @var boolean
      */
@@ -120,6 +129,26 @@ class GenericInjecter extends BaseClass
     public function hasGeneralize()
     {
         return $this->generalize;
+    }
+
+    /**
+     * 获取泛化类的基类名称
+     * @return string
+     */
+    public function getBaseClassString()
+    {
+        return $this->baseClassString;
+    }
+
+    /**
+     * 设置泛化类的基类名称
+     * @param string $baseClassString
+     * @return $this
+     */
+    public function setBaseClassString($baseClassString)
+    {
+        $this->baseClassString = $baseClassString;
+        return $this;
     }
 
 }

@@ -2,7 +2,7 @@
 namespace App\Globals\Bases;
 use App\Injecters\GenericInjecter;
 use App\Interfaces\IGenericable;
-
+use App\Interfaces\IRunnable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,7 +12,7 @@ use App\Interfaces\IGenericable;
  * Class BaseGeneric
  * @package App\Globals\Bases
  */
-abstract class BaseGeneric extends BaseClass implements IGenericable
+abstract class BaseGeneric extends BaseClass implements IGenericable, IRunnable
 {
 
     /**

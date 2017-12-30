@@ -64,4 +64,51 @@ class ModifyStore extends FormStore
         return $numbers;
     }
 
+    /**
+     * 带事务删除
+     * @return int
+     */
+    public function remove()
+    {
+        $sqlHelper = SqlHelper::getInstance();
+
+        $sqlangInjecter = $this->getSqlangInjecter();
+
+        $tableInstance  = $sqlangInjecter->getTableInstance();
+        $whereInstance  = $sqlangInjecter->getWhereInstance();
+
+        $table = $tableInstance->getJoinTable();
+        $alias = $tableInstance->getAliasTable();
+        $where = $whereInstance->get();
+
+
+        $sql = $sqlHelper->getDeleteString($table, $where, $alias);
+        $numbers = $this->cache->getDao()->commit($sql);
+        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
+        return $numbers;
+    }
+
+    /**
+     * 无事务删除--需要手动开启事务
+     * @return int
+     */
+    public function delete()
+    {
+        $sqlHelper = SqlHelper::getInstance();
+
+        $sqlangInjecter = $this->getSqlangInjecter();
+
+        $tableInstance  = $sqlangInjecter->getTableInstance();
+        $whereInstance  = $sqlangInjecter->getWhereInstance();
+
+        $table = $tableInstance->getJoinTable();
+        $alias = $tableInstance->getAliasTable();
+        $where = $whereInstance->get();
+
+        $sql = $sqlHelper->getDeleteString($table, $where, $alias);
+        $numbers = $this->cache->getDao()->submit($sql);
+        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
+        return $numbers;
+    }
+
 }

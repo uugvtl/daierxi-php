@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Generics\Queries;
+namespace App\Network\Generics\Printing;
 use App\Globals\Generics\BaseService;
 use App\Helpers\InstanceHelper;
 /**
@@ -18,7 +18,7 @@ abstract class GenericService extends BaseService
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->getGenericInjecter()->setBaseClassString('QueryRepository');
+        $this->getGenericInjecter()->setBaseClassString('PrintRepository');
         $repositoryName = $this->getRepositoryClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -30,7 +30,7 @@ abstract class GenericService extends BaseService
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('QueryLogic');
+        $this->$this->getGenericInjecter()->setBaseClassString('PrintLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 

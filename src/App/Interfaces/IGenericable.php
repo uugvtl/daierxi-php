@@ -24,5 +24,4 @@ interface IGenericable
      */
     public function getGenericInjecter();
 
-
 }

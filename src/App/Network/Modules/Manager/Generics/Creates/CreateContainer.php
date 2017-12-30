@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates;
-use App\Network\Generics\GenericContainer;
+use App\Network\Generics\Creates\GenericContainer;
 /**
  * Created by PhpStorm.
  * User: leon

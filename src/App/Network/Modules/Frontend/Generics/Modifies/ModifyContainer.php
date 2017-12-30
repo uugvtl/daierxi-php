@@ -1,7 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Modifies;
-use App\Network\Generics\GenericContainer;
-
+use App\Network\Generics\Modifies\GenericContainer;
 /**
  * Created by PhpStorm.
  * User: leon

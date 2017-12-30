@@ -14,13 +14,6 @@ use App\Libraries\Caches\FileCache;
  */
 abstract class SelectStore extends BaseStore
 {
-    public function init(...$args)
-    {
-        $total = (int)$args[0];
-        $this->getSqlangInjecter()->getPageInstance()->setTotal($total);
-        return $this;
-    }
-
     /**
      * 只在生成成实例的时候运行一次
      */

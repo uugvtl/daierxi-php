@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes;
-use App\Network\Generics\GenericContainer;
+use App\Network\Generics\Removes\GenericContainer;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,4 +16,6 @@ class RemoveContainer extends GenericContainer
     {
 
     }
+
+
 }
