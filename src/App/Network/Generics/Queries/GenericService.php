@@ -19,7 +19,7 @@ abstract class GenericService extends BaseService
         $repositoryName = $this->getRepositoryClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
-        $genericInjecter = $this->getCloneGenericInjecter();
+        $genericInjecter = $this->getGenericInjecter()->getClone();
 
         $repository = $instanceHelper->build(GenericRepository::class, $repositoryName);
         return $repository->setGenericInjecter($genericInjecter);
@@ -30,7 +30,7 @@ abstract class GenericService extends BaseService
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
-        $genericInjecter = $this->getCloneGenericInjecter();
+        $genericInjecter = $this->getGenericInjecter()->getClone();
 
         $logic = $instanceHelper->build(GenericLogic::class, $logicName);
         return $logic->setGenericInjecter($genericInjecter);

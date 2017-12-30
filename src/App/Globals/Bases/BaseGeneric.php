@@ -35,12 +35,4 @@ abstract class BaseGeneric extends BaseClass implements IGenericable
         return $this->genericInjecter;
     }
 
-    /**
-     * 可以overwrite 此方法，主要是用来写是否可以泛化
-     * @return GenericInjecter
-     */
-    protected function getCloneGenericInjecter()
-    {
-        return $this->getGenericInjecter()->getClone();
-    }
 }
