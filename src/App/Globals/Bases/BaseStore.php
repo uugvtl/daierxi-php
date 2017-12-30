@@ -29,10 +29,18 @@ abstract class BaseStore extends BaseSingle
      * @param SqlangInjecter $injecter
      * @return $this
      */
-    public function setSqlangInjecter(SqlangInjecter $injecter)
+    final public function setSqlangInjecter(SqlangInjecter $injecter)
     {
         $this->sqlangInjecter = $injecter;
         return $this;
+    }
+
+    /**
+     * @return SqlangInjecter
+     */
+    final public function getSqlangInjecter()
+    {
+        return $this->sqlangInjecter;
     }
 
     /**
@@ -187,11 +195,5 @@ abstract class BaseStore extends BaseSingle
         return $stmt;
     }
 
-    /**
-     * @return SqlangInjecter
-     */
-    final protected function getSqlangInjecter()
-    {
-        return $this->sqlangInjecter;
-    }
+
 }

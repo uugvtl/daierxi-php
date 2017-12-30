@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Repositories;
 use App\Globals\Finals\Responder;
-use App\Network\Generics\Queries\GenericRepository;
+use App\Globals\Generics\BaseRepository;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,11 +11,14 @@ use App\Network\Generics\Queries\GenericRepository;
  * Class QueryRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Repositories
  */
-class QueryRepository extends GenericRepository
+class QueryRepository extends BaseRepository
 {
     public function run()
     {
 //        $store = $this->createStoreInstance();
+//        $total = $store->getCount();
+//
+//        $store->getSqlangInjecter()->getPageInstance()->setTotal($total);
         return Responder::getInstance();
     }
 
