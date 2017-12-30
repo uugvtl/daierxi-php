@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Repositories;
 use App\Globals\Finals\Responder;
-use App\Globals\Generics\BaseRepository;
+use App\Network\Generics\Queries\GenericRepository;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,7 +11,7 @@ use App\Globals\Generics\BaseRepository;
  * Class QueryRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Repositories
  */
-class QueryRepository extends BaseRepository
+class QueryRepository extends GenericRepository
 {
     public function run()
     {

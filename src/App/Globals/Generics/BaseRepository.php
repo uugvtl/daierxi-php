@@ -6,7 +6,6 @@ use App\Globals\Finals\PageSlice;
 use App\Globals\Sqlangs\BaseFields;
 use App\Globals\Sqlangs\BaseTable;
 use App\Globals\Sqlangs\BaseWhere;
-use App\Globals\Stores\Selects\CacheStore;
 use App\Helpers\InstanceHelper;
 use App\Injecters\GenericInjecter;
 use App\Injecters\SqlangInjecter;
@@ -26,7 +25,6 @@ abstract class BaseRepository extends BaseGeneric
      */
     private $catalog;
 
-
     /**
      * @param $catalog
      * @return $this
@@ -45,23 +43,33 @@ abstract class BaseRepository extends BaseGeneric
         return $this->catalog;
     }
 
+    /**
+     * @return SqlangInjecter
+     */
+    final protected function createSqlangInjecter()
+    {
+        $injecter = SqlangInjecter::getInstance();
+
+        $fieldsInstance = $this->createFieldsInstance();
+        $tableInstance  = $this->createTableInstance();
+        $whereInstance  = $this->createWhereInstance();
+
+        $pageInstance = PageSlice::getInstance();
+
+        $injecter->setFieldsInstance($fieldsInstance);
+        $injecter->setTableInstance($tableInstance);
+        $injecter->setWhereInstance($whereInstance);
+        $injecter->setPageInstance($pageInstance);
+
+        return $injecter;
+    }
+
     protected function afterInstance()
     {
         $this->catalog = 'Queries';
     }
 
-    /**
-     * @return BaseStore
-     */
-    protected function createStoreInstance()
-    {
-        $injecter = $this->createSqlangInjecter();
 
-        $cacheStore = CacheStore::getInstance();
-        $cacheStore->setSqlangInjecter($injecter);
-
-        return $cacheStore;
-    }
 
 
 
@@ -114,25 +122,9 @@ abstract class BaseRepository extends BaseGeneric
         return $package.BACKSLASH.'Sqlangs'.BACKSLASH.$this->getCatalog().BACKSLASH.$path;
     }
 
+
     /**
-     * @return SqlangInjecter
+     * @return BaseStore
      */
-    private function createSqlangInjecter()
-    {
-        $injecter = SqlangInjecter::getInstance();
-
-        $fieldsInstance = $this->createFieldsInstance();
-        $tableInstance  = $this->createTableInstance();
-        $whereInstance  = $this->createWhereInstance();
-
-        $pageInstance = PageSlice::getInstance();
-
-        $injecter->setFieldsInstance($fieldsInstance);
-        $injecter->setTableInstance($tableInstance);
-        $injecter->setWhereInstance($whereInstance);
-        $injecter->setPageInstance($pageInstance);
-
-        return $injecter;
-    }
-
+    abstract protected function createStoreInstance();
 }
