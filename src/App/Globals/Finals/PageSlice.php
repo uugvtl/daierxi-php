@@ -1,6 +1,5 @@
 <?php
 namespace App\Globals\Finals;
-use App\Globals\Bases\BaseClass;
 /**
  * 数据分段获取类--可以用于数组分段
  * User: leon
@@ -8,7 +7,7 @@ use App\Globals\Bases\BaseClass;
  * Time: 10:46
  */
 
-final class PageSlice extends BaseClass
+final class PageSlice
 {
     /**
      * 需要分段获取的数据总数
@@ -28,6 +27,7 @@ final class PageSlice extends BaseClass
      */
     private $page;
 
+    private function __construct(){}
 
     /**
      * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消

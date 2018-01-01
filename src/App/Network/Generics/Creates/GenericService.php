@@ -14,6 +14,9 @@ use App\Helpers\InstanceHelper;
  */
 abstract class GenericService extends BaseService
 {
+    /**
+     * @return GenericRepository
+     */
     protected function createRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
@@ -26,6 +29,9 @@ abstract class GenericService extends BaseService
         return $repository->setGenericInjecter($cloneGenericInjecter);
     }
 
+    /**
+     * @return GenericLogic
+     */
     protected function createLogicInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();

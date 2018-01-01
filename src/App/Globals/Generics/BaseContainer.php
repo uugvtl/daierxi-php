@@ -2,6 +2,7 @@
 namespace App\Globals\Generics;
 use App\Globals\Bases\BaseGeneric;
 /**
+ * 用来生成 Service 相关类的工厂类
  * Created by PhpStorm.
  * User: leon
  * Date: 30/12/17
@@ -17,7 +18,7 @@ abstract class BaseContainer extends BaseGeneric
      */
     abstract protected function createService();
 
-    protected function getServiceClassString()
+    final protected function getServiceClassString()
     {
 
         $genericInjecter = $this->getGenericInjecter();

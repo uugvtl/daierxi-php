@@ -12,7 +12,7 @@ use App\Interfaces\Adapters\IShowAdapter;
  * Interface IContainerProvider
  * @package App\Interfaces\Providers
  */
-interface INetContainerProvider extends IMockContainerProvider
+interface INetworkContainerProvider extends IMockContainerProvider
 {
     /**
      * 导出数据列表

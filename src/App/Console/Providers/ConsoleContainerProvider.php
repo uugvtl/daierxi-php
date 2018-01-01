@@ -1,6 +1,6 @@
 <?php
 namespace App\Console\Providers;
-use App\Interfaces\Providers\ICliContainerProvider;
+use App\Interfaces\Providers\IConsoleContainerProvider;
 use App\Providers\BaseContainerProvider;
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ use App\Providers\BaseContainerProvider;
  * Class CliContainerProvider
  * @package App\Console\Providers
  */
-abstract class ConsoleContainerProvider extends BaseContainerProvider implements ICliContainerProvider
+abstract class ConsoleContainerProvider extends BaseContainerProvider implements IConsoleContainerProvider
 {
 
 }

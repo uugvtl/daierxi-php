@@ -9,7 +9,9 @@ use App\Globals\Sqlangs\BaseWhere;
 use App\Helpers\InstanceHelper;
 use App\Injecters\GenericInjecter;
 use App\Injecters\SqlangInjecter;
+use App\Interfaces\Generics\IPreservable;
 /**
+ * 用来生成 Sqlang 和 Store 相关类的工厂类
  * Created by PhpStorm.
  * User: leon
  * Date: 30/12/17
@@ -18,35 +20,35 @@ use App\Injecters\SqlangInjecter;
  * Class BaseRepositpry
  * @package App\Globals\Generics
  */
-abstract class BaseRepository extends BaseGeneric
+abstract class BaseRepository extends BaseGeneric implements IPreservable
 {
     /**
      * @var string
      */
-    private $catalog;
+    private $sqlangCatalog;
 
     /**
-     * @param $catalog
+     * @param $sqlangCatalog
      * @return $this
      */
-    final public function setCatalog($catalog)
+    final public function setSqlangCatalog($sqlangCatalog)
     {
-        $this->catalog = $catalog;
+        $this->sqlangCatalog = $sqlangCatalog;
         return $this;
     }
 
     /**
      * @return string
      */
-    final public function getCatalog()
+    final public function getSqlangCatalog()
     {
-        return $this->catalog;
+        return $this->sqlangCatalog;
     }
 
     /**
      * @return SqlangInjecter
      */
-    final protected function createSqlangInjecter()
+    protected function createSqlangInjecter()
     {
         $injecter = SqlangInjecter::getInstance();
 
@@ -66,7 +68,7 @@ abstract class BaseRepository extends BaseGeneric
 
     protected function afterInstance()
     {
-        $this->catalog = 'Queries';
+        $this->sqlangCatalog = 'Queries';
     }
 
 
@@ -116,7 +118,7 @@ abstract class BaseRepository extends BaseGeneric
     {
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getPath();
-        return $package.BACKSLASH.'Sqlangs'.BACKSLASH.$this->getCatalog().BACKSLASH.$path;
+        return $package.BACKSLASH.'Sqlangs'.BACKSLASH.$this->getSqlangCatalog().BACKSLASH.$path;
     }
 
 
@@ -124,4 +126,9 @@ abstract class BaseRepository extends BaseGeneric
      * @return BaseStore
      */
     abstract protected function createStoreInstance();
+
+    /**
+     * @return BaseStore
+     */
+    abstract public function run();
 }

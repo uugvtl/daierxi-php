@@ -3,7 +3,7 @@ namespace App\Network\Providers;
 use App\Globals\Generics\BaseContainer;
 use App\Helpers\InstanceHelper;
 use App\Injecters\GenericInjecter;
-use App\Interfaces\Providers\INetContainerProvider;
+use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Providers\BaseContainerProvider;
 /**
  * Created by PhpStorm.
@@ -14,7 +14,7 @@ use App\Providers\BaseContainerProvider;
  * Class ContainerProvider
  * @package App\Network\Providers
  */
-abstract class NetworkContainerProvider extends BaseContainerProvider implements INetContainerProvider
+abstract class NetworkContainerProvider extends BaseContainerProvider implements INetworkContainerProvider
 {
     /**
      * 产生 container 容器

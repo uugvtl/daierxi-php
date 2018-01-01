@@ -2,6 +2,7 @@
 namespace App\Globals\Generics;
 use App\Globals\Bases\BaseGeneric;
 /**
+ * 用来生成 Repository 和 Logic 相关类的工厂类
  * Created by PhpStorm.
  * User: leon
  * Date: 30/12/17
@@ -12,6 +13,17 @@ use App\Globals\Bases\BaseGeneric;
  */
 abstract class BaseService extends BaseGeneric
 {
+
+    /**
+     * @return mixed
+     */
+    abstract protected function createRepositoryInstance();
+
+    /**
+     * @return mixed
+     */
+    abstract protected function createLogicInstance();
+
     /**
      * @return string
      */

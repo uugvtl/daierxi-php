@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules;
-use App\Interfaces\Providers\INetContainerProvider;
+use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Network\Common\NetController;
 /**
  * Created by PhpStorm.
@@ -14,7 +14,7 @@ use App\Network\Common\NetController;
 abstract class ModuleController extends NetController
 {
     /**
-     * @var INetContainerProvider
+     * @var INetworkContainerProvider
      */
     protected $provider;
 }

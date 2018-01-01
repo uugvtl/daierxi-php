@@ -21,9 +21,7 @@ class GenericInjecter extends BaseClass
      * @var string
      */
     private $baseClassString;
-
-
-
+    
     /**
      * @var boolean
      */

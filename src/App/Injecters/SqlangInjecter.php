@@ -37,13 +37,6 @@ class SqlangInjecter extends BaseClass
      */
     private $pageInstance;
 
-    public function __clone()
-    {
-        $this->fieldsInstance = clone $this->fieldsInstance;
-        $this->tableInstance = clone $this->tableInstance;
-        $this->whereInstance = clone $this->whereInstance;
-        $this->pageInstance = clone $this->pageInstance;
-    }
 
     /**
      * @param BaseFields $fieldsInstance
@@ -119,5 +112,13 @@ class SqlangInjecter extends BaseClass
     public function getPageInstance()
     {
         return $this->pageInstance;
+    }
+
+    public function __clone()
+    {
+        $this->fieldsInstance = clone $this->fieldsInstance;
+        $this->tableInstance = clone $this->tableInstance;
+        $this->whereInstance = clone $this->whereInstance;
+        $this->pageInstance = clone $this->pageInstance;
     }
 }

@@ -11,7 +11,7 @@ use App\Globals\Finals\Responder;
  * Interface ICliContainerProvider
  * @package App\Interfaces\Providers
  */
-interface ICliContainerProvider  extends IMockContainerProvider
+interface IConsoleContainerProvider  extends IMockContainerProvider
 {
     /**
      * 导出数据列表
