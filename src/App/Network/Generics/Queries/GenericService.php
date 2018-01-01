@@ -16,6 +16,9 @@ use App\Interfaces\Generics\IRespondable;
 abstract class GenericService extends BaseService implements IRespondable
 {
 
+    /**
+     * @return GenericRepository
+     */
     protected function createRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
@@ -25,21 +28,26 @@ abstract class GenericService extends BaseService implements IRespondable
         $instanceHelper = InstanceHelper::getInstance();
 
         $repository = $instanceHelper->build(GenericRepository::class, $repositoryName);
-        return $repository->setGenericInjecter($cloneGenericInjecter);
+        $repository->setGenericInjecter($cloneGenericInjecter);
+
+        return $repository;
     }
 
+    /**
+     * @return GenericLogic
+     */
     protected function createLogicInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('QueryLogic');
+        $this->getGenericInjecter()->setBaseClassString('QueryLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 
-
-
         $logic = $instanceHelper->build(GenericLogic::class, $logicName);
-        return $logic->setGenericInjecter($cloneGenericInjecter);
+        $logic->setGenericInjecter($cloneGenericInjecter);
+
+        return $logic;
     }
 
 }

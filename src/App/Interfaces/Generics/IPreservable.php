@@ -1,7 +1,7 @@
 <?php
 namespace App\Interfaces\Generics;
 use App\Globals\Bases\BaseStore;
-use App\Interfaces\IRunnable;
+use App\Interfaces\IGetable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,10 +11,10 @@ use App\Interfaces\IRunnable;
  * Interface IPreservable
  * @package App\Interfaces\Generics
  */
-interface IPreservable extends IRunnable
+interface IPreservable extends IGetable
 {
     /**
      * @return BaseStore
      */
-    public function run();
+    public function get();
 }

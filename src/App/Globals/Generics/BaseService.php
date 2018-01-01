@@ -14,14 +14,8 @@ use App\Globals\Bases\BaseGeneric;
 abstract class BaseService extends BaseGeneric
 {
 
-    /**
-     * @return mixed
-     */
     abstract protected function createRepositoryInstance();
 
-    /**
-     * @return mixed
-     */
     abstract protected function createLogicInstance();
 
     /**

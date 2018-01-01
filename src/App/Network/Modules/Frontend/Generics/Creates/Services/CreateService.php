@@ -12,7 +12,7 @@ use App\Network\Generics\Creates\GenericService;
  */
 class CreateService  extends GenericService
 {
-    public function run()
+    public function get()
     {
     }
 }

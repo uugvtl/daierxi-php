@@ -15,7 +15,7 @@ use App\Network\Modules\Frontend\Generics\Removes\Services\RemoveService;
  */
 class RemoveContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
 
     }

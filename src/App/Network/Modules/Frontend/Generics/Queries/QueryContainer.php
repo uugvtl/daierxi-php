@@ -14,10 +14,10 @@ use App\Network\Modules\Frontend\Generics\Queries\Services\QueryService;
  */
 class QueryContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
         $service = $this->createService();
-        return $service->run();
+        return $service->get();
 
     }
 

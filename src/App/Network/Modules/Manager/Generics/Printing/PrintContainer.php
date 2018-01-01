@@ -12,7 +12,7 @@ use App\Network\Generics\Printing\GenericContainer;
  */
 class PrintContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
     }
 }

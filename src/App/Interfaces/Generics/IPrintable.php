@@ -1,7 +1,7 @@
 <?php
 namespace App\Interfaces\Generics;
 use App\Interfaces\Adapters\IShowAdapter;
-use App\Interfaces\IRunnable;
+use App\Interfaces\IGetable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,10 +11,10 @@ use App\Interfaces\IRunnable;
  * Interface IPrintable
  * @package App\Interfaces\Generics
  */
-interface IPrintable extends IRunnable
+interface IPrintable extends IGetable
 {
     /**
      * @return IShowAdapter
      */
-    public function run();
+    public function get();
 }

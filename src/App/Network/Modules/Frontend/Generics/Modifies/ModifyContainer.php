@@ -12,7 +12,7 @@ use App\Network\Generics\Modifies\GenericContainer;
  */
 class ModifyContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
 
     }

@@ -15,7 +15,7 @@ use App\Interfaces\Generics\IRespondable;
  */
 abstract class GenericLogic  extends FormLogic implements IRespondable
 {
-    public function run()
+    public function get()
     {
         $toggle = $this->transaction();
         $responder = Responder::getInstance();

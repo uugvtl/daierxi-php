@@ -9,11 +9,11 @@ namespace App\Interfaces;
  * Interface IRunnable
  * @package App\Interfaces
  */
-interface IRunnable
+interface IGetable
 {
     /**
      * 程序入口启动
      * @return mixed
      */
-    public function run();
+    public function get();
 }

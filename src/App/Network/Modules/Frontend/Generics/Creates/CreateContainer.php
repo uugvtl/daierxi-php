@@ -13,7 +13,7 @@ use App\Network\Generics\Creates\GenericContainer;
  */
 class CreateContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
     }
 }

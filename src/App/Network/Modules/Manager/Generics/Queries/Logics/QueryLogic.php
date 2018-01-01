@@ -13,7 +13,7 @@ use App\Network\Generics\Queries\GenericLogic;
 class QueryLogic extends GenericLogic
 {
 
-    public function run()
+    public function get()
     {
 
     }

@@ -12,7 +12,7 @@ use App\Network\Generics\Exports\GenericContainer;
  */
 class ExportContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
     }
 }

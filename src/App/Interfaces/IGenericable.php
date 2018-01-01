@@ -15,7 +15,7 @@ interface IGenericable
 {
     /**
      * @param GenericInjecter $injecter
-     * @return $this
+     * @return static
      */
     public function setGenericInjecter(GenericInjecter $injecter);
 

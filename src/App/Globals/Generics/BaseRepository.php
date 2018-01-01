@@ -130,5 +130,5 @@ abstract class BaseRepository extends BaseGeneric implements IPreservable
     /**
      * @return BaseStore
      */
-    abstract public function run();
+    abstract public function get();
 }

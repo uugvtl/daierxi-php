@@ -12,7 +12,7 @@ use App\Network\Generics\Removes\GenericContainer;
  */
 class RemoveContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
 
     }

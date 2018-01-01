@@ -12,7 +12,7 @@ use App\Network\Generics\Printing\GenericService;
  */
 class PrintService extends GenericService
 {
-    public function run()
+    public function get()
     {
     }
 }

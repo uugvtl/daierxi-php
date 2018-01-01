@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Logics;
+use App\Globals\Finals\Responder;
 use App\Network\Generics\Queries\GenericLogic;
 /**
  * Created by PhpStorm.
@@ -13,8 +14,30 @@ use App\Network\Generics\Queries\GenericLogic;
 class QueryLogic extends GenericLogic
 {
 
-    public function run()
+    public function get()
     {
+        $responder = Responder::getInstance();
 
+        $total = $this->getCount();
+        if($total)
+        {
+            $responder->toggle = YES;
+            $responder->total = $total;
+            $responder->data = $this->getList();
+        }
+
+        return $responder;
+    }
+
+    protected function getList()
+    {
+        $store = $this->getRepositpry()->get();
+        return $store->getList();
+    }
+
+    protected function getCount()
+    {
+        $store = $this->getRepositpry()->get();
+        return $store->getCount();
     }
 }

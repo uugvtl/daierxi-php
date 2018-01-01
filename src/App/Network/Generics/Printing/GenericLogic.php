@@ -14,7 +14,7 @@ use App\Interfaces\Generics\IPrintable;
  */
 abstract class GenericLogic  extends FormLogic implements IPrintable
 {
-    public function run()
+    public function get()
     {
         $this->transaction();
 //        $toggle = $this->transaction();

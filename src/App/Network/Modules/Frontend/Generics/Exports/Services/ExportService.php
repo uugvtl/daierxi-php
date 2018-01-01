@@ -12,7 +12,7 @@ use App\Network\Generics\Exports\GenericService;
  */
 class ExportService extends GenericService
 {
-    public function run()
+    public function get()
     {
     }
 }

@@ -12,7 +12,7 @@ use App\Network\Generics\Queries\GenericRepository;
  */
 class QueryRepository extends GenericRepository
 {
-    public function run()
+    public function get()
     {
     }
 }

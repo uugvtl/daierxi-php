@@ -13,7 +13,7 @@ use App\Network\Generics\Removes\GenericService;
  */
 class RemoveService extends GenericService
 {
-    public function run()
+    public function get()
     {
     }
 }

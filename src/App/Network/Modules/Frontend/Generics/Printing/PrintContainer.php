@@ -15,7 +15,7 @@ use App\Network\Modules\Frontend\Generics\Printing\Services\PrintService;
  */
 class PrintContainer extends GenericContainer
 {
-    public function run()
+    public function get()
     {
     }
 

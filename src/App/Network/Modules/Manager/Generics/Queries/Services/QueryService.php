@@ -13,10 +13,10 @@ use App\Network\Generics\Queries\GenericService;
 class QueryService extends GenericService
 {
 
-    public function run()
+    public function get()
     {
         $repository = $this->createRepositoryInstance();
-        return $repository->run();
+        return $repository->get();
     }
 
 }
