@@ -1,6 +1,7 @@
 <?php
 namespace App\Globals\Generics;
 use App\Globals\Bases\BaseGeneric;
+use App\Interfaces\IGetable;
 /**
  * 用来生成 Service 相关类的工厂类
  * Created by PhpStorm.
@@ -11,7 +12,7 @@ use App\Globals\Bases\BaseGeneric;
  * Class BaseContainer
  * @package App\Globals\Generics
  */
-abstract class BaseContainer extends BaseGeneric
+abstract class BaseContainer extends BaseGeneric implements IGetable
 {
     /**
      * @return mixed

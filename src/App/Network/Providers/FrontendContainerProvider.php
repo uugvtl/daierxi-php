@@ -34,7 +34,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getExportAdapter(array $condz= [])
     {
         $container = $this->createContainer($condz, PackageExportConst::PACKAGE, ExportContainer::class);
-        return $container->run();
+        return $container->get();
     }
 
     /**
@@ -45,7 +45,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getPrintAdapter(array $condz= [])
     {
         $container = $this->createContainer($condz, PackagePrintConst::PACKAGE, PrintContainer::class);
-        return $container->run();
+        return $container->get();
     }
 
 
@@ -57,7 +57,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getQueryResponder(array $condz= [])
     {
         $container = $this->createContainer($condz, PackageQueryConst::PACKAGE, QueryContainer::class);
-        return $container->run();
+        return $container->get();
     }
 
 
@@ -69,7 +69,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getPrimaryResponder(array $aId)
     {
         $container = $this->createContainer($aId, PackageModifyConst::PACKAGE, ModifyContainer::class);
-        return $container->run();
+        return $container->get();
     }
 
     /**
@@ -80,7 +80,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getCreateResponder(array $posts)
     {
         $container = $this->createContainer($posts, PackageCreateConst::PACKAGE, CreateContainer::class);
-        return $container->run();
+        return $container->get();
     }
 
     /**
@@ -91,7 +91,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getCommitResponder(array $posts)
     {
         $container = $this->createContainer($posts, PackageModifyConst::PACKAGE, ModifyContainer::class);
-        return $container->run();
+        return $container->get();
     }
 
     /**
@@ -102,6 +102,6 @@ class FrontendContainerProvider extends NetworkContainerProvider
     public function getDeleteResponder(array $aId=[])
     {
         $container = $this->createContainer($aId, PackageRemoveConst::PACKAGE, RemoveContainer::class);
-        return $container->run();
+        return $container->get();
     }
 }

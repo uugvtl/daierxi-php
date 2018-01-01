@@ -40,7 +40,9 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
 
         $instanceHelper = InstanceHelper::getInstance();
         $container = $instanceHelper->build(BaseContainer::class, $classname);
-        return $container->setGenericInjecter($genericInjecter);
+        $container->setGenericInjecter($genericInjecter);
+
+        return $container;
 
     }
 }
