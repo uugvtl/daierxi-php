@@ -18,7 +18,7 @@ abstract class GenericRepository extends BaseRepository
     /**
      * @return BaseStore
      */
-    protected function createStoreInstance()
+    final protected function createStoreInstance()
     {
         $injecter = $this->createSqlangInjecter();
 
