@@ -38,6 +38,8 @@ class QueryLogic extends GenericLogic
     protected function getCount()
     {
         $store = $this->getRepositpry()->get();
-        return $store->getCount();
+        $total = $store->getSqlangInjecter()->getPageInstance()->getTotal();
+
+        return $total?$total:$store->getCount();
     }
 }

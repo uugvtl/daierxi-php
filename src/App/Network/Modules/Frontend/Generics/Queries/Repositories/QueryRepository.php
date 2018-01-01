@@ -1,6 +1,5 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Repositories;
-use App\Globals\Finals\Responder;
 use App\Network\Generics\Queries\GenericRepository;
 /**
  * Created by PhpStorm.
@@ -15,11 +14,8 @@ class QueryRepository extends GenericRepository
 {
     public function get()
     {
-//        $store = $this->createStoreInstance();
-//        $total = $store->getCount();
-//
-//        $store->getSqlangInjecter()->getPageInstance()->setTotal($total);
-        return Responder::getInstance();
+        $store = $this->createStoreInstance();
+        return $store;
     }
 
 }
