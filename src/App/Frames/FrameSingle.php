@@ -1,5 +1,6 @@
 <?php
 namespace App\Frames;
+use Phalcon\Config;
 use Phalcon\Mvc\User\Plugin;
 /**
  * Created by PhpStorm.
@@ -9,6 +10,7 @@ use Phalcon\Mvc\User\Plugin;
  *
  * Class BaseSingle
  * @package App\Globals\Bases
+ * @property Config $config
  */
 abstract class FrameSingle extends Plugin
 {

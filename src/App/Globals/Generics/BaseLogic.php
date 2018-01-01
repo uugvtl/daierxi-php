@@ -13,6 +13,9 @@ use App\Globals\Bases\BaseGeneric;
  */
 abstract class BaseLogic extends BaseGeneric
 {
+    /**
+     * @var BaseRepository
+     */
     private $repository;
 
     public function init(...$args)
@@ -22,8 +25,12 @@ abstract class BaseLogic extends BaseGeneric
         return $this;
     }
 
+    /**
+     * @return BaseRepository
+     */
     final protected function getRepositpry()
     {
         return $this->repository;
     }
+
 }

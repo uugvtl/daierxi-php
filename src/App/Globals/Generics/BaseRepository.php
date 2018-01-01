@@ -40,7 +40,7 @@ abstract class BaseRepository extends BaseGeneric implements IPreservable
     /**
      * @return string
      */
-    final public function getSqlangCatalog()
+    final protected function getSqlangCatalog()
     {
         return $this->sqlangCatalog;
     }

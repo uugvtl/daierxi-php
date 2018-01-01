@@ -1,8 +1,7 @@
 <?php
 namespace App\Helpers;
 use App\Globals\Bases\BaseSingle;
-use Phalcon\Exception;
-
+use Exception;
 /**
  * Created by PhpStorm.
  * User: leon

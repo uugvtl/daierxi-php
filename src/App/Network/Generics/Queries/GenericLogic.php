@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Generics\Queries;
-use App\Globals\Bases\BaseGeneric;
+use App\Globals\Generics\BaseLogic;
 use App\Interfaces\Generics\IRespondable;
 
 /**
@@ -12,7 +12,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends BaseGeneric implements IRespondable
+abstract class GenericLogic  extends BaseLogic implements IRespondable
 {
 
 }

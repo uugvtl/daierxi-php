@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Generics\Removes;
-use App\Globals\Bases\BaseGeneric;
+use App\Globals\Finals\Responder;
+use App\Globals\Generics\FormLogic;
 use App\Interfaces\Generics\IRespondable;
 
 /**
@@ -12,7 +13,14 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericLogic
  * @package App\Network\Generics\Removes
  */
-abstract class GenericLogic  extends BaseGeneric implements IRespondable
+abstract class GenericLogic  extends FormLogic implements IRespondable
 {
-
+    public function run()
+    {
+        $toggle = $this->transaction();
+        $responder = Responder::getInstance();
+        $responder->toggle = $toggle;
+        if($toggle)
+            $responder->msg = $this->t('global', 'delete_success');
+    }
 }

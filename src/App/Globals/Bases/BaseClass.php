@@ -1,13 +1,11 @@
 <?php
 namespace App\Globals\Bases;
 use App\Globals\Traits\TranslationTrait;
-use Phalcon\Config;
 /**
  * 所有单例类的基类:此类的子类需要自己实现单例方法--需要自己实现getInstance静态方法:本类中有例子,可以实现传参初始化
  * User: Leon
  * Date: 2016/3/7
  * Time: 12:10
- * @property Config $config
  */
 abstract class BaseClass
 {

@@ -173,7 +173,7 @@ abstract class BaseStore extends BaseSingle
                     {$table}
                 WHERE
                     1=1 {$where} {$groupBy} {$orderBy} {$pagingLimit};\n";
-        return $this->cache->getAll($sql, $aCacheDependency);
+        return $this->cache->setDependencies($aCacheDependency)->getAll($sql);
     }
 
 
@@ -219,7 +219,7 @@ abstract class BaseStore extends BaseSingle
                             1=1 {$where} {$groupBy}
                     ) tmp;";
         }
-        return $this->cache->getOne($sql, $aCacheDependency);
+        return $this->cache->setDependencies($aCacheDependency)->getOne($sql);
     }
 
     /**
@@ -246,7 +246,7 @@ abstract class BaseStore extends BaseSingle
                     {$table}
                 WHERE
                     1=1 {$where};\n";
-        $rows = $this->cache->getRow($sql, $aCacheDependency);
+        $rows = $this->cache->setDependencies($aCacheDependency)->getRow($sql);
         return $rows;
     }
 
@@ -274,7 +274,7 @@ abstract class BaseStore extends BaseSingle
                     {$table}
                 WHERE
                     1=1 {$where};\n";
-        $rows = $this->cache->getOne($sql, $aCacheDependency);
+        $rows = $this->cache->setDependencies($aCacheDependency)->getOne($sql);
         return $rows;
     }
 

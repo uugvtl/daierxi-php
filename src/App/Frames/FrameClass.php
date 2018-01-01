@@ -1,6 +1,7 @@
 <?php
 namespace App\Frames;
 use App\Globals\Traits\TranslationTrait;
+use Phalcon\Config;
 use Phalcon\Mvc\User\Plugin;
 /**
  * Created by PhpStorm.
@@ -10,6 +11,7 @@ use Phalcon\Mvc\User\Plugin;
  *
  * Class ModularPlugin
  * @package App\Modulars
+ * @property Config $config
  */
 abstract class FrameClass extends Plugin
 {
