@@ -1,8 +1,6 @@
 <?php
 namespace App\Libraries\Caches;
-use App\Libraries\Caches\Dependencies\BaseCacheDependency;
 use App\Libraries\Caches\Dependencies\NotCacheDependency;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,40 +12,27 @@ use App\Libraries\Caches\Dependencies\NotCacheDependency;
  */
 class NotCache extends BaseCache
 {
-    /**
-     * 获取以数据库查询数据为基础的缓存--单项数据
-     * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
-     * @return mixed                                        数据库查询数据
-     */
-    public function getOne($sql, array $dependencies)
+    public function getOne($sql)
     {
-        $data = $this->dao->fetchOne($sql);
+        $data = $this->getDao()->fetchOne($sql);
         return $data;
 
     }
 
-    /**
-     * 获取以数据库查询数据为基础的缓存--一条数据
-     * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
-     * @return mixed                                        数据库查询数据
-     */
-    public function getRow($sql, array $dependencies)
+    public function getRow($sql)
     {
-        $row = $this->dao->fetchRow($sql);
+        $row = $this->getDao()->fetchRow($sql);
         return $row;
     }
 
     /**
      * 获取以数据库查询数据为基础的缓存--数据集
      * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
      * @return mixed                                        数据库查询数据
      */
-    public function getAll($sql, array $dependencies)
+    public function getAll($sql)
     {
-        $records = $this->dao->fetchAll($sql);
+        $records = $this->getDao()->fetchAll($sql);
         return $records ? $records : array();
     }
 

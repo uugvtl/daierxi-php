@@ -31,23 +31,17 @@ class FileCache extends BaseCache
         return $toggle;
     }
 
-    /**
-     * 获取以数据库查询数据为基础的缓存--单项数据
-     * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
-     * @return mixed                                        数据库查询数据
-     */
-    public function getOne($sql, array $dependencies)
+    public function getOne($sql)
     {
         $data = null;
 
         if($this->config->path('cache.enable'))
         {
-            $data = $this->getCacheData($sql, $dependencies, 'fetchOne');
+            $data = $this->getCacheData($sql, $this->getDependencies(), 'fetchOne');
         }
         else
         {
-            $data = $this->dao->fetchOne($sql);
+            $data = $this->getDao()->fetchOne($sql);
         }
 
 
@@ -55,44 +49,32 @@ class FileCache extends BaseCache
 
     }
 
-    /**
-     * 获取以数据库查询数据为基础的缓存--一条数据
-     * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
-     * @return mixed                                        数据库查询数据
-     */
-    public function getRow($sql, array $dependencies)
+    public function getRow($sql)
     {
 
         if($this->config->path('cache.enable'))
         {
-            $row = $this->getCacheData($sql, $dependencies, 'fetchRow');
+            $row = $this->getCacheData($sql, $this->getDependencies(), 'fetchRow');
         }
         else
         {
-            $row = $this->dao->fetchRow($sql);
+            $row = $this->getDao()->fetchRow($sql);
         }
 
         return $row;
 
     }
 
-    /**
-     * 获取以数据库查询数据为基础的缓存--数据集
-     * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies   文件缓存依赖对象
-     * @return mixed                                        数据库查询数据
-     */
-    public function getAll($sql, array $dependencies)
+    public function getAll($sql)
     {
 
         if($this->config->path('cache.enable'))
         {
-            $records = $this->getCacheData($sql, $dependencies, 'fetchAll');
+            $records = $this->getCacheData($sql, $this->getDependencies(), 'fetchAll');
         }
         else
         {
-            $records = $this->dao->fetchAll($sql);
+            $records = $this->getDao()->fetchAll($sql);
         }
 
         return $records ? $records : array();
@@ -247,7 +229,7 @@ class FileCache extends BaseCache
 
                         if($isExpire)
                         {
-                            $res = call_user_func(array($this->dao, $fetch), $key);
+                            $res = call_user_func(array($this->getDao(), $fetch), $key);
                             if(!empty($res))
                             {
                                 $gzdeflate = serialize($res);
@@ -288,7 +270,7 @@ class FileCache extends BaseCache
         else
         {
 
-            $res = call_user_func(array($this->dao, $fetch), $key);
+            $res = call_user_func(array($this->getDao(), $fetch), $key);
 
             if($dependencies)
             {

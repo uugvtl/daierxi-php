@@ -41,7 +41,30 @@ abstract class BaseCache extends BaseSingle
     /**
      * @var FrameDao
      */
-    protected $dao;
+    private $dao;
+
+    /**
+     * @var BaseCacheDependency[]
+     */
+    private $dependencies;
+
+    /**
+     * @param BaseCacheDependency[]         $dependencies   文件缓存依赖对象
+     * @return $this
+     */
+    final public function setDependencies(array $dependencies)
+    {
+        $this->dependencies = $dependencies;
+        return $this;
+    }
+
+    /**
+     * @return BaseCacheDependency[]
+     */
+    final public function getDependencies()
+    {
+        return $this->dependencies;
+    }
 
     public function init(...$args)
     {
@@ -57,26 +80,23 @@ abstract class BaseCache extends BaseSingle
     /**
      * 获取以数据库查询数据为基础的缓存--单项数据
      * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]         $dependencies   文件缓存依赖对象
      * @return mixed                                        数据库查询数据
      */
-    abstract public function getOne($sql, array $dependencies);
+    abstract public function getOne($sql);
 
     /**
-     * 获取以数据库查询数据为基础的缓存--一条数据
+     * 获取以数据库查询数据为基础的缓存--单条数据
      * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies     文件缓存依赖对象
      * @return mixed                                        数据库查询数据
      */
-    abstract public function getRow($sql, array $dependencies);
+    abstract public function getRow($sql);
 
     /**
      * 获取以数据库查询数据为基础的缓存--数据集
      * @param string                        $sql			SQL语句
-     * @param BaseCacheDependency[]            $dependencies     文件缓存依赖对象
      * @return mixed                                        数据库查询数据
      */
-    abstract public function getAll($sql, array $dependencies);
+    abstract public function getAll($sql);
 
     /**
      * 通过文件名获取缓存文件依赖对象--保存在缓存文件依赖目录:selete操作使用
