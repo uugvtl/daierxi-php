@@ -2,6 +2,8 @@
 namespace App\Network\Generics\Exports;
 use App\Globals\Generics\BaseService;
 use App\Helpers\InstanceHelper;
+use App\Interfaces\Generics\IExportable;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,7 +13,7 @@ use App\Helpers\InstanceHelper;
  * Class GenericService
  * @package App\Network\Generics\Queries
  */
-abstract class GenericService extends BaseService
+abstract class GenericService extends BaseService  implements IExportable
 {
 
     protected function createRepositoryInstance()

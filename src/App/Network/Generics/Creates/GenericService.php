@@ -2,6 +2,7 @@
 namespace App\Network\Generics\Creates;
 use App\Globals\Generics\BaseService;
 use App\Helpers\InstanceHelper;
+use App\Interfaces\Generics\IRespondable;
 
 /**
  * Created by PhpStorm.
@@ -12,7 +13,7 @@ use App\Helpers\InstanceHelper;
  * Class GenericService
  * @package App\Network\Generics\Creates
  */
-abstract class GenericService extends BaseService
+abstract class GenericService extends BaseService implements IRespondable
 {
     /**
      * @return GenericRepository

@@ -2,6 +2,7 @@
 namespace App\Network\Generics\Creates;
 use App\Globals\Generics\BaseContainer;
 use App\Helpers\InstanceHelper;
+use App\Interfaces\Generics\IRespondable;
 
 /**
  * Created by PhpStorm.
@@ -12,7 +13,7 @@ use App\Helpers\InstanceHelper;
  * Class GenericContainer
  * @package App\Network\Generics\Creates
  */
-abstract class GenericContainer extends BaseContainer
+abstract class GenericContainer extends BaseContainer implements IRespondable
 {
     /**
      * @return GenericService

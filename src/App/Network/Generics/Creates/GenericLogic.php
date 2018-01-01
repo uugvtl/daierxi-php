@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Generics\Creates;
 use App\Globals\Generics\BaseLogic;
+use App\Interfaces\Generics\IRespondable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +11,7 @@ use App\Globals\Generics\BaseLogic;
  * Class GenericLogic
  * @package App\Network\Generics\Creates
  */
-abstract class GenericLogic extends BaseLogic
+abstract class GenericLogic extends BaseLogic implements IRespondable
 {
 
 }

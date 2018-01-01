@@ -2,6 +2,8 @@
 namespace App\Network\Generics\Removes;
 use App\Globals\Generics\BaseService;
 use App\Helpers\InstanceHelper;
+use App\Interfaces\Generics\IRespondable;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,7 +13,7 @@ use App\Helpers\InstanceHelper;
  * Class GenericService
  * @package App\Network\Generics\Removes
  */
-abstract class GenericService extends BaseService
+abstract class GenericService extends BaseService implements IRespondable
 {
 
     protected function createRepositoryInstance()

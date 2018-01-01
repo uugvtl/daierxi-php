@@ -22,7 +22,7 @@ abstract class BaseLogic extends BaseGeneric
         return $this;
     }
 
-    protected function getRepositpry()
+    final protected function getRepositpry()
     {
         return $this->repository;
     }
