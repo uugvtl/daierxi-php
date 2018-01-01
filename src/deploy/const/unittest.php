@@ -5,11 +5,9 @@
  * Date: 2017/7/26
  * Time: 23:28
  */
-require_once SRC_PATH .'/deploy/const/system.php';
-require_once CONST_PATH . '/const_wan.php';
-require_once CONST_PATH . '/custom.php';
-
-define('SELECTMODE',            'Search');                                           //是运行在cli还是net的平台配置
+require_once SRC_PATH           . '/deploy/const/system.php';
+require_once CONST_PATH         . '/constfront.php';
+require_once CONST_PATH         . '/custom.php';
 
 define('FRONTEND_PATH',         NETWORK_PATH . '/Modules/Frontend');
 define('BACKEND_PATH',          NETWORK_PATH . '/Modules/Backend');
@@ -31,4 +29,4 @@ define('MOBILE_NS',             MODULES_NS   . '\Mobile');                      
 define('WECHAT_NS',             MODULES_NS   . '\Wechat');                          //network微信模块
 
 
-require_once CONST_PATH.'/const_rear.php';
+require_once CONST_PATH . '/constback.php';

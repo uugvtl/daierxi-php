@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Common;
+use App\Datesets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Modules\ModuleController;
 use App\Network\Providers\FrontendContainerProvider;
@@ -18,7 +19,7 @@ abstract class AppController extends ModuleController
 
         $ctrlName   = $dispatcher->getControllerName();
         $actName    = $dispatcher->getActionName();
-        $fileName   = $dispatcher->getControllerName();
+        $fileName   = DataConst::CLASS_PREFIX;
 
         $distributer->init($ctrlName, $actName, $fileName);
 

@@ -9,7 +9,7 @@ namespace App\Datasets;
  * Class ExcpMsg
  * @package App\Globals\Datasets
  */
-abstract class ExcpMsg
+final class ExcpMsg
 {
     const COMMIT_SQL_EXCEPTION = '数据保存异常，请连联管理员';
 

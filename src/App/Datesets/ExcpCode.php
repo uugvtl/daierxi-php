@@ -9,7 +9,7 @@ namespace App\Datasets;
  * Class ErrorCode
  * @package App\Globals\Datasets
  */
-abstract class ExcpCode
+final class ExcpCode
 {
     /**
      * 数据提交不成功

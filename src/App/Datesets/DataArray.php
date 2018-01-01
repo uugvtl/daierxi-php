@@ -6,7 +6,7 @@ namespace App\Datasets;
  * Date: 2016/11/15
  * Time: 16:09
  */
-abstract class DataArray
+final class DataArray
 {
     /**
      * 表vz_brand当中的brand_tag字段的中文意思
