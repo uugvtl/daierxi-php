@@ -4,6 +4,7 @@ use App\Globals\Bases\BaseBiz;
 use App\Libraries\Daoes\AppDao;
 use App\Libraries\Daoes\FrameDao;
 /**
+ * 有持久化功能的业务实例
  * Created by PhpStorm.
  * User: leon
  * Date: 1/1/18
