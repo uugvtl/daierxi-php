@@ -36,6 +36,11 @@ class NotCache extends BaseCache
         return $records ? $records : array();
     }
 
+    public function clean()
+    {
+        return true;
+    }
+
     public function createCacheDependencies($tableNames)
     {
         $dependencies = [];

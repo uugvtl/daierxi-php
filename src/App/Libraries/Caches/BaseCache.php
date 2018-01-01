@@ -1,8 +1,6 @@
 <?php
 namespace App\Libraries\Caches;
 use App\Globals\Bases\BaseSingle;
-use App\Helpers\FileHelper;
-use App\Helpers\StringHelper;
 use App\Libraries\Caches\Dependencies\BaseCacheDependency;
 use App\Libraries\Daoes\FrameDao;
 use InvalidArgumentException;
@@ -129,7 +127,7 @@ abstract class BaseCache extends BaseSingle
      * @param int $lifetime     过期时间，0为使用默认过期时间
      * @return boolean          保存成功返回true, 否则返回false
      */
-    public function setCache($key, $data, $lifetime=0)
+    public function set($key, $data, $lifetime=0)
     {
         if(empty($lifetime))
             $lifetime=$this->lifetime;
@@ -144,7 +142,7 @@ abstract class BaseCache extends BaseSingle
      * @param string $key       缓存名称
      * @return array            保存成功返回true, 否则返回false
      */
-    public function getCache($key)
+    public function get($key)
     {
         $data=null;
         if($this->$this->cache->exists($key)){
@@ -159,34 +157,15 @@ abstract class BaseCache extends BaseSingle
      * @param string $key       缓存键名
      * @return boolean          删除成功返回true, 否则返回false
      */
-    public function delCache($key)
+    public function del($key)
     {
         return $this->$this->cache->delete($key);
     }
 
     /**
-     * 删除指定的缓存目录
-     * @param string $className     缓存目录名--一般来说是一个类名：例如stores目录下面的类
+     * 清除所有缓存
      * @return boolean              删除成功返回true, 否则返回false
      */
-    public function clearCache($className)
-    {
-        $stringHelper = StringHelper::getInstance();
-        $fileHelper = FileHelper::getInstance();
-
-        $className  = $stringHelper->cryptString($className);
-
-        $aOptions   = $this->$this->cache->getOptions();
-        $cacheDir   = $aOptions['cacheDir'].$className.'/';
-
-        $toggle = false;
-        if(is_dir($cacheDir))
-        {
-            $fileHelper->removeDirectory($cacheDir);
-            $toggle = true;
-        }
-
-        return $toggle;
-    }
+    abstract public function clean();
 
 }

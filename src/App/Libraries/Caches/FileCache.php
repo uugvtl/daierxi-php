@@ -16,6 +16,25 @@ use App\Libraries\Caches\Dependencies\FileCacheDependency;
  */
 class FileCache extends BaseCache
 {
+    /**
+     * 清除所有缓存
+     * @return boolean              删除成功返回true, 否则返回false
+     */
+    public function clean()
+    {
+        $fileHelper = FileHelper::getInstance();
+        $aOptions   = $this->$this->cache->getOptions();
+        $cacheDir   = $aOptions['cacheDir'];
+
+        $toggle = false;
+        if(is_dir($cacheDir))
+        {
+            $fileHelper->removeDirectory($cacheDir);
+            $toggle = true;
+        }
+
+        return $toggle;
+    }
 
     /**
      * 设置缓存
@@ -24,9 +43,9 @@ class FileCache extends BaseCache
      * @param int $lifetime     过期时间，0为使用默认过期时间
      * @return boolean          保存成功返回true, 否则返回false
      */
-    public function setCache($key, $data, $lifetime=0)
+    public function set($key, $data, $lifetime=0)
     {
-        $toggle = parent::setCache($key, $data, $lifetime);
+        $toggle = parent::set($key, $data, $lifetime);
         $toggle && $this->setCacheFileMode($key);
         return $toggle;
     }
