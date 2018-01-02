@@ -1,5 +1,7 @@
 <?php
 namespace App\Network\Modules;
+use App\Datesets\DataConst;
+use App\Globals\Finals\Distributer;
 use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Network\Common\NetController;
 /**
@@ -17,4 +19,22 @@ abstract class ModuleController extends NetController
      * @var INetworkContainerProvider
      */
     protected $provider;
+
+    /**
+     * @return Distributer
+     */
+    final protected function createDistributer()
+    {
+        $dispatcher = $this->dispatcher;
+        $distributer = Distributer::getInstance();
+
+        $ctrlName   = $dispatcher->getControllerName();
+        $actName    = $dispatcher->getActionName();
+        $fileName   = DataConst::CLASS_PREFIX;
+
+        $distributer->init($ctrlName, $actName, $fileName);
+
+        return $distributer;
+    }
+
 }
