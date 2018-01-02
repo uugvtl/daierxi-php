@@ -1,6 +1,6 @@
 <?php
-namespace App\Network\Modules\Manager\Plugins;
-use App\Globals\Plugins\NotPagePlugin;
+namespace App\Network\Modules\Manager\Events;
+use App\Globals\Events\NotPageEvent;
 /**
  * 手机端调度器异常处理
  * User: leon
@@ -10,4 +10,4 @@ use App\Globals\Plugins\NotPagePlugin;
  * Class NotFoundPlugin
  * @package App\Network\Modules\Manager\Plugins
  */
-class NotFoundPlugin extends NotPagePlugin {}
+class NotFoundEvent extends NotPageEvent {}

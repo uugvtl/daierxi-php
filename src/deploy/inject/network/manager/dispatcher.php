@@ -7,31 +7,29 @@
  */
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Events\Manager          as EventsManager;
-use App\Network\Modules\Manager\Plugins\SecurityPlugin;
-use App\Network\Modules\Manager\Plugins\NotFoundPlugin;
-//use Wz\Modules\Frontend\Plugins\NotFoundPlugin;
-//use Wz\Modules\Frontend\Plugins\SecurityPlugin;
+use App\Network\Modules\Manager\Events\SecurityEvent;
+use App\Network\Modules\Manager\Events\NotFoundEvent;
 
 
 $eventsManager = new EventsManager();
 
 /**
- * Check if the user is allowed to access certain action using the SecurityPlugin
- * 正常情况下，此优先级最高
+ * Handle exceptions and not-found exceptions using NotFoundPlugin
+ * 404时，优先级最高
  */
-$eventsManager->attach('dispatch:beforeExecuteRoute', new SecurityPlugin());
+$eventsManager->attach('dispatch:beforeNotFoundAction', new NotFoundEvent());
 
 /**
  * Handle exceptions and not-found exceptions using NotFoundPlugin
  * 如果出现异常，先处理，beforeExecuteRoute 此处理在上面的事件之后
  */
-$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin());
+$eventsManager->attach('dispatch:beforeException', new NotFoundEvent());
 
 /**
- * Handle exceptions and not-found exceptions using NotFoundPlugin
- * 404时，优先级最高
+ * Check if the user is allowed to access certain action using the SecurityPlugin
+ * 正常情况下，此优先级最高
  */
-$eventsManager->attach('dispatch:beforeNotFoundAction', new NotFoundPlugin());
+$eventsManager->attach('dispatch:beforeExecuteRoute', new SecurityEvent());
 
 $dispatcher = new Dispatcher();
 $dispatcher->setEventsManager($eventsManager);

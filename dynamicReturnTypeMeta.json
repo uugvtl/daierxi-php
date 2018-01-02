@@ -1,11 +1,6 @@
 {
   "methodCalls": [
     {
-      "class": "\\App\\Creators\\BaseCreator",
-      "method": "create",
-      "position": 0
-    },
-    {
       "class": "\\App\\Helpers\\InstanceHelper",
       "method": "build",
       "position": 0

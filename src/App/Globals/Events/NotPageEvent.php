@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Plugins;
+namespace App\Globals\Events;
 use Phalcon\Mvc\User\Plugin;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
@@ -13,7 +13,7 @@ use Exception;
  * Class NotFoundPlugin
  * @package App\Globals\Plugins
  */
-class NotPagePlugin extends Plugin
+class NotPageEvent extends Plugin
 {
     /**
      * 页面404处理
