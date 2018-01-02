@@ -16,6 +16,18 @@ use App\Libraries\Daoes\FrameDao;
 abstract class BaseDo extends BaseBiz
 {
     /**
+     * 是否为新增数据
+     * @var bool
+     */
+    private $insertion;
+
+    /**
+     * 数据持久化后，需要改变此状态为true
+     * @var bool
+     */
+    private $persistent;
+
+    /**
      * @var FrameDao
      */
     private $dao;
@@ -43,6 +55,44 @@ abstract class BaseDo extends BaseBiz
      * @return mixed
      */
     abstract public function primaryKey();
+
+    /**
+     * 设置是否为新增数据
+     * @param bool $insertion       新增为true,否则为false
+     * @return $this
+     */
+    final public function setInsertion($insertion)
+    {
+        $this->insertion = (bool)$insertion;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    final public function isPersistent()
+    {
+        return $this->persistent?true:false;
+    }
+
+    /**
+     * @return bool
+     */
+    final public function isInsertion()
+    {
+        return $this->insertion?true:false;
+    }
+
+    /**
+     * 设置是否持久化操作
+     * @param bool $persistent      已持久化操作true,否则为false
+     * @return $this
+     */
+    final protected function setPersistent($persistent)
+    {
+        $this->persistent = (bool)$persistent;
+        return $this;
+    }
 
     protected function afterInstance()
     {
