@@ -1,6 +1,10 @@
 <?php
 namespace App\Network\Modules\Manager\Controllers;
-use App\Network\Modules\ModuleController;
+use App\Helpers\CookiesHelper;
+use App\Helpers\StringHelper;
+use App\Network\Modules\Manager\Common\ComController;
+use Phalcon\Mvc\View;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,27 +14,99 @@ use App\Network\Modules\ModuleController;
  * Class IndexController
  * @package App\Network\Modules\Manager\Controllers
  */
-class IndexController extends ModuleController
+class IndexController extends ComController
 {
-//    /**
-//     * 初始化控制器
-//     */
-//    public function initialize()
-//    {
-//        $distributer = DispatcherFounder::getInstance($this->dispatcher, $this->dispatcher->getControllerName());
-//        $this->provider = ManagerContainerProvider::getInstance();
-//        $this->provider->setDistributer($distributer);
-//        $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
-//        $this->view->enable();
-//    }
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+        $this->view->enable();
+    }
 
     /**
      * 登入界面
      */
     public function indexAction()
     {
-        echo __CLASS__;
+        $posts = [];
+
+        $pssword =  $account ='';
+//        $mainUrl = 'main/index';
+        $request = $this->request;
+
+
+        if($request->isPost())
+        {
+//            $this->getPostParams();
+
+
+            $posts['account']   = $account  = $request->getPost('account', 'trim');
+            $posts['password']  = $password = $request->getPost('password', 'trim');
+
+            $responder = $this->provider->getQueryResponder($posts);
+            $errorMsg = $responder->msg;
+
+            if(!$this->security->checkToken())
+            {
+                $errorMsg = $this->t('global', 'illegal_sign_in');
+                $responder->toggle = NO;
+            }
+
+
+        }
+        else
+        {
+            $cookiesHelper = CookiesHelper::getInstance();
+            $cookieValue = $cookiesHelper->setCookies($this->cookies)->getLoginCookie(LOGIN_MANAGER);
+
+
+            $responder = $this->provider->setGeneralize(YES)->setPrefixString('Cookie')->getCommitResponder($cookieValue);
+            $errorMsg = $responder->msg;
+
+        }
+
+//        if($responder->toggle)
+//        {
+//            $redirectBuilder = RedirectFounder::getInstance();
+//            $redirectBuilder->construct($mainUrl, $responder->toggle)->go();
+//        }
+
+
+
+        finished:
+        $this->view->setVar('error_msg', $errorMsg);
+        $this->view->setVar('account', $account);
+        $this->view->setVar('password', $pssword);
+        $this->view->setTemplateAfter('after/login');
+    }
+
+    /**
+     * 用户退出登陆系统
+     */
+    public function signOutAction()
+    {
+        //关闭视图功能
+        $this->view->disable();
+
+        $session = $this->session;
+        $cookies = $this->cookies;
+
+        $stringHelper = StringHelper::getInstance();
+
+        //清除cookie和session
+        if ($session->isStarted()) $session->destroy();
+        $cookieName = $stringHelper->cryptString(LOGIN_MANAGER);
+
+        if ($cookies->has($cookieName)) {
+            $expire = time() - 1;
+            $cookies->delete($cookieName);
+            $cookies->set($cookieName, '', $expire, '/', null, SESSION_COOKIE_DOMAIN);
+            setcookie('manager_name', '', $expire, '/', SESSION_COOKIE_DOMAIN);
+            setcookie('manager_id', '', $expire, '/', SESSION_COOKIE_DOMAIN);
+        }
+
+        $this->response->redirect();
     }
 
 }

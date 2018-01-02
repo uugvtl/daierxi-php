@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Manager;
+namespace App\Tables\Manager;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Manager;
  * Time: 00:45
  *
  * Interface MenuOpTable
- * @package App\Globals\Tables\Manager
+ * @package App\Tables\Manager
  */
 interface IMenuOpTable
 {

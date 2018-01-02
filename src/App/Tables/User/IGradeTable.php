@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\User;
+namespace App\Tables\User;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\User;
  * Time: 00:09
  *
  * Interface GradeTable
- * @package App\Globals\Tables\User
+ * @package App\Tables\User
  */
 interface IGradeTable
 {

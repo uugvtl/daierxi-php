@@ -14,5 +14,7 @@ class QueryRepository extends GenericRepository
 {
     public function get()
     {
+        $store = $this->createStoreInstance();
+        return $store;
     }
 }

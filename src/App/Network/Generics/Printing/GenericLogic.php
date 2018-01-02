@@ -1,8 +1,8 @@
 <?php
 namespace App\Network\Generics\Printing;
-use App\Globals\Generics\FormLogic;
+use App\Globals\Finals\Responder;
+use App\Globals\Generics\BaseLogic;
 use App\Interfaces\Generics\IPrintable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,16 +12,13 @@ use App\Interfaces\Generics\IPrintable;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends FormLogic implements IPrintable
+abstract class GenericLogic  extends BaseLogic implements IPrintable
 {
     public function get()
     {
-        $this->transaction();
-//        $toggle = $this->transaction();
-//        $responder = Responder::getInstance();
-//        $responder->toggle = $toggle;
-//        if($toggle)
-//            $responder->msg = $this->t('global', 'save_success');
+        $responder = Responder::getInstance();
+        $this->commit($responder);
+        return $responder;
     }
 
 }

@@ -7,7 +7,7 @@ namespace App\Tables;
  * Time: 11:49
  *
  * Interface ExpressTable
- * @package App\Globals\Tables
+ * @package App\Tables
  */
 interface IExpressTable
 {

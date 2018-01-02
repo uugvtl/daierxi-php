@@ -1,8 +1,9 @@
 <?php
 namespace App\Libraries\Caches;
-use App\Globals\Bases\BaseSingle;
+use App\Frames\FrameSingle;
 use App\Helpers\ErrorsHelper;
 use App\Libraries\Caches\Dependencies\BaseCacheDependency;
+use App\Libraries\Daoes\AppDao;
 use App\Libraries\Daoes\FrameDao;
 use Phalcon\Cache\BackendInterface;
 use Phalcon\Config;
@@ -16,7 +17,7 @@ use Phalcon\Config;
  * @package App\Libraries\Caching
  * @property Config $config
  */
-abstract class BaseCache extends BaseSingle
+abstract class BaseCache extends FrameSingle
 {
     /**
      * 缓存时间，单位为秒，例如缓存30秒，设置此值为30; 0表示永不过期。
@@ -100,6 +101,12 @@ abstract class BaseCache extends BaseSingle
     abstract public function getAll($sql);
 
     /**
+     * 清除所有缓存
+     * @return boolean              删除成功返回true, 否则返回false
+     */
+    abstract public function clean();
+
+    /**
      * 通过文件名获取缓存文件依赖对象--保存在缓存文件依赖目录:selete操作使用
      * @param string|array $tableNames          一组依赖文件名称--表名称
      * @return BaseCacheDependency[]            缓存文件依赖对象
@@ -165,10 +172,13 @@ abstract class BaseCache extends BaseSingle
         return $this->$this->cache->delete($key);
     }
 
-    /**
-     * 清除所有缓存
-     * @return boolean              删除成功返回true, 否则返回false
-     */
-    abstract public function clean();
+
+    protected function onceConstruct()
+    {
+        $this->dao = AppDao::getInstance();
+        return $this;
+    }
+
+
 
 }

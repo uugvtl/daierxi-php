@@ -7,7 +7,7 @@ namespace App\Tables;
  * Time: 12:00
  *
  * Class PaywayTable
- * @package App\Globals\Tables
+ * @package App\Tables
  */
 interface IPaywayTable
 {

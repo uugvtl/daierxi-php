@@ -37,7 +37,7 @@ abstract class BaseFields extends BaseClass
      * 返回要获取SQL字段列表
      * @return string[]
      */
-    public function getFields()
+    final public function getFields()
     {
         return $this->fields?$this->fields:[];
     }
@@ -46,7 +46,7 @@ abstract class BaseFields extends BaseClass
      * 返回要获取SQL字段附加列表--一些不需要进行转义的字段
      * @return string[]
      */
-    public function getOriginal()
+    final public function getOriginal()
     {
         return $this->original?$this->original:[];
     }
@@ -55,7 +55,7 @@ abstract class BaseFields extends BaseClass
      * 获取SQL的查询字段列表
      * @return string
      */
-    public function getColumns()
+    final public function getColumns()
     {
         return implode(',', $this->fields);
     }
@@ -64,7 +64,7 @@ abstract class BaseFields extends BaseClass
      * 获取 Order By 语句
      * @return string
      */
-    public function getOrderStmt()
+    final public function getOrderStmt()
     {
         return $this->orderstmt;
     }
@@ -73,7 +73,7 @@ abstract class BaseFields extends BaseClass
      * 获取 Group By 语句
      * @return string
      */
-    public function getGroupStmt()
+    final public function getGroupStmt()
     {
         return $this->groupstmt;
     }

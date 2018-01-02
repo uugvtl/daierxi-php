@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Warehouse;
+namespace App\Tables\Warehouse;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Warehouse;
  * Time: 23:45
  *
  * Interface MaterialComplex
- * @package App\Globals\Tables\Warehouse
+ * @package App\Tables\Warehouse
  */
 interface IMaterialComplexTable
 {

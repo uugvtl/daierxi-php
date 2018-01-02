@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Goods;
+namespace App\Tables\Goods;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Goods;
  * Time: 00:26
  *
  * Interface RecipePercentTable
- * @package App\Globals\Tables\Goods
+ * @package App\Tables\Goods
  */
 interface IRecipeMaterialTable
 {

@@ -26,6 +26,7 @@ abstract class BaseWhere extends BaseClass
     public function init(...$args)
     {
         $this->condition = $args[0];
+        return $this;
     }
 
     /**

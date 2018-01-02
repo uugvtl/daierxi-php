@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Stock;
+namespace App\Tables\Stock;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Stock;
  * Time: 10:59
  *
  * Interface SkuStatusTable
- * @package App\Globals\Tables\Stock
+ * @package App\Tables\Stock
  */
 interface ISkuStatusTable
 {

@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Stock;
+namespace App\Tables\Stock;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Stock;
  * Time: 15:54
  *
  * Interface IRecipeComplexTable
- * @package App\Globals\Tables\Stock
+ * @package App\Tables\Stock
  */
 interface IRecipeComplexTable
 {

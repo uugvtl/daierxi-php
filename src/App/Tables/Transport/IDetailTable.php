@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Transport;
+namespace App\Tables\Transport;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Transport;
  * Time: 23:54
  *
  * Interface DetailTable
- * @package App\Globals\Tables\Transport
+ * @package App\Tables\Transport
  */
 interface IDetailTable
 {

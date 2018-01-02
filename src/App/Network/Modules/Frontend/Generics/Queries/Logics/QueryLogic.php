@@ -13,11 +13,8 @@ use App\Network\Generics\Queries\GenericLogic;
  */
 class QueryLogic extends GenericLogic
 {
-
-    public function get()
+    protected function run(Responder $responder)
     {
-        $responder = Responder::getInstance();
-
         $total = $this->getCount();
         if($total)
         {
@@ -25,8 +22,6 @@ class QueryLogic extends GenericLogic
             $responder->total = $total;
             $responder->data = $this->getList();
         }
-
-        return $responder;
     }
 
     protected function getList()

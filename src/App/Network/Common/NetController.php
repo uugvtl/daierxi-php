@@ -35,17 +35,17 @@ abstract class NetController extends Controller
     }
 
     /**
-     * @param Responder $resultBo
+     * @param Responder $responder
      * @return void
      */
-    protected function toJsonData(Responder $resultBo)
+    protected function toJsonData(Responder $responder)
     {
         $json = array(
-            'total'=>$resultBo->total,
-            'data'=>$resultBo->data,
-            'msg' =>$resultBo->msg
+            'total'=>$responder->total,
+            'data'=>$responder->data,
+            'msg' =>$responder->msg
         );
-        $json['success'] = $resultBo->toggle ? true:false;
+        $json['success'] = $responder->toggle ? true:false;
 
         $jsonHelper = JsonHelper::getInstance();
 
@@ -54,15 +54,15 @@ abstract class NetController extends Controller
     }
 
     /**
-     * @param Responder $resultBo
+     * @param Responder $responder
      * @return void
      */
-    protected function toJsonMsg(Responder $resultBo)
+    protected function toJsonMsg(Responder $responder)
     {
         $json = array(
-            'success'=>$resultBo->toggle,
-            'code'=>$resultBo->code,
-            'msg' =>$resultBo->msg
+            'success'=>$responder->toggle,
+            'code'=>$responder->code,
+            'msg' =>$responder->msg
         );
         $jsonHelper = JsonHelper::getInstance();
         $this->response->setContent($jsonHelper->encode($json));

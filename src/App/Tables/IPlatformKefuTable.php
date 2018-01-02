@@ -7,7 +7,7 @@ namespace App\Tables;
  * Time: 11:46
  *
  * Interface PlatformKefuTable
- * @package App\Globals\Tables
+ * @package App\Tables
  */
 interface IPlatformKefuTable
 {

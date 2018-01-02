@@ -16,19 +16,19 @@ final class Distributer extends BaseClass
      * 控制器名称
      * @var string
      */
-    private $ctrlName;
+    private $ctrlString;
 
     /**
      * 动用方法名称
      * @var string
      */
-    private $actName;
+    private $actString;
 
     /**
      * 不带有命名空间的类名称
      * @var string
      */
-    private $fileName;
+    private $prefixString;
 
     /**
      * 手动初始化
@@ -37,9 +37,9 @@ final class Distributer extends BaseClass
      */
     public function init(...$args)
     {
-        $this->ctrlName = $args[0];
-        $this->actName  = $args[1];
-        $this->fileName = $args[2];
+        $this->ctrlString   = $args[0];
+        $this->actString    = $args[1];
+        $this->prefixString = $args[2];
 
         return $this;
     }
@@ -50,9 +50,9 @@ final class Distributer extends BaseClass
      */
     public function getPath()
     {
-        $ctrlName   = $this->getClassName($this->ctrlName);
-        $actName    = $this->getClassName($this->actName);
-        $fileName   = $this->getClassName($this->fileName);
+        $ctrlName   = $this->getClassName($this->ctrlString);
+        $actName    = $this->getClassName($this->actString);
+        $fileName   = $this->getClassName($this->prefixString);
 
         $namespace = $ctrlName.BACKSLASH.$actName.BACKSLASH.$fileName;
 
@@ -60,53 +60,53 @@ final class Distributer extends BaseClass
     }
 
     /**
-     * @param $ctrlName
+     * @param $ctrlString
      * @return $this
      */
-    public function setCtrlName($ctrlName)
+    public function setCtrlString($ctrlString)
     {
-        $this->ctrlName = $ctrlName;
+        $this->ctrlString = $ctrlString;
         return $this;
     }
 
-    public function getCtrlName()
+    public function getCtrlString()
     {
-        return $this->ctrlName;
+        return $this->ctrlString;
     }
 
     /**
-     * @param $actName
+     * @param $actString
      * @return $this
      */
-    public function setActName($actName)
+    public function setActString($actString)
     {
-        $this->actName = $actName;
+        $this->actString = $actString;
         return $this;
     }
 
 
-    public function getActName()
+    public function getActString()
     {
-        return $this->actName;
+        return $this->actString;
     }
 
     /**
      * 设置导出文件名
-     * @param string $fileName
+     * @param string $prefixString
      * @return $this
      */
-    public function setFileName($fileName)
+    public function setPrefixString($prefixString)
     {
-        $this->fileName = $fileName;
+        $this->prefixString = $prefixString;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getFileName()
+    public function getPrefixString()
     {
-        return $this->fileName;
+        return $this->prefixString;
     }
 
     /**

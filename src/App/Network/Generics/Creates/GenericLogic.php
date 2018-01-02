@@ -1,9 +1,8 @@
 <?php
 namespace App\Network\Generics\Creates;
 use App\Globals\Finals\Responder;
-use App\Globals\Generics\FormLogic;
+use App\Globals\Generics\BaseLogic;
 use App\Interfaces\Generics\IRespondable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,15 +12,22 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericLogic
  * @package App\Network\Generics\Creates
  */
-abstract class GenericLogic extends FormLogic implements IRespondable
+abstract class GenericLogic extends BaseLogic implements IRespondable
 {
+//    public function get()
+//    {
+//        $toggle = $this->transaction();
+//        $responder = Responder::getInstance();
+//        $responder->toggle = $toggle;
+//        if($toggle)
+//            $responder->msg = $this->t('global', 'save_success');
+//    }
+
     public function get()
     {
-        $toggle = $this->transaction();
         $responder = Responder::getInstance();
-        $responder->toggle = $toggle;
-        if($toggle)
-            $responder->msg = $this->t('global', 'save_success');
+        $this->commit($responder);
+        return $responder;
     }
 
 }

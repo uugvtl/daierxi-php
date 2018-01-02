@@ -16,7 +16,8 @@ class QueryService extends GenericService
     public function get()
     {
         $repository = $this->createRepositoryInstance();
-        return $repository->get();
+        $logic = $this->createLogicInstance();
+        return $logic->init($repository)->get();
     }
 
 }

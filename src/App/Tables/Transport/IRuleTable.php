@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Transport;
+namespace App\Tables\Transport;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Transport;
  * Time: 00:05
  *
  * Interface RuleTable
- * @package App\Globals\Tables\Transport
+ * @package App\Tables\Transport
  */
 interface IRuleTable
 {

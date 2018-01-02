@@ -23,7 +23,18 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
     private $genericInjecter;
 
 
-    public function init(...$args)
+    /**
+     * @param string $prefixString
+     * @return $this
+     */
+    final public function setPrefixString($prefixString)
+    {
+        $this->getGenericInjecter()->getDistributer()->setPrefixString($prefixString);
+        return $this;
+    }
+
+
+    final public function init(...$args)
     {
         $distributer = $args[0];
 
@@ -47,7 +58,7 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
      * @param bool $boolean     使用为true,否则为false
      * @return $this
      */
-    public function setGeneralize($boolean=false)
+    final public function setGeneralize($boolean=false)
     {
         $this->genericInjecter->setGeneralize($boolean);
         return $this;
@@ -57,7 +68,7 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
      * 判断是否使用泛化实例
      * @return bool
      */
-    public function hasGeneralize()
+    final public function hasGeneralize()
     {
         return $this->genericInjecter->hasGeneralize();
     }
@@ -65,7 +76,7 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
     /**
      * @return GenericInjecter
      */
-    protected function getGenericInjecter()
+    final protected function getGenericInjecter()
     {
         return $this->genericInjecter;
     }

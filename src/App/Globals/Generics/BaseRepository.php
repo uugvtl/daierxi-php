@@ -92,9 +92,9 @@ abstract class BaseRepository extends BaseGeneric implements IPreservable
         $genericInjecter = $this->getGenericInjecter();
         $classname = $this->getClassPath($genericInjecter).'Table';
 
-        $fieldsInstance = $instanceHelper->build(BaseTable::class, $classname);
+        $tableInstance = $instanceHelper->build(BaseTable::class, $classname);
 
-        return $fieldsInstance;
+        return $tableInstance;
     }
 
     protected function createWhereInstance()
@@ -104,9 +104,9 @@ abstract class BaseRepository extends BaseGeneric implements IPreservable
         $genericInjecter = $this->getGenericInjecter();
         $classname = $this->getClassPath($genericInjecter).'Where';
 
-        $fieldsInstance = $instanceHelper->build(BaseWhere::class, $classname);
+        $whereInstance = $instanceHelper->build(BaseWhere::class, $classname);
 
-        return $fieldsInstance->init($genericInjecter->getParameter()->get());
+        return $whereInstance->init($genericInjecter->getParameter()->get());
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Grant;
+namespace App\Tables\Grant;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Grant;
  * Time: 00:50
  *
  * Interface NavTable
- * @package App\Globals\Tables\Grant
+ * @package App\Tables\Grant
  */
 interface INavTable
 {

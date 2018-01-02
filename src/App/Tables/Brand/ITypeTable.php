@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Brand;
+namespace App\Tables\Brand;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Brand;
  * Time: 00:13
  *
  * Interface TypeTable
- * @package App\Globals\Tables\Brand
+ * @package App\Tables\Brand
  */
 interface ITypeTable
 {

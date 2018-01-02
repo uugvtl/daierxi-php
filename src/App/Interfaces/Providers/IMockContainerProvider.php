@@ -25,4 +25,10 @@ interface IMockContainerProvider
      */
     public function hasGeneralize();
 
+    /**
+     * @param string $prefixString
+     * @return $this
+     */
+    public function setPrefixString($prefixString);
+
 }

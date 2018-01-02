@@ -1,5 +1,5 @@
 <?php
-namespace App\Globals\Tables\Area;
+namespace App\Tables\Area;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Globals\Tables\Area;
  * Time: 11:09
  *
  * Interface DistrictTable
- * @package App\Globals\Tables\Area
+ * @package App\Tables\Area
  */
 interface IDistrictTable
 {
