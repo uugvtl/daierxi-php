@@ -1,9 +1,10 @@
 <?php
 namespace App\Providers;
-use App\Globals\Bases\BaseSingle;
+use App\Globals\Bases\BaseClass;
 use App\Globals\Finals\Distributer;
 use App\Globals\Finals\Parameter;
 use App\Helpers\ErrorsHelper;
+use App\Injecters\GenericInjecter;
 use App\Interfaces\Providers\IMockContainerProvider;
 /**
  * Created by PhpStorm.
@@ -14,22 +15,12 @@ use App\Interfaces\Providers\IMockContainerProvider;
  * Class MockContainerProvider
  * @package App\Network\Providers
  */
-abstract class BaseContainerProvider extends BaseSingle implements IMockContainerProvider
+abstract class BaseContainerProvider extends BaseClass implements IMockContainerProvider
 {
     /**
-     * @var Distributer
+     * @var GenericInjecter
      */
-    private $distributer;
-
-    /**
-     * @var Parameter
-     */
-    private $parameter;
-
-    /**
-     * @var boolean
-     */
-    private $generalize;
+    private $genericInjecter;
 
 
     public function init(...$args)
@@ -41,8 +32,12 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
             $errorsHelper = ErrorsHelper::getInstance();
             $errorsHelper->triggerError('init method only accepts Class Distributer. Input was: '.$distributer);
         }
-        $this->distributer = $distributer;
-        $this->parameter = Parameter::getInstance();
+
+        $parameter = Parameter::getInstance();
+        $this->genericInjecter = GenericInjecter::getInstance();
+
+        $this->genericInjecter->setDistributer($distributer);
+        $this->genericInjecter->setParameter($parameter);
 
         return $this;
     }
@@ -54,7 +49,7 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
      */
     public function setGeneralize($boolean=false)
     {
-        $this->generalize = $boolean;
+        $this->genericInjecter->setGeneralize($boolean);
         return $this;
     }
 
@@ -64,23 +59,15 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
      */
     public function hasGeneralize()
     {
-        return $this->generalize;
+        return $this->genericInjecter->hasGeneralize();
     }
 
     /**
-     * @return Distributer
+     * @return GenericInjecter
      */
-    protected function getDistributer()
+    protected function getGenericInjecter()
     {
-        return $this->distributer;
-    }
-
-    /**
-     * @return Parameter
-     */
-    protected function getParameter()
-    {
-        return $this->parameter;
+        return $this->genericInjecter;
     }
 
 }

@@ -15,8 +15,8 @@ interface IConsoleContainerProvider  extends IMockContainerProvider
 {
     /**
      * 导出数据列表
-     * @param array $params
+     * @param array $condz
      * @return Responder
      */
-    public function doInitResponder(array $params=[]);
+    public function getInitResponder(array $condz=[]);
 }

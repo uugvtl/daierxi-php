@@ -33,7 +33,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getExportAdapter(array $condz= [])
     {
-        $container = $this->createContainer($condz, PackageExportConst::PACKAGE, ExportContainer::class);
+        $container = $this->createContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz);
         return $container->get();
     }
 
@@ -44,7 +44,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getPrintAdapter(array $condz= [])
     {
-        $container = $this->createContainer($condz, PackagePrintConst::PACKAGE, PrintContainer::class);
+        $container = $this->createContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz);
         return $container->get();
     }
 
@@ -56,7 +56,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getQueryResponder(array $condz= [])
     {
-        $container = $this->createContainer($condz, PackageQueryConst::PACKAGE, QueryContainer::class);
+        $container = $this->createContainer(PackageQueryConst::PACKAGE, QueryContainer::class, $condz);
         return $container->get();
     }
 
@@ -68,7 +68,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getPrimaryResponder(array $aId)
     {
-        $container = $this->createContainer($aId, PackageModifyConst::PACKAGE, ModifyContainer::class);
+        $container = $this->createContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $aId);
         return $container->get();
     }
 
@@ -79,7 +79,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getCreateResponder(array $posts)
     {
-        $container = $this->createContainer($posts, PackageCreateConst::PACKAGE, CreateContainer::class);
+        $container = $this->createContainer(PackageCreateConst::PACKAGE, CreateContainer::class, $posts);
         return $container->get();
     }
 
@@ -90,7 +90,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getCommitResponder(array $posts)
     {
-        $container = $this->createContainer($posts, PackageModifyConst::PACKAGE, ModifyContainer::class);
+        $container = $this->createContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $posts);
         return $container->get();
     }
 
@@ -101,7 +101,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      */
     public function getDeleteResponder(array $aId=[])
     {
-        $container = $this->createContainer($aId, PackageRemoveConst::PACKAGE, RemoveContainer::class);
+        $container = $this->createContainer(PackageRemoveConst::PACKAGE, RemoveContainer::class, $aId);
         return $container->get();
     }
 }
