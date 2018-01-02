@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Common;
 use App\Network\Modules\ModuleController;
-
+use Phalcon\Dispatcher;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,18 +13,14 @@ use App\Network\Modules\ModuleController;
  */
 abstract class AppController extends ModuleController
 {
-//    /**
-//     * @param Dispatcher $dispatcher
-//     * @return bool                         成功返回true,否则返回false
-//     */
-//    public function beforeExecuteRoute(Dispatcher $dispatcher)
-//    {
-//        $factory = FeatureFactory::getInstance();
-//        $factory->construct($dispatcher->getModuleName(), 'Login');
-//        $resultBo = $factory->createInstance()->launch();
-//        unset($dispatcher);
-//        return $resultBo->toggle;
-//    }
-//
-
+    /**
+     * 每次请求都会运行此事件方法--包括Action未找到
+     * @param Dispatcher $dispatcher
+     * @return bool                                 返回true时，程序继续，返回false时，程序中断
+     */
+    public function beforeExecuteRoute(Dispatcher $dispatcher)
+    {
+        unset($dispatcher);
+        return true;
+    }
 }
