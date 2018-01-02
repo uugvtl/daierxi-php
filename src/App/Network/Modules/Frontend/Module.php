@@ -2,6 +2,8 @@
 namespace App\Network\Modules\Frontend;
 use Phalcon\Mvc\Url;
 use Phalcon\DiInterface;
+use stdClass;
+
 /**
  * web前端码模块入口类
  * User: leon
@@ -35,9 +37,9 @@ class Module
         /**
          * 登陆用户对象
          */
-//        $di->set('login', function (){
-//            return new stdClass();
-//        }, true);
+        $di->set('login', function (){
+            return new stdClass();
+        }, true);
 
         /**
          * The URL component is used to generate all kind of urls in the application
