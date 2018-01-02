@@ -23,10 +23,10 @@ class IndexController extends AppController
 
     public function indexAction()
     {
-        $condz = $this->getSearchParams();
-
-        $responder = $this->provider->getQueryResponder($condz);
-        $this->toJsonData($responder);
+//        $condz = $this->getSearchParams();
+//
+//        $responder = $this->provider->getQueryResponder($condz);
+//        $this->toJsonData($responder);
     }
 
     public function storeAction()

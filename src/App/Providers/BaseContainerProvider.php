@@ -3,8 +3,8 @@ namespace App\Providers;
 use App\Globals\Bases\BaseSingle;
 use App\Globals\Finals\Distributer;
 use App\Globals\Finals\Parameter;
+use App\Helpers\ErrorsHelper;
 use App\Interfaces\Providers\IMockContainerProvider;
-use InvalidArgumentException;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -36,11 +36,12 @@ abstract class BaseContainerProvider extends BaseSingle implements IMockContaine
     {
         $distributer = $args[0];
 
-        if($distributer instanceof Distributer)
-            $this->distributer = $args[0];
-        else
-            throw new InvalidArgumentException('init method only accepts Class Distributer. Input was: '.$distributer);
-
+        if(!$distributer instanceof Distributer)
+        {
+            $errorsHelper = ErrorsHelper::getInstance();
+            $errorsHelper->triggerError('init method only accepts Class Distributer. Input was: '.$distributer);
+        }
+        $this->distributer = $distributer;
         $this->parameter = Parameter::getInstance();
 
         return $this;

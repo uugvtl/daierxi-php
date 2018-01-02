@@ -1,9 +1,9 @@
 <?php
 namespace App\Libraries\Caches;
 use App\Globals\Bases\BaseSingle;
+use App\Helpers\ErrorsHelper;
 use App\Libraries\Caches\Dependencies\BaseCacheDependency;
 use App\Libraries\Daoes\FrameDao;
-use InvalidArgumentException;
 use Phalcon\Cache\BackendInterface;
 use Phalcon\Config;
 /**
@@ -67,10 +67,13 @@ abstract class BaseCache extends BaseSingle
     public function init(...$args)
     {
         $cache = $args[0];
-        if($cache instanceof BackendInterface)
-            $this->cache    = $cache;
-        else
-            throw new InvalidArgumentException('init method only accepts Interface BackendInterface. Input was: '.$cache);
+        if(!$cache instanceof BackendInterface)
+        {
+            $errorsHelper = ErrorsHelper::getInstance();
+            $errorsHelper->triggerError('init method only accepts Interface BackendInterface. Input was: '.$cache);
+        }
+
+        $this->cache    = $cache;
 
         return $this;
     }
