@@ -11,5 +11,4 @@ $router->add('/manager', array(
     'controller'    => 'Index',
     'action'        => 'index'
 ));
-
 /* manager模块 router END */

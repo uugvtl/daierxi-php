@@ -1,5 +1,5 @@
 <?php
-use Phalcon\Mvc\Application             as WebApplication;
+use Phalcon\Mvc\Application as WebApplication;
 use Phalcon\DI\FactoryDefault;
 use App\Helpers\ErrorsHelper;
 require_once '../bootstrap.php';
@@ -96,5 +96,13 @@ catch (Exception $e){
         $errorHelper = ErrorsHelper::getInstance();
         echo $errorHelper->formatExceptionTrace($e->getTraceAsString());
     }
+    else
+    {
+        $application->dispatcher->forward([
+            'module'        => 'frontend',
+            'controller'    => 'Index',
+            'action'        => 'index'
 
+        ]);
+    }
 }

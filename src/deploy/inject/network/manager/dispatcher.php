@@ -18,12 +18,6 @@ $eventsManager->attach('dispatch:beforeNotFoundAction', new BeforeEvent());
  */
 $eventsManager->attach('dispatch:beforeException', new BeforeEvent());
 
-/**
- * Check if the user is allowed to access certain action using the SecurityPlugin
- * 正常情况下，此优先级最高
- */
-$eventsManager->attach('dispatch:beforeExecuteRoute', new BeforeEvent());
-
 $dispatcher = new Dispatcher();
 $dispatcher->setEventsManager($eventsManager);
 $dispatcher->setDefaultNamespace(MANAGER_NS . '\Controllers');
