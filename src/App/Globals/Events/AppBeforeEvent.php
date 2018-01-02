@@ -1,19 +1,18 @@
 <?php
 namespace App\Globals\Events;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Exception;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
-use Exception;
 /**
- * 异常事件处理基类
+ * Created by PhpStorm.
  * User: leon
- * Date: 2016/11/17
- * Time: 12:48
+ * Date: 2/1/18
+ * Time: 17:18
  *
- * Class NotFoundPlugin
- * @package App\Globals\Plugins
+ * Class ExceptionEvent
+ * @package App\Globals\Events
  */
-class NotPageEvent extends Plugin
+class AppBeforeEvent
 {
     /**
      * 页面404处理
@@ -39,6 +38,7 @@ class NotPageEvent extends Plugin
 
     }
 
+
     /**
      * 异常处理--开发与测试的时候，需要把异常显示出来，而正式上线的时候，需要把异常作为日志保存下来。
      * @param Event $event              事件实例
@@ -51,4 +51,19 @@ class NotPageEvent extends Plugin
         unset($event, $dispatcher);
         throw $exception;
     }
+
+
+    /**
+     * 每次请求都会运行此事件方法--包括Action未找到
+     * @param Event $event                          事件实例
+     * @param Dispatcher $dispatcher                调度器实例
+     * @return bool                                 返回true时，程序继续，返回false时，程序中断
+     */
+    public function beforeExecuteRoute(Event $event, Dispatcher $dispatcher)
+    {
+        unset($event, $dispatcher);
+        return true;
+    }
+
+
 }

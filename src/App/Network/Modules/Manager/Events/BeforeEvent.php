@@ -1,5 +1,6 @@
 <?php
-namespace App\Network\Modules\Frontend\Events;
+namespace App\Network\Modules\Manager\Events;
+use App\Globals\Events\AppBeforeEvent;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
 /**
@@ -9,9 +10,9 @@ use Phalcon\Mvc\Dispatcher;
  * Time: 22:54
  *
  * Class SecurityPlugin
- * @package App\Network\Modules\Frontend\Plugins
+ * @package App\Network\Modules\Manager\Plugins
  */
-class SecurityEvent
+class BeforeEvent extends AppBeforeEvent
 {
     /**
      * 每次请求都会运行此事件方法--包括Action未找到
@@ -21,8 +22,8 @@ class SecurityEvent
      */
     public function beforeExecuteRoute(Event $event, Dispatcher $dispatcher)
     {
-//        if('index'===$dispatcher->getControllerName()){}
-        unset($event, $dispatcher);
+        unset($event);
+        unset($dispatcher);
         return true;
     }
 }
