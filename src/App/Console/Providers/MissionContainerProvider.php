@@ -1,5 +1,7 @@
 <?php
 namespace App\Console\Providers;
+use App\Console\Modules\Mission\Generics\Crontabs\PackageCrontabConst;
+use App\Console\Modules\Mission\Generics\Crontabs\Services\CrontabService;
 use App\Console\Modules\Mission\Generics\Initializes\PackageInitializeConst;
 use App\Console\Modules\Mission\Generics\Initializes\Services\InitializeServices;
 use App\Globals\Finals\Responder;
@@ -22,6 +24,17 @@ class MissionContainerProvider extends ConsoleContainerProvider
     public function getInitResponder(array $condz=[])
     {
         $container = $this->createContainer(PackageInitializeConst::PACKAGE, InitializeServices::class, $condz);
+        return $container->get();
+    }
+
+    /**
+     * 排程数据运行
+     * @param array $condz
+     * @return Responder
+     */
+    public function getCronResponder(array $condz=[])
+    {
+        $container = $this->createContainer(PackageCrontabConst::PACKAGE, CrontabService::class, $condz);
         return $container->get();
     }
 }

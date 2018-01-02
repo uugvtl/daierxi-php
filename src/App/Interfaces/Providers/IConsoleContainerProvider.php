@@ -14,9 +14,16 @@ use App\Globals\Finals\Responder;
 interface IConsoleContainerProvider  extends IMockContainerProvider
 {
     /**
-     * 导出数据列表
+     * 实初始化一些数据
      * @param array $condz
      * @return Responder
      */
     public function getInitResponder(array $condz=[]);
+
+    /**
+     * 排程数据运行
+     * @param array $condz
+     * @return Responder
+     */
+    public function getCronResponder(array $condz=[]);
 }
