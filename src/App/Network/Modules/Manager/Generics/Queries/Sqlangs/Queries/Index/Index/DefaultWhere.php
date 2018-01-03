@@ -12,7 +12,7 @@ use App\Helpers\SqlHelper;
  * Class PrimaryWhere
  * @package App\Network\Modules\Manager\Generics\Queries\Sqlangs\Queries\Index\Index
  */
-class PrimaryWhere extends BaseWhere
+class DefaultWhere extends BaseWhere
 {
     protected function getStmt()
     {

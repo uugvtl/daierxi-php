@@ -15,7 +15,7 @@ use App\Network\Modules\Manager\Generics\Queries\Repositories\QueryRepository;
  * Class PrimaryRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Repositories\Index\Index
  */
-class PrimaryRepository extends QueryRepository
+class DefaultRepository extends QueryRepository
 {
     protected function createFieldsInstance()
     {

@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
  * Class PrimaryService
  * @package App\Network\Modules\Manager\Generics\Queries\Services\Index\Index
  */
-class PrimaryService extends QueryService
+class DefaultService extends QueryService
 {
     public function get()
     {
@@ -18,17 +18,4 @@ class PrimaryService extends QueryService
         $logic = $this->createLogicInstance();
         return $logic->init($repository)->get();
     }
-
-
-//    protected function createRepositoryInstance()
-//    {
-//        $this->getGenericInjecter()->setGeneralize(NO);
-//        return parent::createRepositoryInstance();
-//    }
-//
-//    protected function createLogicInstance()
-//    {
-//        $this->getGenericInjecter()->setGeneralize(YES);
-//        return parent::createLogicInstance();
-//    }
 }

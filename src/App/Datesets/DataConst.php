@@ -44,5 +44,5 @@ final class DataConst
     /**
      * 泛化实例类的默认类名称前辍
      */
-    const CLASS_PREFIX = 'Primary';
+    const CLASS_PREFIX = 'Default';
 }

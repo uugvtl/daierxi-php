@@ -38,6 +38,17 @@ abstract class FrameClass extends Plugin
         return $me;
     }
 
+    /**
+     * 手动初始化模板方法--可以被子类实现
+     * @param array ...$args
+     * @return static
+     */
+    public function init(...$args)
+    {
+        unset($args);
+        return $this;
+    }
+
     public function getClone()
     {
         return clone $this;

@@ -2,6 +2,7 @@
 namespace App\Network\Modules\Manager\Generics\Queries\Logics\Index\Index;
 use App\Entities\Bizbos\Signin\AccountBo;
 use App\Globals\Finals\Responder;
+use App\Globals\Traits\AccountTrait;
 use App\Helpers\InstanceHelper;
 use App\Helpers\JsonHelper;
 use App\Helpers\StringHelper;
@@ -15,8 +16,10 @@ use App\Network\Modules\Manager\Generics\Queries\Logics\QueryLogic;
  * Class PrimaryLogic
  * @package App\Network\Modules\Manager\Generics\Queries\Logics\Index\Index
  */
-class PrimaryLogic extends QueryLogic
+class DefaultLogic extends QueryLogic
 {
+    use AccountTrait;
+
     protected function run(Responder $responder)
     {
         $store = $this->getRepositpry()->get();
@@ -36,6 +39,7 @@ class PrimaryLogic extends QueryLogic
             if($accountBo->enabled)
             {
                 $responder->toggle = YES;
+                $this->initAccountShare($this->getDI(), $accountBo);
                 $this->sendCookies($accountBo);
             }
             else
