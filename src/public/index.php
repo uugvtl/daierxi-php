@@ -80,7 +80,6 @@ class Application extends WebApplication
          * Register application modules
          */
         $this->registerModules($modules);
-
         echo $this->handle()->getContent();
     }
 }
@@ -90,7 +89,6 @@ try {
     $application->main();
 }
 catch (Exception $e){
-
     if(extension_loaded('xdebug'))
     {
         $errorHelper = ErrorsHelper::getInstance();
@@ -98,11 +96,8 @@ catch (Exception $e){
     }
     else
     {
-        $application->dispatcher->forward([
-            'module'        => 'frontend',
-            'controller'    => 'Index',
-            'action'        => 'index'
+        header("location:/frontend");
 
-        ]);
     }
+
 }

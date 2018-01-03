@@ -69,32 +69,6 @@ abstract class BaseLogic extends BaseGeneric
 
     }
 
-
-//    /**
-//     * 获取相关的实体类--可以进行override使用默认类
-//     * @param array $params             实体需要的初始化参数
-//     * @return BaseDo
-//     */
-//    protected function createBizDo(array $params)
-//    {
-//        $instanceHelper = InstanceHelper::getInstance();
-//        $bizDo = $instanceHelper->build(BaseDo::class, $this->getBizDoClassString());
-//        return $bizDo->init($params);
-//    }
-//
-//    /**
-//     * 获取相关的实体类--可以进行override使用默认类
-//     * @param array $params             实体需要的初始化参数
-//     * @return BaseDo
-//     */
-//    protected function createBizBo(array $params)
-//    {
-//        $instanceHelper = InstanceHelper::getInstance();
-//        $bizDo = $instanceHelper->build(BaseDo::class, $this->getBizBoClassString());
-//        return $bizDo->init($params);
-//    }
-
-
     /**
      * 获取BizDo类的全名
      * @return string

@@ -23,6 +23,7 @@ class IndexController extends AppController
 
     public function indexAction()
     {
+        echo 111;
 //        $condz = $this->getSearchParams();
 //
 //        $responder = $this->provider->getQueryResponder($condz);
