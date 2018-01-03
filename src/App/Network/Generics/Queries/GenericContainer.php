@@ -32,4 +32,5 @@ abstract class GenericContainer extends FrameContainer implements IRespondable
 
         return $serviceInstance;
     }
+
 }

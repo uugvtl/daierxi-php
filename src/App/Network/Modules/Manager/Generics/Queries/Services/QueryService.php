@@ -12,7 +12,6 @@ use App\Network\Generics\Queries\GenericService;
  */
 class QueryService extends GenericService
 {
-
     public function get()
     {
         $repository = $this->createRepositoryInstance();
