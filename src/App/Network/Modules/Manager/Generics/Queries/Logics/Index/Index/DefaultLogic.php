@@ -39,13 +39,13 @@ class DefaultLogic extends QueryLogic
             }
             else
             {
-                $responder->msg = $this->t('errors', 'invalid_login');
+                $responder->msg = $this->t('errors', 'disabled_login');
                 $responder->code = 40002;
             }
         }
         else
         {
-            $responder->msg = $this->t('errors', 'disabled_login');
+            $responder->msg = $this->t('errors', 'invalid_login');
             $responder->code = 40001;
         }
 

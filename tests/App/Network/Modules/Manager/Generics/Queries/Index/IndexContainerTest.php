@@ -19,8 +19,8 @@ class IndexContainerTest extends UnitTestCase
     {
         /** arrange */
             $params = [
-                'account'   =>'admin',
-                'password'  =>'123456'
+                'account'   =>'d',
+                'password'  =>'1'
             ];
             $distributer = Distributer::getInstance();
             $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
@@ -29,7 +29,7 @@ class IndexContainerTest extends UnitTestCase
             $provider->init($distributer)->setGeneralize(YES);
         /** assert */
             $responder = $provider->getQueryResponder($params);
-            $this->assertTrue($responder->toggle);
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 
     public function test_get_list_for_cookie()

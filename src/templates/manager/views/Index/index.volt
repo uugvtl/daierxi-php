@@ -1,7 +1,7 @@
 <form action="{{ url('index/index') }}" method="post">
     <div class="B-register">
         <div class="Need">
-            <h1 class="clearfix"><span class="fl">用户名称</span><i class="fr">{{ error_msg }}</i></h1>
+            <h1 class="clearfix"><span class="fl">用户名称</span></h1>
             <dl>
                 <dt class="fl user-name"></dt>
                 <dd class="fr">
@@ -21,6 +21,10 @@
             </dl>
         </div>
 
+        <div class="Need">
+            <div style="color: #F00;text-align: center">{{ error_msg }}</div>
+        </div>
+
         {#<div class="Test">#}
             {#<dl>#}
                 {#<dt class="fl"><img src="/assets/backend/images/yzm_03.jpg"></dt>#}
@@ -28,6 +32,6 @@
             {#</dl>#}
         {#</div>#}
         <input class="B-button" type="submit" name="btn_submit" value="登录">
+
     </div>
 </form>
-

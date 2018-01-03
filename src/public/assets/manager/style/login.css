@@ -1,0 +1,51 @@
+body,div,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,input,form,fieldset,table,td,img{ margin: 0; padding: 0;  }
+html,body{ height: 100%; font-family: Microsoft YaHei UI; }
+img{ border: none; }
+li{ list-style: none;  }  				
+input,select,textarea,button{ outline: none; font-family: Microsoft YaHei UI;  }
+textarea{ resize: none;  } 				
+a{ text-decoration: none; color: #555;  }
+i,e{ font-style: normal; }
+
+/* 公共 */
+.clearfix{ zoom:1 ; }
+.clearfix:after{ content: ''; clear: both; display: block; }
+.fl{ float: left;  }
+.fr{ float: right;  }
+
+/* 主体样式 */
+.background-pic{ width: 100%; height: 100%; background: url('../images/background-pic.jpg') no-repeat center center; position: fixed; left: 0; top: 0;  }
+	.background-register{ width: 420px; height: auto; background: white; position: fixed; left: 50%; top: 50%; z-index: 2; transform: translate(-50%,-50%);border-radius: 8px; overflow: hidden; *margin-left: -240px; *margin-top: -225px; box-shadow: 0px 0px 15px #145593;  }
+	.B-title{ height: 68px; line-height: 68px; background:#ecf0f3; box-sizing: border-box; border-bottom: 1px solid #c1c6ca; text-align: center; color: #676767; font-size: 20px; }
+	.B-content{ height: 100%;  padding: 1px;  }
+	.B-content .B-box{ width: 100%; height: 100%; background: #f4f5f7;  padding-bottom: 35px;  }
+	.B-register{ width: 320px; margin: 0 auto; }
+	.B-register .Need h1{ font-size: 17px; padding: 10px 0; font-weight: normal; color: #676767; }
+	.B-register .Need h1 i{ color: red; font-size: 16px; }
+	
+	.Need dl{ width: 100%; height: 48px;  background: #f1f1f1; box-sizing: border-box; border: 1px solid #cbcdcc; border-radius: 3px;  box-shadow: 0 1px 7px rgba(0,0,0,0.075) inset; }
+	.Need dl dt{ width: 15%; height: 48px; }
+	.Need dt.user-name{ background: url('../images/icon-user.png') no-repeat center center;  }
+	.Need dt.user-password{ background: url('../images/icon-user-password.png') no-repeat center center;  }
+	.Need dl dd{ width: 85%; line-height: 46px; }
+	.Need dl dd input{ border: 0;  background-color: #F1F1F1; padding: 0 5px; font-size: 16px; }
+	.Need dl dd input,
+	.Test dl dd input{ width: 100%; height: 46px; line-height: 46px; box-sizing: border-box; border-radius:3px; }
+	
+	.Test{ margin-top: 20px; height: 50px; overflow: hidden;  }
+	.Test dl dt{ width: 40%; }
+	.Test dl dd{ width: 45%; }
+	.Test dl dd input{ background: #f1f1f1; border: 1px solid #cbcdcc; box-shadow: 0 1px 7px rgba(0,0,0,0.075) inset; padding: 0 8px; font-size: 18px; text-align: center;  }
+
+	.B-button{ width:100%; height: 48px; border:1px solid #2A70C7; border-radius: 3px; *border:1px solid #2A70C7; color: white; cursor: pointer;  font-size: 18px; margin-top: 20px; background: url('../images/background-button.jpg');  }
+
+
+
+
+
+
+
+
+
+
+
