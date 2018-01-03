@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Generics\Creates;
-use App\Globals\Generics\BaseService;
+use App\Frames\Generics\FrameService;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;
 
@@ -13,7 +13,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericService
  * @package App\Network\Generics\Creates
  */
-abstract class GenericService extends BaseService implements IRespondable
+abstract class GenericService extends FrameService implements IRespondable
 {
     /**
      * @return GenericRepository

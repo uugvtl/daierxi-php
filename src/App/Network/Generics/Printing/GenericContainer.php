@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Generics\Printing;
-use App\Globals\Generics\BaseContainer;
+use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IPrintable;
 
@@ -13,7 +13,7 @@ use App\Interfaces\Generics\IPrintable;
  * Class GenericContainer
  * @package App\Network\Generics\Printing
  */
-abstract class GenericContainer extends BaseContainer implements IPrintable
+abstract class GenericContainer extends FrameContainer implements IPrintable
 {
     /**
      * @return GenericService

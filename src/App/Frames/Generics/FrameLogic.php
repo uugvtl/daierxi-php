@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Generics;
-use App\Globals\Bases\BaseGeneric;
+namespace App\Frames\Generics;
+use App\Frames\FrameGeneric;
 use App\Globals\Finals\Responder;
 use App\Helpers\JsonHelper;
 use App\Libraries\Daoes\AppDao;
@@ -16,10 +16,10 @@ use App\Unusually\BizLogicExceptions;
  * Class BaseLogic
  * @package App\Globals\Generics
  */
-abstract class BaseLogic extends BaseGeneric
+abstract class FrameLogic extends FrameGeneric
 {
     /**
-     * @var BaseRepository
+     * @var FrameRepository
      */
     private $repository;
 
@@ -39,7 +39,7 @@ abstract class BaseLogic extends BaseGeneric
     }
 
     /**
-     * @return BaseRepository
+     * @return FrameRepository
      */
     final protected function getRepositpry()
     {

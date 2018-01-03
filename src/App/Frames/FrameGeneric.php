@@ -1,5 +1,6 @@
 <?php
-namespace App\Globals\Bases;
+namespace App\Frames;
+use App\Globals\Bases\BaseClass;
 use App\Injecters\GenericInjecter;
 use App\Interfaces\IGenericable;
 /**
@@ -11,7 +12,7 @@ use App\Interfaces\IGenericable;
  * Class BaseGeneric
  * @package App\Globals\Bases
  */
-abstract class BaseGeneric extends BaseClass implements IGenericable
+abstract class FrameGeneric extends BaseClass implements IGenericable
 {
 
     /**

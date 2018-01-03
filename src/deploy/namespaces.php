@@ -1,6 +1,5 @@
 <?php
 return [
-	APP_NS.'\Globals\Generics'    => APP_PATH . '/Globals/Generics',
 	APP_NS.'\Globals\Traits'    => APP_PATH . '/Globals/Traits',
 	APP_NS.'\Globals\Stores'    => APP_PATH . '/Globals/Stores',
 	APP_NS.'\Globals\Bases'    => APP_PATH . '/Globals/Bases',
@@ -70,10 +69,12 @@ return [
 	APP_NS.'\Libraries\Daoes'    => APP_PATH . '/Libraries/Daoes',
 	APP_NS.'\Libraries\Caches'    => APP_PATH . '/Libraries/Caches',
 	APP_NS.'\Libraries\Caches\Dependencies'    => APP_PATH . '/Libraries/Caches/Dependencies',
+	APP_NS.'\Frames\Generics'    => APP_PATH . '/Frames/Generics',
 	APP_NS.'\Frames'    => APP_PATH . '/Frames',
 	APP_NS.'\Unusually'    => APP_PATH . '/Unusually',
 	APP_NS.'\Injecters'    => APP_PATH . '/Injecters',
 	APP_NS.'\Helpers'    => APP_PATH . '/Helpers',
+	APP_NS.'\Entities\Bizbos\Signin'    => APP_PATH . '/Entities/Bizbos/Signin',
 	APP_NS.'\Interfaces\Generics'    => APP_PATH . '/Interfaces/Generics',
 	APP_NS.'\Interfaces'    => APP_PATH . '/Interfaces',
 	APP_NS.'\Interfaces\Providers'    => APP_PATH . '/Interfaces/Providers',

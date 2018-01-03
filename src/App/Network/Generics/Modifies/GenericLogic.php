@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Generics\Modifies;
 use App\Globals\Finals\Responder;
-use App\Globals\Generics\BaseLogic;
+use App\Frames\Generics\FrameLogic;
 use App\Interfaces\Generics\IRespondable;
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericLogic
  * @package App\Network\Generics\Creates
  */
-abstract class GenericLogic extends BaseLogic implements IRespondable
+abstract class GenericLogic extends FrameLogic implements IRespondable
 {
 //    public function get()
 //    {

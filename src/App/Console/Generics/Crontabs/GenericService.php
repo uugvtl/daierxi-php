@@ -1,6 +1,6 @@
 <?php
 namespace App\Console\Generics\Crontabs;
-use App\Globals\Generics\BaseService;
+use App\Frames\Generics\FrameService;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;
 
@@ -13,7 +13,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericService
  * @package App\Console\Generics\Crontabs
  */
-abstract class GenericService extends BaseService implements IRespondable
+abstract class GenericService extends FrameService implements IRespondable
 {
     /**
      * @return GenericRepository

@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Generics;
-use App\Globals\Bases\BaseGeneric;
+namespace App\Frames\Generics;
+use App\Frames\FrameGeneric;
 use App\Interfaces\IGetable;
 /**
  * 用来生成 Service 相关类的工厂类
@@ -12,7 +12,7 @@ use App\Interfaces\IGetable;
  * Class BaseContainer
  * @package App\Globals\Generics
  */
-abstract class BaseContainer extends BaseGeneric implements IGetable
+abstract class FrameContainer extends FrameGeneric implements IGetable
 {
     /**
      * @return mixed

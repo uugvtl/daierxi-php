@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Generics\Exports;
-use App\Globals\Generics\BaseContainer;
+use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IExportable;
 
@@ -13,7 +13,7 @@ use App\Interfaces\Generics\IExportable;
  * Class GenericContainer
  * @package App\Network\Generics\Exports
  */
-abstract class GenericContainer extends BaseContainer implements IExportable
+abstract class GenericContainer extends FrameContainer implements IExportable
 {
     /**
      * @return GenericService

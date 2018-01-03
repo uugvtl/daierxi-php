@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Generics\Modifies;
-use App\Globals\Generics\BaseContainer;
+use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;
 
@@ -13,7 +13,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericContainer
  * @package App\Network\Generics\Modifies
  */
-abstract class GenericContainer extends BaseContainer implements IRespondable
+abstract class GenericContainer extends FrameContainer implements IRespondable
 {
     /**
      * @return GenericService

@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Providers;
-use App\Globals\Generics\BaseContainer;
+use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Providers\BaseContainerProvider;
@@ -20,7 +20,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
      * @param string $package 包名称
      * @param string $classname 类名称
      * @param array $params 参数
-     * @return BaseContainer
+     * @return \App\Frames\Generics\FrameContainer
      */
     protected function createContainer($package, $classname, array $params)
     {
@@ -30,7 +30,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
         $genericInjecter->setPackage($package);
 
         $instanceHelper = InstanceHelper::getInstance();
-        $container = $instanceHelper->build(BaseContainer::class, $classname);
+        $container = $instanceHelper->build(FrameContainer::class, $classname);
         $container->setGenericInjecter($genericInjecter);
 
         return $container;

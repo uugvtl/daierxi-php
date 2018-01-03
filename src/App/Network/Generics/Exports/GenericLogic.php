@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Generics\Exports;
-use App\Globals\Bases\BaseGeneric;
+use App\Frames\FrameGeneric;
 use App\Interfaces\Generics\IExportable;
 
 /**
@@ -12,7 +12,7 @@ use App\Interfaces\Generics\IExportable;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends BaseGeneric implements IExportable
+abstract class GenericLogic  extends FrameGeneric implements IExportable
 {
 
 }

@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Generics;
-use App\Globals\Bases\BaseGeneric;
+namespace App\Frames\Generics;
+use App\Frames\FrameGeneric;
 /**
  * 用来生成 Repository 和 Logic 相关类的工厂类
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ use App\Globals\Bases\BaseGeneric;
  * Class BaseService
  * @package App\Globals\Generics
  */
-abstract class BaseService extends BaseGeneric
+abstract class FrameService extends FrameGeneric
 {
 
     abstract protected function createRepositoryInstance();

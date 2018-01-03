@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Generics\Printing;
 use App\Globals\Finals\Responder;
-use App\Globals\Generics\BaseLogic;
+use App\Frames\Generics\FrameLogic;
 use App\Interfaces\Generics\IPrintable;
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ use App\Interfaces\Generics\IPrintable;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends BaseLogic implements IPrintable
+abstract class GenericLogic  extends FrameLogic implements IPrintable
 {
     public function get()
     {

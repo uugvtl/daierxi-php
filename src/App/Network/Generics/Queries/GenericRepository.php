@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Generics\Queries;
 use App\Globals\Bases\BaseStore;
-use App\Globals\Generics\BaseRepository;
+use App\Frames\Generics\FrameRepository;
 use App\Globals\Stores\SelectStore;
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ use App\Globals\Stores\SelectStore;
  * Class GenericRepository
  * @package App\Network\Generics\Queries
  */
-abstract class GenericRepository extends BaseRepository
+abstract class GenericRepository extends FrameRepository
 {
     /**
      * @return BaseStore

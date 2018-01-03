@@ -1,6 +1,6 @@
 <?php
-namespace App\Globals\Generics;
-use App\Globals\Bases\BaseGeneric;
+namespace App\Frames\Generics;
+use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\PageSlice;
 use App\Globals\Sqlangs\BaseFields;
@@ -20,7 +20,7 @@ use App\Interfaces\Generics\IPreservable;
  * Class BaseRepositpry
  * @package App\Globals\Generics
  */
-abstract class BaseRepository extends BaseGeneric implements IPreservable
+abstract class FrameRepository extends FrameGeneric implements IPreservable
 {
     /**
      * @var string
