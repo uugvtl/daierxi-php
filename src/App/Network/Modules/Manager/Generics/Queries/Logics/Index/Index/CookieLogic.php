@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Logics\Index\Index;
+use App\Datasets\ExcpCode;
 use App\Entities\Bizbos\Signin\AccountBo;
 use App\Globals\Finals\Responder;
 use App\Globals\Traits\AccountTrait;
@@ -37,7 +38,7 @@ class CookieLogic extends QueryLogic
             else
             {
                 $responder->msg = $this->t('errors', 'disabled_login');
-                $responder->code = 40002;
+                $responder->code = ExcpCode::DISABLED_LOGIN;
             }
         }
     }

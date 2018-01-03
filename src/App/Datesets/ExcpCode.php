@@ -12,6 +12,17 @@ namespace App\Datasets;
 final class ExcpCode
 {
     /**
+     * 帐号或密码错误
+     */
+    const INVALID_LOGIN  = 40001;
+
+    /**
+     * 帐号已停用
+     */
+    const DISABLED_LOGIN = 40002;
+
+
+    /**
      * 数据提交不成功
      */
     const COMMIT_SQL_EXCEPTION = 90000;
