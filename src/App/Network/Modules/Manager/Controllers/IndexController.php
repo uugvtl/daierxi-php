@@ -32,19 +32,17 @@ class IndexController extends ComController
         $posts = [];
 
         $pssword =  $account ='';
-//        $mainUrl = 'main/index';
+        $mainUrl = 'main/index';
         $request = $this->request;
 
 
         if($request->isPost())
         {
-//            $this->getPostParams();
-
 
             $posts['account']   = $account  = $request->getPost('account', 'trim');
             $posts['password']  = $password = $request->getPost('password', 'trim');
 
-            $responder = $this->provider->getQueryResponder($posts);
+            $responder = $this->provider->setGeneralize(YES)->getQueryResponder($posts);
             $errorMsg = $responder->msg;
 
             if(!$this->security->checkToken())
@@ -61,17 +59,15 @@ class IndexController extends ComController
             $cookieValue = $cookiesHelper->setCookies($this->cookies)->getLoginCookie(LOGIN_MANAGER);
 
 
-            $responder = $this->provider->setGeneralize(YES)->setPrefixString('Cookie')->getCommitResponder($cookieValue);
+            $responder = $this->provider->setGeneralize(YES)->setPrefixString('Cookie')->getQueryResponder($cookieValue);
             $errorMsg = $responder->msg;
 
         }
 
-//        if($responder->toggle)
-//        {
-//            $redirectBuilder = RedirectFounder::getInstance();
-//            $redirectBuilder->construct($mainUrl, $responder->toggle)->go();
-//        }
-
+        if($responder->toggle)
+        {
+            $this->response->redirect($mainUrl);
+        }
 
 
         finished:

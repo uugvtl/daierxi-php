@@ -34,6 +34,11 @@ class CookieLogic extends QueryLogic
                 $responder->toggle = YES;
                 $this->initAccountShare($this->getDI(), $accountBo);
             }
+            else
+            {
+                $responder->msg = $this->t('errors', 'invalid_login');
+                $responder->code = 40002;
+            }
         }
     }
 
