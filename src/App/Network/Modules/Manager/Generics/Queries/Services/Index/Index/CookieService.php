@@ -4,13 +4,13 @@ use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 2/1/18
- * Time: 22:59
+ * Date: 3/1/18
+ * Time: 21:35
  *
- * Class PrimaryService
+ * Class CookieService
  * @package App\Network\Modules\Manager\Generics\Queries\Services\Index\Index
  */
-class DefaultService extends QueryService
+class CookieService extends QueryService
 {
     protected function createRepositoryInstance()
     {

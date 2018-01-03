@@ -28,12 +28,12 @@ class DefaultWhere extends BaseWhere
         {
             $namehash = md5($condz['account']);
             $quoteNamehash = $this->getQuoteValue($namehash);
-            $where .= " AND namehash={$quoteNamehash}";
+            $where .= " AND m.namehash={$quoteNamehash}";
 
             $passwordhash = md5(sha1($condz['password']));
             $quotePasswordhash = $this->getQuoteValue($passwordhash);
 
-            $where .= " AND password={$quotePasswordhash}";
+            $where .= " AND m.password={$quotePasswordhash}";
         }
 
         return $where;

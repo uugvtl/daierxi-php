@@ -27,11 +27,6 @@ class DefaultLogic extends QueryLogic
 
         if($rows)
         {
-            $responder->msg = $this->t('errors', 'disabled_login');
-            $responder->code = 40001;
-        }
-        else
-        {
             $instanceHelper = InstanceHelper::getInstance();
             $accountBo = $instanceHelper->build(AccountBo::class, $this->getBizBoClassString());
             $accountBo->init($rows);
@@ -47,6 +42,11 @@ class DefaultLogic extends QueryLogic
                 $responder->msg = $this->t('errors', 'invalid_login');
                 $responder->code = 40002;
             }
+        }
+        else
+        {
+            $responder->msg = $this->t('errors', 'disabled_login');
+            $responder->code = 40001;
         }
 
 

@@ -29,7 +29,7 @@ class IndexContainerTest extends UnitTestCase
             $provider->init($distributer)->setGeneralize(YES);
         /** assert */
             $responder = $provider->getQueryResponder($params);
-            $this->assertFalse($responder->toggle);
+            $this->assertTrue($responder->toggle);
     }
 
     public function test_get_list_for_cookie()
@@ -45,6 +45,6 @@ class IndexContainerTest extends UnitTestCase
             $provider->init($distributer)->setGeneralize(YES)->setPrefixString('Cookie');
         /** assert */
             $responder = $provider->getQueryResponder($params);
-            $this->assertFalse($responder->toggle);
+            $this->assertTrue($responder->toggle);
     }
 }

@@ -20,8 +20,8 @@ class AccountFields extends BaseFields
             'm.manager_id',
             'm.manager_name',
             'm.group_id',
-            'mg.group_name',
-            'm.enabled'
+            'm.enabled',
+            'mg.group_name'
         ];
     }
 }

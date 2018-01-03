@@ -15,7 +15,7 @@ use App\Interfaces\Generics\IRespondable;
  */
 abstract class GenericLogic  extends FrameLogic implements IRespondable
 {
-    public function get()
+    final public function get()
     {
         $responder = Responder::getInstance();
         $this->run($responder);
