@@ -62,4 +62,17 @@ abstract class FrameService extends FrameGeneric
 
         return $classname;
     }
+
+    /**
+     *
+     */
+    protected function getLegalClassString()
+    {
+        $genericInjecter = $this->getGenericInjecter();
+        $package = $genericInjecter->getPackage();
+        $path = $genericInjecter->getDistributer()->getPath();
+        $classname = $package.BACKSLASH.'Legals'.BACKSLASH.$path.'Legal';
+        return $classname;
+    }
+
 }

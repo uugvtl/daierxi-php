@@ -78,7 +78,6 @@ class DefaultLogic extends QueryLogic
         $json = $jsonHelper->encode(['manager_id'=>$accountBo->account_id]);
         $json = $stringHelper->gzdeflate($json);
 
-//        setcookie($cookieName, $json, $expire, '/', SESSION_COOKIE_DOMAIN);
         $this->cookies->set($cookieName, $json, $expire, '/',false, SESSION_COOKIE_DOMAIN);
         setcookie('manager_name', urlencode($accountBo->account_name), $expire, '/', SESSION_COOKIE_DOMAIN);
         setcookie('manager_id', $accountBo->account_id, $expire, '/', SESSION_COOKIE_DOMAIN);

@@ -45,4 +45,34 @@ final class DataConst
      * 泛化实例类的默认类名称前辍
      */
     const CLASS_PREFIX = 'Default';
+
+    /**
+     * 新增功能目录名称
+     */
+    const CATALOG_CREATE    = 'Creates';
+
+    /**
+     * 修改功能目录名称
+     */
+    const CATALOG_MODIFY    = 'Modifies';
+
+    /**
+     * 查询功能目录名称
+     */
+    const CATALOG_QUERY     = 'Queries';
+
+    /**
+     * 打印功能目录名称
+     */
+    const CATALOG_PRINT     = 'Printing';
+
+    /**
+     * 导出功能目录名称
+     */
+    const CATALOG_EXPORT    = 'Exports';
+
+    /**
+     * 删除功能目录名称
+     */
+    const CATALOG_REMOVE    = 'Removes';
 }

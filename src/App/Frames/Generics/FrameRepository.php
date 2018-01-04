@@ -1,5 +1,6 @@
 <?php
 namespace App\Frames\Generics;
+use App\Datesets\DataConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\PageSlice;
@@ -68,7 +69,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
 
     protected function afterInstance()
     {
-        $this->sqlangCatalog = 'Queries';
+        $this->sqlangCatalog = DataConst::CATALOG_QUERY;
     }
 
 
@@ -110,7 +111,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
     }
 
     /**
-     * 获取 Sqlang 相关实例的所在命名空间
+     * 获取 Sqlang 相关实例的类全名称，不带后辍
      * @param GenericInjecter $genericInjecter
      * @return string
      */
