@@ -1,6 +1,8 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Legals\Index\Index;
 use App\Globals\Legals\BaseLegal;
+use Phalcon\Validation\Validator\PresenceOf;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,6 +16,11 @@ class DefaultLegal extends BaseLegal
 {
     protected function initValidation()
     {
-
+        $this->validation->add(['password', 'account'], new PresenceOf([
+            'message' => [
+                'password'  =>$this->t('logins', 'presence_password'),
+                'account'   =>$this->t('logins', 'presence_account')
+            ]
+        ]));
     }
 }

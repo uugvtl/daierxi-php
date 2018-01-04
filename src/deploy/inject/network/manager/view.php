@@ -11,14 +11,14 @@ $view->setTemplateAfter('after/main');
 $view->registerEngines(array(
     ".volt" => function($view, $di){
 
-        $compiledPath = RUNTIME_PATH . "/volt/manager";
+        $compiledDir = RUNTIME_PATH . "/volt/manager/";
 
         $fileHelper = FileHelper::getInstance();
-        $fileHelper->createDir($compiledPath);
+        $fileHelper->createDir($compiledDir);
 
         $volt = new Volt($view, $di);
         $volt->setOptions(array(
-            'compiledPath'  => $compiledPath,
+            'compiledPath'  => $compiledDir,
             'compileAlways' => false
         ));
         return $volt;

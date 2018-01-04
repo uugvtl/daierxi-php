@@ -21,9 +21,7 @@
             </dl>
         </div>
 
-        <div class="Need">
-            <div style="color: #F00;text-align: center">{{ error_msg }}</div>
-        </div>
+        <div style="color: #F00;text-align: center">{{ error_msg }}</div>
 
         {#<div class="Test">#}
             {#<dl>#}
