@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Logics;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Logics;
 use App\Globals\Finals\Responder;
 use App\Network\Generics\Queries\GenericLogic;
 /**
@@ -9,7 +9,7 @@ use App\Network\Generics\Queries\GenericLogic;
  * Time: 01:51
  *
  * Class QueryLogic
- * @package App\Network\Modules\Manager\Generics\Queries\Logics
+ * @package App\Network\Modules\Manager\Generics\Queries\Factories\Logics
  */
 class QueryLogic extends GenericLogic
 {

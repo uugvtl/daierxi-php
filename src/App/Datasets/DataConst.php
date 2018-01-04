@@ -47,6 +47,11 @@ final class DataConst
     const CLASS_PREFIX = 'Default';
 
     /**
+     * 工厂功能目录名称
+     */
+    const FACTORY_CATALOG = 'Factories';
+
+    /**
      * 新增功能目录名称
      */
     const CATALOG_CREATE    = 'Creates';

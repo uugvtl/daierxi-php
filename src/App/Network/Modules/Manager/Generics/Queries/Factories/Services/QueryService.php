@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Services;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Services;
 use App\Network\Generics\Queries\GenericService;
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@ use App\Network\Generics\Queries\GenericService;
  * Time: 01:50
  *
  * Class QueryService
- * @package App\Network\Modules\Manager\Generics\Queries\Services
+ * @package App\Network\Modules\Manager\Generics\Queries\Factories\Services
  */
 class QueryService extends GenericService
 {

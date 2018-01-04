@@ -1,7 +1,10 @@
 <?php
 namespace App\Frames\Generics;
+use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
 use App\Interfaces\IGetable;
+use const BACKSLASH;
+
 /**
  * 用来生成 Service 相关类的工厂类
  * Created by PhpStorm.
@@ -28,11 +31,11 @@ abstract class FrameContainer extends FrameGeneric implements IGetable
 
         if($genericInjecter->hasGeneralize())
         {
-            $classname = $package.BACKSLASH.'Services'.BACKSLASH.$path.'Service';
+            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG . BACKSLASH.'Services'.BACKSLASH.$path.'Service';
         }
         else
         {
-            $classname = $package.BACKSLASH.'Services'.BACKSLASH.$genericInjecter->getBaseClassString();
+            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG . BACKSLASH.'Services'.BACKSLASH.$genericInjecter->getBaseClassString();
         }
 
         return $classname;

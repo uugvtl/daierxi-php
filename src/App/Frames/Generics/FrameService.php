@@ -1,5 +1,6 @@
 <?php
 namespace App\Frames\Generics;
+use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
 /**
  * 用来生成 Repository 和 Logic 相关类的工厂类
@@ -30,11 +31,11 @@ abstract class FrameService extends FrameGeneric
         {
             $path = $genericInjecter->getDistributer()->getPath();
 
-            $classname = $package.BACKSLASH.'Repositories'.BACKSLASH.$path.'Repository';
+            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Repositories'.BACKSLASH.$path.'Repository';
         }
         else
         {
-            $classname = $package.BACKSLASH.'Repositories'.BACKSLASH.$genericInjecter->getBaseClassString();
+            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Repositories'.BACKSLASH.$genericInjecter->getBaseClassString();
 
         }
 
@@ -53,11 +54,11 @@ abstract class FrameService extends FrameGeneric
         if($genericInjecter->hasGeneralize())
         {
             $path = $genericInjecter->getDistributer()->getPath();
-            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
+            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
         }
         else
         {
-            $classname = $package.BACKSLASH.'Logics'.BACKSLASH.$genericInjecter->getBaseClassString();
+            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Logics'.BACKSLASH.$genericInjecter->getBaseClassString();
         }
 
         return $classname;

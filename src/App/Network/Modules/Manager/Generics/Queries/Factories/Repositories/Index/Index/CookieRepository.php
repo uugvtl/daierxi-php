@@ -1,11 +1,11 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Repositories\Index\Index;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\Index\Index;
 use App\Globals\Sqlangs\BaseFields;
 use App\Globals\Sqlangs\BaseTable;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Common\Sqlangs\Signin\AccountFields;
 use App\Network\Modules\Manager\Common\Sqlangs\Signin\AccountTable;
-use App\Network\Modules\Manager\Generics\Queries\Repositories\QueryRepository;
+use App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\QueryRepository;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +13,7 @@ use App\Network\Modules\Manager\Generics\Queries\Repositories\QueryRepository;
  * Time: 21:53
  *
  * Class CookieRepository
- * @package App\Network\Modules\Manager\Generics\Queries\Repositories\Index\Index
+ * @package App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\Index\Index
  */
 class CookieRepository extends QueryRepository
 {

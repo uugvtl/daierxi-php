@@ -1,8 +1,8 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Services\Index\Index;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Services\Index\Index;
 use App\Globals\Legals\BaseLegal;
 use App\Helpers\InstanceHelper;
-use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
+use App\Network\Modules\Manager\Generics\Queries\Factories\Services\QueryService;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
  * Time: 22:59
  *
  * Class PrimaryService
- * @package App\Network\Modules\Manager\Generics\Queries\Services\Index\Index
+ * @package App\Network\Modules\Manager\Generics\Queries\Factories\Services\Index\Index
  */
 class DefaultService extends QueryService
 {
