@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Controllers;
+use App\Globals\Finals\Responder;
 use App\Helpers\CookiesHelper;
 use App\Helpers\StringHelper;
 use App\Network\Modules\Manager\Common\ComController;
@@ -38,18 +39,21 @@ class IndexController extends ComController
 
         if($request->isPost())
         {
+            $responder = Responder::getInstance();
+
+            if(!$this->security->checkToken())
+            {
+                $errorMsg = $this->t('global', 'illegal_sign_in');
+                $responder->toggle = NO;
+                goto finished;
+            }
+
 
             $posts['account']   = $account  = $request->getPost('account', 'trim');
             $posts['password']  = $password = $request->getPost('password', 'trim');
 
             $responder = $this->provider->setGeneralize(YES)->getQueryResponder($posts);
             $errorMsg = $responder->msg;
-
-            if(!$this->security->checkToken())
-            {
-                $errorMsg = $this->t('global', 'illegal_sign_in');
-                $responder->toggle = NO;
-            }
 
 
         }
