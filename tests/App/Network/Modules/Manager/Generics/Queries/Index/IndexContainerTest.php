@@ -19,8 +19,8 @@ class IndexContainerTest extends UnitTestCase
     {
         /** arrange */
             $params = [
-                'account'   =>'d',
-                'password'  =>'1'
+                'account'   =>'1',
+                'password'  =>'a'
             ];
             $distributer = Distributer::getInstance();
             $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);

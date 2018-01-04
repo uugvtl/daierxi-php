@@ -20,9 +20,11 @@
                 </dd>
             </dl>
         </div>
-
-        <div style="color: #F00;text-align: center">{{ error_msg }}</div>
-
+        {% if error_msg is not empty %}
+        <div class="Need">
+            <h1 class="clearfix" style="color: #F00;"><span class="fl">{{ error_msg }}</span></h1>
+        </div>
+        {% endif %}
         {#<div class="Test">#}
             {#<dl>#}
                 {#<dt class="fl"><img src="/assets/backend/images/yzm_03.jpg"></dt>#}

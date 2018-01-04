@@ -40,12 +40,14 @@ class DefaultLogic extends QueryLogic
             }
             else
             {
+                $responder->toggle = NO;
                 $responder->msg = $this->t('errors', 'disabled_login');
                 $responder->code = ExcpCode::DISABLED_LOGIN;
             }
         }
         else
         {
+            $responder->toggle = NO;
             $responder->msg = $this->t('errors', 'invalid_login');
             $responder->code = ExcpCode::INVALID_LOGIN;
         }
