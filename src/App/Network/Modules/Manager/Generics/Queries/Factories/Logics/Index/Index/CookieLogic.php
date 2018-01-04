@@ -37,6 +37,7 @@ class CookieLogic extends QueryLogic
             }
             else
             {
+                $responder->toggle = NO;
                 $responder->msg = $this->t('errors', 'disabled_login');
                 $responder->code = ExcpCode::DISABLED_LOGIN;
             }

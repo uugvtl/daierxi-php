@@ -4,6 +4,7 @@ use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Network\Common\NetController;
+use Phalcon\Mvc\Dispatcher;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -21,11 +22,12 @@ abstract class ModuleController extends NetController
     protected $provider;
 
     /**
+     * 获取相关的 Distributer
+     * @param Dispatcher $dispatcher
      * @return Distributer
      */
-    final protected function createDistributer()
+    final public function createDistributer(Dispatcher $dispatcher)
     {
-        $dispatcher = $this->dispatcher;
         $distributer = Distributer::getInstance();
 
         $ctrlName   = $dispatcher->getControllerName();

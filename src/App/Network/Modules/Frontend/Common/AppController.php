@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Frontend\Common;
 use App\Network\Modules\ModuleController;
-use Phalcon\Dispatcher;
+use Phalcon\Mvc\Dispatcher;
 /**
  * WEB程序前端模块控制器基类
  * User: leon

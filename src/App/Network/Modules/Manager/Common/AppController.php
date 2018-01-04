@@ -1,7 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Common;
-use App\Network\Modules\ModuleController;
-use Phalcon\Dispatcher;
+use App\Network\Modules\Manager\Events\SigninEvent;
+use App\Network\Providers\ManagerContainerProvider;
+use Phalcon\Mvc\Dispatcher;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,7 +13,7 @@ use Phalcon\Dispatcher;
  * Class AppController
  * @package App\Network\Modules\Manager\Common
  */
-abstract class AppController extends ModuleController
+abstract class AppController extends ComController
 {
     /**
      * 每次请求都会运行此事件方法--包括Action未找到
@@ -20,7 +22,15 @@ abstract class AppController extends ModuleController
      */
     public function beforeExecuteRoute(Dispatcher $dispatcher)
     {
-        unset($dispatcher);
-        return true;
+
+        $signinEvent = SigninEvent::getInstance();
+        $toggle = $signinEvent->init($this)
+            ->setDistributerCtrlName('Index')
+            ->beforeExecuteRoute($dispatcher, ManagerContainerProvider::class);
+
+        if(!$toggle)
+            $this->response->redirect();
+
+        return $toggle;
     }
 }

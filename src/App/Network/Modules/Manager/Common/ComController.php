@@ -16,6 +16,6 @@ abstract class ComController extends ModuleController
     public function initialize()
     {
         $this->provider = ManagerContainerProvider::getInstance();
-        $this->provider->init($this->createDistributer());
+        $this->provider->init($this->createDistributer($this->dispatcher));
     }
 }
