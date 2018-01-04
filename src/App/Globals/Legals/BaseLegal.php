@@ -1,7 +1,7 @@
 <?php
-namespace App\Frames\Legals;
-use App\Frames\FrameClass;
+namespace App\Globals\Legals;
 use App\Frames\Generics\FrameRepository;
+use App\Globals\Bases\BaseClass;
 use App\Globals\Finals\Responder;
 use Phalcon\Validation;
 use Phalcon\Validation\Message\Group;
@@ -14,7 +14,7 @@ use Phalcon\Validation\Message\Group;
  * Class FrameLegal
  * @package App\Frames\Generics
  */
-abstract class FrameLegal extends FrameClass
+abstract class BaseLegal extends BaseClass
 {
     /**
      * 参数
@@ -122,16 +122,16 @@ abstract class FrameLegal extends FrameClass
      * 返回验证后的结果
      * @return Responder
      */
-    final public function run()
+    final public function get()
     {
         $msg = $this->validation();
         $toggle = $msg ? false:true;
 
-        $resultBo = Responder::getInstance();
-        $resultBo->toggle = $toggle;
-        $resultBo->msg = $msg;
+        $responder = Responder::getInstance();
+        $responder->toggle = $toggle;
+        $responder->msg = $msg;
 
-        return $resultBo;
+        return $responder;
 
     }
 }

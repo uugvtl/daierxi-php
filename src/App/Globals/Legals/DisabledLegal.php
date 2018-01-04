@@ -1,5 +1,5 @@
 <?php
-namespace App\Frames\Legals;
+namespace App\Globals\Legals;
 use Phalcon\Validation\Validator\Numericality;
 use Phalcon\Validation\Validator\PresenceOf;
 /**
@@ -11,7 +11,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Class DisabledLogic
  * @package App\Network\Modules\Manager\Distribution\Verifies\Legals
  */
-abstract class DisabledLegal extends FrameLegal
+abstract class DisabledLegal extends BaseLegal
 {
     protected function initValidation()
     {

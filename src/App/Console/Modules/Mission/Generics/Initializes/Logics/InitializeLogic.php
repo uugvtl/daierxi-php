@@ -1,6 +1,8 @@
 <?php
 namespace App\Console\Modules\Mission\Generics\Initializes\Logics;
 use App\Console\Generics\Initializes\GenericLogic;
+use App\Globals\Finals\Responder;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,5 +14,7 @@ use App\Console\Generics\Initializes\GenericLogic;
  */
 class InitializeLogic extends GenericLogic
 {
-
+    protected function run(Responder $responder)
+    {
+    }
 }

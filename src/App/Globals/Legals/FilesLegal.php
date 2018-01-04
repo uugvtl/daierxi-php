@@ -1,5 +1,5 @@
 <?php
-namespace App\Frames\Legals;
+namespace App\Globals\Legals;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +9,7 @@ namespace App\Frames\Legals;
  * Class FilesLogic
  * @package App\Network\Modules\Manager\Distribution\Verifies\Legals
  */
-abstract class FilesLegal extends FrameLegal
+abstract class FilesLegal extends BaseLegal
 {
     /**
      * 初始化数据

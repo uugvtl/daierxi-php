@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Index;
-use App\Datesets\DataConst;
+use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use UnitTestCase;
@@ -15,7 +15,7 @@ use UnitTestCase;
  */
 class IndexContainerTest extends UnitTestCase
 {
-    public function test_get_list_for_index()
+    public function test_get_list_for_default()
     {
         /** arrange */
             $params = [

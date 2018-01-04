@@ -1,6 +1,7 @@
 <?php
 return [
 	APP_NS.'\Globals\Traits'    => APP_PATH . '/Globals/Traits',
+	APP_NS.'\Globals\Legals'    => APP_PATH . '/Globals/Legals',
 	APP_NS.'\Globals\Stores'    => APP_PATH . '/Globals/Stores',
 	APP_NS.'\Globals\Bases'    => APP_PATH . '/Globals/Bases',
 	APP_NS.'\Globals\Finals'    => APP_PATH . '/Globals/Finals',
@@ -49,6 +50,7 @@ return [
 	APP_NS.'\Network\Modules\Manager\Generics\Removes'    => APP_PATH . '/Network/Modules/Manager/Generics/Removes',
 	APP_NS.'\Network\Modules\Manager\Generics\Modifies'    => APP_PATH . '/Network/Modules/Manager/Generics/Modifies',
 	APP_NS.'\Network\Modules\Manager\Generics\Printing'    => APP_PATH . '/Network/Modules/Manager/Generics/Printing',
+	APP_NS.'\Network\Modules\Manager\Generics\Queries\Legals\Index\Index'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries/Legals/Index/Index',
 	APP_NS.'\Network\Modules\Manager\Generics\Queries\Repositories'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries/Repositories',
 	APP_NS.'\Network\Modules\Manager\Generics\Queries\Repositories\Index\Index'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries/Repositories/Index/Index',
 	APP_NS.'\Network\Modules\Manager\Generics\Queries'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries',
@@ -63,7 +65,7 @@ return [
 	APP_NS.'\Network\Modules\Manager'    => APP_PATH . '/Network/Modules/Manager',
 	APP_NS.'\Network\Modules\Manager\Events'    => APP_PATH . '/Network/Modules/Manager/Events',
 	APP_NS.'\Network\Modules\Manager\Controllers'    => APP_PATH . '/Network/Modules/Manager/Controllers',
-	APP_NS.'\Datesets'    => APP_PATH . '/Datesets',
+	APP_NS.'\Datasets'    => APP_PATH . '/Datasets',
 	APP_NS.'\Libraries\Tables'    => APP_PATH . '/Libraries/Tables',
 	APP_NS.'\Libraries\Prints'    => APP_PATH . '/Libraries/Prints',
 	APP_NS.'\Libraries\Daoes'    => APP_PATH . '/Libraries/Daoes',

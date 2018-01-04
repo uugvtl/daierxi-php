@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+use App\Datasets\DataConst;
 use App\Globals\Bases\BaseSingle;
 
 /**
@@ -22,7 +23,7 @@ class FormulaHelper extends BaseSingle
      */
     public function calcRecipeWeight($weight, $percent)
     {
-        $sth = bcmul($weight, $percent, DECIMAL);
-        return bcmul($sth, NARROW100, DECIMAL);
+        $sth = bcmul($weight, $percent, DataConst::DECIMAL);
+        return bcmul($sth, DataConst::SCALE_DOWN_100, DataConst::DECIMAL);
     }
 }

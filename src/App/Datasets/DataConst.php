@@ -1,5 +1,5 @@
 <?php
-namespace App\Datesets;
+namespace App\Datasets;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -7,7 +7,7 @@ namespace App\Datesets;
  * Time: 01:18
  *
  * Class DataConst
- * @package App\Datesets
+ * @package App\Datasets
  */
 final class DataConst
 {

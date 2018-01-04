@@ -1,5 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Services\Index\Index;
+use App\Globals\Legals\BaseLegal;
+use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
 /**
  * Created by PhpStorm.
@@ -12,6 +14,20 @@ use App\Network\Modules\Manager\Generics\Queries\Services\QueryService;
  */
 class DefaultService extends QueryService
 {
+    public function get()
+    {
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $frameLegal = $instanceHelper->build(BaseLegal::class, $this->getLegalClassString());
+        $responder  = $frameLegal->init($this->getGenericInjecter()->getParameter()->get())->get();
+        if($responder->toggle)
+        {
+            $responder = parent::get();
+        }
+
+        return $responder;
+    }
+
     protected function createRepositoryInstance()
     {
         $this->getGenericInjecter()->setGeneralize(YES);
@@ -23,4 +39,6 @@ class DefaultService extends QueryService
         $this->getGenericInjecter()->setGeneralize(YES);
         return parent::createLogicInstance();
     }
+
+
 }

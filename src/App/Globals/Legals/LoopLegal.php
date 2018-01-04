@@ -1,5 +1,5 @@
 <?php
-namespace App\Frames\Legals;
+namespace App\Globals\Legals;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +9,7 @@ namespace App\Frames\Legals;
  * Class LoopLogic
  * @package App\Network\Modules\Manager\Distribution\Verifies\Legals
  */
-abstract class LoopLegal extends FrameLegal
+abstract class LoopLegal extends BaseLegal
 {
     /**
      * 单条验证数据

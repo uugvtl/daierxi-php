@@ -1,6 +1,6 @@
 <?php
 namespace App\Frames\Generics;
-use App\Datesets\DataConst;
+use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\PageSlice;
