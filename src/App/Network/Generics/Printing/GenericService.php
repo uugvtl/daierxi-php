@@ -32,7 +32,7 @@ abstract class GenericService extends FrameService implements IPrintable
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('PrintLogic');
+        $this->getGenericInjecter()->setBaseClassString('PrintLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 

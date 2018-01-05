@@ -16,4 +16,16 @@ interface IShowAdapter
      * @return void
      */
     public function show();
+
+    /**
+     * @param string $docname
+     * @return static
+     */
+    public function setDocname($docname);
+
+    /**
+     * @return string
+     */
+    public function getDocname();
+
 }

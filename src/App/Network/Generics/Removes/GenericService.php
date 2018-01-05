@@ -32,7 +32,7 @@ abstract class GenericService extends FrameService implements IRespondable
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('RemoveLogic');
+        $this->getGenericInjecter()->setBaseClassString('RemoveLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 

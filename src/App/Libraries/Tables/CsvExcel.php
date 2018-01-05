@@ -1,5 +1,6 @@
 <?php
 namespace App\Libraries\Tables;
+use App\Globals\Bases\BaseClass;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -9,7 +10,7 @@ namespace App\Libraries\Tables;
  * Class CsvExcel
  * @package App\Libraries\Tables
  */
-class CsvExcel
+class CsvExcel extends BaseClass
 {
     /**
      * 需要导出的数据 二维数组
@@ -21,7 +22,7 @@ class CsvExcel
      * 列标题名称
      * @var array
      */
-    private $title;
+    private $column;
 
     /**
      * 刷新缓冲区的上限数据记录数
@@ -39,7 +40,7 @@ class CsvExcel
      * 导出的文件名
      * @var string
      */
-    private $fileName;
+    private $docname;
 
     /**
      * 是否发送到了客户端
@@ -47,29 +48,44 @@ class CsvExcel
      */
     private $isSend;
 
-
-    public function __construct($filename='simple.csv')
+    /**
+     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
+     * 返回此类的子类实例
+     * @return static
+     */
+    public static function getInstance()
     {
-        $this->charset = 'GBK';
-        $this->fileName = $filename;
+        $me = new static();
+
+        $me->charset = 'GBK';
+        $me->docname = 'simple.csv';
+
+        $me->afterInstance();
+        return $me;
+    }
+
+    public function init(...$args)
+    {
+        $this->data = $args[0];
+        return $this;
     }
 
     /**
-     * @param string $fileName
+     * @param string $docname
      * @return static
      */
-    public function setFileName($fileName)
+    public function setDocname($docname)
     {
-        $this->fileName = $fileName;
+        $this->docname = $docname;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getFileName()
+    public function getDocname()
     {
-        return  $this->fileName;
+        return  $this->docname;
     }
 
     /**
@@ -95,25 +111,22 @@ class CsvExcel
 
     /**
      * 设置标题
-     * @param array $title
+     * @param array $column
      * @return $this
      */
-    public function setTitle(array $title){
-        $this->title = $title;
+    public function setColumn(array $column){
+        $this->column = $column;
         return $this;
     }
 
 
     /**
      * 输出数据
-     * @param array $data       从数据库中抓取的数据
      * @return void
      */
-    public function output(array $data)
+    public function output()
     {
         $this->sendHeader();
-
-        $this->data = $data;
 
         $fp = fopen('php://output', 'a');
 
@@ -153,16 +166,16 @@ class CsvExcel
         {
             $this->isSend=true;
             // 防止没有添加文件后缀
-            $filename = str_replace('.csv', '', $this->fileName).'.csv';
+            $filename = str_replace('.csv', '', $this->docname).'.csv';
             ob_clean();
             header('Content-type: text/plain');
             header('Content-disposition: attachment;filename='.$filename);
 
-            if ($this->title) {
+            if ($this->column) {
                 $fp = fopen('php://output', 'a');
                 $title = array_map(function ($v) {
                     return iconv('UTF-8', $this->charset, $v);
-                }, $this->title);
+                }, $this->column);
                 fputcsv($fp, $title);
             }
 

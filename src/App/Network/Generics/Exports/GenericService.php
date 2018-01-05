@@ -32,7 +32,7 @@ abstract class GenericService extends FrameService  implements IExportable
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('ExportLogic');
+        $this->getGenericInjecter()->setBaseClassString('ExportLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 

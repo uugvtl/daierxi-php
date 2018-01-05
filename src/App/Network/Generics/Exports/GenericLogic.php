@@ -1,6 +1,8 @@
 <?php
 namespace App\Network\Generics\Exports;
-use App\Frames\FrameGeneric;
+use App\Frames\Generics\FrameLogic;
+use App\Globals\Finals\Responder;
+use App\Interfaces\Adapters\IExportAdapter;
 use App\Interfaces\Generics\IExportable;
 
 /**
@@ -12,7 +14,17 @@ use App\Interfaces\Generics\IExportable;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends FrameGeneric implements IExportable
+abstract class GenericLogic  extends FrameLogic implements IExportable
 {
+    /**
+     * @var IExportAdapter
+     */
+    protected $adapter;
 
+    final public function get()
+    {
+        $responder = Responder::getInstance();
+        $this->run($responder);
+        return $responder;
+    }
 }

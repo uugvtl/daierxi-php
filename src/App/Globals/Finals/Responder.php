@@ -1,5 +1,8 @@
 <?php
 namespace App\Globals\Finals;
+use App\Globals\Bases\BaseClass;
+use App\Interfaces\Adapters\IShowAdapter;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -8,69 +11,38 @@ namespace App\Globals\Finals;
  *
  * Class BaseResult
  * @package App\Globals\Bases\Results
- * @property bool   $toggle
- * @property int    $total
- * @property array  $data
- * @property string $msg;
- * @property int    $code
+ * @property bool           $toggle
+ * @property int            $total
+ * @property array          $data
+ * @property string         $msg;
+ * @property int            $code
+ * @property IShowAdapter   $adapter
  */
-final class Responder
+final class Responder extends BaseClass
 {
     public $toggle;
     public $total;
     public $data;
     public $msg;
     public $code;
-
+    public $adapter;
     /**
-     * @var array 实例缓存
-     */
-    private static $_instanceCache=array();
-
-    /**
-     * protected标记的构造方法
-     */
-    private function __construct(){}
-
-    /**
-     * 创建__clone方法防止对象被复制克隆
-     */
-    final private function __clone(){}
-
-    /**
-     * 只在生成成实例的时候运行一次
-     */
-    protected function onceConstruct(){}
-
-    /**
-     * 初始化单例
-     * @return Responder
+     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
+     * 返回此类的子类实例
+     * @return static
      */
     public static function getInstance()
     {
-        $static = null;
-        $className = get_called_class();
-
-        if(isset(Responder::$_instanceCache[$className]))
-        {
-            $static = Responder::$_instanceCache[$className];
-        }
-
-        if(empty($static))
-        {
-            $static = new static();
-            $static->onceConstruct();
-            Responder::$_instanceCache[$className] = $static;
-
-            $static->toggle = false;
-            $static->total = 0;
-            $static->data = [];
-            $static->msg = '';
-            $static->code = 0;
-        }
-
-        return $static;
-
+        $me = new static();
+        $me->toggle = false;
+        $me->total = 0;
+        $me->data = [];
+        $me->msg = '';
+        $me->code = 0;
+        $me->adapter = null;
+        $me->afterInstance();
+        return $me;
     }
+
 
 }
