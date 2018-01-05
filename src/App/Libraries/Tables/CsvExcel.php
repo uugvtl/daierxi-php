@@ -22,7 +22,7 @@ class CsvExcel extends BaseClass
      * 列标题名称
      * @var array
      */
-    private $column;
+    private $columns;
 
     /**
      * 刷新缓冲区的上限数据记录数
@@ -102,11 +102,11 @@ class CsvExcel extends BaseClass
 
     /**
      * 设置标题
-     * @param array $column
+     * @param array $columns
      * @return $this
      */
-    public function setColumn(array $column){
-        $this->column = $column;
+    public function setColumns(array $columns){
+        $this->columns = $columns;
         return $this;
     }
 
@@ -162,11 +162,11 @@ class CsvExcel extends BaseClass
             header('Content-type: text/plain');
             header('Content-disposition: attachment;filename='.$filename);
 
-            if ($this->column) {
+            if ($this->columns) {
                 $fp = fopen('php://output', 'a');
                 $title = array_map(function ($v) {
                     return iconv('UTF-8', $this->charset, $v);
-                }, $this->column);
+                }, $this->columns);
                 fputcsv($fp, $title);
             }
 

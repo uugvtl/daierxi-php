@@ -27,12 +27,12 @@ class CsvExportAdapter extends BaseAdapter implements IExportAdapter
     }
 
     /**
-     * @param array $column
+     * @param array $columns
      * @return static
      */
-    public function setColumn(array $column)
+    public function setColumns(array $columns)
     {
-        $this->adapter->setColumn($column);
+        $this->adapter->setColumns($columns);
         return $this;
     }
 

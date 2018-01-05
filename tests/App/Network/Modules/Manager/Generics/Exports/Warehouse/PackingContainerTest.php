@@ -28,6 +28,8 @@ class PackingContainerTest extends UnitTestCase
         /** assert */
 
             $responder = $provider->getExportResponder($params);
-            $this->assertInstanceOf(IShowAdapter::class, $responder->adapter);
+            $this->assertTrue($responder->toggle, $responder->msg);
+            if($responder->toggle)
+                $this->assertInstanceOf(IShowAdapter::class, $responder->adapter);
     }
 }

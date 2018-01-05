@@ -82,6 +82,11 @@ abstract class BaseWhere extends BaseClass
         return $value;
     }
 
+    protected function afterInstance()
+    {
+        $this->condition = [];
+    }
+
     /**
      * getWhere的后置回调函数用
      * @return string

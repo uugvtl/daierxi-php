@@ -12,10 +12,10 @@ namespace App\Interfaces\Adapters;
 interface IExportAdapter extends IShowAdapter
 {
     /**
-     * @param array $column
+     * @param array $columns
      * @return static
      */
-    public function setColumn(array $column);
+    public function setColumns(array $columns);
 
 
     /**
