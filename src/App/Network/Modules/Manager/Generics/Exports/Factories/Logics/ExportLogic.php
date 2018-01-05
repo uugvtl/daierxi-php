@@ -15,6 +15,7 @@ class ExportLogic extends GenericLogic
 {
     protected function run(Responder $responder)
     {
-
+        $responder->toggle = YES;
+        $responder->adapter = $this->getAdapter();
     }
 }

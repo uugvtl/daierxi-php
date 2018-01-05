@@ -48,20 +48,11 @@ class CsvExcel extends BaseClass
      */
     private $isSend;
 
-    /**
-     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
-     * 返回此类的子类实例
-     * @return static
-     */
-    public static function getInstance()
+
+    protected function afterInstance()
     {
-        $me = new static();
-
-        $me->charset = 'GBK';
-        $me->docname = 'simple.csv';
-
-        $me->afterInstance();
-        return $me;
+        $this->charset = 'GBK';
+        $this->docname = 'simple.csv';
     }
 
     public function init(...$args)

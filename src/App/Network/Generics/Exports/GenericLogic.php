@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Generics\Exports;
+use App\Adapters\Exports\CsvExportAdapter;
 use App\Frames\Generics\FrameLogic;
 use App\Globals\Finals\Responder;
 use App\Interfaces\Adapters\IExportAdapter;
@@ -19,7 +20,20 @@ abstract class GenericLogic  extends FrameLogic implements IExportable
     /**
      * @var IExportAdapter
      */
-    protected $adapter;
+    private $adapter;
+
+    protected function afterInstance()
+    {
+        $this->adapter = CsvExportAdapter::getInstance();
+    }
+
+    /**
+     * @return IExportAdapter
+     */
+    final protected function getAdapter()
+    {
+        return $this->adapter;
+    }
 
     final public function get()
     {
