@@ -14,5 +14,8 @@ class PrintContainer extends GenericContainer
 {
     public function get()
     {
+        $service = $this->createService();
+        return $service->get();
+
     }
 }

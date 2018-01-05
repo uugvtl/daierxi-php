@@ -3,6 +3,7 @@ namespace App\Network\Generics\Exports;
 use App\Adapters\Exports\CsvExportAdapter;
 use App\Frames\Generics\FrameLogic;
 use App\Globals\Finals\Responder;
+use App\Globals\Stores\SelectStore;
 use App\Interfaces\Adapters\IExportAdapter;
 use App\Interfaces\Generics\IExportable;
 
@@ -22,16 +23,12 @@ abstract class GenericLogic  extends FrameLogic implements IExportable
      */
     private $adapter;
 
-    protected function afterInstance()
-    {
-        $this->adapter = CsvExportAdapter::getInstance();
-    }
-
     /**
      * @return IExportAdapter
      */
     final protected function getAdapter()
     {
+        $this->adapter || $this->adapter = CsvExportAdapter::getInstance();
         return $this->adapter;
     }
 
@@ -40,5 +37,10 @@ abstract class GenericLogic  extends FrameLogic implements IExportable
         $responder = Responder::getInstance();
         $this->run($responder);
         return $responder;
+    }
+
+    protected function afterInstance()
+    {
+        $this->setStore(SelectStore::getInstance());
     }
 }

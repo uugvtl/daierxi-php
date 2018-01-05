@@ -15,28 +15,8 @@ class ExportLogic extends GenericLogic
 {
     protected function run(Responder $responder)
     {
-        $store = $this->getRepositpry()->get();
-
-        $records = $store->getList();
-
-        $columns = [
-            '自增ID',
-            '货号',
-            '包材名称',
-            '包材描述',
-            '实际库存',
-            '退货库存',
-            '次品库存',
-            '安全库存'
-        ];
-
-        if($records)
-        {
-            $adapter = $this->getAdapter();
-            $adapter->setData($records)->setDocname('包材库存统计'.date('Y-m-d'))->setColumns($columns);
-            $responder->toggle = YES;
-            $responder->adapter = $adapter;
-        }
+        $responder->toggle = NO;
+        $responder->adapter = $this->getAdapter();
 
     }
 

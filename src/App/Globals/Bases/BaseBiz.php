@@ -25,7 +25,7 @@ abstract class BaseBiz extends BaseClass
     abstract protected function column();
 
 
-    public function init(...$args)
+    final public function init(...$args)
     {
         $this->properties = $this->verify($args[0]);
         return $this;
@@ -132,7 +132,6 @@ abstract class BaseBiz extends BaseClass
             return $toggle;
         });
     }
-
 
 
     protected function afterInstance()

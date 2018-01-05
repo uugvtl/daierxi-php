@@ -2,7 +2,9 @@
 namespace App\Network\Generics\Modifies;
 use App\Globals\Finals\Responder;
 use App\Frames\Generics\FrameLogic;
+use App\Helpers\JsonHelper;
 use App\Interfaces\Generics\IRespondable;
+use App\Unusually\BizLogicExceptions;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,20 +16,33 @@ use App\Interfaces\Generics\IRespondable;
  */
 abstract class GenericLogic extends FrameLogic implements IRespondable
 {
-//    public function get()
-//    {
-//        $toggle = $this->transaction();
-//        $responder = Responder::getInstance();
-//        $responder->toggle = $toggle;
-//        if($toggle)
-//            $responder->msg = $this->t('global', 'save_success');
-//    }
-
     public function get()
     {
         $responder = Responder::getInstance();
-        $this->commit($responder);
+        $this->transaction($responder);
         return $responder;
     }
 
+    /**
+     * 持久化数据
+     * @param Responder $responder
+     * @return void
+     */
+    final protected function transaction(Responder $responder)
+    {
+        $dao = $this->getStore()->getCache()->getDao();
+        try {
+
+            $dao->start();
+            $this->run($responder);
+            $dao->end();
+
+        }
+        catch(BizLogicExceptions $e) {
+            $dao->rollback();
+            $jsonHelper = JsonHelper::getInstance();
+            $jsonHelper->sendExcp($e);
+        }
+
+    }
 }

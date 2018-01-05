@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Factories\Logics\Index\Index;
 use App\Datasets\ExcpCode;
-use App\Entities\Bizbos\Signin\AccountBo;
+use App\Entities\Bizbos\Signin\AccountBaseBo;
 use App\Globals\Finals\Responder;
 use App\Globals\Traits\AccountTrait;
 use App\Helpers\InstanceHelper;
@@ -23,13 +23,14 @@ class DefaultLogic extends QueryLogic
 
     protected function run(Responder $responder)
     {
-        $store = $this->getRepositpry()->get();
-        $rows = $store->getRow();
+        $sqlangInjecter = $this->getRepositpry()->get();
+        $store = $this->getStore();
+        $rows = $store->setSqlangInjecter($sqlangInjecter)->getRow();
 
         if($rows)
         {
             $instanceHelper = InstanceHelper::getInstance();
-            $accountBo = $instanceHelper->build(AccountBo::class, $this->getBizBoClassString());
+            $accountBo = $instanceHelper->build(AccountBaseBo::class, $this->getBizBoClassString());
             $accountBo->init($rows);
 
             if($accountBo->enabled)
@@ -62,14 +63,14 @@ class DefaultLogic extends QueryLogic
      */
     protected function getBizBoClassString()
     {
-        return AccountBo::class;
+        return AccountBaseBo::class;
     }
 
     /**
      * 发送cookie到浏览器
-     * @param AccountBo $accountBo
+     * @param AccountBaseBo $accountBo
      */
-    private function sendCookies(AccountBo $accountBo)
+    private function sendCookies(AccountBaseBo $accountBo)
     {
         $stringHelper = StringHelper::getInstance();
         $jsonHelper = JsonHelper::getInstance();

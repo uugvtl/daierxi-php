@@ -1,11 +1,9 @@
 <?php
 namespace App\Frames\Generics;
 use App\Frames\FrameGeneric;
+use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\Responder;
-use App\Helpers\JsonHelper;
-use App\Libraries\Daoes\AppDao;
-use App\Unusually\BizLogicExceptions;
-
+use App\Globals\Stores\FormStore;
 /**
  * 用来生成 Sqlang 和 Store 相关类的工厂类
  * Created by PhpStorm.
@@ -22,6 +20,11 @@ abstract class FrameLogic extends FrameGeneric
      * @var FrameRepository
      */
     private $repository;
+
+    /**
+     * @var BaseStore
+     */
+    private $store;
 
     /**
      * 如果需要持久化数据时，需要实现run 方法，但是要调用commit
@@ -47,26 +50,21 @@ abstract class FrameLogic extends FrameGeneric
     }
 
     /**
-     * 持久化数据
-     * @param Responder $responder
-     * @return void
+     * @param BaseStore $store
+     * @return $this
      */
-    final protected function commit(Responder $responder)
+    final protected function setStore(BaseStore $store)
     {
-        $dao = AppDao::getInstance();
-        try {
+        $this->store = $store;
+        return $this;
+    }
 
-            $dao->start();
-            $this->run($responder);
-            $dao->end();
-        }
-        catch(BizLogicExceptions $e) {
-            $dao->rollback();
-            $jsonHelper = JsonHelper::getInstance();
-            $jsonHelper->sendExcp($e);
-        }
-
-
+    /**
+     * @return BaseStore
+     */
+    final protected function getStore()
+    {
+        return $this->store;
     }
 
     /**
@@ -95,4 +93,8 @@ abstract class FrameLogic extends FrameGeneric
         return $classname;
     }
 
+    protected function afterInstance()
+    {
+        $this->setStore(FormStore::getInstance());
+    }
 }

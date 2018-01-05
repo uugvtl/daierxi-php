@@ -1,8 +1,7 @@
 <?php
 namespace App\Globals\Bizes;
 use App\Globals\Bases\BaseBiz;
-use App\Libraries\Daoes\AppDao;
-use App\Libraries\Daoes\FrameDao;
+use App\Libraries\Caches\BaseCache;
 /**
  * 有持久化功能的业务实例
  * Created by PhpStorm.
@@ -16,6 +15,11 @@ use App\Libraries\Daoes\FrameDao;
 abstract class BaseDo extends BaseBiz
 {
     /**
+     * @var BaseCache
+     */
+    private $cache;
+
+    /**
      * 是否为新增数据
      * @var bool
      */
@@ -26,11 +30,6 @@ abstract class BaseDo extends BaseBiz
      * @var bool
      */
     private $persistent;
-
-    /**
-     * @var FrameDao
-     */
-    private $dao;
 
     /**
      * 新增数据到库，无事务更新操作
@@ -97,16 +96,24 @@ abstract class BaseDo extends BaseBiz
     protected function afterInstance()
     {
         parent::afterInstance();
-        $this->dao = AppDao::getInstance();
     }
 
     /**
-     * @return FrameDao
+     * @return BaseCache
      */
-    protected function getDao()
+    final protected function getCache()
     {
-        return $this->dao;
+        return $this->cache;
     }
 
+    /**
+     * @param BaseCache $cache
+     * @return $this
+     */
+    final public function setCache(BaseCache $cache)
+    {
+        $this->cache = $cache;
+        return $this;
+    }
 
 }

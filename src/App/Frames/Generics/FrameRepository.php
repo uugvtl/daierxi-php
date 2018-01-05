@@ -2,7 +2,6 @@
 namespace App\Frames\Generics;
 use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
-use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\PageSlice;
 use App\Globals\Sqlangs\BaseFields;
 use App\Globals\Sqlangs\BaseTable;
@@ -28,10 +27,11 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
      */
     private $sqlangCatalog;
 
-    /**
-     * @param $sqlangCatalog
-     * @return $this
-     */
+    final public function get()
+    {
+        return $this->createSqlangInjecter();
+    }
+
     final public function setSqlangCatalog($sqlangCatalog)
     {
         $this->sqlangCatalog = $sqlangCatalog;
@@ -46,26 +46,6 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
         return $this->sqlangCatalog;
     }
 
-    /**
-     * @return SqlangInjecter
-     */
-    protected function createSqlangInjecter()
-    {
-        $injecter = SqlangInjecter::getInstance();
-
-        $fieldsInstance = $this->createFieldsInstance();
-        $tableInstance  = $this->createTableInstance();
-        $whereInstance  = $this->createWhereInstance();
-
-        $pageInstance = PageSlice::getInstance();
-
-        $injecter->setFieldsInstance($fieldsInstance);
-        $injecter->setTableInstance($tableInstance);
-        $injecter->setWhereInstance($whereInstance);
-        $injecter->setPageInstance($pageInstance);
-
-        return $injecter;
-    }
 
     protected function afterInstance()
     {
@@ -111,6 +91,27 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
     }
 
     /**
+     * @return SqlangInjecter
+     */
+    private function createSqlangInjecter()
+    {
+        $injecter = SqlangInjecter::getInstance();
+
+        $fieldsInstance = $this->createFieldsInstance();
+        $tableInstance  = $this->createTableInstance();
+        $whereInstance  = $this->createWhereInstance();
+
+        $pageInstance = PageSlice::getInstance();
+
+        $injecter->setFieldsInstance($fieldsInstance);
+        $injecter->setTableInstance($tableInstance);
+        $injecter->setWhereInstance($whereInstance);
+        $injecter->setPageInstance($pageInstance);
+
+        return $injecter;
+    }
+
+    /**
      * 获取 Sqlang 相关实例的类全名称，不带后辍
      * @param GenericInjecter $genericInjecter
      * @return string
@@ -122,14 +123,4 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
         return $package.BACKSLASH.'Sqlangs'.BACKSLASH.$this->getSqlangCatalog().BACKSLASH.$path;
     }
 
-
-    /**
-     * @return BaseStore
-     */
-    abstract protected function createStoreInstance();
-
-    /**
-     * @return BaseStore
-     */
-    abstract public function get();
 }

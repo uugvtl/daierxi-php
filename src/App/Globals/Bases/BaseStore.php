@@ -1,9 +1,7 @@
 <?php
 namespace App\Globals\Bases;
-use App\Helpers\SqlHelper;
 use App\Injecters\SqlangInjecter;
 use App\Libraries\Caches\BaseCache;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -27,6 +25,22 @@ abstract class BaseStore extends BaseSingle
     private $sqlangInjecter;
 
     /**
+     * @var boolean
+     */
+    private $paging;
+
+    /**
+     * 获取list 数据的时候，是否需要分页
+     * @param boolean $paging           需要分页为true,否则为false
+     * @return $this
+     */
+    final public function setPaging($paging)
+    {
+        $this->paging = (boolean)$paging;
+        return $this;
+    }
+
+    /**
      * @param SqlangInjecter $injecter
      * @return $this
      */
@@ -45,102 +59,13 @@ abstract class BaseStore extends BaseSingle
     }
 
     /**
-     * 带事务更新
-     * @return int
+     * @return BaseCache
      */
-    public function commit()
+    final public function getCache()
     {
-        $sqlHelper = SqlHelper::getInstance();
-
-        $sqlangInjecter = $this->getSqlangInjecter();
-
-        $fieldsInstance = $sqlangInjecter->getFieldsInstance();
-        $tableInstance  = $sqlangInjecter->getTableInstance();
-        $whereInstance  = $sqlangInjecter->getWhereInstance();
-
-        $fields     = $fieldsInstance->getFields();
-        $original   = $fieldsInstance->getOriginal();
-
-        $table = $tableInstance->getJoinTable();
-        $where = $whereInstance->get();
-
-        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
-        $numbers = $this->cache->getDao()->commit($sql);
-        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
-        return $numbers;
+        return $this->cache;
     }
 
-    /**
-     * 无事务更新--需要手动开启事务
-     * @return int
-     */
-    public function submit()
-    {
-        $sqlHelper = SqlHelper::getInstance();
-
-        $sqlangInjecter = $this->getSqlangInjecter();
-
-        $fieldsInstance = $sqlangInjecter->getFieldsInstance();
-        $tableInstance  = $sqlangInjecter->getTableInstance();
-        $whereInstance  = $sqlangInjecter->getWhereInstance();
-
-        $fields     = $fieldsInstance->getFields();
-        $original   = $fieldsInstance->getOriginal();
-        $table      = $tableInstance->getJoinTable();
-        $where      = $whereInstance->get();
-
-        $sql = $sqlHelper->getUpdateString($fields, $table, $where, $original);
-        $numbers = $this->cache->getDao()->submit($sql);
-        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
-        return $numbers;
-    }
-
-    /**
-     * 带事务删除
-     * @return int
-     */
-    public function remove()
-    {
-        $sqlHelper = SqlHelper::getInstance();
-
-        $sqlangInjecter = $this->getSqlangInjecter();
-
-        $tableInstance  = $sqlangInjecter->getTableInstance();
-        $whereInstance  = $sqlangInjecter->getWhereInstance();
-
-        $table = $tableInstance->getJoinTable();
-        $alias = $tableInstance->getAliasTable();
-        $where = $whereInstance->get();
-
-
-        $sql = $sqlHelper->getDeleteString($table, $where, $alias);
-        $numbers = $this->cache->getDao()->commit($sql);
-        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
-        return $numbers;
-    }
-
-    /**
-     * 无事务删除--需要手动开启事务
-     * @return int
-     */
-    public function delete()
-    {
-        $sqlHelper = SqlHelper::getInstance();
-
-        $sqlangInjecter = $this->getSqlangInjecter();
-
-        $tableInstance  = $sqlangInjecter->getTableInstance();
-        $whereInstance  = $sqlangInjecter->getWhereInstance();
-
-        $table = $tableInstance->getJoinTable();
-        $alias = $tableInstance->getAliasTable();
-        $where = $whereInstance->get();
-
-        $sql = $sqlHelper->getDeleteString($table, $where, $alias);
-        $numbers = $this->cache->getDao()->submit($sql);
-        $numbers && $this->cache->updateCacheDependencies($tableInstance->getTableList());
-        return $numbers;
-    }
 
     /**
      * 获取一组列表数据
@@ -148,7 +73,7 @@ abstract class BaseStore extends BaseSingle
      */
     public function getList()
     {
-        $pagingLimit= $this->getPagingLimit();
+        $pagingLimit = $this->getPagingLimit();
 
         $sqlangInjecter = $this->getSqlangInjecter();
 
@@ -219,7 +144,12 @@ abstract class BaseStore extends BaseSingle
                             1=1 {$where} {$groupBy}
                     ) tmp;";
         }
-        return $this->cache->setDependencies($aCacheDependency)->getOne($sql);
+
+        $total = $this->cache->setDependencies($aCacheDependency)->getOne($sql);
+
+        $pageSlice = $this->getSqlangInjecter()->getPageInstance();
+        $pageSlice && $pageSlice->setTotal($total);
+        return $total;
     }
 
     /**
@@ -285,14 +215,23 @@ abstract class BaseStore extends BaseSingle
      */
     final protected function getPagingLimit()
     {
-        $sqlangInjecter = $this->getSqlangInjecter();
-        $pageSlice = $sqlangInjecter->getPageInstance();
-
         $stmt = '';
-        if($pageSlice)
-            $stmt = $pageSlice->getPagingLimit();
+
+        if($this->isPaging())
+        {
+            $sqlangInjecter = $this->getSqlangInjecter();
+            $pageSlice = $sqlangInjecter->getPageInstance();
+            $pageSlice && $stmt = $pageSlice->getPagingLimit();
+        }
+
         return $stmt;
     }
 
-
+    /**
+     * @return bool
+     */
+    final protected function isPaging()
+    {
+        return $this->paging;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 namespace App\Interfaces\Generics;
-use App\Globals\Bases\BaseStore;
+use App\Injecters\SqlangInjecter;
 use App\Interfaces\IGetable;
 /**
  * Created by PhpStorm.
@@ -14,7 +14,15 @@ use App\Interfaces\IGetable;
 interface IPreservable extends IGetable
 {
     /**
-     * @return BaseStore
+     * @return SqlangInjecter
      */
     public function get();
+
+    /**
+     * 设置 sqlang 的相关目录名称
+     * @param $sqlangCatalog
+     * @return $this
+     */
+    public function setSqlangCatalog($sqlangCatalog);
+
 }

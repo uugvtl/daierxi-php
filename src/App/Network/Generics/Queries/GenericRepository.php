@@ -1,8 +1,6 @@
 <?php
 namespace App\Network\Generics\Queries;
-use App\Globals\Bases\BaseStore;
 use App\Frames\Generics\FrameRepository;
-use App\Globals\Stores\SelectStore;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,19 +10,4 @@ use App\Globals\Stores\SelectStore;
  * Class GenericRepository
  * @package App\Network\Generics\Queries
  */
-abstract class GenericRepository extends FrameRepository
-{
-    /**
-     * @return BaseStore
-     */
-    final protected function createStoreInstance()
-    {
-        $injecter = $this->createSqlangInjecter();
-
-        $cacheStore = SelectStore::getInstance();
-        $cacheStore->setSqlangInjecter($injecter);
-
-        return $cacheStore;
-    }
-
-}
+abstract class GenericRepository extends FrameRepository {}

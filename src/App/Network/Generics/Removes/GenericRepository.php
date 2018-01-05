@@ -1,9 +1,6 @@
 <?php
 namespace App\Network\Generics\Removes;
-use App\Globals\Bases\BaseStore;
 use App\Frames\Generics\FrameRepository;
-use App\Globals\Stores\FormStore;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,19 +10,4 @@ use App\Globals\Stores\FormStore;
  * Class GenericRepository
  * @package App\Network\Generics\Removes
  */
-abstract class GenericRepository extends FrameRepository
-{
-    /**
-     * @return BaseStore
-     */
-    final protected function createStoreInstance()
-    {
-        $injecter = $this->createSqlangInjecter();
-
-        $cacheStore = FormStore::getInstance();
-        $cacheStore->setSqlangInjecter($injecter);
-
-        return $cacheStore;
-    }
-
-}
+abstract class GenericRepository extends FrameRepository {}

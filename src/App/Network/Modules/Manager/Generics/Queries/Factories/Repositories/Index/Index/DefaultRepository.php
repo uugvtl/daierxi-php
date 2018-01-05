@@ -17,6 +17,9 @@ use App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\QueryRep
  */
 class DefaultRepository extends QueryRepository
 {
+
+
+
     protected function createFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
