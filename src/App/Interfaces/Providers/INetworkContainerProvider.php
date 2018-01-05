@@ -1,8 +1,6 @@
 <?php
 namespace App\Interfaces\Providers;
 use App\Globals\Finals\Responder;
-use App\Interfaces\Adapters\IShowAdapter;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,16 +15,16 @@ interface INetworkContainerProvider extends IMockContainerProvider
     /**
      * 导出数据列表
      * @param array $condz
-     * @return IShowAdapter
+     * @return Responder
      */
-    public function getExportAdapter(array $condz= []);
+    public function getExportResponder(array $condz= []);
 
     /**
      * 显示打印数据
      * @param array $condz            需要删除数据主键列表
-     * @return IShowAdapter
+     * @return Responder
      */
-    public function getPrintAdapter(array $condz= []);
+    public function getPrintResponder(array $condz= []);
 
     /**
      * 获取数据列表

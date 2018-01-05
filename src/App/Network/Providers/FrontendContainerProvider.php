@@ -31,7 +31,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      * @param array $condz
      * @return IShowAdapter
      */
-    public function getExportAdapter(array $condz= [])
+    public function getExportResponder(array $condz= [])
     {
         $container = $this->createContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz);
         return $container->get();
@@ -42,7 +42,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
      * @param array $condz            需要删除数据主键列表
      * @return IShowAdapter
      */
-    public function getPrintAdapter(array $condz= [])
+    public function getPrintResponder(array $condz= [])
     {
         $container = $this->createContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz);
         return $container->get();

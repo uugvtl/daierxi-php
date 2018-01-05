@@ -29,19 +29,12 @@ final class PageSlice extends BaseClass
      */
     private $page;
 
-    /**
-     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
-     * 返回此类的子类实例
-     * @return static
-     */
-    public static function getInstance()
+
+    protected function afterInstance()
     {
-        $me = new static();/* @var $me static */
-        $paging = $me->getPagingParams();
-        $me->page = $paging['page'];
-        $me->limit = $paging['limit'];
-        $me->afterInstance();
-        return $me;
+        $paging = $this->getPagingParams();
+        $this->page = $paging['page'];
+        $this->limit = $paging['limit'];
     }
 
     /**

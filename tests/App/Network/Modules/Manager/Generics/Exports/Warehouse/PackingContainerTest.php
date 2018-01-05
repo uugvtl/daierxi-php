@@ -27,7 +27,7 @@ class PackingContainerTest extends UnitTestCase
             $provider->init($distributer)->setGeneralize(YES);
         /** assert */
 
-            $adapter = $provider->getExportAdapter($params);
-            $this->assertInstanceOf(IShowAdapter::class, $adapter);
+            $responder = $provider->getExportResponder($params);
+            $this->assertInstanceOf(IShowAdapter::class, $responder->adapter);
     }
 }

@@ -1,7 +1,6 @@
 <?php
 namespace App\Network\Providers;
 use App\Globals\Finals\Responder;
-use App\Interfaces\Adapters\IShowAdapter;
 use App\Network\Modules\Manager\Generics\Creates\CreateContainer;
 use App\Network\Modules\Manager\Generics\Creates\PackageCreateConst;
 
@@ -34,9 +33,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
     /**
      * 导出数据列表
      * @param array $condz
-     * @return IShowAdapter
+     * @return Responder
      */
-    public function getExportAdapter(array $condz= [])
+    public function getExportResponder(array $condz= [])
     {
         $container = $this->createContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz);
         return $container->get();
@@ -45,9 +44,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
     /**
      * 显示打印数据
      * @param array $condz            需要删除数据主键列表
-     * @return IShowAdapter
+     * @return Responder
      */
-    public function getPrintAdapter(array $condz= [])
+    public function getPrintResponder(array $condz= [])
     {
         $container = $this->createContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz);
         return $container->get();

@@ -26,23 +26,14 @@ final class Responder extends BaseClass
     public $msg;
     public $code;
     public $adapter;
-    /**
-     * 单例方法,用于访问实例的公共的静态方法:下面的注释不能取消
-     * 返回此类的子类实例
-     * @return static
-     */
-    public static function getInstance()
+
+    protected function afterInstance()
     {
-        $me = new static();
-        $me->toggle = false;
-        $me->total = 0;
-        $me->data = [];
-        $me->msg = '';
-        $me->code = 0;
-        $me->adapter = null;
-        $me->afterInstance();
-        return $me;
+        $this->toggle = false;
+        $this->total = 0;
+        $this->data = [];
+        $this->msg = '';
+        $this->code = 0;
+        $this->adapter = null;
     }
-
-
 }
