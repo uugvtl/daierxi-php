@@ -61,5 +61,5 @@ interface INetworkContainerProvider extends IMockContainerProvider
      * @param array $aId            需要删除数据主键列表
      * @return Responder
      */
-    public function getDeleteResponder(array $aId=[]);
+    public function getRemoveResponder(array $aId=[]);
 }

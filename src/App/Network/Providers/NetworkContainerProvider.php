@@ -20,7 +20,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
      * @param string $package 包名称
      * @param string $classname 类名称
      * @param array $params 参数
-     * @return \App\Frames\Generics\FrameContainer
+     * @return FrameContainer
      */
     protected function createContainer($package, $classname, array $params)
     {

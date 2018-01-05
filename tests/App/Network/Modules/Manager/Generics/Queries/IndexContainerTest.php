@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Index;
+namespace App\Network\Modules\Manager\Generics\Queries;
 use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
@@ -11,7 +11,7 @@ use UnitTestCase;
  * Time: 22:46
  *
  * Class IndexContainerTest
- * @package App\Network\Modules\Manager\Generics\Queries\Index
+ * @package App\Network\Modules\Manager\Generics\Queries
  */
 class IndexContainerTest extends UnitTestCase
 {
@@ -19,8 +19,8 @@ class IndexContainerTest extends UnitTestCase
     {
         /** arrange */
             $params = [
-                'account'   =>'1',
-                'password'  =>'a'
+                'account'   =>'admin',
+                'password'  =>'123456'
             ];
             $distributer = Distributer::getInstance();
             $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);

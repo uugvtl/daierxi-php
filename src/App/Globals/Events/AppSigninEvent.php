@@ -28,7 +28,7 @@ class AppSigninEvent extends FrameClass
      * 控制器名称
      * @var string
      */
-    private $distributerCtrlName;
+    private $ctrlName;
 
     final public function init(...$args)
     {
@@ -48,12 +48,12 @@ class AppSigninEvent extends FrameClass
 
     /**
      * 设置控制器名称，
-     * @param string $ctrlString
+     * @param string $ctrlName
      * @return $this
      */
-    final public function setDistributerCtrlName($ctrlString)
+    final public function setCtrlName($ctrlName)
     {
-        $this->distributerCtrlName = $ctrlString;
+        $this->ctrlName = $ctrlName;
         return $this;
     }
 
@@ -73,7 +73,7 @@ class AppSigninEvent extends FrameClass
             $instanceHelper = InstanceHelper::getInstance();
             $provider = $instanceHelper->build(NetworkContainerProvider::class, $providerClassString);
             $distributer = $this->getCtrl()->createDistributer($dispatcher);
-            $distributer->setCtrlString($this->getDistributerCtrlName());
+            $distributer->setCtrlString($this->getCtrlName());
             $provider->init($distributer);
 
             $responder = $provider->setGeneralize(YES)->setPrefixString('Cookie')->getQueryResponder($cookieValue);
@@ -95,8 +95,8 @@ class AppSigninEvent extends FrameClass
     /**
      * @return string
      */
-    final protected function getDistributerCtrlName()
+    final protected function getCtrlName()
     {
-        return $this->distributerCtrlName;
+        return $this->ctrlName;
     }
 }
