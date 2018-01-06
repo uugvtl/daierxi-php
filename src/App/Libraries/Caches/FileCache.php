@@ -99,7 +99,7 @@ class FileCache extends BaseCache
         return $records ? $records : array();
     }
 
-    public function createCacheDependencies($tableNames)
+    public function madeCacheDependencies($tableNames)
     {
         $dependencies = [];
 
@@ -115,7 +115,7 @@ class FileCache extends BaseCache
         {
             $filepath = $dir.$stringHelper->cryptString($tableName);
             if(!is_file($filepath))
-                $this->createDependencyFile($tableName);
+                $this->madeDependencyFile($tableName);
 
             $dependencies[] = new FileCacheDependency($filepath);
         }
@@ -136,7 +136,7 @@ class FileCache extends BaseCache
         {
             foreach ($tableNames as $tableName)
             {
-                $toggle = $this->createDependencyFile($tableName);
+                $toggle = $this->madeDependencyFile($tableName);
                 if(!$toggle)break;
             }
         }
@@ -151,7 +151,7 @@ class FileCache extends BaseCache
      * @param string $filename 文件名
      * @return boolean              生成文件或是修改文件的时间成功返回true,否则返回false
      */
-    private function createDependencyFile($filename)
+    private function madeDependencyFile($filename)
     {
         $stringHelper = StringHelper::getInstance();
         $fileHelper = FileHelper::getInstance();
@@ -159,7 +159,7 @@ class FileCache extends BaseCache
         $dir = $this->getCacheDependencyBox();
         $filename = $stringHelper->cryptString($filename);
         $filepath = $dir.$filename;
-        $toggle =  (bool)$fileHelper->createFile($filepath, microtime());
+        $toggle =  (bool)$fileHelper->madeFile($filepath, microtime());
         return $toggle;
     }
 
@@ -172,7 +172,7 @@ class FileCache extends BaseCache
         $dir = DEPENDENCY_CACHE_DIR;
 
         $fileHelper = FileHelper::getInstance();
-        $fileHelper->createDir($dir);
+        $fileHelper->madeDir($dir);
 
         return $dir;
     }

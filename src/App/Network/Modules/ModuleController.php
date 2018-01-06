@@ -26,7 +26,7 @@ abstract class ModuleController extends NetController
      * @param Dispatcher $dispatcher
      * @return Distributer
      */
-    final public function createDistributer(Dispatcher $dispatcher)
+    final public function madeDistributer(Dispatcher $dispatcher)
     {
         $distributer = Distributer::getInstance();
 

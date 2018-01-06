@@ -22,7 +22,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
      * @param array $params 参数
      * @return FrameContainer
      */
-    protected function createContainer($package, $classname, array $params)
+    protected function madeContainer($package, $classname, array $params)
     {
         $genericInjecter = $this->getGenericInjecter();
 

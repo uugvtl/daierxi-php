@@ -38,7 +38,7 @@ interface IOutputable
      * @param int $output_status
      * @return IChangeStatusable
      */
-    public function createStatusBo($output_status);
+    public function madeStatusBo($output_status);
 
     /**
      * @param IChangeStatusable $statusBo

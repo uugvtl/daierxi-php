@@ -29,7 +29,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
 
     final public function get()
     {
-        return $this->createSqlangInjecter();
+        return $this->madeSqlangInjecter();
     }
 
     final public function setSqlangCatalog($sqlangCatalog)
@@ -53,7 +53,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
     }
 
 
-    protected function createFieldsInstance()
+    protected function madeFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -66,7 +66,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
 
     }
 
-    protected function createTableInstance()
+    protected function madeTableInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -78,7 +78,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
         return $tableInstance;
     }
 
-    protected function createWhereInstance()
+    protected function madeWhereInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
 
@@ -93,13 +93,13 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
     /**
      * @return SqlangInjecter
      */
-    private function createSqlangInjecter()
+    private function madeSqlangInjecter()
     {
         $injecter = SqlangInjecter::getInstance();
 
-        $fieldsInstance = $this->createFieldsInstance();
-        $tableInstance  = $this->createTableInstance();
-        $whereInstance  = $this->createWhereInstance();
+        $fieldsInstance = $this->madeFieldsInstance();
+        $tableInstance  = $this->madeTableInstance();
+        $whereInstance  = $this->madeWhereInstance();
 
         $pageInstance = PageSlice::getInstance();
 

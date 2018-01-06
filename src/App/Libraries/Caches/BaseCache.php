@@ -112,7 +112,7 @@ abstract class BaseCache extends FrameSingle
      * @param string|array $tableNames          一组依赖文件名称--表名称
      * @return BaseCacheDependency[]            缓存文件依赖对象
      */
-    abstract public function createCacheDependencies($tableNames);
+    abstract public function madeCacheDependencies($tableNames);
 
 
     /**

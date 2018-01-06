@@ -18,7 +18,7 @@ abstract class GenericService extends FrameService implements IRespondable
     /**
      * @return GenericRepository
      */
-    protected function createRepositoryInstance()
+    protected function madeRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
@@ -33,7 +33,7 @@ abstract class GenericService extends FrameService implements IRespondable
     /**
      * @return GenericLogic
      */
-    protected function createLogicInstance()
+    protected function madeLogicInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

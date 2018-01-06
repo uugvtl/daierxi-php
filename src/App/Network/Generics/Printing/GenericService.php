@@ -16,7 +16,7 @@ use App\Interfaces\Generics\IPrintable;
 abstract class GenericService extends FrameService implements IPrintable
 {
 
-    protected function createRepositoryInstance()
+    protected function madeRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
@@ -28,7 +28,7 @@ abstract class GenericService extends FrameService implements IPrintable
         return $repository->setGenericInjecter($cloneGenericInjecter);
     }
 
-    protected function createLogicInstance()
+    protected function madeLogicInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

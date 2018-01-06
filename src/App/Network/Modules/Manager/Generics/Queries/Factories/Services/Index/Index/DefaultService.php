@@ -28,16 +28,16 @@ class DefaultService extends QueryService
         return $responder;
     }
 
-    protected function createRepositoryInstance()
+    protected function madeRepositoryInstance()
     {
         $this->getGenericInjecter()->setGeneralize(YES);
-        return parent::createRepositoryInstance();
+        return parent::madeRepositoryInstance();
     }
 
-    protected function createLogicInstance()
+    protected function madeLogicInstance()
     {
         $this->getGenericInjecter()->setGeneralize(YES);
-        return parent::createLogicInstance();
+        return parent::madeLogicInstance();
     }
 
 

@@ -20,7 +20,7 @@ abstract class FrameContainer extends FrameGeneric implements IGetable
     /**
      * @return mixed
      */
-    abstract protected function createService();
+    abstract protected function madeService();
 
     final protected function getServiceClassString()
     {

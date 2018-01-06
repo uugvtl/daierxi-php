@@ -15,9 +15,9 @@ use App\Frames\FrameGeneric;
 abstract class FrameService extends FrameGeneric
 {
 
-    abstract protected function createRepositoryInstance();
+    abstract protected function madeRepositoryInstance();
 
-    abstract protected function createLogicInstance();
+    abstract protected function madeLogicInstance();
 
     /**
      * @return string

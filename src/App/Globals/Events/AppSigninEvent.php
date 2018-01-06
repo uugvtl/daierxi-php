@@ -72,7 +72,7 @@ class AppSigninEvent extends FrameClass
         {
             $instanceHelper = InstanceHelper::getInstance();
             $provider = $instanceHelper->build(NetworkContainerProvider::class, $providerClassString);
-            $distributer = $this->getCtrl()->createDistributer($dispatcher);
+            $distributer = $this->getCtrl()->madeDistributer($dispatcher);
             $distributer->setCtrlString($this->getCtrlName());
             $provider->init($distributer);
 

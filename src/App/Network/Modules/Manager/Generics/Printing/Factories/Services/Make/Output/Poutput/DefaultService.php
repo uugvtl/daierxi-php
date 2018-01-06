@@ -12,15 +12,15 @@ use App\Network\Modules\Manager\Generics\Printing\Factories\Services\PrintServic
  */
 class DefaultService extends PrintService
 {
-    protected function createRepositoryInstance()
+    protected function madeRepositoryInstance()
     {
         $this->getGenericInjecter()->setGeneralize(NO);
-        return parent::createRepositoryInstance();
+        return parent::madeRepositoryInstance();
     }
 
-    protected function createLogicInstance()
+    protected function madeLogicInstance()
     {
         $this->getGenericInjecter()->setGeneralize(YES);
-        return parent::createLogicInstance();
+        return parent::madeLogicInstance();
     }
 }

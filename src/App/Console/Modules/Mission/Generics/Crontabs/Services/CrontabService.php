@@ -14,7 +14,7 @@ class CrontabService extends GenericService
 {
     public function get()
     {
-        $repository = $this->createRepositoryInstance();
+        $repository = $this->madeRepositoryInstance();
         return $repository->get();
     }
 }

@@ -67,7 +67,7 @@ class OutputBaseDo extends BaseOutputDo
      * @param int $output_status
      * @return IChangeStatusable
      */
-    public function createStatusBo($output_status)
+    public function madeStatusBo($output_status)
     {
         $instanceHelper = InstanceHelper::getInstance();
 

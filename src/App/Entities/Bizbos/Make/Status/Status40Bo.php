@@ -27,7 +27,7 @@ class Status40Bo extends StatusBaseBo
     public function changeReceiptStatus()
     {
         $outputDo = $this->getOutputDo();
-        $statusBo = $outputDo->createStatusBo(OutputStatusConst::STATUS_RECEIPT);
+        $statusBo = $outputDo->madeStatusBo(OutputStatusConst::STATUS_RECEIPT);
         $outputDo->setStatusBo($statusBo);
         $outputDo->changeReceiptStatus();
         return $this;

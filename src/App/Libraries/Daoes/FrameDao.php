@@ -79,7 +79,7 @@ abstract class FrameDao extends FrameSingle
      * @param string    $sql		        sql语句
      * @return int				            成功返回录入数据的id,否则0
      */
-    abstract public function create($sql);
+    abstract public function append($sql);
 
     /**
      * PDO事务提交

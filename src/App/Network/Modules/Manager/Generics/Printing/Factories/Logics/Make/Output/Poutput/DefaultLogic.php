@@ -23,7 +23,7 @@ class DefaultLogic extends PrintLogic
      */
     private $bizDo;
 
-    protected function commit()
+    protected function beforeBegin()
     {
         $store = $this->getStore();
         $sqlangInjecter = $this->getRepositpry()->get();
@@ -34,8 +34,12 @@ class DefaultLogic extends PrintLogic
         $instanceHelper = InstanceHelper::getInstance();
         $this->bizDo = $instanceHelper->build(OutputBaseDo::class, $classString);
         $this->bizDo->init($rows)->initStatusBo();
-        $toggle = $this->bizDo->setCache($store->getCache())->submit()->isPersistent();
+        $this->bizDo->setCache($store->getCache());
+    }
 
+    protected function commit()
+    {
+        $toggle = $this->bizDo->submit()->isPersistent();
         return $toggle;
     }
 

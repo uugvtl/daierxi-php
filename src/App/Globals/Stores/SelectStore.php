@@ -28,7 +28,7 @@ class SelectStore extends BaseStore
         $className      = get_called_class();
         $classNameDir   = str_replace('\\', '/', $className).'/';
         $cacheDir       = GENERAL_CACHE_DIR.$classNameDir;
-        $fileHelper->createDir($cacheDir);
+        $fileHelper->madeDir($cacheDir);
         $cacheInstance->setOptions(array(
             'cacheDir'  => $cacheDir
         ));

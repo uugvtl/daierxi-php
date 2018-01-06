@@ -19,7 +19,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\ExportRe
  */
 class DefaultRepository extends ExportRepository
 {
-    protected function createFieldsInstance()
+    protected function madeFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
         $fieldsInstance = $instanceHelper->build(BaseFields::class, PackingFields::class);
@@ -27,14 +27,14 @@ class DefaultRepository extends ExportRepository
 
     }
 
-    protected function createTableInstance()
+    protected function madeTableInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
         $fieldsInstance = $instanceHelper->build(BaseTable::class, PackingTable::class);
         return $fieldsInstance;
     }
 
-    protected function createWhereInstance()
+    protected function madeWhereInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
         $fieldsInstance = $instanceHelper->build(BaseWhere::class, PackingWhere::class);

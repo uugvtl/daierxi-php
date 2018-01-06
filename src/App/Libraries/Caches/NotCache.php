@@ -41,7 +41,7 @@ class NotCache extends BaseCache
         return true;
     }
 
-    public function createCacheDependencies($tableNames)
+    public function madeCacheDependencies($tableNames)
     {
         $dependencies = [];
         $dependencies[] = new NotCacheDependency();

@@ -16,7 +16,7 @@ use App\Interfaces\Generics\IRespondable;
 abstract class GenericService extends FrameService implements IRespondable
 {
 
-    protected function createRepositoryInstance()
+    protected function madeRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
@@ -28,7 +28,7 @@ abstract class GenericService extends FrameService implements IRespondable
         return $repository->setGenericInjecter($cloneGenericInjecter);
     }
 
-    protected function createLogicInstance()
+    protected function madeLogicInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

@@ -28,7 +28,7 @@ class Status35Bo extends StatusBaseBo
     public function changeDeliveryStatus()
     {
         $outputDo = $this->getOutputDo();
-        $statusBo = $outputDo->createStatusBo(OutputStatusConst::STATUS_DELIVERY);
+        $statusBo = $outputDo->madeStatusBo(OutputStatusConst::STATUS_DELIVERY);
         $outputDo->setStatusBo($statusBo);
         $outputDo->changeDeliveryStatus();
         return $this;

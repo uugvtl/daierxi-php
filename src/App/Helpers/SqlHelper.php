@@ -34,7 +34,7 @@ class SqlHelper extends BaseSingle
      * 生成纯数字生的主键
      * @return string
      */
-    public function createPrimaryKey()
+    public function madePrimaryKey()
     {
         return date("YmdHis") . str_pad(rand(0, 99), 2, 0, STR_PAD_LEFT);
     }
@@ -43,7 +43,7 @@ class SqlHelper extends BaseSingle
      * 获取订单编号
      * @return string 订单编号--长度为19
      */
-    public function createOrderSn()
+    public function madeOrderSn()
     {
         //哪年,哪天,哪一秒
         $orderSn = date('Ymd') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));

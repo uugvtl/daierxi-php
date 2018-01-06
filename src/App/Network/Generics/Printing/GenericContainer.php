@@ -18,7 +18,7 @@ abstract class GenericContainer extends FrameContainer implements IPrintable
     /**
      * @return GenericService
      */
-    protected function createService()
+    protected function madeService()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

@@ -22,7 +22,7 @@ class PrintContainer extends GenericContainer
     /**
      * @return PrintService
      */
-    protected function createService()
+    protected function madeService()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

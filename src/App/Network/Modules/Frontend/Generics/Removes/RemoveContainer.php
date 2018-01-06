@@ -23,7 +23,7 @@ class RemoveContainer extends GenericContainer
     /**
      * @return RemoveService
      */
-    protected function createService()
+    protected function madeService()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

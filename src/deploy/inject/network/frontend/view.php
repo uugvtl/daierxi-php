@@ -14,7 +14,7 @@ $view->registerEngines(array(
 
         $compiledDir = RUNTIME_PATH . "/volt/frontend/";
         $fileHelper = FileHelper::getInstance();
-        $fileHelper->createDir($compiledDir);
+        $fileHelper->madeDir($compiledDir);
 
         $volt = new Volt($view, $di);
         $volt->setOptions(array(

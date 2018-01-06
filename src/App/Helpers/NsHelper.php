@@ -17,7 +17,7 @@ class NsHelper extends BaseSingle
      * 生成命名空间文件
      * @return void
      */
-    public function createFile()
+    public function madeFile()
     {
 
         $fileHelper = FileHelper::getInstance();
@@ -41,7 +41,7 @@ class NsHelper extends BaseSingle
             $content.= "];";
 
             $filePath = DEPLOY_PATH.'/namespaces.php';
-            $fileHelper->createFile($filePath, $content);
+            $fileHelper->madeFile($filePath, $content);
         }
     }
 }

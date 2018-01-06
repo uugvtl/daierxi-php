@@ -16,7 +16,7 @@ class QueryContainer extends GenericContainer
 {
     public function get()
     {
-        $service = $this->createService();
+        $service = $this->madeService();
         return $service->get();
 
     }
@@ -24,7 +24,7 @@ class QueryContainer extends GenericContainer
     /**
      * @return QueryService
      */
-    protected function createService()
+    protected function madeService()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 

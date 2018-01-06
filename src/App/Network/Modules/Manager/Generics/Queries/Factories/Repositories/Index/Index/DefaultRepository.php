@@ -20,7 +20,7 @@ class DefaultRepository extends QueryRepository
 
 
 
-    protected function createFieldsInstance()
+    protected function madeFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
         $fieldsInstance = $instanceHelper->build(BaseFields::class, AccountFields::class);
@@ -28,7 +28,7 @@ class DefaultRepository extends QueryRepository
 
     }
 
-    protected function createTableInstance()
+    protected function madeTableInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
         $fieldsInstance = $instanceHelper->build(BaseTable::class, AccountTable::class);

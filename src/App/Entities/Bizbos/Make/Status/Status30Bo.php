@@ -26,7 +26,7 @@ class Status30Bo extends StatusBaseBo
     public function changePrepareStatus()
     {
         $bizDo = $this->getOutputDo();
-        $statusBo = $bizDo->createStatusBo(OutputStatusConst::STATUS_PREPARE);
+        $statusBo = $bizDo->madeStatusBo(OutputStatusConst::STATUS_PREPARE);
         $bizDo->setStatusBo($statusBo);
         $bizDo->changePrepareStatus();
         return $this;

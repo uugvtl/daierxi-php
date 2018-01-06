@@ -26,7 +26,7 @@ class Status50Bo extends StatusBaseBo
     public function changeFinishAllStatus()
     {
         $outputDo = $this->getOutputDo();
-        $statusBo = $outputDo->createStatusBo(OutputStatusConst::STATUS_FINISH_ALL);
+        $statusBo = $outputDo->madeStatusBo(OutputStatusConst::STATUS_FINISH_ALL);
         $outputDo->setStatusBo($statusBo);
         $outputDo->changeFinishAllStatus();
         return $this;

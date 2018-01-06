@@ -99,7 +99,7 @@ class RewzDao extends FrameDao
      * @param string    $sql		        sql语句
      * @return int				            成功返回录入数据的id,否则0
      */
-    public function create($sql)
+    public function append($sql)
     {
 
         $lastId = 0;

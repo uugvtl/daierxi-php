@@ -22,7 +22,7 @@ abstract class ConsoleContainerProvider extends BaseContainerProvider implements
      * @param array $params 参数
      * @return \App\Frames\Generics\FrameContainer
      */
-    protected function createContainer($package, $classname, array $params)
+    protected function madeContainer($package, $classname, array $params)
     {
         $genericInjecter = $this->getGenericInjecter();
 

@@ -85,7 +85,7 @@ abstract class BaseStore extends BaseSingle
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
+        $aCacheDependency = $this->cache->madeCacheDependencies($tableInstance->getTableList());
 
         $orderBy = $this->cache->getDao()->getSortStmt();
         $orderBy = $orderBy ? $orderBy : $fieldsInstance->getOrderStmt();
@@ -117,7 +117,7 @@ abstract class BaseStore extends BaseSingle
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
+        $aCacheDependency = $this->cache->madeCacheDependencies($tableInstance->getTableList());
 
         $groupBy = $fieldsInstance->getGroupStmt();
 
@@ -168,7 +168,7 @@ abstract class BaseStore extends BaseSingle
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
+        $aCacheDependency = $this->cache->madeCacheDependencies($tableInstance->getTableList());
 
         $sql = "SELECT
                     {$columns}
@@ -196,7 +196,7 @@ abstract class BaseStore extends BaseSingle
         $table  = $tableInstance->getJoinTable();
         $where  = $whereInstance->get();
 
-        $aCacheDependency = $this->cache->createCacheDependencies($tableInstance->getTableList());
+        $aCacheDependency = $this->cache->madeCacheDependencies($tableInstance->getTableList());
 
         $sql = "SELECT
                     {$columns}

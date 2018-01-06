@@ -82,7 +82,7 @@ class MainTask extends AppTask
     public function namespaceAction()
     {
         $nsHelper = NsHelper::getInstance();
-        $nsHelper->createFile();
+        $nsHelper->madeFile();
         echo "namespace init done!.\n";
     }
 }

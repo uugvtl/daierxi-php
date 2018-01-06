@@ -25,7 +25,7 @@ abstract class BaseOutputDo extends BaseDo implements IOutputable
     public function initStatusBo()
     {
         $output_status = $this->output_status ? $this->output_status:OutputStatusConst::STATUS_CONFIRM;
-        $this->statusBo = $this->createStatusBo($output_status);
+        $this->statusBo = $this->madeStatusBo($output_status);
         return $this;
     }
 

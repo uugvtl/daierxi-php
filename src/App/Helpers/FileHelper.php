@@ -66,7 +66,7 @@ class FileHelper extends BaseSingle
      * @param string $path	目录路径
      * @return void
      */
-    public function createDir($path)
+    public function madeDir($path)
     {
         if (!is_dir($path)) {
             $this->mkdir($path, [], true);
@@ -80,10 +80,10 @@ class FileHelper extends BaseSingle
      * @param int $flags        标识
      * @return bool|int         文件建立成功返回写入的字节数,否则返回false
      */
-    public function createFile($path, $data, $flags =0)
+    public function madeFile($path, $data, $flags =0)
     {
         $dirPath = str_replace('\\', '/', dirname($path));
-        $this->createDir($dirPath);
+        $this->madeDir($dirPath);
         $toggle = file_put_contents($path, $data, $flags);
         $toggle && $this->chmodFile($path);
         return $toggle;
