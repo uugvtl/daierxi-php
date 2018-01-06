@@ -9,7 +9,7 @@ use App\Datasets\Consts\OutputStatusConst;
  * Time: 19:14
  *
  * Class Status40Entity
- * @package App\Globals\Objects\Entities\Make\Status
+ * @package App\Entities\Bizbos\Make\Status
  */
 class Status40Bo extends StatusBaseBo
 {

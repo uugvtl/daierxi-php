@@ -1,5 +1,8 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output\Poutput;
+use App\Entities\Bizdos\Make\OutputBaseDo;
+use App\Globals\Finals\Responder;
+use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Printing\Factories\Logics\PrintLogic;
 /**
  * Created by PhpStorm.
@@ -18,10 +21,25 @@ class DefaultLogic extends PrintLogic
         $store = $this->getStore();
         $sqlangInjecter = $this->getRepositpry()->get();
 
-        $store->setSqlangInjecter($sqlangInjecter)->getRow();
+        $rows = $store->setSqlangInjecter($sqlangInjecter)->getRow();
+        $classString = $this->getBizDoClassString();
 
-        $this->getRepositpry()->getGenericInjecter()->getDistributer()->setPrefixString('Complex');
-        $sqlangInjecter = $this->getRepositpry()->get();
-        $store->setSqlangInjecter($sqlangInjecter)->getList();
+        $instanceHelper = InstanceHelper::getInstance();
+        $bizDo = $instanceHelper->build(OutputBaseDo::class, $classString);
+        $bizDo->init($rows)->initStatusBo();
+
+        $toggle = $bizDo->setCache($store->getCache())->submit()->isPersistent();
+
+        return $toggle;
+    }
+
+    protected function run(Responder $responder)
+    {
+//        $this->getRepositpry()->getGenericInjecter()->getDistributer()->setPrefixString('Complex');
+//        $sqlangInjecter = $this->getRepositpry()->get();
+//        $store->setSqlangInjecter($sqlangInjecter)->getList();
+
+        $responder->toggle = YES;
+        $responder->adapter = $this->getAdapter();
     }
 }

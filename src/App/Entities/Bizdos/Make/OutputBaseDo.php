@@ -73,7 +73,7 @@ class OutputBaseDo extends BaseOutputDo
 
         $classString = PackageStatusConst::PACKAGE.BACKSLASH.'Status'.$output_status.'Bo';
         $statusBo = $instanceHelper->build(StatusBaseBo::class, $classString);
-        return $statusBo->setOutputDo($statusBo);
+        return $statusBo->setOutputDo($this);
     }
 
     /**

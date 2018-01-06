@@ -30,6 +30,11 @@ interface IOutputable
     public function isOnline();
 
     /**
+     * @return static
+     */
+    public function initStatusBo();
+
+    /**
      * @param int $output_status
      * @return IChangeStatusable
      */

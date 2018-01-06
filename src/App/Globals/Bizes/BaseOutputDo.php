@@ -22,14 +22,11 @@ abstract class BaseOutputDo extends BaseDo implements IOutputable
      */
     protected $statusBo;
 
-    /**
-     * 构造方法运行后的初始化方法
-     */
-    protected function afterInstance()
+    public function initStatusBo()
     {
-        parent::afterInstance();
         $output_status = $this->output_status ? $this->output_status:OutputStatusConst::STATUS_CONFIRM;
         $this->statusBo = $this->createStatusBo($output_status);
+        return $this;
     }
 
     /**

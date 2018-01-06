@@ -64,7 +64,7 @@ abstract class GenericLogic  extends FrameLogic implements IPrintable
         $toggle && $this->run($responder);
     }
 
-    protected function afterInstance()
+    final protected function afterInstance()
     {
         $this->setStore(SelectStore::getInstance());
     }

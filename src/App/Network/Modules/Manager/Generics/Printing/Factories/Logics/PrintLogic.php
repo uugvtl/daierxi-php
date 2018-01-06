@@ -13,6 +13,10 @@ use App\Network\Generics\Printing\GenericLogic;
  */
 class PrintLogic extends GenericLogic
 {
+    protected function commit()
+    {
+        return false;
+    }
 
     protected function run(Responder $responder)
     {
@@ -21,8 +25,5 @@ class PrintLogic extends GenericLogic
 
     }
 
-    protected function commit()
-    {
-        return false;
-    }
+
 }

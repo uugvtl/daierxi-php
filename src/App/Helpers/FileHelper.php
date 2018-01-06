@@ -1,6 +1,8 @@
 <?php
 namespace App\Helpers;
 use App\Globals\Bases\BaseSingle;
+use function array_filter;
+use function array_unique;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -22,9 +24,9 @@ class FileHelper extends BaseSingle
      */
     public function findRecursivePath($dir, $currentDirName='')
     {
-        if(!is_dir($dir)) // 如果$dir变量不是一个目录，直接返回false
+        if(!is_dir($dir))       // 如果$dir变量不是一个目录，直接返回false
             return false;
-        $dirs = $files = [];     // 用于记录目录 用于记录文件
+        $dirs = $files = [];    // 用于记录目录 用于记录文件
 
         $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));/* @var $it RecursiveDirectoryIterator */
         $it->rewind();
@@ -33,12 +35,18 @@ class FileHelper extends BaseSingle
                 $dirName = $it->getSubPathName();
                 $fileName = $it->getSubPath();
 
-                $files[$dirName] = $dirName;
-                $dirs[$fileName] = $fileName;
+                $files[] = $dirName;
+                $dirs[] = $fileName;
             }
 
             $it->next();
         }
+
+        $files  = array_unique($files);
+        $dirs   = array_unique($dirs);
+
+        $files  = array_filter($files);
+        $dirs   = array_filter($dirs);
 
         array_walk($dirs,function(&$dir) use ($currentDirName){
             if($currentDirName)

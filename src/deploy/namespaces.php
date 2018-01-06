@@ -58,6 +58,7 @@ return [
 	APP_NS.'\Network\Modules\Manager\Generics\Printing\Factories\Services\Make\Output\Poutput'    => APP_PATH . '/Network/Modules/Manager/Generics/Printing/Factories/Services/Make/Output/Poutput',
 	APP_NS.'\Network\Modules\Manager\Generics\Printing\Factories\Services'    => APP_PATH . '/Network/Modules/Manager/Generics/Printing/Factories/Services',
 	APP_NS.'\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput'    => APP_PATH . '/Network/Modules/Manager/Generics/Printing/Sqlangs/Queries/Make/Output/Poutput',
+	APP_NS.'\Network\Modules\Manager\Generics\Printing\Entities\Bizdos\Make\Output\Poutput'    => APP_PATH . '/Network/Modules/Manager/Generics/Printing/Entities/Bizdos/Make/Output/Poutput',
 	APP_NS.'\Network\Modules\Manager\Generics\Queries\Legals\Index\Index'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries/Legals/Index/Index',
 	APP_NS.'\Network\Modules\Manager\Generics\Queries'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries',
 	APP_NS.'\Network\Modules\Manager\Generics\Queries\Factories\Repositories'    => APP_PATH . '/Network/Modules/Manager/Generics/Queries/Factories/Repositories',
