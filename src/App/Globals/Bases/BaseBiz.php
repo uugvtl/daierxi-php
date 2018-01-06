@@ -132,7 +132,6 @@ abstract class BaseBiz extends BaseClass
         });
     }
 
-
     protected function afterInstance()
     {
         $this->properties = [];

@@ -10,4 +10,7 @@ use App\Globals\Bases\BaseBiz;
  * Class BaseBo
  * @package App\Globals\Bizes
  */
-abstract class BaseBo extends BaseBiz {}
+abstract class BaseBo extends BaseBiz
+{
+
+}

@@ -97,6 +97,7 @@ return [
 	APP_NS.'\Injecters'    => APP_PATH . '/Injecters',
 	APP_NS.'\Helpers'    => APP_PATH . '/Helpers',
 	APP_NS.'\Entities\Bizbos\Signin'    => APP_PATH . '/Entities/Bizbos/Signin',
+	APP_NS.'\Entities\Bizbos\Make\Output\Poutput'    => APP_PATH . '/Entities/Bizbos/Make/Output/Poutput',
 	APP_NS.'\Entities\Bizbos\Make\Status'    => APP_PATH . '/Entities/Bizbos/Make/Status',
 	APP_NS.'\Entities\Bizdos\Make'    => APP_PATH . '/Entities/Bizdos/Make',
 	APP_NS.'\Interfaces\Generics'    => APP_PATH . '/Interfaces/Generics',

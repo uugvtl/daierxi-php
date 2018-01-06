@@ -145,8 +145,10 @@ class SqlHelper extends BaseSingle
 
         if($rows)
         {
-            $rows   = array_map(array('CStringHelper', 'htmlEncode'), $rows);
-            $rows   = array_map(array('CStringHelper', 'quoteValue'), $rows);
+            $stringHelper = StringHelper::getInstance();
+
+            $rows   = array_map(array($stringHelper, 'htmlEncode'), $rows);
+            $rows   = array_map(array($stringHelper, 'quoteValue'), $rows);
             $str    = implode(',', $rows);
         }
 
