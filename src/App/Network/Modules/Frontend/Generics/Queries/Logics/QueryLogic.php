@@ -26,15 +26,18 @@ class QueryLogic extends GenericLogic
 
     protected function getList()
     {
-        $store = $this->getRepositpry()->get();
-        return $store->getList();
+        $store = $this->getStore();
+        $sqlangInjecter = $this->getRepositpry()->get();
+
+        return $store->setSqlangInjecter($sqlangInjecter)->getList();
     }
 
     protected function getCount()
     {
-        $store = $this->getRepositpry()->get();
-        $total = $store->getSqlangInjecter()->getPageInstance()->getTotal();
+        $store = $this->getStore();
+        $sqlangInjecter = $this->getRepositpry()->get();
 
-        return $total?$total:$store->getCount();
+        $total = $sqlangInjecter->getPageInstance()->getTotal();
+        return $total?$total:$store->setSqlangInjecter($sqlangInjecter)->getCount();
     }
 }

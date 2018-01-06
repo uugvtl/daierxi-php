@@ -10,12 +10,4 @@ use App\Network\Generics\Queries\GenericRepository;
  * Class QueryRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Repositories
  */
-class QueryRepository extends GenericRepository
-{
-    public function get()
-    {
-        $store = $this->createStoreInstance();
-        return $store;
-    }
-
-}
+class QueryRepository extends GenericRepository {}

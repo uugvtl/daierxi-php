@@ -17,7 +17,7 @@ abstract class GenericLogic extends FrameLogic implements IRespondable
     public function get()
     {
         $responder = Responder::getInstance();
-        $this->commit($responder);
+        $this->run($responder);
         return $responder;
     }
 

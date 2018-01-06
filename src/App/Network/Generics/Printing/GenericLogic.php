@@ -49,6 +49,9 @@ abstract class GenericLogic  extends FrameLogic implements IPrintable
     {
         $toggle = false;
         $dao = $this->getStore()->getCache()->getDao();
+
+        $this->beforeBegin();
+
         try {
 
             $dao->start();
@@ -68,6 +71,11 @@ abstract class GenericLogic  extends FrameLogic implements IPrintable
     {
         $this->setStore(SelectStore::getInstance());
     }
+
+    /**
+     * 钩子方法，主要是减少事务当中的时间消耗
+     */
+    protected function beforeBegin() {}
 
     /**
      * 处理数据库相关逻辑

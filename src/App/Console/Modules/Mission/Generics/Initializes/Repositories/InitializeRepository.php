@@ -10,9 +10,4 @@ use App\Console\Generics\Initializes\GenericRepository;
  * Class InitializeRepository
  * @package App\Console\Modules\Mission\Generics\Initializes\Repositories
  */
-class InitializeRepository extends GenericRepository
-{
-    public function get()
-    {
-    }
-}
+class InitializeRepository extends GenericRepository {}

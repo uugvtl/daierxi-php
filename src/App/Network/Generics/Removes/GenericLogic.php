@@ -17,7 +17,7 @@ use App\Unusually\BizLogicExceptions;
  */
 abstract class GenericLogic  extends FrameLogic implements IRespondable
 {
-    public function get()
+    final public function get()
     {
         $responder = Responder::getInstance();
         $this->transaction($responder);
@@ -32,6 +32,7 @@ abstract class GenericLogic  extends FrameLogic implements IRespondable
     final protected function transaction(Responder $responder)
     {
         $dao = $this->getStore()->getCache()->getDao();
+        $this->beforeBegin();
         try {
 
             $dao->start();
@@ -46,4 +47,9 @@ abstract class GenericLogic  extends FrameLogic implements IRespondable
         }
 
     }
+
+    /**
+     * 钩子方法，主要是减少事务当中的时间消耗
+     */
+    protected function beforeBegin() {}
 }
