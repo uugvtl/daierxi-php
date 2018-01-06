@@ -70,8 +70,9 @@ abstract class BaseCache extends FrameSingle
         $cache = $args[0];
         if(!$cache instanceof BackendInterface)
         {
+            $classString = BackendInterface::class;
             $errorsHelper = ErrorsHelper::getInstance();
-            $errorsHelper->triggerError('init method only accepts Interface BackendInterface. Input was: '.$cache);
+            $errorsHelper->triggerError("init method only accepts Interface {$classString}. Input was: ".$cache);
         }
 
         $this->cache    = $cache;

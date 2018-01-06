@@ -1,10 +1,15 @@
 <?php
 namespace App\Entities\Bizdos\Make;
-use App\Globals\Bizes\BaseDo;
+use App\Entities\Bizbos\Make\Status\PackageStatusConst;
+use App\Entities\Bizbos\Make\Status\StatusBaseBo;
+use App\Globals\Bizes\BaseOutputDo;
+use App\Helpers\InstanceHelper;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
+use App\Interfaces\Entities\IChangeStatusable;
 use App\Tables\Stock\IRecipeSkuTable;
 use App\Tables\Stock\IRecipeStatusTable;
+use const BACKSLASH;
 
 /**
  * Created by PhpStorm.
@@ -14,9 +19,8 @@ use App\Tables\Stock\IRecipeStatusTable;
  *
  * Class OutputBaseDo
  * @package App\Entities\Bizdos\Make
- * @property-read int       $sdetail_id
- * @property-read int       $output_status
  * @property-read string    $output_sn
+ * @property-read int       $sdetail_id
  * @property-read int       $sku_id
  * @property-read string    $sku_sn
  * @property-read string    $sku_name
@@ -27,14 +31,11 @@ use App\Tables\Stock\IRecipeStatusTable;
  * @property-read string    $water_item
  * @property-read float     $deionized_water
  * @property-read string    $operator_name
+ * @property-read int       $output_status
  * @property-read int       $is_print
  */
-class OutputBaseDo extends BaseDo
+class OutputBaseDo extends BaseOutputDo
 {
-//    /**
-//     * @var IChangeStatusable
-//     */
-//    protected $statusBiz;
 
     protected function column()
     {
@@ -62,16 +63,18 @@ class OutputBaseDo extends BaseDo
         return $this->sdetail_id;
     }
 
-//    /**
-//     * @param int $output_status
-//     * @return IChangeStatusable
-//     */
-//    public function createStatusBiz($output_status)
-//    {
-//        $className = StatusBaseBiz::PACKAGE.'\Status'.$output_status.'Biz';
-//        $entity = call_user_func(array($className, 'createInstance'));
-//        return $entity->construct($this);
-//    }
+    /**
+     * @param int $output_status
+     * @return IChangeStatusable
+     */
+    public function createStatusBo($output_status)
+    {
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $classString = PackageStatusConst::PACKAGE.BACKSLASH.'Status'.$output_status.'Bo';
+        $statusBo = $instanceHelper->build(StatusBaseBo::class, $classString);
+        return $statusBo->setOutputDo($statusBo);
+    }
 
     /**
      * 保存状态到数据到中，不带事务

@@ -16,7 +16,6 @@ use App\Helpers\JsonHelper;
  */
 abstract class BaseBiz extends BaseClass
 {
-
     /**
      * @var array
      */

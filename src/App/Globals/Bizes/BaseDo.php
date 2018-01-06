@@ -93,11 +93,6 @@ abstract class BaseDo extends BaseBiz
         return $this;
     }
 
-    protected function afterInstance()
-    {
-        parent::afterInstance();
-    }
-
     /**
      * @return BaseCache
      */
