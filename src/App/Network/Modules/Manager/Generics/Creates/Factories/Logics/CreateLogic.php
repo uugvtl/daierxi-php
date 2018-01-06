@@ -1,6 +1,5 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics;
-use App\Globals\Finals\Responder;
 use App\Network\Generics\Creates\GenericLogic;
 /**
  * Created by PhpStorm.
@@ -11,10 +10,4 @@ use App\Network\Generics\Creates\GenericLogic;
  * Class CreateLogic
  * @package App\Network\Modules\Manager\Generics\Creates\Factories\Logics
  */
-class CreateLogic extends GenericLogic
-{
-    protected function run(Responder $responder)
-    {
-
-    }
-}
+abstract class CreateLogic extends GenericLogic {}

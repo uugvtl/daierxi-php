@@ -280,9 +280,9 @@ class SqlHelper extends BaseSingle
      */
     public function getEscapeSql(array $rows)
     {
-
-        $rows       = array_map(array('CStringHelper', 'htmlEncode'), $rows);
-        $aQuoteRows = array_map(array('CStringHelper', 'quoteValue'), $rows);
+        $stringHelper = StringHelper::getInstance();
+        $rows       = array_map(array($stringHelper, 'htmlEncode'), $rows);
+        $aQuoteRows = array_map(array($stringHelper, 'quoteValue'), $rows);
 
         $stmt = $split = "";
         foreach($aQuoteRows as $k=>$v)
