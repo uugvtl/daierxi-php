@@ -22,7 +22,7 @@ abstract class GenericContainer extends FrameContainer implements IRespondable
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->getGenericInjecter()->setBaseClassString('GenericService');
+        $this->getGenericInjecter()->setBaseClassString('CreateService');
         $servicename = $this->getServiceClassString();
 
         $instanceHelper = InstanceHelper::getInstance();

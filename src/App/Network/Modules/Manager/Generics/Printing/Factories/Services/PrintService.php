@@ -8,7 +8,7 @@ use App\Network\Generics\Printing\GenericService;
  * Time: 17:56
  *
  * Class PrintService
- * @package App\Network\Modules\Manager\Generics\Printing\Factories\Servies
+ * @package App\Network\Modules\Manager\Generics\Printing\Factories\Services
  */
 class PrintService extends GenericService
 {

@@ -22,7 +22,7 @@ abstract class GenericContainer extends FrameContainer implements IExportable
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->getGenericInjecter()->setBaseClassString('GenericService');
+        $this->getGenericInjecter()->setBaseClassString('ExportService');
         $servicename = $this->getServiceClassString();
 
         $instanceHelper = InstanceHelper::getInstance();

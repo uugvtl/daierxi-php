@@ -22,7 +22,7 @@ abstract class GenericContainer extends FrameContainer implements IPrintable
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->getGenericInjecter()->setBaseClassString('GenericService');
+        $this->getGenericInjecter()->setBaseClassString('PrintService');
         $servicename = $this->getServiceClassString();
 
         $instanceHelper = InstanceHelper::getInstance();
