@@ -11,13 +11,12 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Class DisabledLogic
  * @package App\Network\Modules\Manager\Distribution\Verifies\Legals
  */
-abstract class DisabledLegal extends BaseLegal
+class DisabledLegal extends BaseLegal
 {
     protected function run()
     {
         $this->validation->add(['disabled', 'items'], new PresenceOf([
             'message' => [
-                'disabled'  => $this->t('toggle', 'presence_disabled'),
                 'items'     => $this->t('toggle', 'presence_items')
             ]
         ]));
