@@ -16,28 +16,38 @@ use App\Tables\Manager\IManagerTable;
  */
 class DefaultLogic extends RemoveLogic
 {
-    protected function run(Responder $responder)
+    private $sql;
+
+    protected function beforeBegin()
     {
         $aIds = $this->getGenericInjecter()->getParameter()->get();
 
         if($aIds)
         {
-            $store = $this->getStore();
-            $cache = $store->getCache();
-            $dao = $cache->getDao();
+
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND manager_id IN ({$quoteIds})";
-            $sql = $sqlHelper->getDeleteString(IManagerTable::Name, $where);//  "";
-            $toggle = $dao->submit($sql);
+            $this->sql = $sqlHelper->getDeleteString(IManagerTable::Name, $where);
+
+        }
+    }
+
+    protected function run(Responder $responder)
+    {
+        if($this->sql)
+        {
+            $store = $this->getStore();
+            $cache = $store->getCache();
+            $dao = $cache->getDao();
+            $toggle = $dao->submit($this->sql);
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
                 $cache->updateCacheDependencies(IManagerTable::Name);
 
             }
-
-
         }
+
     }
 }
