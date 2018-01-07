@@ -47,6 +47,8 @@ abstract class GenericLogic  extends FrameLogic implements IRespondable
             $jsonHelper->sendExcp($e);
         }
 
+        $this->afterEnd();
+
         $responder->toggle ?
             $responder->msg=$this->t('global', 'delete_success'):
             $responder->msg=$this->t('errors', 'invalid_delete');
@@ -56,4 +58,6 @@ abstract class GenericLogic  extends FrameLogic implements IRespondable
      * 钩子方法，主要是减少事务当中的时间消耗
      */
     protected function beforeBegin() {}
+
+    protected function afterEnd(){}
 }
