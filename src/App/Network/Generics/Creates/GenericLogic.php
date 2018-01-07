@@ -46,7 +46,9 @@ abstract class GenericLogic extends FrameLogic implements IRespondable
             $jsonHelper->sendExcp($e);
         }
 
-        $responder->toggle && $responder->msg = $this->t('global', 'save_success');
+        $responder->toggle ?
+            $responder->msg = $this->t('global', 'save_success'):
+            $responder->msg = $this->t('global', 'save_failure');
 
     }
 

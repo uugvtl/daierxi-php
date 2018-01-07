@@ -43,11 +43,6 @@ abstract class BaseDo extends BaseBiz
      */
     abstract public function submit();
 
-    /**
-     * 删除数据从库，无事务更新操作
-     * @return $this
-     */
-    abstract public function delete();
 
     /**
      * 获取主键，如果是数组的形式的话返回的是serialize后的数组

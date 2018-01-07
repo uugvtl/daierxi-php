@@ -44,7 +44,7 @@ class AccountContainerTest extends UnitTestCase
         /** arrange */
             $params = [14];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Del', DataConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Remove', DataConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();

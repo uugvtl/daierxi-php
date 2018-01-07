@@ -33,6 +33,7 @@ abstract class GenericLogic  extends FrameLogic implements IRespondable
     {
         $dao = $this->getStore()->getCache()->getDao();
         $this->beforeBegin();
+
         try {
 
             $dao->start();
@@ -46,6 +47,9 @@ abstract class GenericLogic  extends FrameLogic implements IRespondable
             $jsonHelper->sendExcp($e);
         }
 
+        $responder->toggle ?
+            $responder->msg=$this->t('global', 'delete_success'):
+            $responder->msg=$this->t('errors', 'invalid_delete');
     }
 
     /**

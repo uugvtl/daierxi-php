@@ -9,4 +9,10 @@ class RemoveService extends GenericService
         $logic = $this->madeLogicInstance();
         return $logic->init($repository)->get();
     }
+
+    protected function madeLogicInstance()
+    {
+        $this->getGenericInjecter()->setGeneralize(YES);
+        return parent::madeLogicInstance();
+    }
 }
