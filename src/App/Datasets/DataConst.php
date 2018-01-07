@@ -44,7 +44,7 @@ final class DataConst
     /**
      * 泛化实例类的默认类名称前辍
      */
-    const CLASS_PREFIX = 'Default';
+    const CLASS_PREFIX = 'App';
 
     /**
      * 工厂功能目录名称

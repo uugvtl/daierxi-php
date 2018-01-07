@@ -11,7 +11,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Logics\ExportLogic;
  * Class DefaultLogic
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Logics\Warehouse\Packing\Export
  */
-class DefaultLogic extends ExportLogic
+class AppLogic extends ExportLogic
 {
     protected function run(Responder $responder)
     {

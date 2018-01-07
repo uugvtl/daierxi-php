@@ -12,7 +12,7 @@ use App\Tables\Stock\IRecipeSkuTable;
  * Class DefaultTable
  * @package App\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput
  */
-class DefaultTable extends BaseTable
+class AppTable extends BaseTable
 {
     protected function afterInstance()
     {

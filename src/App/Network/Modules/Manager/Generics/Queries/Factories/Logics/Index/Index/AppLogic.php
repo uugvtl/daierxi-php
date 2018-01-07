@@ -17,7 +17,7 @@ use App\Network\Modules\Manager\Generics\Queries\Factories\Logics\QueryLogic;
  * Class PrimaryLogic
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Logics\Index\Index
  */
-class DefaultLogic extends QueryLogic
+class AppLogic extends QueryLogic
 {
     use AccountTrait;
 

@@ -17,7 +17,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\ExportRe
  * Class DefaultRepository
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\Warehouse\Packing\Export
  */
-class DefaultRepository extends ExportRepository
+class AppRepository extends ExportRepository
 {
     protected function madeFieldsInstance()
     {

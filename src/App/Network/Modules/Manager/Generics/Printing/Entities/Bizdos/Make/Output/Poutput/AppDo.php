@@ -15,7 +15,7 @@ use App\Tables\Stock\IRecipeStatusTable;
  * Class DefaultDo
  * @package App\Network\Modules\Manager\Generics\Printing\Entities\Bizdos\Make\Output\Poutput
  */
-class DefaultDo extends OutputBaseDo
+class AppDo extends OutputBaseDo
 {
     public function submit()
     {

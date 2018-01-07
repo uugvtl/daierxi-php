@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Services\ExportServic
  * Class DefaultService
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Services\Warehouse\Packing\Export
  */
-class DefaultService extends ExportService
+class AppService extends ExportService
 {
     protected function madeRepositoryInstance()
     {

@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Printing\Factories\Logics\PrintLogic;
  * Class DefaultLogic
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output\Poutput
  */
-class DefaultLogic extends PrintLogic
+class AppLogic extends PrintLogic
 {
     /**
      * @var OutputBaseDo

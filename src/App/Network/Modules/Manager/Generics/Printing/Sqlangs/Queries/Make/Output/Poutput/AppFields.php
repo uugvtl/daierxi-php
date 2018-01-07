@@ -10,7 +10,7 @@ use App\Globals\Sqlangs\BaseFields;
  * Class DefaultFields
  * @package App\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput
  */
-class DefaultFields extends BaseFields
+class AppFields extends BaseFields
 {
     protected function afterInstance()
     {

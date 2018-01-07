@@ -12,7 +12,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Class DefaultLegal
  * @package App\Network\Modules\Manager\Generics\Queries\Legals\Index\Index
  */
-class DefaultLegal extends BaseLegal
+class AppLegal extends BaseLegal
 {
     protected function run()
     {

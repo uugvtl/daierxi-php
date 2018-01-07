@@ -13,7 +13,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Class DefaultLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Account\Modify
  */
-class DefaultLegal extends BaseLegal
+class AppLegal extends BaseLegal
 {
     protected function run()
     {

@@ -13,7 +13,7 @@ use App\Network\Modules\Manager\Generics\Removes\Factories\Services\RemoveServic
  * Class DefaultService
  * @package App\Network\Modules\Manager\Generics\Removes\Factories\Services\Cache\Clear
  */
-class DefaultService extends RemoveService
+class AppService extends RemoveService
 {
     public function get()
     {

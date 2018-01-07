@@ -12,7 +12,7 @@ use App\Network\Modules\Manager\Generics\Queries\Factories\Services\QueryService
  * Class PrimaryService
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Services\Index\Index
  */
-class DefaultService extends QueryService
+class AppService extends QueryService
 {
     public function get()
     {

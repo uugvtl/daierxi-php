@@ -12,7 +12,7 @@ use App\Helpers\SqlHelper;
  * Class DefaultWhere
  * @package App\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput
  */
-class DefaultWhere extends BaseWhere
+class AppWhere extends BaseWhere
 {
     protected function getStmt()
     {

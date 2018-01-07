@@ -1,19 +1,19 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Account\Create;
+namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Account\Modify;
 use App\Entities\Bizdos\Accounts\ManagerBaseDo;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
-use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
+use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
 /**
  * Created by PhpStorm.
  * User: leon
  * Date: 7/1/18
- * Time: 01:25
+ * Time: 20:57
  *
  * Class DefaultLogic
- * @package App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Account\Create
+ * @package App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Account\Modify
  */
-class DefaultLogic extends CreateLogic
+class AppLogic extends ModifyLogic
 {
     /**
      * @var ManagerBaseDo
@@ -31,7 +31,7 @@ class DefaultLogic extends CreateLogic
 
     protected function run(Responder $responder)
     {
-        $toggle = $this->bizDo->insert()->isPersistent();
+        $toggle = $this->bizDo->submit()->isPersistent();
         $responder->toggle = $toggle;
     }
 

@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Printing\Factories\Services\PrintServic
  * Class DefaultService
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Services\Make\Output\Poutput
  */
-class DefaultService extends PrintService
+class AppService extends PrintService
 {
     protected function madeRepositoryInstance()
     {

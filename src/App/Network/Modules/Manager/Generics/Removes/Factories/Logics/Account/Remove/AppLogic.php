@@ -14,7 +14,7 @@ use App\Tables\Manager\IManagerTable;
  * Class DefaultLogic
  * @package App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Account\Remove
  */
-class DefaultLogic extends RemoveLogic
+class AppLogic extends RemoveLogic
 {
     private $sql;
 

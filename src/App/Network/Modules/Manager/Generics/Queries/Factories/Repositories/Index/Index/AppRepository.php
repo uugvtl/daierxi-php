@@ -15,10 +15,8 @@ use App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\QueryRep
  * Class PrimaryRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\Index\Index
  */
-class DefaultRepository extends QueryRepository
+class AppRepository extends QueryRepository
 {
-
-
 
     protected function madeFieldsInstance()
     {
