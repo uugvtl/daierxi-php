@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Legals\Account\Create;
+namespace App\Network\Modules\Manager\Generics\Modifies\Legals\Account\Modify;
 use App\Globals\Legals\BaseLegal;
 use Phalcon\Validation\Validator\Numericality;
 use Phalcon\Validation\Validator\PresenceOf;
@@ -8,10 +8,10 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Created by PhpStorm.
  * User: leon
  * Date: 7/1/18
- * Time: 01:44
+ * Time: 20:28
  *
  * Class DefaultLegal
- * @package App\Network\Modules\Manager\Generics\Creates\Legals\Account\Create
+ * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Account\Modify
  */
 class DefaultLegal extends BaseLegal
 {
@@ -23,9 +23,10 @@ class DefaultLegal extends BaseLegal
             ]
         ]));
 
-        $this->validation->add(['group_id'], new Numericality([
+        $this->validation->add(['group_id','manager_id'], new Numericality([
             'message'=>[
-                'group_id'      => $this->t('account', 'numericality_group_id')
+                'group_id'      => $this->t('account', 'numericality_group_id'),
+                'manager_id'      => $this->t('account', 'numericality_manager_id')
             ]
         ]));
     }

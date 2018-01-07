@@ -14,6 +14,7 @@ class ModifyContainer extends GenericContainer
 {
     public function get()
     {
-
+        $service = $this->madeService();
+        return $service->get();
     }
 }

@@ -36,7 +36,7 @@ abstract class BaseLegal extends BaseClass
      * 初始化验证数据
      * @return void
      */
-    abstract protected function initValidation();
+    abstract protected function run();
 
     /**
      * 构造方法运行后的初始化方法
@@ -68,10 +68,10 @@ abstract class BaseLegal extends BaseClass
     protected function validation()
     {
 
-        $this->initValidation();
+        $this->run();
         $messages = $this->validation->validate($this->getParams());
         $msg = $this->getMessages($messages);
-        $msg.= $this->afterValidation();
+        $msg.= $this->afterRun();
 
         return $msg;
     }
@@ -80,7 +80,7 @@ abstract class BaseLegal extends BaseClass
      * 验证完成后的处理
      * @return string
      */
-    protected function afterValidation()
+    protected function afterRun()
     {
         return '';
     }

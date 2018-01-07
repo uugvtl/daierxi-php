@@ -2,6 +2,7 @@
 namespace App\Entities\Bizdos\Accounts;
 use App\Globals\Bizes\BaseDo;
 use App\Helpers\SqlHelper;
+use App\Helpers\StringHelper;
 use App\Tables\Manager\IManagerTable;
 
 /**
@@ -66,11 +67,22 @@ class ManagerBaseDo extends BaseDo
 
     public function submit()
     {
+        $table = IManagerTable::Name;
+
+        $stringHelper = StringHelper::getInstance();
+        $sqlHelper = SqlHelper::getInstance();
+
+        $id = $stringHelper->quoteValue($this->manager_id);
+        $where = 'AND manager_id='.$id;
+
+
+        $sql =  $sqlHelper->getUpdateString($this->getProperties(), $table, $where);
+
+        $toggle = $this->getCache()->getDao()->commit($sql);
+        $this->setPersistent(YES);
+        $toggle && $this->getCache()->updateCacheDependencies($table);
+
         return $this;
     }
 
-    public function delete()
-    {
-        return $this;
-    }
 }

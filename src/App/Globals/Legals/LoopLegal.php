@@ -35,10 +35,10 @@ abstract class LoopLegal extends BaseLegal
         {
             $this->rows = $rows;
             $this->key = $key;
-            $this->initValidation();
+            $this->run();
             $messages = $this->validation->validate($rows);
             $msg.= $this->getMessages($messages);
-            $msg.= $this->afterValidation();
+            $msg.= $this->afterRun();
         }
 
         return $msg;

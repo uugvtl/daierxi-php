@@ -10,9 +10,4 @@ use App\Network\Generics\Modifies\GenericService;
  * Class ModifyService
  * @package App\Network\Modules\Frontend\Generics\Modifies\Services
  */
-class ModifyService extends GenericService
-{
-    public function get()
-    {
-    }
-}
+class ModifyService extends GenericService {}

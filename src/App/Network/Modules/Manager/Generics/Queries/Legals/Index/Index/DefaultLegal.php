@@ -14,7 +14,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  */
 class DefaultLegal extends BaseLegal
 {
-    protected function initValidation()
+    protected function run()
     {
         $this->validation->add(['password', 'account'], new PresenceOf([
             'message' => [

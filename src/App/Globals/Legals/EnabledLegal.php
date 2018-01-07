@@ -13,7 +13,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  */
 abstract class EnabledLegal extends BaseLegal
 {
-    protected function initValidation()
+    protected function run()
     {
         $this->validation->add(['enabled', 'items'], new PresenceOf([
             'message' => [

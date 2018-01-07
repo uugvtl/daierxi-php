@@ -16,7 +16,7 @@ abstract class FilesLegal extends BaseLegal
      */
     protected function validation()
     {
-        $this->initValidation();
+        $this->run();
         $this->validation->validate($_FILES);
     }
 }

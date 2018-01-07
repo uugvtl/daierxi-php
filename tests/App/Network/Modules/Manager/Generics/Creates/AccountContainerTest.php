@@ -36,9 +36,27 @@ class AccountContainerTest extends UnitTestCase
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
-    /**
-     * 还原数据
-     */
+    public function test_modify_for_save()
+    {
+        /** arrange */
+            $params = [
+                'manager_id'    =>14,
+                'manager_name'  =>'测试测试1',
+                'password'      =>'123456',
+                'real_name'     =>'测试工程师1',
+                'birthday'      =>'1982-03-10',
+                'group_id'      =>'43',
+            ];
+            $distributer = Distributer::getInstance();
+            $distributer->init('Account', 'Modify', DataConst::CLASS_PREFIX);
+        /** act */
+            $provider = ManagerContainerProvider::getInstance();
+            $provider->init($distributer);
+        /** assert */
+            $responder = $provider->getCommitResponder($params);
+            $this->assertTrue($responder->toggle, $responder->msg);
+    }
+    
     public function test_delete_for_save()
     {
         /** arrange */
