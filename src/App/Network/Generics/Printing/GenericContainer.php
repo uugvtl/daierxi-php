@@ -26,7 +26,7 @@ abstract class GenericContainer extends FrameContainer
         $instanceHelper = InstanceHelper::getInstance();
 
         $serviceInstance = $instanceHelper->build(GenericService::class, $servicename);
-        $serviceInstance->setGenericInjecter($cloneGenericInjecter);
+        $serviceInstance->setGenericInjecter($cloneGenericInjecter->init($serviceInstance));
 
         return $serviceInstance;
     }

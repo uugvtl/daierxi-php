@@ -23,7 +23,7 @@ abstract class GenericService extends FrameService
         $instanceHelper = InstanceHelper::getInstance();
 
         $repository = $instanceHelper->build(GenericRepository::class, $repositoryName);
-        return $repository->setGenericInjecter($cloneGenericInjecter);
+        return $repository->setGenericInjecter($cloneGenericInjecter->init($repository));
     }
 
     protected function madeLogicInstance()
@@ -35,7 +35,7 @@ abstract class GenericService extends FrameService
         $instanceHelper = InstanceHelper::getInstance();
 
         $logic = $instanceHelper->build(GenericLogic::class, $logicName);
-        return $logic->setGenericInjecter($cloneGenericInjecter);
+        return $logic->setGenericInjecter($cloneGenericInjecter->init($logic));
     }
 
 }

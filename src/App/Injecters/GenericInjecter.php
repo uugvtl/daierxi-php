@@ -3,6 +3,8 @@ namespace App\Injecters;
 use App\Globals\Bases\BaseClass;
 use App\Globals\Finals\Parameter;
 use App\Globals\Finals\Distributer;
+use App\Interfaces\Generics\IPreservable;
+use App\Interfaces\Generics\IRespondable;
 
 /**
  * Created by PhpStorm.
@@ -43,17 +45,33 @@ class GenericInjecter extends BaseClass
      */
     private $parameter;
 
-    public function __clone()
+    /**
+     * @var IRespondable|IPreservable
+     */
+    private $owner;
+
+
+
+    final public function init(...$args)
     {
-        $this->distributer = clone $this->distributer;
-        $this->parameter = clone $this->parameter;
+        $owner = $args[0];
+        $this->owner = $owner;
+        return $this;
+    }
+
+    /**
+     * @return IPreservable|IRespondable
+     */
+    final public function owner()
+    {
+        return $this->owner;
     }
 
     /**
      * @param Distributer $distributer
      * @return $this
      */
-    public function setDistributer(Distributer $distributer)
+    final public function setDistributer(Distributer $distributer)
     {
         $this->distributer = $distributer;
         return $this;
@@ -63,7 +81,7 @@ class GenericInjecter extends BaseClass
     /**
      * @return Distributer
      */
-    public function getDistributer()
+    final public function getDistributer()
     {
         return $this->distributer;
     }
@@ -73,7 +91,7 @@ class GenericInjecter extends BaseClass
      * @param Parameter $parameter
      * @return $this
      */
-    public function setParameter(Parameter $parameter)
+    final public function setParameter(Parameter $parameter)
     {
         $this->parameter = $parameter;
         return $this;
@@ -83,7 +101,7 @@ class GenericInjecter extends BaseClass
     /**
      * @return Parameter
      */
-    public function getParameter()
+    final public function getParameter()
     {
         return $this->parameter;
     }
@@ -94,7 +112,7 @@ class GenericInjecter extends BaseClass
      * @param string $package
      * @return $this
      */
-    public function setPackage($package)
+    final public function setPackage($package)
     {
         $this->package = $package;
         return $this;
@@ -104,7 +122,7 @@ class GenericInjecter extends BaseClass
      * 获取泛化类基类所在的包名称
      * @return string
      */
-    public function getPackage()
+    final public function getPackage()
     {
         return $this->package;
     }
@@ -114,7 +132,7 @@ class GenericInjecter extends BaseClass
      * @param bool $boolean     使用为true,否则为false
      * @return $this
      */
-    public function setGeneralize($boolean=false)
+    final public function setGeneralize($boolean=false)
     {
         $this->generalize = $boolean;
         return $this;
@@ -124,7 +142,7 @@ class GenericInjecter extends BaseClass
      * 判断是否使用泛化实例
      * @return bool
      */
-    public function hasGeneralize()
+    final public function hasGeneralize()
     {
         return $this->generalize;
     }
@@ -133,7 +151,7 @@ class GenericInjecter extends BaseClass
      * 获取泛化类的基类名称
      * @return string
      */
-    public function getBaseClassString()
+    final public function getBaseClassString()
     {
         return $this->baseClassString;
     }
@@ -143,10 +161,15 @@ class GenericInjecter extends BaseClass
      * @param string $baseClassString
      * @return $this
      */
-    public function setBaseClassString($baseClassString)
+    final public function setBaseClassString($baseClassString)
     {
         $this->baseClassString = $baseClassString;
         return $this;
     }
 
+    final public function __clone()
+    {
+        $this->distributer = clone $this->distributer;
+        $this->parameter = clone $this->parameter;
+    }
 }
