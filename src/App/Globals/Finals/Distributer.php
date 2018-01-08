@@ -45,18 +45,28 @@ final class Distributer extends BaseClass
     }
 
     /**
-     * 获取命名空间路径
+     * 获取由ctrl+act+file组合的命名空间路径
      * @return string
      */
-    public function getPath()
+    public function getCtrlActFilePath()
     {
-        $ctrlName   = $this->getClassName($this->ctrlString);
-        $actName    = $this->getClassName($this->actString);
-        $fileName   = $this->getClassName($this->prefixString);
+        $ctrlName   = $this->getCtrlString();
+        $actName    = $this->getActString();
+        $fileName   = $this->getPrefixString();
 
-        $namespace = $ctrlName.BACKSLASH.$actName.BACKSLASH.$fileName;
+        return $ctrlName.BACKSLASH.$actName.BACKSLASH.$fileName;
+    }
 
-        return $namespace;
+    /**
+     * 获取由ctrl+act组合的命名空间路径
+     * @return string
+     */
+    public function getCtrlActPath()
+    {
+        $ctrlName   = $this->getCtrlString();
+        $actName    = $this->getActString();
+
+        return $ctrlName.BACKSLASH.$actName;
     }
 
     /**
@@ -71,7 +81,7 @@ final class Distributer extends BaseClass
 
     public function getCtrlString()
     {
-        return $this->ctrlString;
+        return $this->getClassName($this->ctrlString);
     }
 
     /**
@@ -87,7 +97,7 @@ final class Distributer extends BaseClass
 
     public function getActString()
     {
-        return $this->actString;
+        return $this->getClassName($this->actString);
     }
 
     /**
@@ -106,7 +116,7 @@ final class Distributer extends BaseClass
      */
     public function getPrefixString()
     {
-        return $this->prefixString;
+        return $this->getClassName($this->prefixString);
     }
 
     /**

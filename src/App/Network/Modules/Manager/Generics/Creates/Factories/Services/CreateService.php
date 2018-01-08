@@ -13,7 +13,6 @@ use App\Network\Generics\Creates\GenericService;
 class CreateService extends GenericService
 {
 
-
     protected function madeLogicInstance()
     {
         $this->getGenericInjecter()->setGeneralize(YES);

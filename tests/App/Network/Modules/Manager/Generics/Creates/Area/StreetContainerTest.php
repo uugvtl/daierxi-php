@@ -8,32 +8,23 @@ use UnitTestCase;
  * Created by PhpStorm.
  * User: leon
  * Date: 8/1/18
- * Time: 13:48
+ * Time: 15:02
  *
- * Class DistrictContainerTest
+ * Class StreetContainerTest
  * @package App\Network\Modules\Manager\Generics\Creates\Area
  */
-class DistrictContainerTest extends UnitTestCase
+class StreetContainerTest extends UnitTestCase
 {
     public function test_create_for_save()
     {
         /** arrange */
             $params = [
-                'id'            =>'820202',
-                'name'          =>'测试测试',
-                'parent_id'     =>'820200',
-                'short_name'    =>'测试',
-                'depth'         =>'3',
-                'city_code'     =>'820202',
-                'zip_code'      =>'820202',
-                'merger_name'   =>'中国,澳门特别行政区,氹仔岛,测试测试',
-                'lng'           =>'113.5653030',
-                'lat'           =>'22.1490290',
-                'pinyin'        =>'testtest',
-                'leaf'          =>'1',
+                'street_id'            => '1',
+                'district_id'          => '820202',
+                'street_name'          => '测试测试'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Create', DataConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Create', DataConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -47,21 +38,12 @@ class DistrictContainerTest extends UnitTestCase
     {
         /** arrange */
             $params = [
-                'id'            =>'820202',
-                'name'          =>'测试测试1',
-                'parent_id'     =>'820200',
-                'short_name'    =>'测试',
-                'depth'         =>'3',
-                'city_code'     =>'820202',
-                'zip_code'      =>'820202',
-                'merger_name'   =>'中国,澳门特别行政区,氹仔岛,测试测试',
-                'lng'           =>'113.5653030',
-                'lat'           =>'22.1490290',
-                'pinyin'        =>'testtest',
-                'leaf'          =>'1',
+                'street_id'            => '1',
+                'district_id'          => '820202',
+                'street_name'          => '测试测试1'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Modify', DataConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Modify', DataConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -69,7 +51,6 @@ class DistrictContainerTest extends UnitTestCase
         /** assert */
             $responder = $provider->getCommitResponder($params);
             $this->assertTrue($responder->toggle, $responder->msg);
-
     }
 
     /**
@@ -78,10 +59,9 @@ class DistrictContainerTest extends UnitTestCase
     public function test_delete_for_save()
     {
         /** arrange */
-            $params = [820202];
-
+            $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Remove', DataConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Remove', DataConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();

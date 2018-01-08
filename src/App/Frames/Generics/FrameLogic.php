@@ -75,7 +75,7 @@ abstract class FrameLogic extends FrameGeneric
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
         $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizdos'.BACKSLASH.$path.'Do';
         return $classname;
     }
@@ -88,7 +88,7 @@ abstract class FrameLogic extends FrameGeneric
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
         $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizbos'.BACKSLASH.$path.'Bo';
         return $classname;
     }

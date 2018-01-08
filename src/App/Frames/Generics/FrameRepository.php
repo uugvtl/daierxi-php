@@ -119,7 +119,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
     private function getClassPath(GenericInjecter $genericInjecter)
     {
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
         return $package.BACKSLASH.'Sqlangs'.BACKSLASH.$this->getSqlangCatalog().BACKSLASH.$path;
     }
 

@@ -29,7 +29,7 @@ abstract class FrameService extends FrameGeneric
 
         if($genericInjecter->hasGeneralize())
         {
-            $path = $genericInjecter->getDistributer()->getPath();
+            $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
 
             $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Repositories'.BACKSLASH.$path.'Repository';
         }
@@ -53,7 +53,7 @@ abstract class FrameService extends FrameGeneric
 
         if($genericInjecter->hasGeneralize())
         {
-            $path = $genericInjecter->getDistributer()->getPath();
+            $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
             $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
         }
         else
@@ -71,7 +71,7 @@ abstract class FrameService extends FrameGeneric
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
         $classname = $package.BACKSLASH.'Legals'.BACKSLASH.$path.'Legal';
         return $classname;
     }

@@ -27,7 +27,8 @@ abstract class FrameContainer extends FrameGeneric implements IGetable
 
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+
 
         if($genericInjecter->hasGeneralize())
         {
