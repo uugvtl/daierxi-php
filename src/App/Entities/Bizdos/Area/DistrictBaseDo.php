@@ -65,7 +65,7 @@ class DistrictBaseDo extends BaseDo
         $sqlHelper = SqlHelper::getInstance();
 
         $sql = $sqlHelper->getCreateString($fields, $table, SqlHelper::SQL_CREATE_IGNORE);
-        $toggle = $this->getCache()->getDao()->insert($sql);
+        $toggle = $this->getCache()->getDao()->submit($sql);
         if($toggle)
         {
             $this->setPersistent(YES);
