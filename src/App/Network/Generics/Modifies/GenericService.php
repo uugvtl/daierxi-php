@@ -3,8 +3,6 @@ namespace App\Network\Generics\Modifies;
 use App\Frames\Generics\FrameService;
 use App\Globals\Legals\BaseLegal;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IRespondable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,7 +12,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericService
  * @package App\Network\Generics\Creates
  */
-abstract class GenericService extends FrameService  implements IRespondable
+abstract class GenericService extends FrameService
 {
 
     final public function get()

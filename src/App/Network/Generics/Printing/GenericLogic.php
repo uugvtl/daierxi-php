@@ -6,7 +6,6 @@ use App\Frames\Generics\FrameLogic;
 use App\Globals\Stores\SelectStore;
 use App\Helpers\JsonHelper;
 use App\Interfaces\Adapters\IPrintAdapter;
-use App\Interfaces\Generics\IPrintable;
 use App\Unusually\BizLogicExceptions;
 /**
  * Created by PhpStorm.
@@ -17,7 +16,7 @@ use App\Unusually\BizLogicExceptions;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends FrameLogic implements IPrintable
+abstract class GenericLogic  extends FrameLogic
 {
     /**
      * @var IPrintAdapter

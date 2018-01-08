@@ -3,9 +3,7 @@ namespace App\Network\Generics\Removes;
 use App\Globals\Finals\Responder;
 use App\Frames\Generics\FrameLogic;
 use App\Helpers\JsonHelper;
-use App\Interfaces\Generics\IRespondable;
 use App\Unusually\BizLogicExceptions;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,7 +13,7 @@ use App\Unusually\BizLogicExceptions;
  * Class GenericLogic
  * @package App\Network\Generics\Removes
  */
-abstract class GenericLogic  extends FrameLogic implements IRespondable
+abstract class GenericLogic  extends FrameLogic
 {
     final public function get()
     {

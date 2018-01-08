@@ -2,7 +2,6 @@
 namespace App\Console\Generics\Crontabs;
 use App\Frames\Generics\FrameLogic;
 use App\Globals\Finals\Responder;
-use App\Interfaces\Generics\IRespondable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,7 +11,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericLogic
  * @package App\Console\Generics\Crontabs
  */
-abstract class GenericLogic extends FrameLogic implements IRespondable
+abstract class GenericLogic extends FrameLogic
 {
     public function get()
     {

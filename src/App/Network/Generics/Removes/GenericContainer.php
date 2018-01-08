@@ -2,8 +2,6 @@
 namespace App\Network\Generics\Removes;
 use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IRespondable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +11,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericContainer
  * @package App\Network\Generics\Removes
  */
-abstract class GenericContainer extends FrameContainer  implements IRespondable
+abstract class GenericContainer extends FrameContainer
 {
     /**
      * @return GenericService

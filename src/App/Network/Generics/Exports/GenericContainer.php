@@ -2,8 +2,6 @@
 namespace App\Network\Generics\Exports;
 use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IExportable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +11,7 @@ use App\Interfaces\Generics\IExportable;
  * Class GenericContainer
  * @package App\Network\Generics\Exports
  */
-abstract class GenericContainer extends FrameContainer implements IExportable
+abstract class GenericContainer extends FrameContainer
 {
     /**
      * @return GenericService

@@ -2,6 +2,7 @@
 namespace App\Frames\Generics;
 use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
+use App\Interfaces\Generics\IRespondable;
 /**
  * 用来生成 Repository 和 Logic 相关类的工厂类
  * Created by PhpStorm.
@@ -12,7 +13,7 @@ use App\Frames\FrameGeneric;
  * Class BaseService
  * @package App\Globals\Generics
  */
-abstract class FrameService extends FrameGeneric
+abstract class FrameService extends FrameGeneric implements IRespondable
 {
 
     abstract protected function madeRepositoryInstance();

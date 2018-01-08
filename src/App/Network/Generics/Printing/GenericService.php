@@ -2,8 +2,6 @@
 namespace App\Network\Generics\Printing;
 use App\Frames\Generics\FrameService;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IPrintable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +11,7 @@ use App\Interfaces\Generics\IPrintable;
  * Class GenericService
  * @package App\Network\Generics\Queries
  */
-abstract class GenericService extends FrameService implements IPrintable
+abstract class GenericService extends FrameService
 {
 
     protected function madeRepositoryInstance()

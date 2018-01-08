@@ -2,8 +2,6 @@
 namespace App\Network\Generics\Printing;
 use App\Frames\Generics\FrameContainer;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IPrintable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +11,7 @@ use App\Interfaces\Generics\IPrintable;
  * Class GenericContainer
  * @package App\Network\Generics\Printing
  */
-abstract class GenericContainer extends FrameContainer implements IPrintable
+abstract class GenericContainer extends FrameContainer
 {
     /**
      * @return GenericService

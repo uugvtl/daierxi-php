@@ -2,8 +2,6 @@
 namespace App\Network\Generics\Exports;
 use App\Frames\Generics\FrameService;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IExportable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +11,7 @@ use App\Interfaces\Generics\IExportable;
  * Class GenericService
  * @package App\Network\Generics\Queries
  */
-abstract class GenericService extends FrameService  implements IExportable
+abstract class GenericService extends FrameService
 {
 
     protected function madeRepositoryInstance()

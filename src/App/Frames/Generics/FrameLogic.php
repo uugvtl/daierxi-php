@@ -4,6 +4,8 @@ use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\Responder;
 use App\Globals\Stores\FormStore;
+use App\Interfaces\Generics\IRespondable;
+
 /**
  * 用来生成 Sqlang 和 Store 相关类的工厂类
  * Created by PhpStorm.
@@ -14,7 +16,7 @@ use App\Globals\Stores\FormStore;
  * Class BaseLogic
  * @package App\Globals\Generics
  */
-abstract class FrameLogic extends FrameGeneric
+abstract class FrameLogic extends FrameGeneric implements IRespondable
 {
     /**
      * @var FrameRepository

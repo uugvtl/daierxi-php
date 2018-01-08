@@ -2,7 +2,6 @@
 namespace App\Console\Generics\Initializes;
 use App\Frames\Generics\FrameLogic;
 use App\Globals\Finals\Responder;
-use App\Interfaces\Generics\IRespondable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -12,7 +11,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericLogic
  * @package App\Console\Generics\Initializes
  */
-abstract class GenericLogic extends FrameLogic implements IRespondable
+abstract class GenericLogic extends FrameLogic
 {
     public function get()
     {

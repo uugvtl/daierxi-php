@@ -3,9 +3,7 @@ namespace App\Frames\Generics;
 use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Finals\Responder;
-use App\Interfaces\IGetable;
-use const BACKSLASH;
-
+use App\Interfaces\Generics\IRespondable;
 /**
  * 用来生成 Service 相关类的工厂类
  * Created by PhpStorm.
@@ -16,7 +14,7 @@ use const BACKSLASH;
  * Class BaseContainer
  * @package App\Globals\Generics
  */
-abstract class FrameContainer extends FrameGeneric implements IGetable
+abstract class FrameContainer extends FrameGeneric implements IRespondable
 {
     /**
      * @return Responder

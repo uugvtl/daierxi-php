@@ -5,8 +5,6 @@ use App\Frames\Generics\FrameLogic;
 use App\Globals\Finals\Responder;
 use App\Globals\Stores\SelectStore;
 use App\Interfaces\Adapters\IExportAdapter;
-use App\Interfaces\Generics\IExportable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,7 +14,7 @@ use App\Interfaces\Generics\IExportable;
  * Class GenericLogic
  * @package App\Network\Generics\Queries
  */
-abstract class GenericLogic  extends FrameLogic implements IExportable
+abstract class GenericLogic  extends FrameLogic
 {
     /**
      * @var IExportAdapter

@@ -2,8 +2,6 @@
 namespace App\Console\Generics\Initializes;
 use App\Frames\Generics\FrameService;
 use App\Helpers\InstanceHelper;
-use App\Interfaces\Generics\IRespondable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +11,7 @@ use App\Interfaces\Generics\IRespondable;
  * Class GenericService
  * @package App\Console\Generics\Initializes
  */
-abstract class GenericService extends FrameService implements IRespondable
+abstract class GenericService extends FrameService
 {
     /**
      * @return GenericRepository
