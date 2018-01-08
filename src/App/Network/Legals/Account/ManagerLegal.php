@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Legals\Account\Create;
+namespace App\Network\Legals\Account;
 use App\Globals\Legals\BaseLegal;
 use Phalcon\Validation\Validator\Numericality;
 use Phalcon\Validation\Validator\PresenceOf;
@@ -7,13 +7,13 @@ use Phalcon\Validation\Validator\PresenceOf;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 7/1/18
- * Time: 01:44
+ * Date: 9/1/18
+ * Time: 01:14
  *
- * Class DefaultLegal
- * @package App\Network\Modules\Manager\Generics\Creates\Legals\Account\Create
+ * Class ManagerLegal
+ * @package App\Network\Legals\Account
  */
-class AppLegal extends BaseLegal
+class ManagerLegal extends BaseLegal
 {
     protected function run()
     {

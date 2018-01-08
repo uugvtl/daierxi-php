@@ -24,10 +24,10 @@ class PackingContainerTest extends UnitTestCase
             $distributer->init('Warehouse\Packing', 'Export', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES);
+            $container = $provider->init($distributer)->getExportContainer($params);
         /** assert */
-
-            $responder = $provider->getExportResponder($params);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
             if($responder->toggle)
                 $this->assertInstanceOf(IShowAdapter::class, $responder->adapter);

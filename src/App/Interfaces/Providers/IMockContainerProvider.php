@@ -9,26 +9,4 @@ namespace App\Interfaces\Providers;
  * Interface IMockContainerProvider
  * @package App\Interfaces\Providers
  */
-interface IMockContainerProvider
-{
-
-    /**
-     * 设置是否使用泛化实例
-     * @param bool $boolean     使用为true,否则为false
-     * @return $this
-     */
-    public function setGeneralize($boolean=false);
-
-    /**
-     * 判断是否使用泛化实例
-     * @return bool
-     */
-    public function hasGeneralize();
-
-    /**
-     * @param string $prefixString
-     * @return $this
-     */
-    public function setPrefixString($prefixString);
-
-}
+interface IMockContainerProvider {}

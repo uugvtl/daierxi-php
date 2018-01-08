@@ -74,9 +74,10 @@ class AppSigninEvent extends FrameClass
             $provider = $instanceHelper->build(NetworkContainerProvider::class, $providerClassString);
             $distributer = $this->getCtrl()->madeDistributer($dispatcher);
             $distributer->setCtrlString($this->getCtrlName());
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getQueryContainer($cookieValue);
 
-            $responder = $provider->setGeneralize(YES)->setPrefixString('Cookie')->getQueryResponder($cookieValue);
+            $container->getGenericInjecter()->setGeneralize(YES)->getDistributer()->setPrefixString('Cookie');
+            $responder = $container->get();
             $toggle = $responder->toggle;
         }
 

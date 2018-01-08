@@ -28,9 +28,10 @@ class CateContainerTest extends UnitTestCase
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES);
+            $container = $provider->init($distributer)->getCreateContainer($params);
         /** assert */
-            $responder = $provider->getCreateResponder($params);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle);
     }
 
@@ -47,9 +48,9 @@ class CateContainerTest extends UnitTestCase
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $provider->getCommitResponder($params);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle);
     }
 
@@ -64,9 +65,9 @@ class CateContainerTest extends UnitTestCase
             $distributer->init('Brand\Cate', 'Remove', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getRemoveContainer($params);
         /** assert */
-            $responder = $provider->getRemoveResponder($params);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle);
     }
 }

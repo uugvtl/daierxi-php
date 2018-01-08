@@ -26,9 +26,10 @@ class AccountContainerTest extends UnitTestCase
             $distributer->init('Account', 'Toggle', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES);
+            $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $provider->getCommitResponder($params);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -43,9 +44,9 @@ class AccountContainerTest extends UnitTestCase
             $distributer->init('Account', 'Group', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $provider->getCommitResponder($params);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
 
     }

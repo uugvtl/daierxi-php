@@ -1,9 +1,11 @@
 <?php
 namespace App\Providers;
+use App\Frames\Generics\FrameContainer;
 use App\Globals\Bases\BaseClass;
 use App\Globals\Finals\Distributer;
 use App\Globals\Finals\Parameter;
 use App\Helpers\ErrorsHelper;
+use App\Helpers\InstanceHelper;
 use App\Injecters\GenericInjecter;
 use App\Interfaces\Providers\IMockContainerProvider;
 /**
@@ -21,17 +23,6 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
      * @var GenericInjecter
      */
     private $genericInjecter;
-
-
-    /**
-     * @param string $prefixString
-     * @return $this
-     */
-    final public function setPrefixString($prefixString)
-    {
-        $this->getGenericInjecter()->getDistributer()->setPrefixString($prefixString);
-        return $this;
-    }
 
 
     final public function init(...$args)
@@ -54,31 +45,25 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
     }
 
     /**
-     * 设置是否使用泛化实例
-     * @param bool $boolean     使用为true,否则为false
-     * @return $this
+     * 产生 container 容器
+     * @param string $package 包名称
+     * @param string $classname 类名称
+     * @param array $params 参数
+     * @return FrameContainer
      */
-    final public function setGeneralize($boolean=false)
+    final protected function madeContainer($package, $classname, array $params)
     {
-        $this->genericInjecter->setGeneralize($boolean);
-        return $this;
-    }
+        $genericInjecter = $this->genericInjecter;
 
-    /**
-     * 判断是否使用泛化实例
-     * @return bool
-     */
-    final public function hasGeneralize()
-    {
-        return $this->genericInjecter->hasGeneralize();
-    }
+        $genericInjecter->getParameter()->init($params);
+        $genericInjecter->setPackage($package);
 
-    /**
-     * @return GenericInjecter
-     */
-    final protected function getGenericInjecter()
-    {
-        return $this->genericInjecter;
+        $instanceHelper = InstanceHelper::getInstance();
+        $container = $instanceHelper->build(FrameContainer::class, $classname);
+        $container->setGenericInjecter($genericInjecter);
+
+        return $container;
+
     }
 
 }

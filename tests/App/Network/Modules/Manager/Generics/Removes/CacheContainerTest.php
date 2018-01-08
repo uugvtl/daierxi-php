@@ -18,17 +18,18 @@ class CacheContainerTest extends UnitTestCase
     public function test_clear_cache()
     {
         /** arrange */
-        $params = [
-            'account'   =>'1',
-            'password'  =>'a'
-        ];
-        $distributer = Distributer::getInstance();
-        $distributer->init('Cache', 'clear', DataConst::CLASS_PREFIX);
+            $params = [
+                'account'   =>'1',
+                'password'  =>'a'
+            ];
+            $distributer = Distributer::getInstance();
+            $distributer->init('Cache', 'clear', DataConst::CLASS_PREFIX);
         /** act */
-        $provider = ManagerContainerProvider::getInstance();
-        $provider->init($distributer)->setGeneralize(YES);
+            $provider = ManagerContainerProvider::getInstance();
+            $container = $provider->init($distributer)->getRemoveContainer($params);
         /** assert */
-        $responder = $provider->getRemoveResponder($params);
-        $this->assertTrue($responder->toggle, $responder->msg);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 }

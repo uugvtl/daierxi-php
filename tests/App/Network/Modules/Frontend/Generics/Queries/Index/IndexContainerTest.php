@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Index;
-use App\Datesets\DataConst;
+use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\FrontendContainerProvider;
 use UnitTestCase;
@@ -23,9 +23,9 @@ class IndexContainerTest extends UnitTestCase
             $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
         /** act */
             $provider = FrontendContainerProvider::getInstance();
-            $provider->init($distributer);//->setGeneralize(YES);
+            $container = $provider->init($distributer)->getQueryContainer($params);//->setGeneralize(YES);
         /** assert */
-            $resultBo = $provider->getQueryResponder($params);
-            $this->assertFalse($resultBo->toggle);
+            $responder = $container->get();
+            $this->assertFalse($responder->toggle);
     }
 }

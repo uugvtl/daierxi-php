@@ -26,9 +26,11 @@ class IndexContainerTest extends UnitTestCase
             $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES);
+            $provider->init($distributer);
         /** assert */
-            $responder = $provider->getQueryResponder($params);
+            $container = $provider->getQueryContainer($params);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -42,9 +44,11 @@ class IndexContainerTest extends UnitTestCase
             $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES)->setPrefixString('Cookie');
+            $provider->init($distributer);
         /** assert */
-            $responder = $provider->getQueryResponder($params);
-            $this->assertTrue($responder->toggle);
+            $container = $provider->getQueryContainer($params);
+            $container->getGenericInjecter()->setGeneralize(YES)->getDistributer()->setPrefixString('Cookie');
+            $responder = $container->get();
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 }

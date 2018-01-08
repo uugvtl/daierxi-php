@@ -37,9 +37,10 @@ class DistrictContainerTest extends UnitTestCase
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES);
+            $container = $provider->init($distributer)->getCreateContainer($params);
         /** assert */
-            $responder = $provider->getCreateResponder($params);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -65,9 +66,9 @@ class DistrictContainerTest extends UnitTestCase
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $provider->getCommitResponder($params);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
 
     }
@@ -85,9 +86,9 @@ class DistrictContainerTest extends UnitTestCase
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getRemoveContainer($params);
         /** assert */
-            $resultBo = $provider->getRemoveResponder($params);
-            $this->assertTrue($resultBo->toggle, $resultBo->msg);
+            $responder = $container->get();
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 }

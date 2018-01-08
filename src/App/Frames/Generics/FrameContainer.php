@@ -2,6 +2,7 @@
 namespace App\Frames\Generics;
 use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
+use App\Globals\Finals\Responder;
 use App\Interfaces\IGetable;
 use const BACKSLASH;
 
@@ -17,6 +18,11 @@ use const BACKSLASH;
  */
 abstract class FrameContainer extends FrameGeneric implements IGetable
 {
+    /**
+     * @return Responder
+     */
+    abstract public function get();
+
     /**
      * @return mixed
      */

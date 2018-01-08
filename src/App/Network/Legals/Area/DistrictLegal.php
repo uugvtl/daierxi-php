@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Legals\Area\District\Create;
+namespace App\Network\Legals\Area;
 use App\Globals\Legals\BaseLegal;
 use Phalcon\Validation\Validator\Numericality;
 use Phalcon\Validation\Validator\PresenceOf;
@@ -7,13 +7,13 @@ use Phalcon\Validation\Validator\PresenceOf;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 8/1/18
- * Time: 13:59
+ * Date: 9/1/18
+ * Time: 01:23
  *
- * Class AppLegal
- * @package App\Network\Modules\Manager\Generics\Creates\Legals\Area\District\Create
+ * Class DistrictLegal
+ * @package App\Network\Legals\Area
  */
-class AppLegal extends BaseLegal
+class DistrictLegal extends BaseLegal
 {
     protected function run()
     {
@@ -45,6 +45,5 @@ class AppLegal extends BaseLegal
             ]
         ];
         $this->validation->add($aValidFields, new Numericality($aValidMessage));
-
     }
 }

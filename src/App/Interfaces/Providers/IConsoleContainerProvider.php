@@ -1,7 +1,6 @@
 <?php
 namespace App\Interfaces\Providers;
-use App\Globals\Finals\Responder;
-
+use App\Frames\Generics\FrameContainer;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,14 +15,14 @@ interface IConsoleContainerProvider  extends IMockContainerProvider
     /**
      * 实初始化一些数据
      * @param array $condz
-     * @return Responder
+     * @return FrameContainer
      */
-    public function getInitResponder(array $condz=[]);
+    public function getInitContainer(array $condz=[]);
 
     /**
      * 排程数据运行
      * @param array $condz
-     * @return Responder
+     * @return FrameContainer
      */
-    public function getCronResponder(array $condz=[]);
+    public function getCronContainer(array $condz=[]);
 }

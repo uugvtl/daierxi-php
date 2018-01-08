@@ -13,12 +13,6 @@ use App\Network\Modules\Manager\Generics\Creates\Factories\Services\CreateServic
  */
 class AppService extends CreateService
 {
-    protected function madeRepositoryInstance()
-    {
-        $this->getGenericInjecter()->setGeneralize(NO);
-        return parent::madeRepositoryInstance();
-    }
-
     protected function getLegalClassString()
     {
         return CateLegal::class;

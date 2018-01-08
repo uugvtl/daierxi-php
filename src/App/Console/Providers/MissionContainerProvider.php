@@ -4,7 +4,6 @@ use App\Console\Modules\Mission\Generics\Crontabs\PackageCrontabConst;
 use App\Console\Modules\Mission\Generics\Crontabs\Services\CrontabService;
 use App\Console\Modules\Mission\Generics\Initializes\PackageInitializeConst;
 use App\Console\Modules\Mission\Generics\Initializes\Services\InitializeServices;
-use App\Globals\Finals\Responder;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,25 +15,13 @@ use App\Globals\Finals\Responder;
  */
 class MissionContainerProvider extends ConsoleContainerProvider
 {
-    /**
-     * 导出数据列表
-     * @param array $condz
-     * @return Responder
-     */
-    public function getInitResponder(array $condz=[])
+    public function getInitContainer(array $condz=[])
     {
-        $container = $this->madeContainer(PackageInitializeConst::PACKAGE, InitializeServices::class, $condz);
-        return $container->get();
+        return $this->madeContainer(PackageInitializeConst::PACKAGE, InitializeServices::class, $condz);
     }
 
-    /**
-     * 排程数据运行
-     * @param array $condz
-     * @return Responder
-     */
-    public function getCronResponder(array $condz=[])
+    public function getCronContainer(array $condz=[])
     {
-        $container = $this->madeContainer(PackageCrontabConst::PACKAGE, CrontabService::class, $condz);
-        return $container->get();
+        return $this->madeContainer(PackageCrontabConst::PACKAGE, CrontabService::class, $condz);
     }
 }

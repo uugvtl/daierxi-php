@@ -10,13 +10,19 @@ use App\Network\Generics\Creates\GenericService;
  * Class CreateService
  * @package App\Network\Modules\Manager\Generics\Creates\Factories\Services
  */
-class CreateService extends GenericService
+abstract class CreateService extends GenericService
 {
 
     protected function madeLogicInstance()
     {
         $this->getGenericInjecter()->setGeneralize(YES);
         return parent::madeLogicInstance();
+    }
+
+    protected function madeRepositoryInstance()
+    {
+        $this->getGenericInjecter()->setGeneralize(NO);
+        return parent::madeRepositoryInstance();
     }
 
 

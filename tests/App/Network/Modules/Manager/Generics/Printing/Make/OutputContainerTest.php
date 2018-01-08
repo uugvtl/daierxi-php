@@ -42,9 +42,10 @@ class OutputContainerTest extends UnitTestCase
             $distributer->init('Make\Output', 'Poutput', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer)->setGeneralize(YES);
+            $container = $provider->init($distributer)->getPrintContainer($params);
         /** assert */
-            $responder = $provider->getPrintResponder($params);
+            $container->getGenericInjecter()->setGeneralize(YES);
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
             if($responder->toggle)
                 $this->assertInstanceOf(IShowAdapter::class, $responder->adapter);
