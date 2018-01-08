@@ -26,7 +26,7 @@ class AppLogic extends CreateLogic
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
         $this->bizDo = $instanceHelper->build(ManagerBaseDo::class, $this->getBizBoClassString());
-        $this->bizDo->init($rows)->setCache($store->getCache());;
+        $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
     protected function run(Responder $responder)
