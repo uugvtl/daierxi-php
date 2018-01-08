@@ -30,7 +30,7 @@ class AccountContainerTest extends UnitTestCase
             $distributer->init('Account', 'Create', DataConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $provider->init($distributer)->setGeneralize(YES);
         /** assert */
             $responder = $provider->getCreateResponder($params);
             $this->assertTrue($responder->toggle, $responder->msg);
