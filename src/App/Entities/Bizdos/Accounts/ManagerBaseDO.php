@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Accounts;
-use App\Globals\Bizes\BaseDo;
+use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Tables\Manager\IManagerTable;
@@ -20,7 +20,7 @@ use App\Tables\Manager\IManagerTable;
  * @property string $real_name      真实姓名
  * @property string $birthday       出生日期
  */
-class ManagerBaseDo extends BaseDo
+class ManagerBaseDO extends BaseDO
 {
 
     protected function column()

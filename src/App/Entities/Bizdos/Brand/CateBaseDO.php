@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Brand;
-use App\Globals\Bizes\BaseDo;
+use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Tables\Brand\ITypeTable;
@@ -16,7 +16,7 @@ use App\Tables\Brand\ITypeTable;
  * @property string $brand_type_name        品牌分类名称
  * @property int    $brand_type_sortrank    排序
  */
-class CateBaseDo extends BaseDo
+class CateBaseDO extends BaseDO
 {
     protected function column()
     {

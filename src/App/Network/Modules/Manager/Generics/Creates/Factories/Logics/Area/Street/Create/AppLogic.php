@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Area\Street\Create;
-use App\Entities\Bizdos\Area\StreetBaseDo;
+use App\Entities\Bizdos\Area\StreetBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
 class AppLogic extends CreateLogic
 {
     /**
-     * @var StreetBaseDo
+     * @var StreetBaseDO
      */
     private $bizDo;
 
@@ -25,7 +25,7 @@ class AppLogic extends CreateLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(StreetBaseDo::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(StreetBaseDO::class, $this->getBizBoClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -40,6 +40,6 @@ class AppLogic extends CreateLogic
      */
     protected function getBizBoClassString()
     {
-        return StreetBaseDo::class;
+        return StreetBaseDO::class;
     }
 }

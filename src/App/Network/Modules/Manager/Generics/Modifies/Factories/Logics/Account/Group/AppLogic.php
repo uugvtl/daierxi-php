@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Account\Group;
-use App\Entities\Bizdos\Accounts\ManagerBaseDo;
+use App\Entities\Bizdos\Accounts\ManagerBaseDO;
 use App\Globals\Finals\Responder;
 use App\Globals\Traits\PersistentTait;
 use App\Helpers\InstanceHelper;
@@ -17,7 +17,7 @@ use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
 class AppLogic extends ModifyLogic
 {
     /**
-     * @var ManagerBaseDo[]
+     * @var ManagerBaseDO[]
      */
     private $bizDos;
 
@@ -37,7 +37,7 @@ class AppLogic extends ModifyLogic
                     'group_id'  =>$group_id,
                     'manager_id'=>$manager_id
                 ];
-                $bizDo = $instanceHelper->build(ManagerBaseDo::class, $this->getBizBoClassString());
+                $bizDo = $instanceHelper->build(ManagerBaseDO::class, $this->getBizBoClassString());
                 $bizDo->init($arguments)->setCache($store->getCache());
                 $this->bizDos[] = $bizDo;
             }
@@ -66,7 +66,7 @@ class AppLogic extends ModifyLogic
      */
     protected function getBizBoClassString()
     {
-        return ManagerBaseDo::class;
+        return ManagerBaseDO::class;
     }
 
 

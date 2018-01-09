@@ -11,7 +11,7 @@ use App\Datasets\Consts\OutputStatusConst;
  * Class Status60Entity
  * @package App\Entities\Bizbos\Make\Status
  */
-class Status60Bo extends StatusBaseBo
+class Status60Bo extends StatusBaseBO
 {
     protected function afterInstance()
     {

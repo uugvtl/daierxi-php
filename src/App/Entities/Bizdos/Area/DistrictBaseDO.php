@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Area;
-use App\Globals\Bizes\BaseDo;
+use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Tables\Area\IDistrictTable;
@@ -26,7 +26,7 @@ use App\Tables\Area\IDistrictTable;
  * @property string $pinyin         拼音
  * @property string $leaf           叶子结点
  */
-class DistrictBaseDo extends BaseDo
+class DistrictBaseDO extends BaseDO
 {
     protected function column()
     {

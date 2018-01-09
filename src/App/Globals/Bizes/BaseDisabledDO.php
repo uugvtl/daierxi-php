@@ -11,7 +11,7 @@ namespace App\Globals\Bizes;
  * @property string $disabled       数据状态开关
  * @property string $items          具体含义需要实现类来定义
  */
-abstract class BaseDisabledDo extends BaseDo
+abstract class BaseDisabledDO extends BaseDO
 {
     protected function column()
     {

@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries\Factories\Logics\Index\Index;
 use App\Datasets\ExcpCode;
-use App\Entities\Bizbos\Signin\AccountBaseBo;
+use App\Entities\Bizbos\Signin\AccountBaseBO;
 use App\Globals\Finals\Responder;
 use App\Globals\Traits\AccountTrait;
 use App\Helpers\InstanceHelper;
@@ -28,7 +28,7 @@ class CookieLogic extends QueryLogic
         if($rows)
         {
             $instanceHelper = InstanceHelper::getInstance();
-            $accountBo = $instanceHelper->build(AccountBaseBo::class, $this->getBizBoClassString());
+            $accountBo = $instanceHelper->build(AccountBaseBO::class, $this->getBizBoClassString());
             $accountBo->init($rows);
 
             if($accountBo->enabled)
@@ -51,7 +51,7 @@ class CookieLogic extends QueryLogic
      */
     protected function getBizBoClassString()
     {
-        return AccountBaseBo::class;
+        return AccountBaseBO::class;
     }
 
 }

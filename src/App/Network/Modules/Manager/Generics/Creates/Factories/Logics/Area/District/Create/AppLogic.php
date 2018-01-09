@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Area\District\Create;
-use App\Entities\Bizdos\Area\DistrictBaseDo;
+use App\Entities\Bizdos\Area\DistrictBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
 class AppLogic extends CreateLogic
 {
     /**
-     * @var DistrictBaseDo
+     * @var DistrictBaseDO
      */
     private $bizDo;
 
@@ -25,7 +25,7 @@ class AppLogic extends CreateLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(DistrictBaseDo::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(DistrictBaseDO::class, $this->getBizBoClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -40,6 +40,6 @@ class AppLogic extends CreateLogic
      */
     protected function getBizBoClassString()
     {
-        return DistrictBaseDo::class;
+        return DistrictBaseDO::class;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Brand\Entity\Create;
-use App\Entities\Bizdos\Brand\EntityBaseDo;
+use App\Entities\Bizdos\Brand\EntityBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\CreateLogic;
 class AppLogic extends CreateLogic
 {
     /**
-     * @var EntityBaseDo
+     * @var EntityBaseDO
      */
     private $bizDo;
 
@@ -25,7 +25,7 @@ class AppLogic extends CreateLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(EntityBaseDo::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(EntityBaseDO::class, $this->getBizBoClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -40,6 +40,6 @@ class AppLogic extends CreateLogic
      */
     protected function getBizBoClassString()
     {
-        return EntityBaseDo::class;
+        return EntityBaseDO::class;
     }
 }

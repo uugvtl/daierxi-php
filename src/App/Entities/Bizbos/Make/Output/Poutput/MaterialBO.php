@@ -1,7 +1,7 @@
 <?php
 namespace App\Entities\Bizbos\Make\Output\Poutput;
 use App\Datasets\DataConst;
-use App\Globals\Bizes\CalcBaseBo;
+use App\Globals\Bizes\CalcBaseBO;
 use App\Helpers\FormulaHelper;
 /**
  * Created by PhpStorm.
@@ -19,7 +19,7 @@ use App\Helpers\FormulaHelper;
  * @property-read float     $recipe_weight      配方单品重量：克
  * @property-read float     $material_weight    配方用到的合成料中原料重量
  */
-class MaterialBo extends CalcBaseBo
+class MaterialBO extends CalcBaseBO
 {
     protected function column()
     {

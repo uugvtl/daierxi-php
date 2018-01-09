@@ -12,7 +12,7 @@ use App\Libraries\Caches\BaseCache;
  * Class BaseDo
  * @package App\Globals\Bizes
  */
-abstract class BaseDo extends BaseBiz
+abstract class BaseDO extends BaseBiz
 {
     /**
      * @var BaseCache

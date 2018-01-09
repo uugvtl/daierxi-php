@@ -15,7 +15,7 @@ use App\Interfaces\Entities\IOutputable;
  * @property int    $output_status      出库状态
  * @property bool   $is_print           是否打印出库单，true 已打印，否则false
  */
-abstract class BaseOutputDo extends BaseDo implements IOutputable
+abstract class BaseOutputDO extends BaseDO implements IOutputable
 {
     /**
      * @var IChangeStatusable

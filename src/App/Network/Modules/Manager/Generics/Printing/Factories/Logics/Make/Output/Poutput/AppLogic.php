@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output\Poutput;
-use App\Entities\Bizbos\Make\Output\Poutput\MaterialBo;
+use App\Entities\Bizbos\Make\Output\Poutput\MaterialBO;
 use App\Entities\Bizdos\Make\OutputBaseDo;
 use App\Globals\Finals\Responder;
 use App\Helpers\ArrayHelper;
@@ -161,7 +161,7 @@ class AppLogic extends PrintLogic
             $rows['recipe_weight']  = $this->bizDo->recipe_weight;
             $rows['output_num']     = $this->bizDo->output_num;
 
-            $materialBo = MaterialBo::getInstance();
+            $materialBo = MaterialBO::getInstance();
             $materialBo->init($rows);
             $list[$materialBo->belongId()][] = $materialBo->calc()->get();
         }

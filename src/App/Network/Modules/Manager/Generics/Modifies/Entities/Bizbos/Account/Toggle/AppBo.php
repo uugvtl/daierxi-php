@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Account\Toggle;
-use App\Globals\Bizes\BaseEnabledDo;
+use App\Globals\Bizes\BaseEnabledDO;
 use App\Helpers\StringHelper;
 use App\Tables\Manager\IManagerTable;
 
@@ -13,7 +13,7 @@ use App\Tables\Manager\IManagerTable;
  * Class AppBo
  * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Account\Toggle
  */
-class AppBo extends BaseEnabledDo
+class AppBo extends BaseEnabledDO
 {
     public function insert()
     {

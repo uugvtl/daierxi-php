@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Account\Toggle;
-use App\Globals\Bizes\BaseEnabledDo;
+use App\Globals\Bizes\BaseEnabledDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
 class AppLogic extends ModifyLogic
 {
     /**
-     * @var BaseEnabledDo
+     * @var BaseEnabledDO
      */
     private $bizDo;
 
@@ -25,7 +25,7 @@ class AppLogic extends ModifyLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(BaseEnabledDo::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(BaseEnabledDO::class, $this->getBizBoClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());;
     }
 

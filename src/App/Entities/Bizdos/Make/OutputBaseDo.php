@@ -1,8 +1,8 @@
 <?php
 namespace App\Entities\Bizdos\Make;
 use App\Entities\Bizbos\Make\Status\PackageStatusConst;
-use App\Entities\Bizbos\Make\Status\StatusBaseBo;
-use App\Globals\Bizes\BaseOutputDo;
+use App\Entities\Bizbos\Make\Status\StatusBaseBO;
+use App\Globals\Bizes\BaseOutputDO;
 use App\Helpers\InstanceHelper;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
@@ -34,7 +34,7 @@ use const BACKSLASH;
  * @property-read int       $output_status
  * @property-read int       $is_print
  */
-class OutputBaseDo extends BaseOutputDo
+class OutputBaseDo extends BaseOutputDO
 {
 
     protected function column()
@@ -72,7 +72,7 @@ class OutputBaseDo extends BaseOutputDo
         $instanceHelper = InstanceHelper::getInstance();
 
         $classString = PackageStatusConst::PACKAGE.BACKSLASH.'Status'.$output_status.'Bo';
-        $statusBo = $instanceHelper->build(StatusBaseBo::class, $classString);
+        $statusBo = $instanceHelper->build(StatusBaseBO::class, $classString);
         return $statusBo->setOutputDo($this);
     }
 

@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Goods;
-use App\Globals\Bizes\BaseDo;
+use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Tables\Goods\ICategoryTable;
@@ -24,7 +24,7 @@ use App\Tables\Goods\ICategoryTable;
  * @property string $seo_keywords       关键字SEO
  * @property string $seo_description    描述SEO
  */
-class CateBaseDo extends BaseDo
+class CateBaseDO extends BaseDO
 {
     protected function column()
     {

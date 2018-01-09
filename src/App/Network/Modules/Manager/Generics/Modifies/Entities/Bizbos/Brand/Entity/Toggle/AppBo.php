@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Brand\Entity\Toggle;
-use App\Globals\Bizes\BaseDisabledDo;
+use App\Globals\Bizes\BaseDisabledDO;
 use App\Helpers\StringHelper;
 use App\Tables\Brand\IBrandTable;
 
@@ -13,7 +13,7 @@ use App\Tables\Brand\IBrandTable;
  * Class AppBo
  * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Brand\Entity\Toggle
  */
-class AppBo extends BaseDisabledDo
+class AppBo extends BaseDisabledDO
 {
     public function insert()
     {

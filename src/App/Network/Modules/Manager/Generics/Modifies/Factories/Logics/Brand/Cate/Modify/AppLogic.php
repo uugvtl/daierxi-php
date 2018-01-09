@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Brand\Cate\Modify;
-use App\Entities\Bizdos\Brand\CateBaseDo;
+use App\Entities\Bizdos\Brand\CateBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
 class AppLogic extends ModifyLogic
 {
     /**
-     * @var CateBaseDo
+     * @var CateBaseDO
      */
     private $bizDo;
 
@@ -25,7 +25,7 @@ class AppLogic extends ModifyLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(CateBaseDo::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(CateBaseDO::class, $this->getBizBoClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -40,6 +40,6 @@ class AppLogic extends ModifyLogic
      */
     protected function getBizBoClassString()
     {
-        return CateBaseDo::class;
+        return CateBaseDO::class;
     }
 }

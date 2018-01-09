@@ -11,7 +11,7 @@ namespace App\Globals\Bizes;
  * @property int    $primary_id     绑定关系时的唯一键值
  * @property array  $attaches       绑定关系时的多个从键值，每个元素具体含义由子类定义
  */
-abstract class BaseAttachDo extends BaseDo
+abstract class BaseAttachDO extends BaseDO
 {
     protected function column()
     {

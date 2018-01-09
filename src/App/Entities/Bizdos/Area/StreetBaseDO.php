@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Area;
-use App\Globals\Bizes\BaseDo;
+use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Tables\Area\IStreetTable;
@@ -17,7 +17,7 @@ use App\Tables\Area\IStreetTable;
  * @property int    $district_id    城镇ID
  * @property string $street_name    街道名称
  */
-class StreetBaseDo extends BaseDo
+class StreetBaseDO extends BaseDO
 {
     final protected function column()
     {

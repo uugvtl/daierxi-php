@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizbos\Signin;
-use App\Globals\Bizes\BaseBo;
+use App\Globals\Bizes\BaseBO;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,7 +17,7 @@ use App\Globals\Bizes\BaseBo;
  * @property string $grade_name     等级名称，有可能为空，因为有的帐号没有等级区分的
  * @property int    $enabled        是否启用，1：启用，0：停用
  */
-class AccountBaseBo extends BaseBo
+class AccountBaseBO extends BaseBO
 {
     protected function column()
     {

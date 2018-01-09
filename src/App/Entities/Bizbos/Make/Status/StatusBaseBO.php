@@ -1,8 +1,8 @@
 <?php
 namespace App\Entities\Bizbos\Make\Status;
 use App\Entities\Bizdos\Make\OutputBaseDo;
-use App\Globals\Bizes\BaseBo;
-use App\Globals\Bizes\BaseOutputDo;
+use App\Globals\Bizes\BaseBO;
+use App\Globals\Bizes\BaseOutputDO;
 use App\Interfaces\Entities\IChangeStatusable;
 
 /**
@@ -15,7 +15,7 @@ use App\Interfaces\Entities\IChangeStatusable;
  * @package App\Entities\Bizbos\Make\Status
  * @property-read int       $output_status
  */
-abstract class StatusBaseBo extends BaseBo implements IChangeStatusable
+abstract class StatusBaseBO extends BaseBO implements IChangeStatusable
 {
     /**
      * @var OutputBaseDo
@@ -30,10 +30,10 @@ abstract class StatusBaseBo extends BaseBo implements IChangeStatusable
     }
 
     /**
-     * @param BaseOutputDo $outputDo
+     * @param BaseOutputDO $outputDo
      * @return $this
      */
-    final public function setOutputDo(BaseOutputDo $outputDo)
+    final public function setOutputDo(BaseOutputDO $outputDo)
     {
         $this->outputDo = $outputDo;
         return $this;

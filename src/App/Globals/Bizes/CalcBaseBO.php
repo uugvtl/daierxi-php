@@ -10,7 +10,7 @@ use App\Globals\Bases\BaseBiz;
  * Class CalcBaseBo
  * @package App\Globals\Bizes
  */
-abstract class CalcBaseBo extends BaseBiz
+abstract class CalcBaseBO extends BaseBiz
 {
     /**
      * 所属实例的 ID

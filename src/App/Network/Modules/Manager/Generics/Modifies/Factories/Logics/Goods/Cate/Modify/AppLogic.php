@@ -1,22 +1,22 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Area\Street\Modify;
-use App\Entities\Bizdos\Area\StreetBaseDO;
+namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Goods\Cate\Modify;
+use App\Entities\Bizdos\Goods\CateBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\ModifyLogic;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 8/1/18
- * Time: 17:08
+ * Date: 10/1/18
+ * Time: 00:41
  *
  * Class AppLogic
- * @package App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Area\Street\Modify
+ * @package App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Goods\Cate\Modify
  */
 class AppLogic extends ModifyLogic
 {
     /**
-     * @var StreetBaseDO
+     * @var CateBaseDO
      */
     private $bizDo;
 
@@ -25,7 +25,7 @@ class AppLogic extends ModifyLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(StreetBaseDO::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(CateBaseDO::class, $this->getBizBoClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -40,6 +40,6 @@ class AppLogic extends ModifyLogic
      */
     protected function getBizBoClassString()
     {
-        return StreetBaseDO::class;
+        return CateBaseDO::class;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Brand;
-use App\Globals\Bizes\BaseDo;
+use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Tables\Brand\IBrandTable;
@@ -26,7 +26,7 @@ use App\Tables\Brand\IBrandTable;
  * @property string $is_supply              品牌广告图
  * @property string $is_remove              品牌广告图
  */
-class EntityBaseDo extends BaseDo
+class EntityBaseDO extends BaseDO
 {
     protected function column()
     {
