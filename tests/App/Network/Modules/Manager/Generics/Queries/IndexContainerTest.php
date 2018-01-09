@@ -3,7 +3,7 @@ namespace App\Network\Modules\Manager\Generics\Queries;
 use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use UnitTestCase;
+use AppTestCase;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +13,7 @@ use UnitTestCase;
  * Class IndexContainerTest
  * @package App\Network\Modules\Manager\Generics\Queries
  */
-class IndexContainerTest extends UnitTestCase
+class IndexContainerTest extends AppTestCase
 {
     public function test_get_list_for_default()
     {

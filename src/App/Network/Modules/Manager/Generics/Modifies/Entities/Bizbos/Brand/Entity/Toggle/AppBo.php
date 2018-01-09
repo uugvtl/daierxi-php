@@ -1,19 +1,19 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Account\Toggle;
-use App\Globals\Bizes\BaseEnabledDo;
+namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Brand\Entity\Toggle;
+use App\Globals\Bizes\BaseDisabledDo;
 use App\Helpers\StringHelper;
-use App\Tables\Manager\IManagerTable;
+use App\Tables\Brand\IBrandTable;
 
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 8/1/18
- * Time: 02:49
+ * Date: 9/1/18
+ * Time: 18:22
  *
  * Class AppBo
- * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Account\Toggle
+ * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Brand\Entity\Toggle
  */
-class AppBo extends BaseEnabledDo
+class AppBo extends BaseDisabledDo
 {
     public function insert()
     {
@@ -24,26 +24,25 @@ class AppBo extends BaseEnabledDo
     {
         if($this->items)
         {
-            $table = IManagerTable::Name;
+            $table = IBrandTable::Name;
             $stringHelper = StringHelper::getInstance();
 
             $ids = explode(',', $this->items);
             $sqls = array_reduce($ids, function($result, $id) use ($table, $stringHelper){
-                $quote_enabled = $stringHelper->quoteValue($this->enabled);
+                $quote_disabled = $stringHelper->quoteValue($this->disabled);
                 $result[] ="UPDATE 
                                 {$table} 
                             SET 
-                                enabled={$quote_enabled}
+                                is_remove={$quote_disabled}
                             WHERE 
-                                manager_id={$id}\n";
+                                brand_id={$id}\n";
                 return $result;
             });
 
             $toggle = $this->getCache()->getDao()->submit($sqls);
-            $this->setPersistent(true);
+            $this->setPersistent(YES);
             $toggle && $this->getCache()->updateCacheDependencies($table);
         }
         return $this;
-
     }
 }

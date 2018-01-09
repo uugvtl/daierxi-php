@@ -3,7 +3,7 @@ namespace App\Network\Modules\Manager\Generics\Removes;
 use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use UnitTestCase;
+use AppTestCase;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +13,7 @@ use UnitTestCase;
  * Class CacheContainerTest
  * @package App\Network\Modules\Manager\Generics\Removes
  */
-class CacheContainerTest extends UnitTestCase
+class CacheContainerTest extends AppTestCase
 {
     public function test_clear_cache()
     {

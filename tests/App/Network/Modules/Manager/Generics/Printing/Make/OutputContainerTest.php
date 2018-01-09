@@ -4,7 +4,7 @@ use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Adapters\IShowAdapter;
 use App\Network\Providers\ManagerContainerProvider;
-use UnitTestCase;
+use AppTestCase;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,7 +14,7 @@ use UnitTestCase;
  * Class OutputContainerTest
  * @package App\Network\Modules\Manager\Generics\Printing\Make
  */
-class OutputContainerTest extends UnitTestCase
+class OutputContainerTest extends AppTestCase
 {
     public function setUp()
     {

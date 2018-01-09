@@ -4,7 +4,7 @@ use App\Datasets\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Adapters\IShowAdapter;
 use App\Network\Providers\ManagerContainerProvider;
-use UnitTestCase;
+use AppTestCase;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -14,7 +14,7 @@ use UnitTestCase;
  * Class PackingContainerTest
  * @package App\Network\Modules\Manager\Generics\Exports\Warehouse
  */
-class PackingContainerTest extends UnitTestCase
+class PackingContainerTest extends AppTestCase
 {
     public function test_get_list_for_export()
     {

@@ -11,7 +11,7 @@ use Phalcon\Filter;
 /**
  * Class UnitTestCase
  */
-abstract class UnitTestCase extends PhalconTestCase
+abstract class AppTestCase extends PhalconTestCase
 {
 
     /**
