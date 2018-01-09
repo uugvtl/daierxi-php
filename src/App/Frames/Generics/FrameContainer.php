@@ -1,6 +1,5 @@
 <?php
 namespace App\Frames\Generics;
-use App\Console\Generics\Crontabs\GenericService;
 use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Finals\Responder;
@@ -24,10 +23,14 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
     abstract public function get();
 
 
+    /**
+     * 设置 相关模块 Service 的基类名称
+     * @return $this
+     */
     abstract protected function setBaseServiceString();
 
     /**
-     * @return GenericService
+     * @return FrameService
      */
     final protected function madeService()
     {
@@ -39,7 +42,7 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
 
         $instanceHelper = InstanceHelper::getInstance();
 
-        $serviceInstance = $instanceHelper->build(GenericService::class, $servicename);
+        $serviceInstance = $instanceHelper->build(FrameService::class, $servicename);
         $serviceInstance->setGenericInjecter($cloneGenericInjecter->init($serviceInstance));
 
         return $serviceInstance;

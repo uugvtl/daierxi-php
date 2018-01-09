@@ -33,29 +33,24 @@ abstract class GenericService extends FrameService
 
     }
 
-    protected function madeRepositoryInstance()
+    /**
+     * 设置 相关模块 Repository 的基类名称
+     * @return $this
+     */
+    protected function setBaseRepositoryString()
     {
-        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
-
         $this->getGenericInjecter()->setBaseClassString('ModifyRepository');
-        $repositoryName = $this->getRepositoryClassString();
-        $instanceHelper = InstanceHelper::getInstance();
-
-        $repository = $instanceHelper->build(GenericRepository::class, $repositoryName);
-        return $repository->setGenericInjecter($cloneGenericInjecter->init($repository));
+        return $this;
     }
 
-    protected function madeLogicInstance()
+    /**
+     * 设置 相关模块 Logic 的基类名称
+     * @return $this
+     */
+    protected function setBaseLogicString()
     {
-        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
-
         $this->getGenericInjecter()->setBaseClassString('ModifyLogic');
-        $logicName      = $this->getLogicClassString();
-        $instanceHelper = InstanceHelper::getInstance();
-
-
-
-        $logic = $instanceHelper->build(GenericLogic::class, $logicName);
-        return $logic->setGenericInjecter($cloneGenericInjecter->init($logic));
+        return $this;
     }
+
 }

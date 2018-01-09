@@ -2,6 +2,7 @@
 namespace App\Frames\Generics;
 use App\Datasets\DataConst;
 use App\Frames\FrameGeneric;
+use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;
 /**
  * 用来生成 Repository 和 Logic 相关类的工厂类
@@ -16,14 +17,56 @@ use App\Interfaces\Generics\IRespondable;
 abstract class FrameService extends FrameGeneric implements IRespondable
 {
 
-    abstract protected function madeRepositoryInstance();
+//    abstract protected function madeRepositoryInstance();
+//
+//    abstract protected function madeLogicInstance();
 
-    abstract protected function madeLogicInstance();
+    /**
+     * 设置 相关模块 Repository 的基类名称
+     * @return $this
+     */
+    abstract protected function setBaseRepositoryString();
+
+    /**
+     * 设置 相关模块 Logic 的基类名称
+     * @return $this
+     */
+    abstract protected function setBaseLogicString();
+
+    /**
+     * @return FrameRepository
+     */
+    final protected function madeRepositoryInstance()
+    {
+        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
+
+        $this->setBaseRepositoryString();
+        $repositoryName = $this->getRepositoryClassString();
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $repository = $instanceHelper->build(FrameRepository::class, $repositoryName);
+        return $repository->setGenericInjecter($cloneGenericInjecter->init($repository));
+    }
+
+    /**
+     * @return FrameLogic
+     */
+    final protected function madeLogicInstance()
+    {
+        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
+        $this->setBaseLogicString();
+        $logicName      = $this->getLogicClassString();
+        $instanceHelper = InstanceHelper::getInstance();
+
+        $logic = $instanceHelper->build(FrameLogic::class, $logicName);
+        return $logic->setGenericInjecter($cloneGenericInjecter->init($logic));
+    }
+
 
     /**
      * @return string
      */
-    final protected function getRepositoryClassString()
+    private function getRepositoryClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
@@ -47,7 +90,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     /**
      * @return string
      */
-    final protected function getLogicClassString()
+    private function getLogicClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
