@@ -1,7 +1,6 @@
 <?php
 namespace App\Console\Generics\Crontabs;
 use App\Frames\Generics\FrameContainer;
-use App\Helpers\InstanceHelper;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,21 +12,8 @@ use App\Helpers\InstanceHelper;
  */
 abstract class GenericContainer extends FrameContainer
 {
-    /**
-     * @return GenericService
-     */
-    protected function madeService()
+    protected function setBaseServiceString()
     {
-        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
-
-        $this->getGenericInjecter()->setBaseClassString('GenericService');
-        $servicename = $this->getServiceClassString();
-
-        $instanceHelper = InstanceHelper::getInstance();
-
-        $serviceInstance = $instanceHelper->build(GenericService::class, $servicename);
-        $serviceInstance->setGenericInjecter($cloneGenericInjecter->init($serviceInstance));
-
-        return $serviceInstance;
+        $this->getGenericInjecter()->setBaseClassString('CrontabService');
     }
 }
