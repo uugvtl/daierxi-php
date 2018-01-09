@@ -35,7 +35,7 @@ abstract class GenericService extends FrameService
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
-        $this->$this->getGenericInjecter()->setBaseClassString('CreateLogic');
+        $this->getGenericInjecter()->setBaseClassString('CreateLogic');
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
 

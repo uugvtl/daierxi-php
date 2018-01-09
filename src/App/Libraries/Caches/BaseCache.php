@@ -143,7 +143,7 @@ abstract class BaseCache extends FrameSingle
         if(empty($lifetime))
             $lifetime=$this->lifetime;
 
-        $toggle = $this->$this->cache->save($key, $data, $lifetime);
+        $toggle = $this->cache->save($key, $data, $lifetime);
         return $toggle;
     }
 
@@ -156,8 +156,8 @@ abstract class BaseCache extends FrameSingle
     public function get($key)
     {
         $data=null;
-        if($this->$this->cache->exists($key)){
-            $data = $this->$this->cache->get($key);
+        if($this->cache->exists($key)){
+            $data = $this->cache->get($key);
         }
         return $data;
 
@@ -170,7 +170,7 @@ abstract class BaseCache extends FrameSingle
      */
     public function del($key)
     {
-        return $this->$this->cache->delete($key);
+        return $this->cache->delete($key);
     }
 
 

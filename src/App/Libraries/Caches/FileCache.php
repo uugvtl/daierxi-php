@@ -23,7 +23,7 @@ class FileCache extends BaseCache
     public function clean()
     {
         $fileHelper = FileHelper::getInstance();
-        $aOptions   = $this->$this->cache->getOptions();
+        $aOptions   = $this->cache->getOptions();
         $cacheDir   = $aOptions['cacheDir'];
 
         $toggle = false;
