@@ -39,9 +39,10 @@ class AppDao extends FrameDao
                 if($s)
                 {
                     $this->db->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-            $numbers = $this->db->affectedRows();
+
             $this->db->commit();
 
         }
@@ -71,9 +72,9 @@ class AppDao extends FrameDao
                 if($s)
                 {
                     $this->db->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-            $numbers = $this->db->affectedRows();
 
         }
 
@@ -130,9 +131,9 @@ class AppDao extends FrameDao
                 if($s)
                 {
                     $this->db->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-            $numbers = $this->db->affectedRows();
             $this->db->commit();
 
         }
@@ -176,10 +177,9 @@ class AppDao extends FrameDao
                 if($s)
                 {
                     $this->db->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-
-            $numbers = $this->db->affectedRows();
 
         }
 

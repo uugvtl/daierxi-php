@@ -3,6 +3,7 @@ namespace App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Brand\Ca
 use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
+use App\Tables\Brand\IBrandTable;
 use App\Tables\Brand\ITypeTable;
 
 /**
@@ -16,7 +17,7 @@ use App\Tables\Brand\ITypeTable;
  */
 class AppLogic extends RemoveLogic
 {
-    private $sql;
+    private $sqls=[];
 
     protected function beforeBegin()
     {
@@ -24,30 +25,31 @@ class AppLogic extends RemoveLogic
 
         if($aIds)
         {
-
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND brand_type_id IN ({$quoteIds})";
-            $this->sql = $sqlHelper->getDeleteString(ITypeTable::Name, $where);
-
+            $this->sqls[] = $sqlHelper->getDeleteString(ITypeTable::Name, $where);
+            $this->sqls[] = $sqlHelper->getUpdateString(['brand_type_id' => 0], IBrandTable::Name, $where);
         }
     }
 
     protected function run(Responder $responder)
     {
-        if($this->sql)
+        if($this->sqls)
         {
             $store = $this->getStore();
             $cache = $store->getCache();
             $dao = $cache->getDao();
-            $toggle = $dao->submit($this->sql);
+            $toggle = $dao->submit($this->sqls);
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(ITypeTable::Name);
+                $cache->updateCacheDependencies([ITypeTable::Name, IBrandTable::Name]);
 
             }
         }
 
     }
+
+
 }

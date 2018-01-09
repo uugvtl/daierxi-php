@@ -53,9 +53,9 @@ class RewzDao extends FrameDao
                 if($s)
                 {
                     $this->rewz->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-            $numbers = $this->rewz->affectedRows();
             $this->rewz->commit();
 
         }
@@ -85,9 +85,9 @@ class RewzDao extends FrameDao
                 if($s)
                 {
                     $this->rewz->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-            $numbers = $this->rewz->affectedRows();
 
         }
 
@@ -144,9 +144,9 @@ class RewzDao extends FrameDao
                 if($s)
                 {
                     $this->rewz->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-            $numbers = $this->rewz->affectedRows();
             $this->rewz->commit();
 
         }
@@ -190,10 +190,9 @@ class RewzDao extends FrameDao
                 if($s)
                 {
                     $this->rewz->execute($s);
+                    $numbers+= $this->db->affectedRows();
                 }
             }
-
-            $numbers = $this->rewz->affectedRows();
 
         }
 
