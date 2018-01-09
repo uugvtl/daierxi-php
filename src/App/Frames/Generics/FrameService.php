@@ -36,7 +36,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     /**
      * @return FrameRepository
      */
-    final protected function madeRepositoryInstance()
+    protected function madeRepositoryInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
@@ -51,7 +51,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     /**
      * @return FrameLogic
      */
-    final protected function madeLogicInstance()
+    protected function madeLogicInstance()
     {
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
         $this->setBaseLogicString();

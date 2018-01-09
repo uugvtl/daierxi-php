@@ -16,7 +16,7 @@ abstract class GenericService extends FrameService
      * 设置 相关模块 Repository 的基类名称
      * @return $this
      */
-    protected function setBaseRepositoryString()
+    final protected function setBaseRepositoryString()
     {
         $this->getGenericInjecter()->setBaseClassString('ExportRepository');
         return $this;
@@ -26,7 +26,7 @@ abstract class GenericService extends FrameService
      * 设置 相关模块 Logic 的基类名称
      * @return $this
      */
-    protected function setBaseLogicString()
+    final protected function setBaseLogicString()
     {
         $this->getGenericInjecter()->setBaseClassString('ExportLogic');
         return $this;

@@ -12,7 +12,7 @@ use App\Frames\Generics\FrameContainer;
  */
 abstract class GenericContainer extends FrameContainer
 {
-    protected function setBaseServiceString()
+    final protected function setBaseServiceString()
     {
         $this->getGenericInjecter()->setBaseClassString('ExportService');
     }
