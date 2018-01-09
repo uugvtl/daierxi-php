@@ -43,7 +43,7 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
         $instanceHelper = InstanceHelper::getInstance();
 
         $serviceInstance = $instanceHelper->build(FrameService::class, $servicename);
-        $serviceInstance->setGenericInjecter($cloneGenericInjecter->init($serviceInstance));
+        $serviceInstance->setGenericInjecter($cloneGenericInjecter);
 
         return $serviceInstance;
     }

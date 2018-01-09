@@ -45,7 +45,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
         $instanceHelper = InstanceHelper::getInstance();
 
         $repository = $instanceHelper->build(FrameRepository::class, $repositoryName);
-        return $repository->setGenericInjecter($cloneGenericInjecter->init($repository));
+        return $repository->setGenericInjecter($cloneGenericInjecter);
     }
 
     /**
@@ -59,7 +59,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
         $instanceHelper = InstanceHelper::getInstance();
 
         $logic = $instanceHelper->build(FrameLogic::class, $logicName);
-        return $logic->setGenericInjecter($cloneGenericInjecter->init($logic));
+        return $logic->setGenericInjecter($cloneGenericInjecter);
     }
 
 

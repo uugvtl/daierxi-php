@@ -3,9 +3,6 @@ namespace App\Injecters;
 use App\Globals\Bases\BaseClass;
 use App\Globals\Finals\Parameter;
 use App\Globals\Finals\Distributer;
-use App\Interfaces\Generics\IPreservable;
-use App\Interfaces\Generics\IRespondable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -44,28 +41,6 @@ class GenericInjecter extends BaseClass
      * @var Parameter
      */
     private $parameter;
-
-    /**
-     * @var IRespondable|IPreservable
-     */
-    private $owner;
-
-
-
-    final public function init(...$args)
-    {
-        $owner = $args[0];
-        $this->owner = $owner;
-        return $this;
-    }
-
-    /**
-     * @return IPreservable|IRespondable
-     */
-    final public function owner()
-    {
-        return $this->owner;
-    }
 
     /**
      * @param Distributer $distributer
