@@ -4,6 +4,7 @@ use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
 use App\Tables\Area\IDistrictTable;
+use App\Tables\Area\IStreetTable;
 
 /**
  * Created by PhpStorm.
@@ -16,7 +17,7 @@ use App\Tables\Area\IDistrictTable;
  */
 class AppLogic extends RemoveLogic
 {
-    private $sql;
+    private $sqls = [];
 
     protected function beforeBegin()
     {
@@ -24,23 +25,22 @@ class AppLogic extends RemoveLogic
 
         if($aIds)
         {
-
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND id IN ({$quoteIds})";
-            $this->sql = $sqlHelper->getDeleteString(IDistrictTable::Name, $where);
-
+            $this->sqls[] = $sqlHelper->getDeleteString(IDistrictTable::Name, $where);
+            $this->sqls[] = $sqlHelper->getUpdateString(['district_id' => 0], IStreetTable::Name, " AND district_id IN ({$quoteIds})");
         }
     }
 
     protected function run(Responder $responder)
     {
-        if($this->sql)
+        if($this->sqls)
         {
             $store = $this->getStore();
             $cache = $store->getCache();
             $dao = $cache->getDao();
-            $toggle = $dao->submit($this->sql);
+            $toggle = $dao->submit($this->sqls);
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
