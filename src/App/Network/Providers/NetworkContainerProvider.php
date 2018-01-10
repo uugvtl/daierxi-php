@@ -17,13 +17,14 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
 {
     /**
      * 获取 GenericContainer 类名的字符串
-     * @param string $catalog
+     * @param string $containerPrefix
      * @return string
      */
-    final protected function getGenericContainerString($catalog)
+    final protected function getGenericContainerString($containerPrefix=ClassConst::GENERIC_PREFIX)
     {
-        $containerString = PackageGenericConst::PACKAGE.BACKSLASH.
-        $catalog.BACKSLASH.
+        $documentString = $containerPrefix.ClassConst::CONTAINER_SUFFIX;
+        $containerString = PackageGenericConst::PACKAGE.BACKSLASH .
+            $documentString.BACKSLASH.
         ClassConst::GENERIC_PREFIX.ClassConst::CONTAINER_SUFFIX;
 
         return $containerString;
