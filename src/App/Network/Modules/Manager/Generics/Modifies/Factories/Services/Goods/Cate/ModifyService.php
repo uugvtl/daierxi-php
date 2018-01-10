@@ -1,6 +1,5 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Services\Goods\Cate;
-use App\Network\Modules\Manager\Common\Factories\Logics\Goods\Cate\ModifyLogic;
 use App\Network\Modules\Manager\Generics\Modifies\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
@@ -17,10 +16,5 @@ class ModifyService extends AppService
     {
         $this->getGenericInjecter()->setGeneralize(NO);
         return parent::madeRepositoryInstance();
-    }
-
-    protected function getLogicClassString()
-    {
-        return ModifyLogic::class;
     }
 }

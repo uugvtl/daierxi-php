@@ -1,7 +1,5 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Services\Goods\Cate;
-use App\Network\Modules\Manager\Common\Factories\Logics\Goods\Cate\ModifyLogic;
-use App\Network\Modules\Manager\Generics\Modifies\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,16 +9,11 @@ use App\Network\Modules\Manager\Generics\Modifies\Factories\Services\AppService;
  * Class AppService
  * @package App\Network\Modules\Manager\Generics\Modifies\Factories\Services\Goods\Cate\Upload
  */
-class UploadService extends AppService
+class UploadService extends ModifyService
 {
-    protected function madeRepositoryInstance()
-    {
-        $this->getGenericInjecter()->setGeneralize(NO);
-        return parent::madeRepositoryInstance();
-    }
-
     protected function getLogicClassString()
     {
-        return ModifyLogic::class;
+        $this->getGenericInjecter()->getDistributer()->setActString('Modify');
+        return parent::getLogicClassString();
     }
 }
