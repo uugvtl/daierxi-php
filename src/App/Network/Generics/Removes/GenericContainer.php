@@ -10,4 +10,11 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Network\Generics\Removes
  */
-abstract class GenericContainer extends FrameContainer {}
+abstract class GenericContainer extends FrameContainer
+{
+    public function get()
+    {
+        $service = $this->madeService();
+        return $service->get();
+    }
+}

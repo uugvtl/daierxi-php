@@ -10,12 +10,4 @@ use App\Network\Generics\Printing\GenericContainer;
  * Class PrintContainer
  * @package App\Network\Modules\Manager\Generics\Printing
  */
-class PrintContainer extends GenericContainer
-{
-    public function get()
-    {
-        $service = $this->madeService();
-        return $service->get();
-
-    }
-}
+class PrintContainer extends GenericContainer {}

@@ -10,11 +10,4 @@ use App\Network\Generics\Modifies\GenericContainer;
  * Class ModifyContainer
  * @package App\Network\Modules\Manager\Generics\Modifies
  */
-class ModifyContainer extends GenericContainer
-{
-    public function get()
-    {
-        $service = $this->madeService();
-        return $service->get();
-    }
-}
+class ModifyContainer extends GenericContainer {}

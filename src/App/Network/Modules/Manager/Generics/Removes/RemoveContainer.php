@@ -10,13 +10,4 @@ use App\Network\Generics\Removes\GenericContainer;
  * Class RemoveContainer
  * @package App\Network\Modules\Manager\Generics\Removes
  */
-class RemoveContainer extends GenericContainer
-{
-    public function get()
-    {
-        $service = $this->madeService();
-        return $service->get();
-    }
-
-
-}
+class RemoveContainer extends GenericContainer {}

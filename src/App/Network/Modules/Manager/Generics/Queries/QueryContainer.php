@@ -10,14 +10,4 @@ use App\Network\Generics\Queries\GenericContainer;
  * Class QueryContainer
  * @package App\Network\Modules\Manager\Generics\Queries
  */
-class QueryContainer extends GenericContainer
-{
-
-    public function get()
-    {
-        $service = $this->madeService();
-        return $service->get();
-
-    }
-
-}
+class QueryContainer extends GenericContainer {}

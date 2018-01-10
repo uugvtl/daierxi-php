@@ -10,6 +10,4 @@ use App\Frames\Generics\FrameRepository;
  * Class GenericRepository
  * @package App\Network\Generics\Creates
  */
-abstract class GenericRepository extends FrameRepository
-{
-}
+abstract class GenericRepository extends FrameRepository {}

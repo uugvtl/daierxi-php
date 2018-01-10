@@ -10,15 +10,4 @@ use App\Network\Generics\Creates\GenericContainer;
  * Class CreateContainer
  * @package App\Network\Modules\Manager\Generics\Creates
  */
-class CreateContainer extends GenericContainer
-{
-    public function get()
-    {
-        $this->getGenericInjecter()->setGeneralize(YES);
-        $service = $this->madeService();
-        return $service->get();
-
-    }
-
-
-}
+class CreateContainer extends GenericContainer {}

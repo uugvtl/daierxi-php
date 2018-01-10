@@ -10,4 +10,13 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Network\Generics\Creates
  */
-abstract class GenericContainer extends FrameContainer {}
+abstract class GenericContainer extends FrameContainer
+{
+    public function get()
+    {
+        $this->getGenericInjecter()->setGeneralize(YES);
+        $service = $this->madeService();
+        return $service->get();
+
+    }
+}
