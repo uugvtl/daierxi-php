@@ -1,5 +1,5 @@
 <?php
-namespace App\Datasets;
+namespace App\Datasets\Consts;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -52,32 +52,67 @@ final class DataConst
     const FACTORY_CATALOG = 'Factories';
 
     /**
+     *
+     */
+    const FACTORY_PREFIX = 'Factory';
+
+    /**
      * 新增功能目录名称
      */
-    const CATALOG_CREATE    = 'Creates';
+    const CREATE_CATALOG = 'Creates';
+
+    /**
+     * 新增功能类前辍
+     */
+    const CREATE_PREFIX = 'Create';
 
     /**
      * 修改功能目录名称
      */
-    const CATALOG_MODIFY    = 'Modifies';
+    const MODIFY_CATALOG = 'Modifies';
+
+    /**
+     * 修改功能类前辍
+     */
+    const MODIFY_PREFIX = 'Modify';
 
     /**
      * 查询功能目录名称
      */
-    const CATALOG_QUERY     = 'Queries';
+    const QUERY_CATALOG     = 'Queries';
+
+    /**
+     * 查询功能类前辍
+     */
+    const QUERY_PREFIX = 'Query';
 
     /**
      * 打印功能目录名称
      */
-    const CATALOG_PRINT     = 'Printing';
+    const PRINT_CATALOG     = 'Printing';
+
+    /**
+     * 打印功能类前辍
+     */
+    const PRINT_PREFIX = 'Print';
 
     /**
      * 导出功能目录名称
      */
-    const CATALOG_EXPORT    = 'Exports';
+    const EXPORT_CATALOG    = 'Exports';
+
+    /**
+     * 导出功能类前辍
+     */
+    const EXPORT_PREFIX = 'Export';
 
     /**
      * 删除功能目录名称
      */
-    const CATALOG_REMOVE    = 'Removes';
+    const REMOVE_CATALOG    = 'Removes';
+
+    /**
+     * 删除功能类前辍
+     */
+    const REMOVE_PREFIX = 'Remove';
 }

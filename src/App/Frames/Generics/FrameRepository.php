@@ -1,6 +1,6 @@
 <?php
 namespace App\Frames\Generics;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Finals\PageSlice;
 use App\Globals\Sqlangs\BaseFields;
@@ -49,7 +49,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
 
     protected function afterInstance()
     {
-        $this->sqlangCatalog = DataConst::CATALOG_QUERY;
+        $this->sqlangCatalog = DataConst::QUERY_CATALOG;
     }
 
 

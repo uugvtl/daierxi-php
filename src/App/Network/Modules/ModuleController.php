@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Network\Common\NetController;

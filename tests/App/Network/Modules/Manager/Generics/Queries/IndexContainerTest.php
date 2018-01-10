@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;

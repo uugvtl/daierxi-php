@@ -1,6 +1,6 @@
 <?php
 namespace App\Frames\Generics;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Frames\FrameGeneric;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;

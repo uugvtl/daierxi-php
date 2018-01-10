@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Exports\Warehouse;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Adapters\IShowAdapter;
 use App\Network\Providers\ManagerContainerProvider;

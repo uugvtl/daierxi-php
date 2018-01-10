@@ -1,6 +1,6 @@
 <?php
 namespace App\Entities\Bizbos\Make\Output\Poutput;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Globals\Bizes\CalcBaseBO;
 use App\Helpers\FormulaHelper;
 /**

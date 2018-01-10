@@ -1,6 +1,6 @@
 <?php
 namespace App\Helpers;
-use App\Datasets\DataConst;
+use App\Datasets\Consts\DataConst;
 use App\Globals\Bases\BaseSingle;
 
 /**
