@@ -107,7 +107,7 @@ class GenericInjecter extends BaseClass
      * @param bool $boolean     使用为true,否则为false
      * @return $this
      */
-    final public function setGeneralize($boolean=false)
+    final public function useGeneralize($boolean=false)
     {
         $this->generalize = $boolean;
         return $this;

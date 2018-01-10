@@ -14,7 +14,7 @@ class GenericContainer extends FrameContainer
 {
     public function get()
     {
-        $this->getGenericInjecter()->setGeneralize(YES);
+        $this->getGenericInjecter()->useGeneralize(YES);
         return parent::get();
     }
 }

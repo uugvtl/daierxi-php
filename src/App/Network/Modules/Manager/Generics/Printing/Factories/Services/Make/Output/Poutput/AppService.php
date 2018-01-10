@@ -14,13 +14,13 @@ class AppService extends PrintService
 {
     protected function madeRepositoryInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(NO);
+        $this->getGenericInjecter()->useGeneralize(NO);
         return parent::madeRepositoryInstance();
     }
 
     protected function madeLogicInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(YES);
+        $this->getGenericInjecter()->useGeneralize(YES);
         return parent::madeLogicInstance();
     }
 }

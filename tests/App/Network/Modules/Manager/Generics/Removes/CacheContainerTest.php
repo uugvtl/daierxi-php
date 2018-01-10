@@ -28,7 +28,7 @@ class CacheContainerTest extends AppTestCase
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);
         /** assert */
-            $container->getGenericInjecter()->setGeneralize(YES);
+            $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }

@@ -30,13 +30,13 @@ class AppService extends QueryService
 
     protected function madeRepositoryInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(YES);
+        $this->getGenericInjecter()->useGeneralize(YES);
         return parent::madeRepositoryInstance();
     }
 
     protected function madeLogicInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(YES);
+        $this->getGenericInjecter()->useGeneralize(YES);
         return parent::madeLogicInstance();
     }
 

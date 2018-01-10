@@ -15,13 +15,13 @@ class AppService extends GenericService
 
     protected function madeLogicInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(YES);
+        $this->getGenericInjecter()->useGeneralize(YES);
         return parent::madeLogicInstance();
     }
 
     protected function madeRepositoryInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(NO);
+        $this->getGenericInjecter()->useGeneralize(NO);
         return parent::madeRepositoryInstance();
     }
 

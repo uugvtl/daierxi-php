@@ -14,7 +14,7 @@ class DisabledService extends AppService
 {
     protected function madeRepositoryInstance()
     {
-        $this->getGenericInjecter()->setGeneralize(NO);
+        $this->getGenericInjecter()->useGeneralize(NO);
         return parent::madeRepositoryInstance();
     }
 

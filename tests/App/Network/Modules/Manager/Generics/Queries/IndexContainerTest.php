@@ -29,7 +29,7 @@ class IndexContainerTest extends AppTestCase
             $provider->init($distributer);
         /** assert */
             $container = $provider->getQueryContainer($params);
-            $container->getGenericInjecter()->setGeneralize(YES);
+            $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
@@ -47,7 +47,7 @@ class IndexContainerTest extends AppTestCase
             $provider->init($distributer);
         /** assert */
             $container = $provider->getQueryContainer($params);
-            $container->getGenericInjecter()->setGeneralize(YES)->getDistributer()->setPrefixString('Cookie');
+            $container->getGenericInjecter()->useGeneralize(YES)->getDistributer()->setPrefixString('Cookie');
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }

@@ -53,7 +53,7 @@ class IndexController extends ComController
             $posts['password']  = $password = $request->getPost('password', 'trim');
 
             $container = $this->provider->getQueryContainer($posts);
-            $container->getGenericInjecter()->setGeneralize(YES);
+            $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $errorMsg = $responder->msg;
 
@@ -65,7 +65,7 @@ class IndexController extends ComController
             $cookieValue = $cookiesHelper->setCookies($this->cookies)->getLoginCookie(LOGIN_MANAGER);
 
             $container = $this->provider->getQueryContainer($cookieValue);
-            $container->getGenericInjecter()->setGeneralize(YES)->getDistributer()->setPrefixString('Cookie');
+            $container->getGenericInjecter()->useGeneralize(YES)->getDistributer()->setPrefixString('Cookie');
             $responder = $container->get();
             $errorMsg = $responder->msg;
 

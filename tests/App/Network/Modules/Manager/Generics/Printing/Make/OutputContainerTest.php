@@ -44,7 +44,7 @@ class OutputContainerTest extends AppTestCase
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getPrintContainer($params);
         /** assert */
-            $container->getGenericInjecter()->setGeneralize(YES);
+            $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
             if($responder->toggle)

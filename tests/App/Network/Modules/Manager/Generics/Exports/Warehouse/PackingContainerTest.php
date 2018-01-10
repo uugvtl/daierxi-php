@@ -26,7 +26,7 @@ class PackingContainerTest extends AppTestCase
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getExportContainer($params);
         /** assert */
-            $container->getGenericInjecter()->setGeneralize(YES);
+            $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
             if($responder->toggle)
