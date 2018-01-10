@@ -18,12 +18,12 @@ class AppLegal extends CateLegal
     {
         parent::run();
 
-        $verifyFields = ['cate_id'];
-        $verifyMessage=[
+        $aVerifyFields = ['cate_id'];
+        $aVerifyMessage=[
             'cate_id'        => $this->t('goods_cate', 'numericality_cate_id')
         ];
-        $this->validation->add($verifyFields, new Numericality([
-            'message'=>$verifyMessage
+        $this->validation->add($aVerifyFields, new Numericality([
+            'message'=>$aVerifyMessage
         ]));
     }
 }

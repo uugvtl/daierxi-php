@@ -17,10 +17,6 @@ use App\Interfaces\Generics\IRespondable;
 abstract class FrameService extends FrameGeneric implements IRespondable
 {
 
-//    abstract protected function madeRepositoryInstance();
-//
-//    abstract protected function madeLogicInstance();
-
     /**
      * 设置 相关模块 Repository 的基类名称
      * @return $this
@@ -34,6 +30,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     abstract protected function setBaseLogicString();
 
     /**
+     * 创造 Repository 实例
      * @return FrameRepository
      */
     protected function madeRepositoryInstance()
@@ -49,6 +46,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     }
 
     /**
+     * 创造 Logic 实例
      * @return FrameLogic
      */
     protected function madeLogicInstance()
@@ -64,9 +62,10 @@ abstract class FrameService extends FrameGeneric implements IRespondable
 
 
     /**
+     * 得到 Repository 类的命名字符串
      * @return string
      */
-    private function getRepositoryClassString()
+    protected function getRepositoryClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
@@ -88,9 +87,10 @@ abstract class FrameService extends FrameGeneric implements IRespondable
 
 
     /**
+     * 得到 Logic 类的命名字符串
      * @return string
      */
-    private function getLogicClassString()
+    protected function getLogicClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
@@ -109,7 +109,8 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     }
 
     /**
-     *
+     * 得到 Legal 类的命名字符串
+     * @return string
      */
     protected function getLegalClassString()
     {

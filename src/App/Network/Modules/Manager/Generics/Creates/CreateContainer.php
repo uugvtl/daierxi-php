@@ -14,8 +14,11 @@ class CreateContainer extends GenericContainer
 {
     public function get()
     {
+        $this->getGenericInjecter()->setGeneralize(YES);
         $service = $this->madeService();
         return $service->get();
 
     }
+
+
 }
