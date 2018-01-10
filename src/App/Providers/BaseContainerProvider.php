@@ -24,6 +24,10 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
      */
     private $genericInjecter;
 
+    /**
+     * @var bool
+     */
+    private $useModuleGenericContainer;
 
     final public function init(...$args)
     {
@@ -41,6 +45,17 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
         $this->genericInjecter->setDistributer($distributer);
         $this->genericInjecter->setParameter($parameter);
 
+        return $this;
+    }
+
+    /**
+     * 是否是使用泛化模块当中的 Container
+     * @param bool $useModuleGenericContainer
+     * @return $this
+     */
+    final public function useGenericContainer($useModuleGenericContainer)
+    {
+        $this->useModuleGenericContainer = (bool) $useModuleGenericContainer;
         return $this;
     }
 
@@ -66,4 +81,11 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
 
     }
 
+    /**
+     * @return bool
+     */
+    final protected function isModuleGenericContainer()
+    {
+        return $this->useModuleGenericContainer;
+    }
 }

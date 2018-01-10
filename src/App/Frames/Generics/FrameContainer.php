@@ -25,7 +25,12 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
     /**
      * @return Responder
      */
-    abstract public function get();
+    public function get()
+    {
+        $service = $this->madeService();
+        return $service->get();
+
+    }
 
     /**
      * 设置 相关模块 Service 的基类名称

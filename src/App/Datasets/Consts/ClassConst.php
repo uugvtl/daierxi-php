@@ -22,6 +22,16 @@ final class ClassConst
     const CLASS_PREFIX      = 'App';
 
     /**
+     * GENERIC 类所在目录
+     */
+    const GENERIC_CATALOG   = 'Generics';
+
+    /**
+     * GENERIC 类后辍
+     */
+    const GENERIC_PREFIX    = 'Generic';
+
+    /**
      * 新增功能目录名称
      */
     const CREATE_CATALOG    = 'Creates';
@@ -175,4 +185,11 @@ final class ClassConst
      * Table 类后辍
      */
     const TABLE_SUFFIX     = 'Table';
+
+    /**
+     * Container 类后辍
+     */
+    const CONTAINER_SUFFIX = 'Container';
+
+
 }

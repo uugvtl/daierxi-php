@@ -1,5 +1,8 @@
 <?php
 namespace App\Network\Providers;
+use App\Datasets\Consts\ClassConst;
+use App\Frames\Generics\FrameContainer;
+use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Creates\CreateContainer;
 use App\Network\Modules\Manager\Generics\Creates\PackageCreateConst;
 
@@ -31,36 +34,122 @@ class ManagerContainerProvider extends NetworkContainerProvider
 {
     public function getExportContainer(array $condz= [])
     {
-        return $this->madeContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::EXPORT_CATALOG));
+            $container->init($condz);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz);
+        }
+
+        return $container;
+
+
     }
 
     public function getPrintContainer(array $condz= [])
     {
-        return $this->madeContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz);
+
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::PRINT_CATALOG));
+            $container->init($condz);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz);
+        }
+
+        return $container;
+
     }
 
     public function getQueryContainer(array $condz= [])
     {
-        return $this->madeContainer(PackageQueryConst::PACKAGE, QueryContainer::class, $condz);
+
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::QUERY_CATALOG));
+            $container->init($condz);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageQueryConst::PACKAGE, QueryContainer::class, $condz);
+        }
+
+        return $container;
+
     }
 
     public function getPrimaryContainer(array $aId)
     {
-        return $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $aId);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::MODIFY_CATALOG));
+            $container->init($aId);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $aId);
+        }
+
+        return $container;
+
     }
 
     public function getCreateContainer(array $posts)
     {
-        return $this->madeContainer(PackageCreateConst::PACKAGE, CreateContainer::class, $posts);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::CREATE_CATALOG));
+            $container->init($posts);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageCreateConst::PACKAGE, CreateContainer::class, $posts);
+        }
+
+        return $container;
+
     }
 
     public function getCommitContainer(array $posts)
     {
-        return $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $posts);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::MODIFY_CATALOG));
+            $container->init($posts);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $posts);
+        }
+
+        return $container;
+
     }
 
     public function getRemoveContainer(array $aId=[])
     {
-        return $this->madeContainer(PackageRemoveConst::PACKAGE, RemoveContainer::class, $aId);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::REMOVE_CATALOG));
+            $container->init($aId);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageRemoveConst::PACKAGE, RemoveContainer::class, $aId);
+        }
+
+        return $container;
     }
 }
