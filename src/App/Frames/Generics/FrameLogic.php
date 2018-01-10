@@ -77,7 +77,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+        $path = $genericInjecter->getDistributer()->getCtrlActPath();
         $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizdos'.BACKSLASH.$path.'DO';
         return $classname;
     }
@@ -90,7 +90,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+        $path = $genericInjecter->getDistributer()->getCtrlActPath();
         $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizbos'.BACKSLASH.$path.'BO';
         return $classname;
     }

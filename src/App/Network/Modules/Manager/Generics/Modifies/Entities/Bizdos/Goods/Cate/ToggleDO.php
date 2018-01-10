@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Brand\Entity\Toggle;
+namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Goods\Cate;
 use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDisabledDO;
 use App\Helpers\StringHelper;
@@ -8,12 +8,12 @@ use App\Helpers\StringHelper;
  * Created by PhpStorm.
  * User: leon
  * Date: 10/1/18
- * Time: 17:45
+ * Time: 22:37
  *
- * Class AppDO
- * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Brand\Entity\Toggle
+ * Class ToggleDO
+ * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Goods\Cate
  */
-class AppDO extends BaseDisabledDO
+class ToggleDO extends BaseDisabledDO
 {
     public function insert()
     {
@@ -24,7 +24,7 @@ class AppDO extends BaseDisabledDO
     {
         if($this->items)
         {
-            $table = TableConst::BRAND;
+            $table = TableConst::GOODS_CATEGORY;
             $stringHelper = StringHelper::getInstance();
 
             $ids = explode(',', $this->items);
@@ -33,13 +33,13 @@ class AppDO extends BaseDisabledDO
                 $result[] ="UPDATE 
                                 {$table} 
                             SET 
-                                is_remove={$quote_disabled}
+                                disabled={$quote_disabled}
                             WHERE 
-                                brand_id={$id}\n";
+                                cate_id={$id}\n";
                 return $result;
             });
 
-            $toggle = $this->getCache()->getDao()->submit($sqls);
+            $toggle = $this->getCache()->getDao()->commit($sqls);
             $this->setPersistent(YES);
             $toggle && $this->getCache()->updateCacheDependencies($table);
         }
