@@ -1,13 +1,10 @@
 <?php
 namespace App\Console\Providers;
+use App\Console\Modules\Mission\Generics\Crontabs\CrontabContainer;
 use App\Console\Modules\Mission\Generics\Crontabs\PackageCrontabConst;
-use App\Console\Modules\Mission\Generics\Crontabs\Services\CrontabService;
+use App\Console\Modules\Mission\Generics\Initializes\InitializeContainer;
 use App\Console\Modules\Mission\Generics\Initializes\PackageInitializeConst;
-use App\Console\Modules\Mission\Generics\Initializes\Services\InitializeServices;
 use App\Datasets\Consts\ClassConst;
-use App\Frames\Generics\FrameContainer;
-use App\Helpers\InstanceHelper;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -21,32 +18,19 @@ class MissionContainerProvider extends ConsoleContainerProvider
 {
     public function getInitContainer(array $condz=[])
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::INIT_CATALOG));
-            $container->init($condz);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageInitializeConst::PACKAGE, InitializeServices::class, $condz);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageInitializeConst::PACKAGE, InitializeContainer::class, $condz):
+            $this->madeContainer(PackageInitializeConst::PACKAGE, $this->getGenericContainerString(ClassConst::INIT_CATALOG), $condz);
 
         return $container;
     }
 
     public function getCronContainer(array $condz=[])
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::CRONTAB_CATALOG));
-            $container->init($condz);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageCrontabConst::PACKAGE, CrontabService::class, $condz);
-        }
+
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageCrontabConst::PACKAGE, CrontabContainer::class, $condz):
+            $this->madeContainer(PackageCrontabConst::PACKAGE, $this->getGenericContainerString(ClassConst::CRONTAB_CATALOG), $condz);
 
         return $container;
 

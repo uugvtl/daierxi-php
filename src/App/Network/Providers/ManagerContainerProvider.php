@@ -1,8 +1,6 @@
 <?php
 namespace App\Network\Providers;
 use App\Datasets\Consts\ClassConst;
-use App\Frames\Generics\FrameContainer;
-use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Creates\CreateContainer;
 use App\Network\Modules\Manager\Generics\Creates\PackageCreateConst;
 
@@ -34,16 +32,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
 {
     public function getExportContainer(array $condz= [])
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::EXPORT_CATALOG));
-            $container->init($condz);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageExportConst::PACKAGE, ExportContainer::class, $condz):
+            $this->madeContainer(PackageExportConst::PACKAGE, $this->getGenericContainerString(ClassConst::EXPORT_CATALOG), $condz);
 
         return $container;
 
@@ -53,16 +44,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
     public function getPrintContainer(array $condz= [])
     {
 
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::PRINT_CATALOG));
-            $container->init($condz);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackagePrintConst::PACKAGE, PrintContainer::class, $condz):
+            $this->madeContainer(PackagePrintConst::PACKAGE, $this->getGenericContainerString(ClassConst::PRINT_CATALOG), $condz);
 
         return $container;
 
@@ -70,17 +54,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getQueryContainer(array $condz= [])
     {
-
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::QUERY_CATALOG));
-            $container->init($condz);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageQueryConst::PACKAGE, QueryContainer::class, $condz);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageQueryConst::PACKAGE, QueryContainer::class, $condz):
+            $this->madeContainer(PackageQueryConst::PACKAGE, $this->getGenericContainerString(ClassConst::QUERY_CATALOG), $condz);
 
         return $container;
 
@@ -88,16 +64,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getPrimaryContainer(array $aId)
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::MODIFY_CATALOG));
-            $container->init($aId);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $aId);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $aId):
+            $this->madeContainer(PackageModifyConst::PACKAGE, $this->getGenericContainerString(ClassConst::MODIFY_CATALOG), $aId);
 
         return $container;
 
@@ -105,16 +74,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getCreateContainer(array $posts)
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::CREATE_CATALOG));
-            $container->init($posts);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageCreateConst::PACKAGE, CreateContainer::class, $posts);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageCreateConst::PACKAGE, CreateContainer::class, $posts):
+            $this->madeContainer(PackageCreateConst::PACKAGE, $this->getGenericContainerString(ClassConst::CREATE_CATALOG), $posts);
 
         return $container;
 
@@ -122,16 +84,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getCommitContainer(array $posts)
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::MODIFY_CATALOG));
-            $container->init($posts);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $posts);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageModifyConst::PACKAGE, ModifyContainer::class, $posts):
+            $this->madeContainer(PackageModifyConst::PACKAGE, $this->getGenericContainerString(ClassConst::MODIFY_CATALOG), $posts);
 
         return $container;
 
@@ -139,16 +94,9 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getRemoveContainer(array $aId=[])
     {
-        if(!$this->isModuleGenericContainer())
-        {
-            $instanceHelper = InstanceHelper::getInstance();
-            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::REMOVE_CATALOG));
-            $container->init($aId);
-        }
-        else
-        {
-            $container = $this->madeContainer(PackageRemoveConst::PACKAGE, RemoveContainer::class, $aId);
-        }
+        $container = $this->isModuleGenericContainer()?
+            $this->madeContainer(PackageRemoveConst::PACKAGE, RemoveContainer::class, $aId):
+            $this->madeContainer(PackageRemoveConst::PACKAGE, $this->getGenericContainerString(ClassConst::REMOVE_CATALOG), $aId);
 
         return $container;
     }
