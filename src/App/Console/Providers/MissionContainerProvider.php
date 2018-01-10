@@ -4,6 +4,10 @@ use App\Console\Modules\Mission\Generics\Crontabs\PackageCrontabConst;
 use App\Console\Modules\Mission\Generics\Crontabs\Services\CrontabService;
 use App\Console\Modules\Mission\Generics\Initializes\PackageInitializeConst;
 use App\Console\Modules\Mission\Generics\Initializes\Services\InitializeServices;
+use App\Datasets\Consts\ClassConst;
+use App\Frames\Generics\FrameContainer;
+use App\Helpers\InstanceHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,11 +21,34 @@ class MissionContainerProvider extends ConsoleContainerProvider
 {
     public function getInitContainer(array $condz=[])
     {
-        return $this->madeContainer(PackageInitializeConst::PACKAGE, InitializeServices::class, $condz);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::INIT_CATALOG));
+            $container->init($condz);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageInitializeConst::PACKAGE, InitializeServices::class, $condz);
+        }
+
+        return $container;
     }
 
     public function getCronContainer(array $condz=[])
     {
-        return $this->madeContainer(PackageCrontabConst::PACKAGE, CrontabService::class, $condz);
+        if(!$this->isModuleGenericContainer())
+        {
+            $instanceHelper = InstanceHelper::getInstance();
+            $container = $instanceHelper->build(FrameContainer::class, $this->getGenericContainerString(ClassConst::CRONTAB_CATALOG));
+            $container->init($condz);
+        }
+        else
+        {
+            $container = $this->madeContainer(PackageCrontabConst::PACKAGE, CrontabService::class, $condz);
+        }
+
+        return $container;
+
     }
 }

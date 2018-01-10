@@ -27,9 +27,29 @@ final class ClassConst
     const GENERIC_CATALOG   = 'Generics';
 
     /**
-     * GENERIC 类后辍
+     * GENERIC 类前辍
      */
     const GENERIC_PREFIX    = 'Generic';
+
+    /**
+     * 排程功能类所在目录
+     */
+    const CRONTAB_CATALOG   = 'Crontabs';
+
+    /**
+     * 排程功能类前辍
+     */
+    const CRONTAB_PREFIX    = 'Crontab';
+
+    /**
+     * 初始功能目录名称
+     */
+    const INIT_CATALOG      = 'Initializes';
+
+    /**
+     * 初始功能类前辍
+     */
+    const INIT_PREFIX       = 'Initialize';
 
     /**
      * 新增功能目录名称
@@ -190,6 +210,5 @@ final class ClassConst
      * Container 类后辍
      */
     const CONTAINER_SUFFIX = 'Container';
-
 
 }
