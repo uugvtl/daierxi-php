@@ -18,19 +18,24 @@ use App\Interfaces\Generics\IRespondable;
 abstract class FrameContainer extends FrameGeneric implements IRespondable
 {
     /**
+     * @var bool
+     */
+    private $invokeSetBaseServicePrefixMothed;
+
+    /**
      * @return Responder
      */
     abstract public function get();
 
-
     /**
      * 设置 相关模块 Service 的基类名称
-     * @param string $classPrefixString
+     * @param string $baseServicePrefix     基类名称前辍
      * @return $this
      */
-    final public function setBaseServiceString($classPrefixString=DataConst::CLASS_PREFIX)
+    final public function setBaseServicePrefix($baseServicePrefix=DataConst::CLASS_PREFIX)
     {
-        $baseClassString = $classPrefixString.'Service';
+        $this->invokeSetBaseServicePrefixMothed = YES;
+        $baseClassString = $baseServicePrefix.'Service';
         $this->getGenericInjecter()->setBaseClassString($baseClassString);
         return $this;
     }
@@ -40,9 +45,9 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
      */
     final protected function madeService()
     {
-        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
+        $this->invokeSetBaseServicePrefixMothed || $this->setBaseServicePrefix();
 
-        $this->setBaseServiceString();
+        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
         $servicename = $this->getServiceClassString();
 

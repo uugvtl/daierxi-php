@@ -28,8 +28,7 @@ class EntityContainerTest extends AppTestCase
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $container->getGenericInjecter()->setGeneralize(YES);
-            $responder = $container->get();
+            $responder = $container->setBaseServicePrefix(DataConst::UPLOAD_PREFIX)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -47,8 +46,7 @@ class EntityContainerTest extends AppTestCase
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $container->getGenericInjecter()->setGeneralize(YES);
-            $responder = $container->get();
+            $responder = $container->setBaseServicePrefix(DataConst::DISABLED_PREFIX)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 }
