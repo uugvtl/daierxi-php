@@ -10,10 +10,4 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Network\Generics\Removes
  */
-abstract class GenericContainer extends FrameContainer
-{
-    final protected function setBaseServiceString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('RemoveService');
-    }
-}
+abstract class GenericContainer extends FrameContainer {}

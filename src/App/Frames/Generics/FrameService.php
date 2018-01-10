@@ -21,13 +21,21 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      * 设置 相关模块 Repository 的基类名称
      * @return $this
      */
-    abstract protected function setBaseRepositoryString();
+    final protected function setBaseRepositoryString()
+    {
+        $this->getGenericInjecter()->setBaseClassString('AppRepository');
+        return $this;
+    }
 
     /**
      * 设置 相关模块 Logic 的基类名称
      * @return $this
      */
-    abstract protected function setBaseLogicString();
+    final protected function setBaseLogicString()
+    {
+        $this->getGenericInjecter()->setBaseClassString('AppLogic');
+        return $this;
+    }
 
     /**
      * 创造 Repository 实例
@@ -72,7 +80,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
 
         if($genericInjecter->hasGeneralize())
         {
-            $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+            $path = $genericInjecter->getDistributer()->getCtrlActPath();
 
             $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Repositories'.BACKSLASH.$path.'Repository';
         }
@@ -97,7 +105,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
 
         if($genericInjecter->hasGeneralize())
         {
-            $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+            $path = $genericInjecter->getDistributer()->getCtrlActPath();
             $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG .BACKSLASH.'Logics'.BACKSLASH.$path.'Logic';
         }
         else
@@ -116,7 +124,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+        $path = $genericInjecter->getDistributer()->getCtrlActPath();
         $classname = $package.BACKSLASH.'Legals'.BACKSLASH.$path.'Legal';
         return $classname;
     }

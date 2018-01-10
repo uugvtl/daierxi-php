@@ -27,7 +27,11 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
      * 设置 相关模块 Service 的基类名称
      * @return $this
      */
-    abstract protected function setBaseServiceString();
+    final protected function setBaseServiceString()
+    {
+        $this->getGenericInjecter()->setBaseClassString('AppService');
+        return $this;
+    }
 
     /**
      * @return FrameService
@@ -49,12 +53,12 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
     }
 
 
-    private function getServiceClassString()
+    protected function getServiceClassString()
     {
 
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
+        $path = $genericInjecter->getDistributer()->getCtrlActPath();
 
 
         if($genericInjecter->hasGeneralize())

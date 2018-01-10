@@ -12,24 +12,10 @@ use App\Frames\Generics\FrameService;
  */
 abstract class GenericService extends FrameService
 {
-    /**
-     * 设置 相关模块 Repository 的基类名称
-     * @return $this
-     */
-    final protected function setBaseRepositoryString()
+    public function get()
     {
-        $this->getGenericInjecter()->setBaseClassString('RemoveRepository');
-        return $this;
+        $repository = $this->madeRepositoryInstance();
+        $logic = $this->madeLogicInstance();
+        return $logic->init($repository)->get();
     }
-
-    /**
-     * 设置 相关模块 Logic 的基类名称
-     * @return $this
-     */
-    final protected function setBaseLogicString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('RemoveLogic');
-        return $this;
-    }
-
 }

@@ -28,6 +28,7 @@ class CateContainerTest extends AppTestCase
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
+            $container->getGenericInjecter()->setGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }

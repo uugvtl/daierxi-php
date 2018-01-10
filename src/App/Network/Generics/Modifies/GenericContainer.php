@@ -10,11 +10,4 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Network\Generics\Modifies
  */
-abstract class GenericContainer extends FrameContainer
-{
-    final protected function setBaseServiceString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('ModifyService');
-    }
-
-}
+abstract class GenericContainer extends FrameContainer {}
