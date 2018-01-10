@@ -23,9 +23,7 @@ abstract class ConsoleContainerProvider extends BaseContainerProvider implements
     final protected function getGenericContainerString($containerPrefix=ClassConst::GENERIC_PREFIX)
     {
         $documentString = $containerPrefix.ClassConst::CONTAINER_SUFFIX;
-        $containerString = PackageGenericConst::PACKAGE.BACKSLASH .
-            $documentString.BACKSLASH.
-            ClassConst::GENERIC_PREFIX.ClassConst::CONTAINER_SUFFIX;
+        $containerString = PackageGenericConst::PACKAGE.BACKSLASH . $documentString;
 
         return $containerString;
     }

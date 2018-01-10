@@ -53,7 +53,7 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getCommitContainer(array $posts)
     {
-        $containerString = $this->getGenericContainerString(ClassConst::CREATE_PREFIX);
+        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
         return $this->madeContainer(PackageModifyConst::PACKAGE, $containerString, $posts);
 
     }
