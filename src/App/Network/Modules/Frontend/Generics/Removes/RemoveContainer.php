@@ -1,9 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Removes;
-use App\Helpers\InstanceHelper;
 use App\Network\Generics\Removes\GenericContainer;
-use App\Network\Modules\Frontend\Generics\Removes\Services\RemoveService;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,25 +14,8 @@ class RemoveContainer extends GenericContainer
 {
     public function get()
     {
-
+        $service = $this->madeService();
+        return $service->get();
     }
 
-    /**
-     * @return RemoveService
-     */
-    protected function madeService()
-    {
-        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
-
-        $this->getGenericInjecter()->setBaseClassString('RemoveService');
-        $servicename = $this->getServiceClassString();
-
-        $instanceHelper = InstanceHelper::getInstance();
-
-        $serviceInstance = $instanceHelper->build(RemoveService::class, $servicename);
-        $serviceInstance->setGenericInjecter($cloneGenericInjecter);
-
-        return $serviceInstance;
-
-    }
 }

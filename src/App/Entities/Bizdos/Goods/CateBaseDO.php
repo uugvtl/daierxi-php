@@ -1,10 +1,9 @@
 <?php
 namespace App\Entities\Bizdos\Goods;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Goods\ICategoryTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -54,7 +53,7 @@ class CateBaseDO extends BaseDO
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = ICategoryTable::Name;
+        $table = TableConst::GOODS_CATEGORY;
 
         $fields = $this->getValidFields();
 
@@ -72,7 +71,7 @@ class CateBaseDO extends BaseDO
 
     public function submit()
     {
-        $table = ICategoryTable::Name;
+        $table = TableConst::GOODS_CATEGORY;
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
 

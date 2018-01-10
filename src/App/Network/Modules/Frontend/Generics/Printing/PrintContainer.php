@@ -1,8 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Printing;
-use App\Helpers\InstanceHelper;
 use App\Network\Generics\Printing\GenericContainer;
-use App\Network\Modules\Frontend\Generics\Printing\Services\PrintService;
 
 /**
  * Created by PhpStorm.
@@ -17,24 +15,9 @@ class PrintContainer extends GenericContainer
 {
     public function get()
     {
-    }
-
-    /**
-     * @return PrintService
-     */
-    protected function madeService()
-    {
-        $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
-
-        $this->getGenericInjecter()->setBaseClassString('PrintService');
-        $servicename = $this->getServiceClassString();
-
-        $instanceHelper = InstanceHelper::getInstance();
-
-        $serviceInstance = $instanceHelper->build(PrintService::class, $servicename);
-        $serviceInstance->setGenericInjecter($cloneGenericInjecter);
-
-        return $serviceInstance;
+        $service = $this->madeService();
+        return $service->get();
 
     }
+
 }

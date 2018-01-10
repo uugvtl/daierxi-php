@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Sqlangs\BaseTable;
-use App\Tables\Stock\IRecipeSkuTable;
 
 /**
  * Created by PhpStorm.
@@ -16,7 +16,7 @@ class AppTable extends BaseTable
 {
     protected function afterInstance()
     {
-        $table = IRecipeSkuTable::Name;
+        $table = TableConst::STOCK_RECIPE_SKU;
         $this->joinTable = $table;
 
         $this->tableList[] = $table;

@@ -1,9 +1,8 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Account\Toggle;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseEnabledDO;
 use App\Helpers\StringHelper;
-use App\Tables\Manager\IManagerTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -24,7 +23,7 @@ class AppBo extends BaseEnabledDO
     {
         if($this->items)
         {
-            $table = IManagerTable::Name;
+            $table = TableConst::MANAGER;
             $stringHelper = StringHelper::getInstance();
 
             $ids = explode(',', $this->items);

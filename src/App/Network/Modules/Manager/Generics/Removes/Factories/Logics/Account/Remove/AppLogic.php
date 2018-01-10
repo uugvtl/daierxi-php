@@ -1,10 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Account\Remove;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
-use App\Tables\Manager\IManagerTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -28,7 +27,7 @@ class AppLogic extends RemoveLogic
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND manager_id IN ({$quoteIds})";
-            $this->sql = $sqlHelper->getDeleteString(IManagerTable::Name, $where);
+            $this->sql = $sqlHelper->getDeleteString(TableConst::MANAGER, $where);
 
         }
     }
@@ -44,7 +43,7 @@ class AppLogic extends RemoveLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(IManagerTable::Name);
+                $cache->updateCacheDependencies(TableConst::MANAGER);
 
             }
         }

@@ -1,9 +1,9 @@
 <?php
 namespace App\Entities\Bizdos\Brand;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Brand\IBrandTable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -59,7 +59,7 @@ class EntityBaseDO extends BaseDO
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = IBrandTable::Name;
+        $table = TableConst::BRAND;
 
         $fields = $this->getValidFields();
 
@@ -79,7 +79,7 @@ class EntityBaseDO extends BaseDO
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = IBrandTable::Name;
+        $table = TableConst::BRAND;
 
         $id = $stringHelper->quoteValue($this->brand_id);
         $where = 'AND brand_id='.$id;

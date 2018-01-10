@@ -1,10 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Brand\Entity\Remove;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
-use App\Tables\Brand\IBrandTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -28,7 +27,7 @@ class AppLogic extends RemoveLogic
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND brand_id IN ({$quoteIds})";
-            $this->sql = $sqlHelper->getDeleteString(IBrandTable::Name, $where);
+            $this->sql = $sqlHelper->getDeleteString(TableConst::BRAND, $where);
 
         }
     }
@@ -44,7 +43,7 @@ class AppLogic extends RemoveLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(IBrandTable::Name);
+                $cache->updateCacheDependencies(TableConst::BRAND);
 
             }
         }

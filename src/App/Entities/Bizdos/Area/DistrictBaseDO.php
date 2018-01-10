@@ -1,10 +1,9 @@
 <?php
 namespace App\Entities\Bizdos\Area;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Area\IDistrictTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -58,7 +57,7 @@ class DistrictBaseDO extends BaseDO
 
     public function insert()
     {
-        $table = IDistrictTable::Name;
+        $table = TableConst::DISTRICT;
 
         $fields = $this->getValidFields();
 
@@ -78,7 +77,7 @@ class DistrictBaseDO extends BaseDO
 
     public function submit()
     {
-        $table = IDistrictTable::Name;
+        $table = TableConst::DISTRICT;
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
 

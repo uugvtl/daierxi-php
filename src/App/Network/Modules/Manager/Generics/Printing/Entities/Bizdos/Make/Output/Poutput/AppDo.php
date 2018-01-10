@@ -1,11 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Entities\Bizdos\Make\Output\Poutput;
+use App\Datasets\Consts\TableConst;
 use App\Entities\Bizdos\Make\OutputBaseDo;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Stock\IRecipeSkuTable;
-use App\Tables\Stock\IRecipeStatusTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -31,7 +29,7 @@ class AppDo extends OutputBaseDo
                 'is_print'      =>$this->is_print
             ];
 
-            $table = IRecipeSkuTable::Name;
+            $table = TableConst::STOCK_RECIPE_SKU;
 
             $id = $stringHelper->quoteValue($this->sdetail_id);
             $where = 'AND sdetail_id='.$id;
@@ -58,7 +56,7 @@ class AppDo extends OutputBaseDo
             'output_status' =>$this->output_status
         ];
 
-        $table = IRecipeStatusTable::Name;
+        $table = TableConst::STOCK_RECIPE_STATUS;
 
         $sql = $sqlHelper->getCreateString($fileds, $table, SqlHelper::SQL_CREATE_IGNORE);
         $toggle = $this->getCache()->getDao()->submit($sql);

@@ -37,7 +37,7 @@ class AppLogic extends ModifyLogic
                     'group_id'  =>$group_id,
                     'manager_id'=>$manager_id
                 ];
-                $bizDo = $instanceHelper->build(ManagerBaseDO::class, $this->getBizBoClassString());
+                $bizDo = $instanceHelper->build(ManagerBaseDO::class, $this->getBizDoClassString());
                 $bizDo->init($arguments)->setCache($store->getCache());
                 $this->bizDos[] = $bizDo;
             }
@@ -64,7 +64,7 @@ class AppLogic extends ModifyLogic
     /**
      * @return string
      */
-    protected function getBizBoClassString()
+    protected function getBizDoClassString()
     {
         return ManagerBaseDO::class;
     }

@@ -1,9 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Sqlangs\BaseTable;
-use App\Tables\Warehouse\IMaterialComplexTable;
-use App\Tables\Warehouse\IMaterialTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,8 +15,8 @@ class MaterialTable extends BaseTable
 {
     protected function afterInstance()
     {
-        $wmcTable = IMaterialComplexTable::Name;
-        $wmTable = IMaterialTable::Name;
+        $wmcTable = TableConst::WAREHOUSE_MATERIAL_COMPLEX;
+        $wmTable = TableConst::WAREHOUSE_MATERIAL;
 
         $this->joinTable = "    {$wmcTable} wmc
                             LEFT JOIN

@@ -1,9 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Common\Sqlangs\Warehouse;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Sqlangs\BaseTable;
-use App\Tables\Brand\IBrandTable;
-use App\Tables\Warehouse\IPackingTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,8 +15,8 @@ class PackingTable extends BaseTable
 {
     protected function afterInstance()
     {
-        $wpTable= IPackingTable::Name;
-        $bTable = IBrandTable::Name;
+        $wpTable= TableConst::WAREHOUSE_PACKING;
+        $bTable = TableConst::BRAND;
 
         $this->joinTable = "    {$wpTable} wp
                             LEFT JOIN

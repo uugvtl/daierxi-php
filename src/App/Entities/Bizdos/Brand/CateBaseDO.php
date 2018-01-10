@@ -1,9 +1,9 @@
 <?php
 namespace App\Entities\Bizdos\Brand;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Brand\ITypeTable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -39,7 +39,7 @@ class CateBaseDO extends BaseDO
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = ITypeTable::Name;
+        $table = TableConst::BRAND_TYPE;
 
         $fields = $this->getProperties();
 
@@ -59,7 +59,7 @@ class CateBaseDO extends BaseDO
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = ITypeTable::Name;
+        $table = TableConst::BRAND_TYPE;
 
         $id = $stringHelper->quoteValue($this->brand_type_id);
         $where = 'AND brand_type_id='.$id;

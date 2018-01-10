@@ -1,9 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Common\Sqlangs\Signin;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Sqlangs\BaseTable;
-use App\Tables\Manager\IGroupTable;
-use App\Tables\Manager\IManagerTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -18,8 +16,8 @@ class AccountTable extends BaseTable
     protected function afterInstance()
     {
 
-        $mTable = IManagerTable::Name;
-        $mgTable= IGroupTable::Name;
+        $mTable = TableConst::MANAGER;
+        $mgTable= TableConst::MANAGER_GROUP;
 
         $this->joinTable = "    {$mTable} m 
                             LEFT JOIN

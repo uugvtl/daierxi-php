@@ -1,5 +1,6 @@
 <?php
 namespace App\Entities\Bizdos\Make;
+use App\Datasets\Consts\TableConst;
 use App\Entities\Bizbos\Make\Status\PackageStatusConst;
 use App\Entities\Bizbos\Make\Status\StatusBaseBO;
 use App\Globals\Bizes\BaseOutputDO;
@@ -7,10 +8,6 @@ use App\Helpers\InstanceHelper;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 use App\Interfaces\Entities\IChangeStatusable;
-use App\Tables\Stock\IRecipeSkuTable;
-use App\Tables\Stock\IRecipeStatusTable;
-use const BACKSLASH;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -76,33 +73,33 @@ class OutputBaseDo extends BaseOutputDO
         return $statusBo->setOutputDo($this);
     }
 
-    /**
-     * 保存状态到数据到中，不带事务
-     * @param bool $toggle
-     * @return $this
-     */
-    protected function saveStatus($toggle)
-    {
-        if($toggle)
-        {
-            $sqlHelper = SqlHelper::getInstance();
-
-            $fields = [
-                'sdetail_id'    =>$this->sdetail_id,
-                'output_status' =>$this->output_status
-            ];
-            $table = IRecipeStatusTable::Name;
-            $sql = $sqlHelper->getCreateString($fields, $table, SqlHelper::SQL_CREATE_IGNORE);
-            $this->getCache()->getDao()->submit($sql);
-            $this->getCache()->updateCacheDependencies($table);
-        }
-
-        return $this;
-    }
+//    /**
+//     * 保存状态到数据到中，不带事务
+//     * @param bool $toggle
+//     * @return $this
+//     */
+//    protected function saveStatus($toggle)
+//    {
+//        if($toggle)
+//        {
+//            $sqlHelper = SqlHelper::getInstance();
+//
+//            $fields = [
+//                'sdetail_id'    =>$this->sdetail_id,
+//                'output_status' =>$this->output_status
+//            ];
+//            $table = TableConst::STOCK_RECIPE_STATUS;
+//            $sql = $sqlHelper->getCreateString($fields, $table, SqlHelper::SQL_CREATE_IGNORE);
+//            $this->getCache()->getDao()->submit($sql);
+//            $this->getCache()->updateCacheDependencies($table);
+//        }
+//
+//        return $this;
+//    }
 
     public function submit()
     {
-        $table = IRecipeSkuTable::Name;
+        $table = TableConst::STOCK_RECIPE_SKU;
 
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
@@ -117,7 +114,6 @@ class OutputBaseDo extends BaseOutputDO
 
         if($toggle)
         {
-            $this->saveStatus($toggle);
             $this->getCache()->updateCacheDependencies($table);
         }
 
@@ -130,8 +126,4 @@ class OutputBaseDo extends BaseOutputDO
         return $this;
     }
 
-    public function delete()
-    {
-        return $this;
-    }
 }

@@ -1,11 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Brand\Cate\Remove;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
-use App\Tables\Brand\IBrandTable;
-use App\Tables\Brand\ITypeTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -28,8 +26,8 @@ class AppLogic extends RemoveLogic
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND brand_type_id IN ({$quoteIds})";
-            $this->sqls[] = $sqlHelper->getDeleteString(ITypeTable::Name, $where);
-            $this->sqls[] = $sqlHelper->getUpdateString(['brand_type_id' => 0], IBrandTable::Name, $where);
+            $this->sqls[] = $sqlHelper->getDeleteString(TableConst::BRAND_TYPE, $where);
+            $this->sqls[] = $sqlHelper->getUpdateString(['brand_type_id' => 0], TableConst::BRAND, $where);
         }
     }
 
@@ -44,7 +42,7 @@ class AppLogic extends RemoveLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies([ITypeTable::Name, IBrandTable::Name]);
+                $cache->updateCacheDependencies([TableConst::BRAND_TYPE, TableConst::BRAND]);
 
             }
         }

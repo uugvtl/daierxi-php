@@ -1,8 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Sqlangs\Queries\Make\Output\Poutput;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Sqlangs\BaseTable;
-use App\Tables\Stock\IRecipeComplexTable;
-use App\Tables\Warehouse\IComplexTable;
 
 /**
  * Created by PhpStorm.
@@ -17,8 +16,8 @@ class ComplexTable extends BaseTable
 {
     protected function afterInstance()
     {
-        $srcTable = IRecipeComplexTable::Name;
-        $wcTable = IComplexTable::Name;
+        $srcTable = TableConst::STOCK_RECIPE_COMPLEX;
+        $wcTable = TableConst::WAREHOUSE_COMPLEX;
         $this->joinTable = "    {$srcTable} src
                             LEFT JOIN
                                 {$wcTable} wc ON src.complex_id=wc.complex_id";

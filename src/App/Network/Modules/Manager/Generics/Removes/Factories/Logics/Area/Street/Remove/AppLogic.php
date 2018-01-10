@@ -1,9 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Area\Street\Remove;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
-use App\Tables\Area\IStreetTable;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -27,7 +27,7 @@ class AppLogic extends RemoveLogic
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND street_id IN ({$quoteIds})";
-            $this->sql = $sqlHelper->getDeleteString(IStreetTable::Name, $where);
+            $this->sql = $sqlHelper->getDeleteString(TableConst::STREET, $where);
 
         }
     }
@@ -43,7 +43,7 @@ class AppLogic extends RemoveLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(IStreetTable::Name);
+                $cache->updateCacheDependencies(TableConst::STREET);
 
             }
         }

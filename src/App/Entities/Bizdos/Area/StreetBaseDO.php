@@ -1,10 +1,9 @@
 <?php
 namespace App\Entities\Bizdos\Area;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Area\IStreetTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -38,7 +37,7 @@ class StreetBaseDO extends BaseDO
 
     public function insert()
     {
-        $table = IStreetTable::Name;
+        $table = TableConst::STREET;
 
         $fields = $this->getValidFields();
 
@@ -57,7 +56,7 @@ class StreetBaseDO extends BaseDO
 
     public function submit()
     {
-        $table = IStreetTable::Name;
+        $table = TableConst::STREET;
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
 

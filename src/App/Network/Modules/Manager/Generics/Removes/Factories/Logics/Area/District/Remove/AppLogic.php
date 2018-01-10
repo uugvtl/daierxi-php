@@ -1,11 +1,9 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes\Factories\Logics\Area\District\Remove;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Finals\Responder;
 use App\Helpers\SqlHelper;
 use App\Network\Modules\Manager\Generics\Removes\Factories\Logics\RemoveLogic;
-use App\Tables\Area\IDistrictTable;
-use App\Tables\Area\IStreetTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -28,8 +26,8 @@ class AppLogic extends RemoveLogic
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND id IN ({$quoteIds})";
-            $this->sqls[] = $sqlHelper->getDeleteString(IDistrictTable::Name, $where);
-            $this->sqls[] = $sqlHelper->getUpdateString(['district_id' => 0], IStreetTable::Name, " AND district_id IN ({$quoteIds})");
+            $this->sqls[] = $sqlHelper->getDeleteString(TableConst::DISTRICT, $where);
+            $this->sqls[] = $sqlHelper->getUpdateString(['district_id' => 0], TableConst::STREET, " AND district_id IN ({$quoteIds})");
         }
     }
 
@@ -44,7 +42,7 @@ class AppLogic extends RemoveLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(IDistrictTable::Name);
+                $cache->updateCacheDependencies([TableConst::DISTRICT, TableConst::STREET]);
 
             }
         }

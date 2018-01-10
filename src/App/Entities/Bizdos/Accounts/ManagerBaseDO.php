@@ -1,10 +1,9 @@
 <?php
 namespace App\Entities\Bizdos\Accounts;
+use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
-use App\Tables\Manager\IManagerTable;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -47,7 +46,7 @@ class ManagerBaseDO extends BaseDO
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = IManagerTable::Name;
+        $table = TableConst::MANAGER;
 
         $fields = $this->getProperties();
         $fields['namehash'] = md5($this->manager_name);
@@ -67,7 +66,7 @@ class ManagerBaseDO extends BaseDO
 
     public function submit()
     {
-        $table = IManagerTable::Name;
+        $table = TableConst::MANAGER;
 
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();
