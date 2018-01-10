@@ -10,25 +10,4 @@ use App\Frames\Generics\FrameService;
  * Class GenericService
  * @package App\Console\Generics\Initializes
  */
-abstract class GenericService extends FrameService
-{
-    /**
-     * 设置 相关模块 Repository 的基类名称
-     * @return $this
-     */
-    final protected function setBaseRepositoryString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('InitializeRepository');
-        return $this;
-    }
-
-    /**
-     * 设置 相关模块 Logic 的基类名称
-     * @return $this
-     */
-    final protected function setBaseLogicString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('InitializeLogic');
-        return $this;
-    }
-}
+abstract class GenericService extends FrameService {}

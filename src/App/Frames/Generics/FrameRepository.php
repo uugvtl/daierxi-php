@@ -1,6 +1,6 @@
 <?php
 namespace App\Frames\Generics;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Finals\PageSlice;
 use App\Globals\Sqlangs\BaseFields;
@@ -49,7 +49,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
 
     protected function afterInstance()
     {
-        $this->sqlangCatalog = DataConst::QUERY_CATALOG;
+        $this->sqlangCatalog = ClassConst::QUERY_CATALOG;
     }
 
 
@@ -58,7 +58,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getGenericInjecter();
-        $classname = $this->getClassPath($genericInjecter).'Fields';
+        $classname = $this->getClassPath($genericInjecter).ClassConst::FIELDS_SUFFIX;
 
         $fieldsInstance = $instanceHelper->build(BaseFields::class, $classname);
 
@@ -71,7 +71,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getGenericInjecter();
-        $classname = $this->getClassPath($genericInjecter).'Table';
+        $classname = $this->getClassPath($genericInjecter).ClassConst::TABLE_SUFFIX;
 
         $tableInstance = $instanceHelper->build(BaseTable::class, $classname);
 
@@ -83,7 +83,7 @@ abstract class FrameRepository extends FrameGeneric implements IPreservable
         $instanceHelper = InstanceHelper::getInstance();
 
         $genericInjecter = $this->getGenericInjecter();
-        $classname = $this->getClassPath($genericInjecter).'Where';
+        $classname = $this->getClassPath($genericInjecter).ClassConst::WHERE_SUFFIX;
 
         $whereInstance = $instanceHelper->build(BaseWhere::class, $classname);
 

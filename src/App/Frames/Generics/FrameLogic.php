@@ -1,5 +1,6 @@
 <?php
 namespace App\Frames\Generics;
+use App\Datasets\Consts\ClassConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\Responder;
@@ -78,7 +79,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActPath();
-        $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizdos'.BACKSLASH.$path.'DO';
+        $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZDO_CATALOG.BACKSLASH.$path.ClassConst::DO_CATALOG;
         return $classname;
     }
 
@@ -91,7 +92,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActPath();
-        $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizbos'.BACKSLASH.$path.'BO';
+        $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZBO_CATALOG.BACKSLASH.$path.ClassConst::DO_CATALOG;
         return $classname;
     }
 

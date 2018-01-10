@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;
@@ -23,7 +23,7 @@ class IndexContainerTest extends AppTestCase
                 'password'  =>'123456'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
+            $distributer->init('Index', 'Index', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $provider->init($distributer);
@@ -41,7 +41,7 @@ class IndexContainerTest extends AppTestCase
                 'manager_id'=>1
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
+            $distributer->init('Index', 'Index', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $provider->init($distributer);

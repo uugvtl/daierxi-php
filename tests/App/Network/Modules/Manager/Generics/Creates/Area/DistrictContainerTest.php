@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Area;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;
@@ -33,7 +33,7 @@ class DistrictContainerTest extends AppTestCase
                 'leaf'          =>'1',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Create', DataConst::CLASS_PREFIX);
+            $distributer->init('Area\District', 'Create', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -62,7 +62,7 @@ class DistrictContainerTest extends AppTestCase
                 'leaf'          =>'1',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Modify', DataConst::CLASS_PREFIX);
+            $distributer->init('Area\District', 'Modify', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -82,7 +82,7 @@ class DistrictContainerTest extends AppTestCase
             $params = [820202];
 
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Remove', DataConst::CLASS_PREFIX);
+            $distributer->init('Area\District', 'Remove', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();

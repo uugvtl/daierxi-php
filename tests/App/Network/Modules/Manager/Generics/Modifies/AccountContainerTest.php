@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;
@@ -23,13 +23,12 @@ class AccountContainerTest extends AppTestCase
                 'items'=>'2,5,6'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Toggle', DataConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Toggle', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $container->getGenericInjecter()->setGeneralize(YES);
-            $responder = $container->get();
+            $responder = $container->setBaseServicePrefix(ClassConst::ENABLED_PREFIX)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -41,7 +40,7 @@ class AccountContainerTest extends AppTestCase
                 'grant'=>'2,5,6'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Group', DataConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Group', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);

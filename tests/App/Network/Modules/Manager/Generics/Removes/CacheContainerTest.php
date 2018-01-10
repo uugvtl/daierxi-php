@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Removes;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;
@@ -23,7 +23,7 @@ class CacheContainerTest extends AppTestCase
                 'password'  =>'a'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Cache', 'clear', DataConst::CLASS_PREFIX);
+            $distributer->init('Cache', 'clear', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

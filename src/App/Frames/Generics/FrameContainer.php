@@ -1,6 +1,6 @@
 <?php
 namespace App\Frames\Generics;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Frames\FrameGeneric;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
@@ -20,7 +20,7 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
     /**
      * @var bool
      */
-    private $invokeSetBaseServicePrefixMothed;
+    private $invokedSetBaseServicePrefixMothed;
 
     /**
      * @return Responder
@@ -32,10 +32,10 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
      * @param string $baseServicePrefix     基类名称前辍
      * @return $this
      */
-    final public function setBaseServicePrefix($baseServicePrefix=DataConst::CLASS_PREFIX)
+    final public function setBaseServicePrefix($baseServicePrefix=ClassConst::CLASS_PREFIX)
     {
-        $this->invokeSetBaseServicePrefixMothed = YES;
-        $baseClassString = $baseServicePrefix.'Service';
+        $this->invokedSetBaseServicePrefixMothed = YES;
+        $baseClassString = $baseServicePrefix.ClassConst::SERVICE_SUFFIX;
         $this->getGenericInjecter()->setBaseClassString($baseClassString);
         return $this;
     }
@@ -45,7 +45,7 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
      */
     final protected function madeService()
     {
-        $this->invokeSetBaseServicePrefixMothed || $this->setBaseServicePrefix();
+        $this->invokedSetBaseServicePrefixMothed || $this->setBaseServicePrefix();
 
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
@@ -70,11 +70,11 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
 
         if($genericInjecter->hasGeneralize())
         {
-            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG . BACKSLASH.'Services'.BACKSLASH.$path.'Service';
+            $classname = $package.BACKSLASH.ClassConst::FACTORY_CATALOG . BACKSLASH.ClassConst::SERVICE_CATALOG.BACKSLASH.$path.ClassConst::SERVICE_SUFFIX;
         }
         else
         {
-            $classname = $package.BACKSLASH.DataConst::FACTORY_CATALOG . BACKSLASH.'Services'.BACKSLASH.$genericInjecter->getBaseClassString();
+            $classname = $package.BACKSLASH.ClassConst::FACTORY_CATALOG . BACKSLASH.ClassConst::SERVICE_CATALOG.BACKSLASH.$genericInjecter->getBaseClassString();
         }
 
         return $classname;

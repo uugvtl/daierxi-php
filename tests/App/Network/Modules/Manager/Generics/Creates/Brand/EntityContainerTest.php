@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Brand;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;
@@ -35,7 +35,7 @@ class EntityContainerTest extends AppTestCase
                 'is_remove'             =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Entity', 'Create', DataConst::CLASS_PREFIX);
+            $distributer->init('Brand\Entity', 'Create', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -66,7 +66,7 @@ class EntityContainerTest extends AppTestCase
                 'is_remove'             =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Entity', 'Modify', DataConst::CLASS_PREFIX);
+            $distributer->init('Brand\Entity', 'Modify', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -84,7 +84,7 @@ class EntityContainerTest extends AppTestCase
         /** arrange */
             $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Entity', 'Remove', DataConst::CLASS_PREFIX);
+            $distributer->init('Brand\Entity', 'Remove', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

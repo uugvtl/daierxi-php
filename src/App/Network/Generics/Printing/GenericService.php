@@ -10,26 +10,4 @@ use App\Frames\Generics\FrameService;
  * Class GenericService
  * @package App\Network\Generics\Queries
  */
-abstract class GenericService extends FrameService
-{
-    /**
-     * 设置 相关模块 Repository 的基类名称
-     * @return $this
-     */
-    final protected function setBaseRepositoryString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('PrintRepository');
-        return $this;
-    }
-
-    /**
-     * 设置 相关模块 Logic 的基类名称
-     * @return $this
-     */
-    final protected function setBaseLogicString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('PrintLogic');
-        return $this;
-    }
-
-}
+abstract class GenericService extends FrameService {}

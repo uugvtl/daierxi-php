@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Goods;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppTestCase;
@@ -30,7 +30,7 @@ class CateContainerTest extends AppTestCase
                 'disabled'          =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Create', DataConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Create', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCreateContainer($params);
@@ -55,7 +55,7 @@ class CateContainerTest extends AppTestCase
                 'disabled'          =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Modify', DataConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Modify', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -73,7 +73,7 @@ class CateContainerTest extends AppTestCase
         /** arrange */
             $params = [86];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Remove', DataConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Remove', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

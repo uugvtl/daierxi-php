@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Make;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Adapters\IShowAdapter;
 use App\Network\Providers\ManagerContainerProvider;
@@ -39,7 +39,7 @@ class OutputContainerTest extends AppTestCase
             'account_name'=>'leon'
         ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Make\Output', 'Poutput', DataConst::CLASS_PREFIX);
+            $distributer->init('Make\Output', 'Poutput', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getPrintContainer($params);
