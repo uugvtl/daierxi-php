@@ -25,11 +25,13 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
 
     /**
      * 设置 相关模块 Service 的基类名称
+     * @param string $classPrefixString
      * @return $this
      */
-    final protected function setBaseServiceString()
+    final public function setBaseServiceString($classPrefixString=DataConst::CLASS_PREFIX)
     {
-        $this->getGenericInjecter()->setBaseClassString('AppService');
+        $baseClassString = $classPrefixString.'Service';
+        $this->getGenericInjecter()->setBaseClassString($baseClassString);
         return $this;
     }
 

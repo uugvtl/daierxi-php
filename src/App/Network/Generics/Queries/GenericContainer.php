@@ -10,11 +10,4 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Network\Generics\Queries
  */
-abstract class GenericContainer extends FrameContainer
-{
-    final protected function setBaseServiceString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('QueryService');
-    }
-
-}
+abstract class GenericContainer extends FrameContainer {}

@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Services\Goods\Cate;
+use App\Datasets\Consts\DataConst;
 use App\Network\Modules\Manager\Generics\Modifies\Factories\Services\AppService;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -21,7 +21,7 @@ class UploadService extends AppService
 
     protected function getLogicClassString()
     {
-        $this->getGenericInjecter()->getDistributer()->setActString('Modify');
+        $this->getGenericInjecter()->getDistributer()->setActString(DataConst::MODIFY_PREFIX);
         return parent::getLogicClassString();
     }
 }

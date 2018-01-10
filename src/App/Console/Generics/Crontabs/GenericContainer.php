@@ -10,10 +10,4 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Console\Generics\Crontabs
  */
-abstract class GenericContainer extends FrameContainer
-{
-    final protected function setBaseServiceString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('CrontabService');
-    }
-}
+abstract class GenericContainer extends FrameContainer {}

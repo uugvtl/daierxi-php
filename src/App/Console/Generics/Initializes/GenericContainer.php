@@ -10,10 +10,4 @@ use App\Frames\Generics\FrameContainer;
  * Class GenericContainer
  * @package App\Console\Generics\Initializes
  */
-abstract class GenericContainer extends FrameContainer
-{
-    final protected function setBaseServiceString()
-    {
-        $this->getGenericInjecter()->setBaseClassString('InitializeService');
-    }
-}
+abstract class GenericContainer extends FrameContainer {}

@@ -1,15 +1,14 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Services\Brand\Entity;
+namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Services;
 use App\Datasets\Consts\DataConst;
-use App\Network\Modules\Manager\Generics\Modifies\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
  * User: leon
  * Date: 10/1/18
- * Time: 23:01
+ * Time: 23:28
  *
  * Class UploadService
- * @package App\Network\Modules\Manager\Generics\Modifies\Factories\Services\Brand\Entity
+ * @package App\Network\Modules\Manager\Generics\Modifies\Factories\Services
  */
 class UploadService extends AppService
 {

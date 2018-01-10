@@ -115,4 +115,19 @@ final class DataConst
      * 删除功能类前辍
      */
     const REMOVE_PREFIX     = 'Remove';
+
+    /**
+     * 上传功能类前辍
+     */
+    const UPLOAD_PREFIX     = 'Upload';
+
+    /**
+     * 开启功能类前辍
+     */
+    const ENABLED_PREFIX    = 'Enabled';
+
+    /**
+     * 关闭功能类前辍
+     */
+    const DISABLED_PREFIX   = 'Disabled';
 }
