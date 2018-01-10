@@ -29,7 +29,7 @@ class AppLogic extends PrintLogic
         $sqlangInjecter = $this->getRepositpry()->get();
 
         $rows = $store->setSqlangInjecter($sqlangInjecter)->getRow();
-        $classString = $this->getBizDoClassString();
+        $classString = $this->getBizDOClassString();
 
         $instanceHelper = InstanceHelper::getInstance();
         $this->bizDo = $instanceHelper->build(OutputBaseDo::class, $classString);

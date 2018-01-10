@@ -25,7 +25,7 @@ class AppLogic extends ModifyLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(ManagerBaseDO::class, $this->getBizDoClassString());
+        $this->bizDo = $instanceHelper->build(ManagerBaseDO::class, $this->getBizDOClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());;
     }
 
@@ -38,7 +38,7 @@ class AppLogic extends ModifyLogic
     /**
      * @return string
      */
-    protected function getBizDoClassString()
+    protected function getBizDOClassString()
     {
         return ManagerBaseDO::class;
     }

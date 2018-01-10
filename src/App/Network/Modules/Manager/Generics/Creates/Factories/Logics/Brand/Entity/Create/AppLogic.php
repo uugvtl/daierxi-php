@@ -25,7 +25,7 @@ class AppLogic extends CreateLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(EntityBaseDO::class, $this->getBizBoClassString());
+        $this->bizDo = $instanceHelper->build(EntityBaseDO::class, $this->getBizBOClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -38,7 +38,7 @@ class AppLogic extends CreateLogic
     /**
      * @return string
      */
-    protected function getBizBoClassString()
+    protected function getBizBOClassString()
     {
         return EntityBaseDO::class;
     }

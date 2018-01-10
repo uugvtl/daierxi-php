@@ -30,7 +30,7 @@ class AppLogic extends QueryLogic
         if($rows)
         {
             $instanceHelper = InstanceHelper::getInstance();
-            $accountBo = $instanceHelper->build(AccountBaseBO::class, $this->getBizBoClassString());
+            $accountBo = $instanceHelper->build(AccountBaseBO::class, $this->getBizBOClassString());
             $accountBo->init($rows);
 
             if($accountBo->enabled)
@@ -61,7 +61,7 @@ class AppLogic extends QueryLogic
     /**
      * @return string
      */
-    protected function getBizBoClassString()
+    protected function getBizBOClassString()
     {
         return AccountBaseBO::class;
     }

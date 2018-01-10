@@ -1,18 +1,19 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Brand\Entity\Toggle;
+namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Brand\Entity\Toggle;
 use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDisabledDO;
 use App\Helpers\StringHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 9/1/18
- * Time: 18:22
+ * Date: 10/1/18
+ * Time: 17:45
  *
- * Class AppBo
- * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizbos\Brand\Entity\Toggle
+ * Class AppDO
+ * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Brand\Entity\Toggle
  */
-class AppBo extends BaseDisabledDO
+class AppDO extends BaseDisabledDO
 {
     public function insert()
     {

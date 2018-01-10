@@ -73,12 +73,12 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * 获取BizDo类的全名
      * @return string
      */
-    protected function getBizDoClassString()
+    protected function getBizDOClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
-        $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizdos'.BACKSLASH.$path.'Do';
+        $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizdos'.BACKSLASH.$path.'DO';
         return $classname;
     }
 
@@ -86,12 +86,12 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * 获取BizBo类的全名
      * @return string
      */
-    protected function getBizBoClassString()
+    protected function getBizBOClassString()
     {
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActFilePath();
-        $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizbos'.BACKSLASH.$path.'Bo';
+        $classname = $package.BACKSLASH.'Entities'.BACKSLASH.'Bizbos'.BACKSLASH.$path.'BO';
         return $classname;
     }
 
