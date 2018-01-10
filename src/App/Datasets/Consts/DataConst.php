@@ -14,67 +14,67 @@ final class DataConst
     /**
      * 换行常量
      */
-    const END = PHP_EOL;
+    const END               = PHP_EOL;
 
     /**
      * 扩大100倍
      */
-    const SCALE_UP_100 = 100;
+    const SCALE_UP_100      = 100;
 
     /**
      * 扩大1000倍
      */
-    const SCALE_UP_1000 = 1000;
+    const SCALE_UP_1000     = 1000;
 
     /**
      * 缩小100倍
      */
-    const SCALE_DOWN_100 = 0.01;
+    const SCALE_DOWN_100    = 0.01;
 
     /**
      * 缩小1000倍
      */
-    const SCALE_DOWN_1000 = 0.001;
+    const SCALE_DOWN_1000   = 0.001;
 
     /**
      * 小数位数精度4位
      */
-    const DECIMAL = 4;
+    const DECIMAL           = 4;
 
     /**
      * 泛化实例类的默认类名称前辍
      */
-    const CLASS_PREFIX = 'App';
+    const CLASS_PREFIX      = 'App';
 
     /**
      * 工厂功能目录名称
      */
-    const FACTORY_CATALOG = 'Factories';
+    const FACTORY_CATALOG   = 'Factories';
 
     /**
      *
      */
-    const FACTORY_PREFIX = 'Factory';
+    const FACTORY_PREFIX    = 'Factory';
 
     /**
      * 新增功能目录名称
      */
-    const CREATE_CATALOG = 'Creates';
+    const CREATE_CATALOG    = 'Creates';
 
     /**
      * 新增功能类前辍
      */
-    const CREATE_PREFIX = 'Create';
+    const CREATE_PREFIX     = 'Create';
 
     /**
      * 修改功能目录名称
      */
-    const MODIFY_CATALOG = 'Modifies';
+    const MODIFY_CATALOG    = 'Modifies';
 
     /**
      * 修改功能类前辍
      */
-    const MODIFY_PREFIX = 'Modify';
+    const MODIFY_PREFIX     = 'Modify';
 
     /**
      * 查询功能目录名称
@@ -84,7 +84,7 @@ final class DataConst
     /**
      * 查询功能类前辍
      */
-    const QUERY_PREFIX = 'Query';
+    const QUERY_PREFIX      = 'Query';
 
     /**
      * 打印功能目录名称
@@ -94,7 +94,7 @@ final class DataConst
     /**
      * 打印功能类前辍
      */
-    const PRINT_PREFIX = 'Print';
+    const PRINT_PREFIX      = 'Print';
 
     /**
      * 导出功能目录名称
@@ -104,7 +104,7 @@ final class DataConst
     /**
      * 导出功能类前辍
      */
-    const EXPORT_PREFIX = 'Export';
+    const EXPORT_PREFIX     = 'Export';
 
     /**
      * 删除功能目录名称
@@ -114,5 +114,5 @@ final class DataConst
     /**
      * 删除功能类前辍
      */
-    const REMOVE_PREFIX = 'Remove';
+    const REMOVE_PREFIX     = 'Remove';
 }
