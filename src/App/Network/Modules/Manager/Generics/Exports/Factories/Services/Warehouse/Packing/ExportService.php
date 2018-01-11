@@ -1,6 +1,6 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Exports\Factories\Services\Warehouse\Packing\Export;
-use App\Network\Modules\Manager\Generics\Exports\Factories\Services\ExportService;
+namespace App\Network\Modules\Manager\Generics\Exports\Factories\Services\Warehouse\Packing;
+use App\Network\Modules\Manager\Generics\Exports\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Services\ExportServic
  * Class DefaultService
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Services\Warehouse\Packing\Export
  */
-class AppService extends ExportService
+class ExportService extends AppService
 {
     protected function madeRepositoryInstance()
     {

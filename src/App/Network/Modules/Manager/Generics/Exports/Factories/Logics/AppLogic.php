@@ -11,7 +11,7 @@ use App\Network\Generics\Exports\GenericLogic;
  * Class ExportLogic
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Logics
  */
-class ExportLogic extends GenericLogic
+class AppLogic extends GenericLogic
 {
     protected function run(Responder $responder)
     {

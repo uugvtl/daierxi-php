@@ -10,7 +10,7 @@ use App\Network\Generics\Exports\GenericService;
  * Class ExportService
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Services
  */
-class ExportService extends GenericService
+class AppService extends GenericService
 {
     public function get()
     {

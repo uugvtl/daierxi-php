@@ -13,7 +13,7 @@ use AppUnitTest;
  * Class AccountContainerTest
  * @package App\Network\Modules\Manager\Generics\Modifies
  */
-class AccountContainerUnitTest extends AppUnitTest
+class AccountContainerTest extends AppUnitTest
 {
     public function test_save_for_toggle()
     {

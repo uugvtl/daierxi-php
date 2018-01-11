@@ -13,7 +13,7 @@ use AppUnitTest;
  * Class EntityContainerTest
  * @package App\Network\Modules\Manager\Generics\Modifies\Brand
  */
-class EntityContainerUnitTest extends AppUnitTest
+class EntityContainerTest extends AppUnitTest
 {
     public function test_upload_for_save()
     {

@@ -10,7 +10,7 @@ use AppUnitTest;
  * Class EntityContainerTest
  * @package App\Network\Modules\Manager\Generics\Creates\Goods
  */
-class EntityContainerUnitTest extends AppUnitTest
+class EntityContainerTest extends AppUnitTest
 {
 
 }

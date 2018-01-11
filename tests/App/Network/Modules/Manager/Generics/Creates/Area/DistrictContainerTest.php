@@ -13,7 +13,7 @@ use AppUnitTest;
  * Class DistrictContainerTest
  * @package App\Network\Modules\Manager\Generics\Creates\Area
  */
-class DistrictContainerUnitTest extends AppUnitTest
+class DistrictContainerTest extends AppUnitTest
 {
     public function test_create_for_save()
     {

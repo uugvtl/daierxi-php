@@ -13,7 +13,7 @@ use AppUnitTest;
  * Class CateContainerTest
  * @package App\Network\Modules\Manager\Generics\Modifies\Goods
  */
-class CateContainerUnitTest extends AppUnitTest
+class CateContainerTest extends AppUnitTest
 {
 
     public function test_upload_for_save()

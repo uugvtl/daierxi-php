@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\Warehouse\Packing\Export;
+namespace App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\Warehouse\Packing;
 use App\Globals\Sqlangs\BaseFields;
 use App\Globals\Sqlangs\BaseTable;
 use App\Globals\Sqlangs\BaseWhere;
@@ -7,7 +7,7 @@ use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Common\Sqlangs\Warehouse\PackingFields;
 use App\Network\Modules\Manager\Common\Sqlangs\Warehouse\PackingTable;
 use App\Network\Modules\Manager\Common\Sqlangs\Warehouse\PackingWhere;
-use App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\ExportRepository;
+use App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\AppRepository;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -17,7 +17,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\ExportRe
  * Class DefaultRepository
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Repositories\Warehouse\Packing\Export
  */
-class AppRepository extends ExportRepository
+class ExportRepository extends AppRepository
 {
     protected function madeFieldsInstance()
     {

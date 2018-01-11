@@ -10,4 +10,4 @@ use App\Network\Generics\Exports\GenericRepository;
  * Class ExportRepository
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Repositories
  */
-class ExportRepository extends GenericRepository {}
+class AppRepository extends GenericRepository {}

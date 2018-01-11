@@ -1,7 +1,7 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Exports\Factories\Logics\Warehouse\Packing\Export;
+namespace App\Network\Modules\Manager\Generics\Exports\Factories\Logics\Warehouse\Packing;
 use App\Globals\Finals\Responder;
-use App\Network\Modules\Manager\Generics\Exports\Factories\Logics\ExportLogic;
+use App\Network\Modules\Manager\Generics\Exports\Factories\Logics\AppLogic;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -11,7 +11,7 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Logics\ExportLogic;
  * Class DefaultLogic
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Logics\Warehouse\Packing\Export
  */
-class AppLogic extends ExportLogic
+class ExportLogic extends AppLogic
 {
     protected function run(Responder $responder)
     {
