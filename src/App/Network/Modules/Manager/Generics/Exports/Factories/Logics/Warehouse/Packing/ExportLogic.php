@@ -13,6 +13,11 @@ use App\Network\Modules\Manager\Generics\Exports\Factories\Logics\AppLogic;
  */
 class ExportLogic extends AppLogic
 {
+    protected function beforeBegin()
+    {
+        $this->autoCommit(YES);
+    }
+
     protected function run(Responder $responder)
     {
         $sqlangInjecter = $this->getRepositpry()->get();

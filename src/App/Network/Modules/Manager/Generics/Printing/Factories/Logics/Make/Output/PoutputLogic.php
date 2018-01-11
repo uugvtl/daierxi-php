@@ -25,6 +25,8 @@ class PoutputLogic extends AppLogic
 
     protected function beforeBegin()
     {
+        $this->autoCommit(YES);
+
         $store = $this->getStore();
         $sqlangInjecter = $this->getRepositpry()->get();
 
@@ -37,14 +39,9 @@ class PoutputLogic extends AppLogic
         $this->bizDo->setCache($store->getCache());
     }
 
-    protected function commit()
-    {
-        $toggle = $this->bizDo->submit()->isPersistent();
-        return $toggle;
-    }
-
     protected function run(Responder $responder)
     {
+        $responder->toggle = $this->bizDo->submit()->isPersistent();
 
         $formulaHelper = FormulaHelper::getInstance();
         $arrayHelper = ArrayHelper::getInstance();
@@ -55,8 +52,6 @@ class PoutputLogic extends AppLogic
         $complexRecords = $this->listComplexRecords();
         $aComplexIds = $arrayHelper->column($complexRecords, 'complex_id');
         $materialRecords = $this->listMaterialRecords($aComplexIds);
-
-
 
 
         $aComplexs  = $complexRecords;
@@ -123,7 +118,9 @@ class PoutputLogic extends AppLogic
         finish:
         $responder->toggle = YES;
         $responder->adapter = $pdf;
+
     }
+
 
     /**
      * @return array

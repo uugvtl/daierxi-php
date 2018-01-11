@@ -2,7 +2,6 @@
 namespace App\Network\Generics\Exports;
 use App\Adapters\Exports\CsvExportAdapter;
 use App\Frames\Generics\FrameLogic;
-use App\Globals\Finals\Responder;
 use App\Globals\Stores\SelectStore;
 use App\Interfaces\Adapters\IExportAdapter;
 /**
@@ -30,12 +29,6 @@ abstract class GenericLogic  extends FrameLogic
         return $this->adapter;
     }
 
-    final public function get()
-    {
-        $responder = Responder::getInstance();
-        $this->run($responder);
-        return $responder;
-    }
 
     protected function afterInstance()
     {

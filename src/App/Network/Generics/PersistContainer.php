@@ -9,7 +9,7 @@ namespace App\Network\Generics;
  * Class CreateContainer
  * @package App\Network\Generics
  */
-class CreateContainer extends GenericContainer
+class PersistContainer extends GenericContainer
 {
     public function get()
     {

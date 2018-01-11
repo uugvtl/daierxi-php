@@ -119,6 +119,12 @@ abstract class FrameDao extends FrameSingle
      */
     abstract public function rollBack();
 
+    /**
+     * 设置是否自运提交
+     * @param bool $auto    是否自动提交 自动为true,否则为false
+     * @return mixed
+     */
+    abstract public function autocommit($auto=true);
 
     /**
      * 从数据库获取一个数据

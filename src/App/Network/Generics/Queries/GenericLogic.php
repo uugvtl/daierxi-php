@@ -1,6 +1,5 @@
 <?php
 namespace App\Network\Generics\Queries;
-use App\Globals\Finals\Responder;
 use App\Frames\Generics\FrameLogic;
 use App\Globals\Stores\SelectStore;
 /**
@@ -14,13 +13,6 @@ use App\Globals\Stores\SelectStore;
  */
 abstract class GenericLogic  extends FrameLogic
 {
-
-    final public function get()
-    {
-        $responder = Responder::getInstance();
-        $this->run($responder);
-        return $responder;
-    }
 
     protected function afterInstance()
     {

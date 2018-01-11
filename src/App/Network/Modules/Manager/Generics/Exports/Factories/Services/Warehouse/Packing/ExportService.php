@@ -18,9 +18,5 @@ class ExportService extends AppService
         return parent::madeRepositoryInstance();
     }
 
-    protected function madeLogicInstance()
-    {
-        $this->getGenericInjecter()->useGeneralize(YES);
-        return parent::madeLogicInstance();
-    }
+
 }

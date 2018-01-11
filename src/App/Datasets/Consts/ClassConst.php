@@ -22,6 +22,11 @@ final class ClassConst
     const CLASS_PREFIX      = 'App';
 
     /**
+     * 有持久化功能时用到的类前辍
+     */
+    const PERSIST_PREFIX    = 'Persist';
+
+    /**
      * GENERIC 类所在目录
      */
     const GENERIC_CATALOG   = 'Generics';
@@ -179,7 +184,7 @@ final class ClassConst
     /**
      * DO 类后辍
      */
-    const DO_CATALOG        = 'DO';
+    const DO_SUFFIX         = 'DO';
 
     /**
      * BO 类所在的目录
@@ -189,7 +194,7 @@ final class ClassConst
     /**
      * BO 类后辍
      */
-    const BO_CATALOG        = 'BO';
+    const BO_SUFFIX         = 'BO';
 
     /**
      * Fields 类后辍
@@ -199,16 +204,16 @@ final class ClassConst
     /**
      * Where 类后辍
      */
-    const WHERE_SUFFIX     = 'Where';
+    const WHERE_SUFFIX      = 'Where';
 
     /**
      * Table 类后辍
      */
-    const TABLE_SUFFIX     = 'Table';
+    const TABLE_SUFFIX      = 'Table';
 
     /**
      * Container 类后辍
      */
-    const CONTAINER_SUFFIX = 'Container';
+    const CONTAINER_SUFFIX  = 'Container';
 
 }

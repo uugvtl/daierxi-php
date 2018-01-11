@@ -45,7 +45,7 @@ class FrontendContainerProvider extends NetworkContainerProvider
 
     public function getCreateContainer(array $posts)
     {
-        $containerString = $this->getGenericContainerString(ClassConst::CREATE_PREFIX);
+        $containerString = $this->getGenericContainerString(ClassConst::PERSIST_PREFIX);
         return $this->madeContainer(PackageCreateConst::PACKAGE, $containerString, $posts);
 
     }

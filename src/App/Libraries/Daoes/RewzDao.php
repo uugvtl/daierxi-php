@@ -1,5 +1,6 @@
 <?php
 namespace App\Libraries\Daoes;
+use PDO;
 use Phalcon\Db;
 use Phalcon\Db\AdapterInterface;
 /**
@@ -224,6 +225,13 @@ class RewzDao extends FrameDao
     public function rollBack()
     {
         return $this->rewz->rollback();
+    }
+
+    public function autocommit($auto=true)
+    {
+        $auto = (bool)$auto;
+        $this->rewz->getInternalHandler()->setAttribute(PDO::ATTR_AUTOCOMMIT, $auto);
+        return $this;
     }
 
     /**

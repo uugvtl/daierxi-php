@@ -5,7 +5,9 @@ use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\Responder;
 use App\Globals\Stores\FormStore;
+use App\Helpers\JsonHelper;
 use App\Interfaces\Generics\IRespondable;
+use App\Unusually\BizLogicExceptions;
 
 /**
  * 用来生成 Sqlang 和 Store 相关类的工厂类
@@ -30,6 +32,11 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
     private $store;
 
     /**
+     * @var bool
+     */
+    private $autocommit;
+
+    /**
      * 如果需要持久化数据时，需要实现run 方法，但是要调用commit
      * @param Responder $responder
      * @return void
@@ -43,6 +50,69 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
         $this->repository = $repository;
         return $this;
     }
+
+    /**
+     * 设置是否自动提交
+     * @param bool $auto        自动提交true,否则为false
+     * @return $this
+     */
+    final protected function autoCommit($auto)
+    {
+        $this->autocommit=(bool)$auto;
+        return $this;
+    }
+
+    final public function get()
+    {
+        $this->beforeBegin();
+        $responder = Responder::getInstance();
+        $this->autocommit?$this->commit($responder):$this->transaction($responder);
+        $this->afterEnd();
+        return $responder;
+    }
+
+    /**
+     * 持久化数据
+     * @param Responder $responder
+     * @return void
+     */
+    private function transaction(Responder $responder)
+    {
+        $dao = $this->getStore()->getCache()->getDao()->autocommit(NO);
+
+        $this->beforeBegin();
+
+        try {
+
+            $dao->start();
+            $this->run($responder);
+            $dao->end();
+        }
+        catch(BizLogicExceptions $e) {
+            $dao->rollback();
+            $jsonHelper = JsonHelper::getInstance();
+            $jsonHelper->sendExcp($e);
+        }
+
+    }
+
+    /**
+     * 自动化持久化数据
+     * @param Responder $responder
+     * @return void
+     */
+    private function commit(Responder $responder)
+    {
+        $this->getStore()->getCache()->getDao()->autocommit(YES);
+        $this->run($responder);
+
+        $responder->toggle ?
+            $responder->msg = $this->t('global', 'save_success'):
+            $responder->msg = $this->t('global', 'save_failure');
+    }
+
+
+
 
     /**
      * @return FrameRepository
@@ -79,7 +149,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActPath();
-        $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZDO_CATALOG.BACKSLASH.$path.ClassConst::DO_CATALOG;
+        $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZDO_CATALOG.BACKSLASH.$path.ClassConst::DO_SUFFIX;
         return $classname;
     }
 
@@ -92,7 +162,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActPath();
-        $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZBO_CATALOG.BACKSLASH.$path.ClassConst::DO_CATALOG;
+        $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZBO_CATALOG.BACKSLASH.$path.ClassConst::DO_SUFFIX;
         return $classname;
     }
 
@@ -100,4 +170,14 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
     {
         $this->setStore(FormStore::getInstance());
     }
+
+    /**
+     * 钩子方法，主要是减少事务当中的时间消耗
+     */
+    protected function beforeBegin() {}
+
+    /**
+     * 钩子方法，主要是减少事务当中的时间消耗
+     */
+    protected function afterEnd(){}
 }

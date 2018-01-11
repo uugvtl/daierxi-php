@@ -1,5 +1,6 @@
 <?php
 namespace App\Libraries\Daoes;
+use PDO;
 use Phalcon\Db;
 
 /**
@@ -213,6 +214,11 @@ class AppDao extends FrameDao
         return $this->db->rollback();
     }
 
+    public function autocommit($auto=true)
+    {
+        $this->db->getInternalHandler()->setAttribute(PDO::ATTR_AUTOCOMMIT, $auto);
+        return $this;
+    }
 
     /**
      * 从数据库获取一个数据

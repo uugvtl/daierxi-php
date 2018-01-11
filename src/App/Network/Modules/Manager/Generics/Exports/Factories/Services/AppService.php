@@ -18,4 +18,10 @@ class AppService extends GenericService
         $logic = $this->madeLogicInstance();
         return $logic->init($repository)->get();
     }
+
+    protected function madeLogicInstance()
+    {
+        $this->getGenericInjecter()->useGeneralize(YES);
+        return parent::madeLogicInstance();
+    }
 }

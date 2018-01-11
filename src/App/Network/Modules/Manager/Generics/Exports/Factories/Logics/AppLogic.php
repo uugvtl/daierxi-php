@@ -1,6 +1,5 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Exports\Factories\Logics;
-use App\Globals\Finals\Responder;
 use App\Network\Generics\Exports\GenericLogic;
 /**
  * Created by PhpStorm.
@@ -11,14 +10,4 @@ use App\Network\Generics\Exports\GenericLogic;
  * Class ExportLogic
  * @package App\Network\Modules\Manager\Generics\Exports\Factories\Logics
  */
-class AppLogic extends GenericLogic
-{
-    protected function run(Responder $responder)
-    {
-        $responder->toggle = NO;
-        $responder->adapter = $this->getAdapter();
-
-    }
-
-
-}
+abstract class AppLogic extends GenericLogic {}

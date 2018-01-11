@@ -1,9 +1,6 @@
 <?php
 namespace App\Network\Generics\Modifies;
-use App\Globals\Finals\Responder;
 use App\Frames\Generics\FrameLogic;
-use App\Helpers\JsonHelper;
-use App\Unusually\BizLogicExceptions;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,44 +10,4 @@ use App\Unusually\BizLogicExceptions;
  * Class GenericLogic
  * @package App\Network\Generics\Creates
  */
-abstract class GenericLogic extends FrameLogic
-{
-    final public function get()
-    {
-        $responder = Responder::getInstance();
-        $this->transaction($responder);
-        return $responder;
-    }
-
-    /**
-     * 持久化数据
-     * @param Responder $responder
-     * @return void
-     */
-    final protected function transaction(Responder $responder)
-    {
-        $dao = $this->getStore()->getCache()->getDao();
-        $this->beforeBegin();
-        try {
-
-            $dao->start();
-            $this->run($responder);
-            $dao->end();
-
-        }
-        catch(BizLogicExceptions $e) {
-            $dao->rollback();
-            $jsonHelper = JsonHelper::getInstance();
-            $jsonHelper->sendExcp($e);
-        }
-
-        $responder->toggle ?
-            $responder->msg = $this->t('global', 'save_success'):
-            $responder->msg = $this->t('global', 'save_failure');
-    }
-
-    /**
-     * 钩子方法，主要是减少事务当中的时间消耗
-     */
-    protected function beforeBegin() {}
-}
+abstract class GenericLogic extends FrameLogic {}
