@@ -34,7 +34,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
     /**
      * @var bool
      */
-    private $autocommit;
+    private $autocommit = true;
 
     /**
      * 如果需要持久化数据时，需要实现run 方法，但是要调用commit

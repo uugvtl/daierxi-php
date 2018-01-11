@@ -22,6 +22,7 @@ class CreateLogic extends AppLogic
 
     protected function beforeBegin()
     {
+        $this->autoCommit(YES);
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
