@@ -14,7 +14,7 @@ use AppUnitTest;
  * Class OutputContainerTest
  * @package App\Network\Modules\Manager\Generics\Printing\Make
  */
-class OutputContainerUnitTest extends AppUnitTest
+class OutputContainerTest extends AppUnitTest
 {
     public function setUp()
     {

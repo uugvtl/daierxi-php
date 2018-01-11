@@ -1,12 +1,12 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output\Poutput;
+namespace App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output;
 use App\Entities\Bizbos\Make\Output\Poutput\MaterialBO;
 use App\Entities\Bizdos\Make\OutputBaseDo;
 use App\Globals\Finals\Responder;
 use App\Helpers\ArrayHelper;
 use App\Helpers\FormulaHelper;
 use App\Helpers\InstanceHelper;
-use App\Network\Modules\Manager\Generics\Printing\Factories\Logics\PrintLogic;
+use App\Network\Modules\Manager\Generics\Printing\Factories\Logics\AppLogic;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,7 +16,7 @@ use App\Network\Modules\Manager\Generics\Printing\Factories\Logics\PrintLogic;
  * Class DefaultLogic
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output\Poutput
  */
-class AppLogic extends PrintLogic
+class PoutputLogic extends AppLogic
 {
     /**
      * @var OutputBaseDo

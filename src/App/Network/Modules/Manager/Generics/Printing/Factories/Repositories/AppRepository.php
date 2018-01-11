@@ -7,7 +7,7 @@ use App\Network\Generics\Printing\GenericRepository;
  * Date: 5/1/18
  * Time: 17:59
  *
- * Class PrintRepository
+ * Class AppRepository
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Repositories
  */
-class PrintRepository extends GenericRepository {}
+class AppRepository extends GenericRepository {}

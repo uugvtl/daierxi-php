@@ -1,6 +1,6 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Printing\Factories\Services\Make\Output\Poutput;
-use App\Network\Modules\Manager\Generics\Printing\Factories\Services\PrintService;
+namespace App\Network\Modules\Manager\Generics\Printing\Factories\Services\Make\Output;
+use App\Network\Modules\Manager\Generics\Printing\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Printing\Factories\Services\PrintServic
  * Class DefaultService
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Services\Make\Output\Poutput
  */
-class AppService extends PrintService
+class PoutputService extends AppService
 {
     protected function madeRepositoryInstance()
     {

@@ -10,7 +10,7 @@ use App\Network\Generics\Printing\GenericService;
  * Class PrintService
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Services
  */
-class PrintService extends GenericService
+class AppService extends GenericService
 {
     public function get()
     {

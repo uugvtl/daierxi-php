@@ -11,7 +11,7 @@ use App\Network\Generics\Printing\GenericLogic;
  * Class PrintLogic
  * @package App\Network\Modules\Manager\Generics\Printing\Factories\Logics
  */
-class PrintLogic extends GenericLogic
+class AppLogic extends GenericLogic
 {
     protected function commit()
     {
