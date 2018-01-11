@@ -1,36 +1,33 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Goods;
+namespace App\Network\Modules\Manager\Generics\Creates;
 use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 9/1/18
- * Time: 18:54
+ * Date: 6/1/18
+ * Time: 23:50
  *
- * Class CateContainerTest
- * @package App\Network\Modules\Manager\Generics\Creates\Goods
+ * Class AccountContainerTest
+ * @package App\Network\Modules\Manager\Generics\Creates
  */
-class CateContainerTest extends AppTestCase
+class AccountContainerUnitTest extends AppUnitTest
 {
     public function test_create_for_save()
     {
         /** arrange */
             $params = [
-                'cate_id'           =>'86',
-                'parent_id'         =>'0',
-                'depth'             =>'1',
-                'cate_name'         =>'测试',
-                'seo_title'         =>'测试',
-                'seo_keywords'      =>'测试',
-                'seo_description'   =>'测试',
-                'sort_order'        =>'255',
-                'disabled'          =>'0'
+                'manager_id'    =>14,
+                'manager_name'  =>'测试测试',
+                'password'      =>'123456',
+                'real_name'     =>'测试工程师',
+                'birthday'      =>'1982-03-10',
+                'group_id'      =>'43',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Create', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCreateContainer($params);
@@ -40,23 +37,19 @@ class CateContainerTest extends AppTestCase
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
-    public function test_update_for_save()
+    public function test_modify_for_save()
     {
         /** arrange */
             $params = [
-                'cate_id'           =>'86',
-                'parent_id'         =>'0',
-                'depth'             =>'1',
-                'cate_name'         =>'测试',
-                'seo_title'         =>'测试',
-                'seo_keywords'      =>'测试',
-                'seo_description'   =>'测试',
-                'sort_order'        =>'255',
-                'disabled'          =>'0'
+                'manager_id'    =>14,
+                'manager_name'  =>'测试测试1',
+                'password'      =>'123456',
+                'real_name'     =>'测试工程师1',
+                'birthday'      =>'1982-03-10',
+                'group_id'      =>'43',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Modify', ClassConst::CLASS_PREFIX);
-
+            $distributer->init('Account', 'Modify', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
@@ -65,15 +58,15 @@ class CateContainerTest extends AppTestCase
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
-    /**
-     * 还原数据
-     */
+
+    
     public function test_delete_for_save()
     {
         /** arrange */
-            $params = [86];
+            $params = [14];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Remove', ClassConst::CLASS_PREFIX);
+
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

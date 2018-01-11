@@ -3,7 +3,7 @@ namespace App\Network\Modules\Manager\Generics\Creates\Area;
 use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +13,7 @@ use AppTestCase;
  * Class DistrictContainerTest
  * @package App\Network\Modules\Manager\Generics\Creates\Area
  */
-class DistrictContainerTest extends AppTestCase
+class DistrictContainerUnitTest extends AppUnitTest
 {
     public function test_create_for_save()
     {

@@ -3,7 +3,7 @@ namespace App\Network\Modules\Manager\Generics\Modifies\Goods;
 use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,7 +13,7 @@ use AppTestCase;
  * Class CateContainerTest
  * @package App\Network\Modules\Manager\Generics\Modifies\Goods
  */
-class CateContainerTest extends AppTestCase
+class CateContainerUnitTest extends AppUnitTest
 {
 
     public function test_upload_for_save()

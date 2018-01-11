@@ -1,30 +1,30 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Brand;
+namespace App\Network\Modules\Manager\Generics\Creates\Area;
 use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
  * Date: 8/1/18
- * Time: 20:24
+ * Time: 15:02
  *
- * Class CateContainerTest
- * @package App\Network\Modules\Manager\Generics\Creates\Brand
+ * Class StreetContainerTest
+ * @package App\Network\Modules\Manager\Generics\Creates\Area
  */
-class CateContainerTest extends AppTestCase
+class StreetContainerUnitTest extends AppUnitTest
 {
     public function test_create_for_save()
     {
         /** arrange */
             $params = [
-                'brand_type_id'         =>'1',
-                'brand_type_name'       =>'测试*测试*测试',
-                'brand_type_sortrank'   =>'255'
+                'street_id'            => '1',
+                'district_id'          => '820202',
+                'street_name'          => '测试测试'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Cate', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Create', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -32,26 +32,26 @@ class CateContainerTest extends AppTestCase
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
-            $this->assertTrue($responder->toggle);
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 
     public function test_update_for_save()
     {
         /** arrange */
             $params = [
-                'brand_type_id'         =>'1',
-                'brand_type_name'       =>'测试*测试*测试1',
-                'brand_type_sortrank'   =>'255'
+                'street_id'            => '1',
+                'district_id'          => '820202',
+                'street_name'          => '测试测试1'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Cate', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Modify', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
             $responder = $container->get();
-            $this->assertTrue($responder->toggle);
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 
     /**
@@ -62,12 +62,13 @@ class CateContainerTest extends AppTestCase
         /** arrange */
             $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Cate', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Remove', ClassConst::CLASS_PREFIX);
+
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);
         /** assert */
             $responder = $container->get();
-            $this->assertTrue($responder->toggle);
+            $this->assertTrue($responder->toggle, $responder->msg);
     }
 }

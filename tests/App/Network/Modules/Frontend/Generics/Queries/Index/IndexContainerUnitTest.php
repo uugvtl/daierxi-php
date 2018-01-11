@@ -1,9 +1,9 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Index;
-use App\Datasets\Consts\DataConst;
+use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\FrontendContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -13,14 +13,14 @@ use AppTestCase;
  * Class IndexContainerTest
  * @package App\Network\Modules\Frontend\Generics\Queries\Index
  */
-class IndexContainerTest extends AppTestCase
+class IndexContainerUnitTest extends AppUnitTest
 {
     public function test_get_list_for_index()
     {
         /** arrange */
             $params = [];
             $distributer = Distributer::getInstance();
-            $distributer->init('Index', 'Index', DataConst::CLASS_PREFIX);
+            $distributer->init('Index', 'Index', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = FrontendContainerProvider::getInstance();
             $container = $provider->init($distributer)->getQueryContainer($params);//->setGeneralize(YES);

@@ -1,77 +1,73 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates;
+namespace App\Network\Modules\Manager\Generics\Creates\Brand;
 use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 6/1/18
- * Time: 23:50
+ * Date: 8/1/18
+ * Time: 20:24
  *
- * Class AccountContainerTest
- * @package App\Network\Modules\Manager\Generics\Creates
+ * Class CateContainerTest
+ * @package App\Network\Modules\Manager\Generics\Creates\Brand
  */
-class AccountContainerTest extends AppTestCase
+class CateContainerUnitTest extends AppUnitTest
 {
     public function test_create_for_save()
     {
         /** arrange */
             $params = [
-                'manager_id'    =>14,
-                'manager_name'  =>'测试测试',
-                'password'      =>'123456',
-                'real_name'     =>'测试工程师',
-                'birthday'      =>'1982-03-10',
-                'group_id'      =>'43',
+                'brand_type_id'         =>'1',
+                'brand_type_name'       =>'测试*测试*测试',
+                'brand_type_sortrank'   =>'255'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Cate', 'Create', ClassConst::CLASS_PREFIX);
+
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
-            $this->assertTrue($responder->toggle, $responder->msg);
+            $this->assertTrue($responder->toggle);
     }
 
-    public function test_modify_for_save()
+    public function test_update_for_save()
     {
         /** arrange */
             $params = [
-                'manager_id'    =>14,
-                'manager_name'  =>'测试测试1',
-                'password'      =>'123456',
-                'real_name'     =>'测试工程师1',
-                'birthday'      =>'1982-03-10',
-                'group_id'      =>'43',
+                'brand_type_id'         =>'1',
+                'brand_type_name'       =>'测试*测试*测试1',
+                'brand_type_sortrank'   =>'255'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Cate', 'Modify', ClassConst::CLASS_PREFIX);
+
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
             $responder = $container->get();
-            $this->assertTrue($responder->toggle, $responder->msg);
+            $this->assertTrue($responder->toggle);
     }
 
-
-    
+    /**
+     * 还原数据
+     */
     public function test_delete_for_save()
     {
         /** arrange */
-            $params = [14];
+            $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Remove', ClassConst::CLASS_PREFIX);
-
+            $distributer->init('Brand\Cate', 'Remove', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);
         /** assert */
             $responder = $container->get();
-            $this->assertTrue($responder->toggle, $responder->msg);
+            $this->assertTrue($responder->toggle);
     }
 }

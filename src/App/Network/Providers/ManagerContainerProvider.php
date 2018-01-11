@@ -40,8 +40,7 @@ class ManagerContainerProvider extends NetworkContainerProvider
 
     public function getPrimaryContainer(array $aId)
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
-        return $this->madeContainer(PackageModifyConst::PACKAGE, $containerString, $aId);
+        return $this->getCommitContainer($aId);
     }
 
     public function getCreateContainer(array $posts)

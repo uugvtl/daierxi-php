@@ -1,31 +1,36 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Area;
+namespace App\Network\Modules\Manager\Generics\Creates\Goods;
 use App\Datasets\Consts\ClassConst;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 8/1/18
- * Time: 15:02
+ * Date: 9/1/18
+ * Time: 18:54
  *
- * Class StreetContainerTest
- * @package App\Network\Modules\Manager\Generics\Creates\Area
+ * Class CateContainerTest
+ * @package App\Network\Modules\Manager\Generics\Creates\Goods
  */
-class StreetContainerTest extends AppTestCase
+class CateContainerUnitTest extends AppUnitTest
 {
     public function test_create_for_save()
     {
         /** arrange */
             $params = [
-                'street_id'            => '1',
-                'district_id'          => '820202',
-                'street_name'          => '测试测试'
+                'cate_id'           =>'86',
+                'parent_id'         =>'0',
+                'depth'             =>'1',
+                'cate_name'         =>'测试',
+                'seo_title'         =>'测试',
+                'seo_keywords'      =>'测试',
+                'seo_description'   =>'测试',
+                'sort_order'        =>'255',
+                'disabled'          =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\Street', 'Create', ClassConst::CLASS_PREFIX);
-
+            $distributer->init('Goods\Cate', 'Create', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCreateContainer($params);
@@ -39,12 +44,18 @@ class StreetContainerTest extends AppTestCase
     {
         /** arrange */
             $params = [
-                'street_id'            => '1',
-                'district_id'          => '820202',
-                'street_name'          => '测试测试1'
+                'cate_id'           =>'86',
+                'parent_id'         =>'0',
+                'depth'             =>'1',
+                'cate_name'         =>'测试',
+                'seo_title'         =>'测试',
+                'seo_keywords'      =>'测试',
+                'seo_description'   =>'测试',
+                'sort_order'        =>'255',
+                'disabled'          =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\Street', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Modify', ClassConst::CLASS_PREFIX);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -60,10 +71,9 @@ class StreetContainerTest extends AppTestCase
     public function test_delete_for_save()
     {
         /** arrange */
-            $params = [1];
+            $params = [86];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\Street', 'Remove', ClassConst::CLASS_PREFIX);
-
+            $distributer->init('Goods\Cate', 'Remove', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Goods;
-use AppTestCase;
+use AppUnitTest;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use AppTestCase;
  * Class EntityContainerTest
  * @package App\Network\Modules\Manager\Generics\Creates\Goods
  */
-class EntityContainerTest extends AppTestCase
+class EntityContainerUnitTest extends AppUnitTest
 {
 
 }
