@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Generics\Queries;
 use App\Frames\Generics\FrameLogic;
+use App\Globals\Finals\Responder;
 use App\Globals\Stores\SelectStore;
 /**
  * Created by PhpStorm.
@@ -18,4 +19,15 @@ abstract class GenericLogic  extends FrameLogic
     {
         $this->setStore(SelectStore::getInstance());
     }
+
+    public function get()
+    {
+        $this->beforeBegin();
+        $responder = Responder::getInstance();
+        $this->run($responder);
+        $this->afterEnd();
+        return $responder;
+    }
+
+
 }

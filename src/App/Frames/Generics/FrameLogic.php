@@ -62,7 +62,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
         return $this;
     }
 
-    final public function get()
+    public function get()
     {
         $this->beforeBegin();
         $responder = Responder::getInstance();
@@ -110,9 +110,6 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
             $responder->msg = $this->t('global', 'save_success'):
             $responder->msg = $this->t('global', 'save_failure');
     }
-
-
-
 
     /**
      * @return FrameRepository
