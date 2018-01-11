@@ -10,4 +10,4 @@ use App\Network\Generics\Queries\GenericRepository;
  * Class QueryRepository
  * @package App\Network\Modules\Manager\Generics\Factories\Queries\Repositories
  */
-class QueryRepository extends GenericRepository {}
+class AppRepository extends GenericRepository {}

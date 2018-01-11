@@ -1,11 +1,11 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Factories\Logics\Index\Index;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Logics\Index;
 use App\Datasets\ExcpCode;
 use App\Entities\Bizbos\Signin\AccountBaseBO;
 use App\Globals\Finals\Responder;
 use App\Globals\Traits\AccountTrait;
 use App\Helpers\InstanceHelper;
-use App\Network\Modules\Manager\Generics\Queries\Factories\Logics\QueryLogic;
+use App\Network\Modules\Manager\Generics\Queries\Factories\Logics\AppLogic;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,7 +15,7 @@ use App\Network\Modules\Manager\Generics\Queries\Factories\Logics\QueryLogic;
  * Class CookieLogic
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Logics\Index\Index
  */
-class CookieLogic extends QueryLogic
+class IndexLogic extends AppLogic
 {
     use AccountTrait;
 

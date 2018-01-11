@@ -10,7 +10,7 @@ use App\Network\Generics\Queries\GenericService;
  * Class QueryService
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Services
  */
-class QueryService extends GenericService
+class AppService extends GenericService
 {
     public function get()
     {

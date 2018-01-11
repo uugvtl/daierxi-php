@@ -6,10 +6,10 @@ use App\Helpers\SqlHelper;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 2/1/18
- * Time: 23:46
+ * Date: 3/1/18
+ * Time: 22:03
  *
- * Class PrimaryWhere
+ * Class CookieWhere
  * @package App\Network\Modules\Manager\Generics\Queries\Sqlangs\Queries\Index\Index
  */
 class AppWhere extends BaseWhere
@@ -24,17 +24,11 @@ class AppWhere extends BaseWhere
 
         $sqlHelper = SqlHelper::getInstance();
 
-        if($sqlHelper->is_string($condz, 'account') && $sqlHelper->is_string($condz, 'password'))
+        if($sqlHelper->is_numeric($condz, 'manager_id'))
         {
-            $namehash = md5($condz['account']);
-            $quoteNamehash = $this->getQuoteValue($namehash);
-            $where .= " AND m.namehash={$quoteNamehash}";
-
-            $passwordhash = md5(sha1($condz['password']));
-            $quotePasswordhash = $this->getQuoteValue($passwordhash);
-
-            $where .= " AND m.password={$quotePasswordhash}";
+            $where .= " AND m.manager_id={$condz['manager_id']}";
         }
+
 
         return $where;
     }

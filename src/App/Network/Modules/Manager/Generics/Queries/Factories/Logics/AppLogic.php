@@ -11,7 +11,7 @@ use App\Network\Generics\Queries\GenericLogic;
  * Class QueryLogic
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Logics
  */
-class QueryLogic extends GenericLogic
+class AppLogic extends GenericLogic
 {
 
     protected function run(Responder $responder)

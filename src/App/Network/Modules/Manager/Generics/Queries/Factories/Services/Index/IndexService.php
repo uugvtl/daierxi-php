@@ -1,6 +1,6 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Factories\Services\Index\Index;
-use App\Network\Modules\Manager\Generics\Queries\Factories\Services\QueryService;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Services\Index;
+use App\Network\Modules\Manager\Generics\Queries\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -10,7 +10,7 @@ use App\Network\Modules\Manager\Generics\Queries\Factories\Services\QueryService
  * Class CookieService
  * @package App\Network\Modules\Manager\Generics\Factories\Queries\Services\Index\Index
  */
-class CookieService extends QueryService
+class IndexService extends AppService
 {
     protected function madeRepositoryInstance()
     {

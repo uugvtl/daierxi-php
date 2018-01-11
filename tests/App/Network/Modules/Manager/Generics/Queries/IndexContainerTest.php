@@ -13,7 +13,7 @@ use AppUnitTest;
  * Class IndexContainerTest
  * @package App\Network\Modules\Manager\Generics\Queries
  */
-class IndexContainerUnitTest extends AppUnitTest
+class IndexContainerTest extends AppUnitTest
 {
     public function test_get_list_for_default()
     {
@@ -25,9 +25,8 @@ class IndexContainerUnitTest extends AppUnitTest
             $distributer->init('Index', 'Index', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $provider->init($distributer);
+            $container = $provider->init($distributer)->getQueryContainer($params);
         /** assert */
-            $container = $provider->getQueryContainer($params);
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);

@@ -1,23 +1,22 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\Index\Index;
+namespace App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\Index;
 use App\Globals\Sqlangs\BaseFields;
 use App\Globals\Sqlangs\BaseTable;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Common\Sqlangs\Signin\AccountFields;
 use App\Network\Modules\Manager\Common\Sqlangs\Signin\AccountTable;
-use App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\QueryRepository;
+use App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\AppRepository;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 2/1/18
- * Time: 23:37
+ * Date: 3/1/18
+ * Time: 21:53
  *
- * Class PrimaryRepository
+ * Class CookieRepository
  * @package App\Network\Modules\Manager\Generics\Queries\Factories\Repositories\Index\Index
  */
-class AppRepository extends QueryRepository
+class IndexRepository extends AppRepository
 {
-
     protected function madeFieldsInstance()
     {
         $instanceHelper = InstanceHelper::getInstance();
