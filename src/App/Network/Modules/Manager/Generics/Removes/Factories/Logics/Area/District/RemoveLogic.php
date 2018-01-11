@@ -19,6 +19,8 @@ class RemoveLogic extends AppLogic
 
     protected function beforeBegin()
     {
+        $this->autoCommit(YES);
+
         $aIds = $this->getGenericInjecter()->getParameter()->get();
 
         if($aIds)
