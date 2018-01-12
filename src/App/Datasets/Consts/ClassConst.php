@@ -17,24 +17,10 @@ final class ClassConst
     const FACTORY_CATALOG   = 'Factories';
 
     /**
-     * 泛化实例类的默认类名称前辍
-     */
-    const CLASS_PREFIX      = 'App';
-
-    /**
-     * 有持久化功能时用到的类前辍
-     */
-    const PERSIST_PREFIX    = 'Persist';
-
-    /**
      * GENERIC 类所在目录
      */
     const GENERIC_CATALOG   = 'Generics';
 
-    /**
-     * GENERIC 类前辍
-     */
-    const GENERIC_PREFIX    = 'Generic';
 
     /**
      * 排程功能类所在目录
@@ -42,19 +28,9 @@ final class ClassConst
     const CRONTAB_CATALOG   = 'Crontabs';
 
     /**
-     * 排程功能类前辍
-     */
-    const CRONTAB_PREFIX    = 'Crontab';
-
-    /**
      * 初始功能目录名称
      */
     const INIT_CATALOG      = 'Initializes';
-
-    /**
-     * 初始功能类前辍
-     */
-    const INIT_PREFIX       = 'Initialize';
 
     /**
      * 新增功能目录名称
@@ -62,19 +38,9 @@ final class ClassConst
     const CREATE_CATALOG    = 'Creates';
 
     /**
-     * 新增功能类前辍
-     */
-    const CREATE_PREFIX     = 'Create';
-
-    /**
      * 修改功能目录名称
      */
     const MODIFY_CATALOG    = 'Modifies';
-
-    /**
-     * 修改功能类前辍
-     */
-    const MODIFY_PREFIX     = 'Modify';
 
     /**
      * 查询功能目录名称
@@ -82,19 +48,9 @@ final class ClassConst
     const QUERY_CATALOG     = 'Queries';
 
     /**
-     * 查询功能类前辍
-     */
-    const QUERY_PREFIX      = 'Query';
-
-    /**
      * 打印功能目录名称
      */
     const PRINT_CATALOG     = 'Printing';
-
-    /**
-     * 打印功能类前辍
-     */
-    const PRINT_PREFIX      = 'Print';
 
     /**
      * 导出功能目录名称
@@ -102,34 +58,9 @@ final class ClassConst
     const EXPORT_CATALOG    = 'Exports';
 
     /**
-     * 导出功能类前辍
-     */
-    const EXPORT_PREFIX     = 'Export';
-
-    /**
      * 删除功能目录名称
      */
     const REMOVE_CATALOG    = 'Removes';
-
-    /**
-     * 删除功能类前辍
-     */
-    const REMOVE_PREFIX     = 'Remove';
-
-    /**
-     * 上传功能类前辍
-     */
-    const UPLOAD_PREFIX     = 'Upload';
-
-    /**
-     * 开启功能类前辍
-     */
-    const ENABLED_PREFIX    = 'Enabled';
-
-    /**
-     * 关闭功能类前辍
-     */
-    const DISABLED_PREFIX   = 'Disabled';
 
     /**
      * Repository 类所在目录

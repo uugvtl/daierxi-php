@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Exports\Warehouse;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Adapters\IShowAdapter;
 use App\Network\Providers\ManagerContainerProvider;
@@ -21,7 +21,7 @@ class PackingContainerUnitTest extends AppUnitTest
         /** arrange */
             $params = [];
             $distributer = Distributer::getInstance();
-            $distributer->init('Warehouse\Packing', 'Export', ClassConst::CLASS_PREFIX);
+            $distributer->init('Warehouse\Packing', 'Export', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getExportContainer($params);

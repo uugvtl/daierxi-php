@@ -1,6 +1,7 @@
 <?php
 namespace App\Frames\Generics;
 use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Frames\FrameGeneric;
 use App\Globals\Bases\BaseStore;
 use App\Globals\Finals\Responder;
@@ -76,7 +77,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * @param string $bizDOPrefix
      * @return $this
      */
-    final protected function setBizDOPrefix($bizDOPrefix=ClassConst::CLASS_PREFIX)
+    final protected function setBizDOPrefix($bizDOPrefix=ClassPrefix::APP)
     {
         $this->bizDOPrefix = $bizDOPrefix;
         return $this;
@@ -87,7 +88,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * @param string $bizBOPrefix
      * @return $this
      */
-    final protected function setBizBOPrefix($bizBOPrefix=ClassConst::CLASS_PREFIX)
+    final protected function setBizBOPrefix($bizBOPrefix=ClassPrefix::APP)
     {
         $this->bizBOPrefix = $bizBOPrefix;
         return $this;

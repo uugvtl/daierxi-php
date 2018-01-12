@@ -1,6 +1,7 @@
 <?php
 namespace App\Network\Providers;
 use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Network\Generics\PackageGenericConst;
 use App\Providers\BaseContainerProvider;
@@ -25,7 +26,7 @@ abstract class NetworkContainerProvider extends BaseContainerProvider implements
      * @param string $containerPrefix
      * @return $this
      */
-    final public function setGenericContainerPrefix($containerPrefix=ClassConst::GENERIC_PREFIX)
+    final public function setGenericContainerPrefix($containerPrefix=ClassPrefix::GENERIC)
     {
         $this->containerPrefix = $containerPrefix;
         return $this;

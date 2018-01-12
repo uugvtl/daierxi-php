@@ -1,5 +1,5 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Goods\Cate;
+namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Goods\Cate\Toggle;
 use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDisabledDO;
 use App\Helpers\StringHelper;
@@ -13,7 +13,7 @@ use App\Helpers\StringHelper;
  * Class ToggleDO
  * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Goods\Cate
  */
-class ToggleDO extends BaseDisabledDO
+class DisabledDO extends BaseDisabledDO
 {
     public function insert()
     {

@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Account;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Bizes\BaseEnabledDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
@@ -25,7 +26,7 @@ class ToggleLogic extends AppLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(BaseEnabledDO::class, $this->getBizDOClassString());
+        $this->bizDo = $instanceHelper->build(BaseEnabledDO::class, $this->setBizDOPrefix(ClassPrefix::ENABLED)->getBizDOClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());;
     }
 

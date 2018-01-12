@@ -1,9 +1,10 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\Goods\Cate;
+use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\AppLogic;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Bizes\BaseDisabledDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
-use App\Network\Modules\Manager\Generics\Modifies\Factories\Logics\AppLogic;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -25,7 +26,7 @@ class ToggleLogic extends AppLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(BaseDisabledDO::class, $this->getBizDOClassString());
+        $this->bizDo = $instanceHelper->build(BaseDisabledDO::class, $this->setBizDOPrefix(ClassPrefix::DISABLED)->getBizDOClassString());
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 

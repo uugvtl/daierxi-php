@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Queries;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -22,7 +22,7 @@ class IndexContainerTest extends AppUnitTest
                 'manager_id'=>1
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Index', 'Index', ClassConst::CLASS_PREFIX);
+            $distributer->init('Index', 'Index', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getQueryContainer($params);

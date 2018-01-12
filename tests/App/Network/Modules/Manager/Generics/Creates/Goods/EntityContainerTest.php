@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Goods;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -44,12 +44,12 @@ class EntityContainerTest extends AppUnitTest
 
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Entity', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Entity', 'Create', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCreateContainer($params);
         /** assert */
-            $responder = $container->setBaseServicePrefix(ClassConst::CLASS_PREFIX)->get();
+            $responder = $container->setBaseServicePrefix(ClassPrefix::APP)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -75,7 +75,7 @@ class EntityContainerTest extends AppUnitTest
                 'goods_status'          =>'2'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Entity', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Entity', 'Modify', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -92,7 +92,7 @@ class EntityContainerTest extends AppUnitTest
         /** arrange */
             $params = [10];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Entity', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Entity', 'Remove', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

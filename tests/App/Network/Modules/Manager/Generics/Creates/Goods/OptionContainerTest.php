@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Goods;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -24,11 +24,11 @@ class OptionContainerTest extends AppUnitTest
                 'text'              =>'测试测试'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Option', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Option', 'Create', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
 //            $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
@@ -44,7 +44,7 @@ class OptionContainerTest extends AppUnitTest
                 'text'              =>'测试测试'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Option', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Option', 'Modify', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
@@ -58,7 +58,7 @@ class OptionContainerTest extends AppUnitTest
         /** arrange */
             $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Option', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Option', 'Remove', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

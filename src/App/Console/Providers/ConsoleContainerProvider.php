@@ -2,6 +2,7 @@
 namespace App\Console\Providers;
 use App\Console\Generics\PackageGenericConst;
 use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Interfaces\Providers\IConsoleContainerProvider;
 use App\Providers\BaseContainerProvider;
 /**
@@ -25,7 +26,7 @@ abstract class ConsoleContainerProvider extends BaseContainerProvider implements
      * @param string $containerPrefix
      * @return $this
      */
-    final public function setGenericContainerPrefix($containerPrefix=ClassConst::GENERIC_PREFIX)
+    final public function setGenericContainerPrefix($containerPrefix=ClassPrefix::GENERIC)
     {
         $this->containerPrefix = $containerPrefix;
         return $this;

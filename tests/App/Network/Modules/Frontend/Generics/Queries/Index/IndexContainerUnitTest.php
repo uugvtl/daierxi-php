@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Frontend\Generics\Queries\Index;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\FrontendContainerProvider;
 use AppUnitTest;
@@ -20,7 +20,7 @@ class IndexContainerUnitTest extends AppUnitTest
         /** arrange */
             $params = [];
             $distributer = Distributer::getInstance();
-            $distributer->init('Index', 'Index', ClassConst::CLASS_PREFIX);
+            $distributer->init('Index', 'Index', ClassPrefix::APP);
         /** act */
             $provider = FrontendContainerProvider::getInstance();
             $container = $provider->init($distributer)->getQueryContainer($params);//->setGeneralize(YES);

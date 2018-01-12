@@ -1,18 +1,19 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Account;
+namespace App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Brand\Entity\Toggle;
 use App\Datasets\Consts\TableConst;
-use App\Globals\Bizes\BaseEnabledDO;
+use App\Globals\Bizes\BaseDisabledDO;
 use App\Helpers\StringHelper;
+
 /**
  * Created by PhpStorm.
  * User: leon
  * Date: 10/1/18
- * Time: 17:50
+ * Time: 17:45
  *
  * Class AppDO
- * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Account\Toggle
+ * @package App\Network\Modules\Manager\Generics\Modifies\Entities\Bizdos\Brand\Entity\Toggle
  */
-class ToggleDO extends BaseEnabledDO
+class DisabledDO extends BaseDisabledDO
 {
     public function insert()
     {
@@ -23,26 +24,25 @@ class ToggleDO extends BaseEnabledDO
     {
         if($this->items)
         {
-            $table = TableConst::MANAGER;
+            $table = TableConst::BRAND;
             $stringHelper = StringHelper::getInstance();
 
             $ids = explode(',', $this->items);
             $sqls = array_reduce($ids, function($result, $id) use ($table, $stringHelper){
-                $quote_enabled = $stringHelper->quoteValue($this->enabled);
+                $quote_disabled = $stringHelper->quoteValue($this->disabled);
                 $result[] ="UPDATE 
                                 {$table} 
                             SET 
-                                enabled={$quote_enabled}
+                                is_remove={$quote_disabled}
                             WHERE 
-                                manager_id={$id}\n";
+                                brand_id={$id}\n";
                 return $result;
             });
 
             $toggle = $this->getCache()->getDao()->submit($sqls);
-            $this->setPersistent(true);
+            $this->setPersistent(YES);
             $toggle && $this->getCache()->updateCacheDependencies($table);
         }
         return $this;
-
     }
 }

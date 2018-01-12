@@ -1,7 +1,8 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Printing\Factories\Logics\Make\Output;
+use App\Datasets\Consts\ClassPrefix;
 use App\Entities\Bizbos\Make\Output\Poutput\MaterialBO;
-use App\Entities\Bizdos\Make\OutputBaseDo;
+use App\Entities\Bizdos\Make\OutputBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\ArrayHelper;
 use App\Helpers\FormulaHelper;
@@ -19,7 +20,7 @@ use App\Network\Modules\Manager\Generics\Printing\Factories\Logics\AppLogic;
 class PoutputLogic extends AppLogic
 {
     /**
-     * @var OutputBaseDo
+     * @var OutputBaseDO
      */
     private $bizDo;
 
@@ -31,10 +32,10 @@ class PoutputLogic extends AppLogic
         $sqlangInjecter = $this->getRepositpry()->get();
 
         $rows = $store->setSqlangInjecter($sqlangInjecter)->getRow();
-        $classString = $this->getBizDOClassString();
+        $classString = $this->setBizDOPrefix(ClassPrefix::OUTPUT)->getBizDOClassString();
 
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(OutputBaseDo::class, $classString);
+        $this->bizDo = $instanceHelper->build(OutputBaseDO::class, $classString);
         $this->bizDo->init($rows)->initStatusBo();
         $this->bizDo->setCache($store->getCache());
     }

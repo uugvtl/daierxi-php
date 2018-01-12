@@ -3,6 +3,7 @@ namespace App\Entities\Bizdos\Goods;
 use App\Datasets\Consts\TableConst;
 use App\Globals\Bizes\BaseDO;
 use App\Helpers\SqlHelper;
+use App\Helpers\StringHelper;
 
 /**
  * Created by PhpStorm.
@@ -59,6 +60,19 @@ class OptionBaseDO extends BaseDO
 
     public function submit()
     {
+        $table = TableConst::GOODS_OPTION;
+        $stringHelper = StringHelper::getInstance();
+        $sqlHelper = SqlHelper::getInstance();
+
+        $id = $stringHelper->quoteValue($this->option_id);
+        $where = 'AND option_id='.$id;
+
+        $sql =  $sqlHelper->getUpdateString($this->getValidFields(), $table, $where);
+
+        $toggle = $this->getCache()->getDao()->commit($sql);
+        $this->setPersistent(YES);
+        $toggle && $this->getCache()->updateCacheDependencies($table);
+
         return $this;
     }
 }

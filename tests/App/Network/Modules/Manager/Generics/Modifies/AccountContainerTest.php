@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -23,12 +23,12 @@ class AccountContainerTest extends AppUnitTest
                 'items'=>'2,5,6'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Toggle', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Toggle', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $container->setBaseServicePrefix(ClassConst::ENABLED_PREFIX)->get();
+            $responder = $container->setBaseServicePrefix(ClassPrefix::ENABLED)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -40,7 +40,7 @@ class AccountContainerTest extends AppUnitTest
                 'grant'=>'2,5,6'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Group', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Group', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);

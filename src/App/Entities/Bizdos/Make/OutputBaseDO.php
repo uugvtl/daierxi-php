@@ -31,7 +31,7 @@ use App\Interfaces\Entities\IChangeStatusable;
  * @property-read int       $output_status
  * @property-read int       $is_print
  */
-class OutputBaseDo extends BaseOutputDO
+class OutputBaseDO extends BaseOutputDO
 {
 
     protected function column()

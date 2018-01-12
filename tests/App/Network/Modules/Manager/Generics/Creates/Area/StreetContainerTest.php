@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Area;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -24,11 +24,11 @@ class StreetContainerTest extends AppUnitTest
                 'street_name'          => '测试测试'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\Street', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Create', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
@@ -44,7 +44,7 @@ class StreetContainerTest extends AppUnitTest
                 'street_name'          => '测试测试1'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\Street', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Modify', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -62,7 +62,7 @@ class StreetContainerTest extends AppUnitTest
         /** arrange */
             $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\Street', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\Street', 'Remove', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();

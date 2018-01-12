@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Area;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -33,11 +33,11 @@ class DistrictContainerTest extends AppUnitTest
                 'leaf'          =>'1',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\District', 'Create', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
@@ -62,7 +62,7 @@ class DistrictContainerTest extends AppUnitTest
                 'leaf'          =>'1',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\District', 'Modify', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -82,7 +82,7 @@ class DistrictContainerTest extends AppUnitTest
             $params = [820202];
 
             $distributer = Distributer::getInstance();
-            $distributer->init('Area\District', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Area\District', 'Remove', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();

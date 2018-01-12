@@ -1,7 +1,7 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Printing\Entities\Bizdos\Make\Output;
+namespace App\Network\Modules\Manager\Generics\Printing\Entities\Bizdos\Make\Output\Poutput;
 use App\Datasets\Consts\TableConst;
-use App\Entities\Bizdos\Make\OutputBaseDo;
+use App\Entities\Bizdos\Make\OutputBaseDO;
 use App\Helpers\SqlHelper;
 use App\Helpers\StringHelper;
 /**
@@ -13,7 +13,7 @@ use App\Helpers\StringHelper;
  * Class DefaultDo
  * @package App\Network\Modules\Manager\Generics\Printing\Entities\Bizdos\Make\Output\Poutput
  */
-class PoutputDo extends OutputBaseDo
+class OutputDO extends OutputBaseDO
 {
     public function submit()
     {

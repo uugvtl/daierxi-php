@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Interfaces\Providers\INetworkContainerProvider;
 use App\Network\Common\NetController;
@@ -32,7 +32,7 @@ abstract class ModuleController extends NetController
 
         $ctrlName   = $dispatcher->getControllerName();
         $actName    = $dispatcher->getActionName();
-        $fileName   = ClassConst::CLASS_PREFIX;
+        $fileName   = ClassPrefix::APP;
 
         $distributer->init($ctrlName, $actName, $fileName);
 

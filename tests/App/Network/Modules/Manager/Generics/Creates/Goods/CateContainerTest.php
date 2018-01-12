@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Goods;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -30,10 +30,10 @@ class CateContainerTest extends AppUnitTest
                 'disabled'          =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Create', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
@@ -55,7 +55,7 @@ class CateContainerTest extends AppUnitTest
                 'disabled'          =>'0'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Modify', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -73,7 +73,7 @@ class CateContainerTest extends AppUnitTest
         /** arrange */
             $params = [86];
             $distributer = Distributer::getInstance();
-            $distributer->init('Goods\Cate', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Goods\Cate', 'Remove', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

@@ -1,6 +1,7 @@
 <?php
 namespace App\Frames\Generics;
 use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Frames\FrameGeneric;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;
@@ -31,7 +32,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      * @param string $baseRepositoryPrefix      基类名称前辍
      * @return $this
      */
-    final public function setBaseRepositoryPrefix($baseRepositoryPrefix=ClassConst::CLASS_PREFIX)
+    final public function setBaseRepositoryPrefix($baseRepositoryPrefix=ClassPrefix::APP)
     {
         $this->invokedSetBaseRepositoryPrefixMothed = YES;
         $baseClassString = $baseRepositoryPrefix. ClassConst::REPOSITORY_SUFFIX;
@@ -44,7 +45,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      * @param string $baseLogicPrefix           基类名称前辍
      * @return $this
      */
-    final public function setBaseLogicPrefix($baseLogicPrefix=ClassConst::CLASS_PREFIX)
+    final public function setBaseLogicPrefix($baseLogicPrefix=ClassPrefix::APP)
     {
         $this->invokedSetBaseLogicPrefixMothed = YES;
         $baseClassString = $baseLogicPrefix.ClassConst::LOGIC_SUFFIX;

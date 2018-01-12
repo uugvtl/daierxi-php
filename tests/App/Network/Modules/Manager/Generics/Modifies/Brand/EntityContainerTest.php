@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Brand;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -23,12 +23,12 @@ class EntityContainerTest extends AppUnitTest
                 'brand_thumb_common'    =>'upload/2017/02/23/original/2017223608422223486.jpg',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Entity', 'Upload', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Entity', 'Upload', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $container->setBaseServicePrefix(ClassConst::UPLOAD_PREFIX)->get();
+            $responder = $container->setBaseServicePrefix(ClassPrefix::UPLOAD)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
@@ -40,13 +40,13 @@ class EntityContainerTest extends AppUnitTest
                 'items'=>'2,5,6'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Entity', 'Toggle', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Entity', 'Toggle', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
         /** assert */
-            $responder = $container->setBaseServicePrefix(ClassConst::DISABLED_PREFIX)->get();
+            $responder = $container->setBaseServicePrefix(ClassPrefix::DISABLED)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Brand;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -24,11 +24,11 @@ class CateContainerTest extends AppUnitTest
                 'brand_type_sortrank'   =>'255'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Cate', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Cate', 'Create', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
@@ -44,7 +44,7 @@ class CateContainerTest extends AppUnitTest
                 'brand_type_sortrank'   =>'255'
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Cate', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Cate', 'Modify', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
@@ -62,7 +62,7 @@ class CateContainerTest extends AppUnitTest
         /** arrange */
             $params = [1];
             $distributer = Distributer::getInstance();
-            $distributer->init('Brand\Cate', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Brand\Cate', 'Remove', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getRemoveContainer($params);

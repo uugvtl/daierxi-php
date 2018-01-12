@@ -1,6 +1,7 @@
 <?php
 namespace App\Frames\Generics;
 use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Frames\FrameGeneric;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
@@ -32,7 +33,7 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
      * @param string $baseServicePrefix     基类名称前辍
      * @return $this
      */
-    final public function setBaseServicePrefix($baseServicePrefix=ClassConst::CLASS_PREFIX)
+    final public function setBaseServicePrefix($baseServicePrefix=ClassPrefix::APP)
     {
         $this->invokedSetBaseServicePrefixMothed = YES;
         $baseClassString = $baseServicePrefix.ClassConst::SERVICE_SUFFIX;

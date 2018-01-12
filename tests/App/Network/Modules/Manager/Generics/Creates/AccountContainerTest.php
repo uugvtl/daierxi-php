@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates;
-use App\Datasets\Consts\ClassConst;
+use App\Datasets\Consts\ClassPrefix;
 use App\Globals\Finals\Distributer;
 use App\Network\Providers\ManagerContainerProvider;
 use AppUnitTest;
@@ -27,10 +27,10 @@ class AccountContainerTest extends AppUnitTest
                 'group_id'      =>'43',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Create', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Create', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
@@ -49,7 +49,7 @@ class AccountContainerTest extends AppUnitTest
                 'group_id'      =>'43',
             ];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Modify', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Modify', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getCommitContainer($params);
@@ -65,7 +65,7 @@ class AccountContainerTest extends AppUnitTest
         /** arrange */
             $params = [14];
             $distributer = Distributer::getInstance();
-            $distributer->init('Account', 'Remove', ClassConst::CLASS_PREFIX);
+            $distributer->init('Account', 'Remove', ClassPrefix::APP);
 
         /** act */
             $provider = ManagerContainerProvider::getInstance();
