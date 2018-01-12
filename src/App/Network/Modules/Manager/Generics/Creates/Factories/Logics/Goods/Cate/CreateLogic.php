@@ -26,7 +26,7 @@ class CreateLogic extends AppLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(CateBaseDO::class, $this->getBizBOClassString());
+        $this->bizDo = $instanceHelper->build(CateBaseDO::class, CateBaseDO::class);
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -36,11 +36,4 @@ class CreateLogic extends AppLogic
         $responder->toggle = $toggle;
     }
 
-    /**
-     * @return string
-     */
-    protected function getBizBOClassString()
-    {
-        return CateBaseDO::class;
-    }
 }

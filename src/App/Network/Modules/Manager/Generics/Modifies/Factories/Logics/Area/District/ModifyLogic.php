@@ -26,7 +26,7 @@ class ModifyLogic extends AppLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(DistrictBaseDO::class, $this->getBizDOClassString());
+        $this->bizDo = $instanceHelper->build(DistrictBaseDO::class, DistrictBaseDO::class);
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 
@@ -36,11 +36,4 @@ class ModifyLogic extends AppLogic
         $responder->toggle = $toggle;
     }
 
-    /**
-     * @return string
-     */
-    protected function getBizDOClassString()
-    {
-        return DistrictBaseDO::class;
-    }
 }

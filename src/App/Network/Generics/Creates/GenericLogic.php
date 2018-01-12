@@ -10,7 +10,4 @@ use App\Frames\Generics\FrameLogic;
  * Class GenericLogic
  * @package App\Network\Generics\Creates
  */
-abstract class GenericLogic extends FrameLogic
-{
-
-}
+abstract class GenericLogic extends FrameLogic {}

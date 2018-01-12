@@ -37,7 +37,7 @@ class GroupLogic extends AppLogic
                     'group_id'  =>$group_id,
                     'manager_id'=>$manager_id
                 ];
-                $bizDo = $instanceHelper->build(ManagerBaseDO::class, $this->getBizDOClassString());
+                $bizDo = $instanceHelper->build(ManagerBaseDO::class, ManagerBaseDO::class);
                 $bizDo->init($arguments)->setCache($store->getCache());
                 $this->bizDos[] = $bizDo;
             }
@@ -60,15 +60,6 @@ class GroupLogic extends AppLogic
         }
 
     }
-
-    /**
-     * @return string
-     */
-    protected function getBizDOClassString()
-    {
-        return ManagerBaseDO::class;
-    }
-
 
     use PersistentTait;
 }

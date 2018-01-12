@@ -31,7 +31,7 @@ class IndexLogic extends AppLogic
         if($rows)
         {
             $instanceHelper = InstanceHelper::getInstance();
-            $accountBo = $instanceHelper->build(AccountBaseBO::class, $this->getBizBOClassString());
+            $accountBo = $instanceHelper->build(AccountBaseBO::class, AccountBaseBO::class);
             $accountBo->init($rows);
 
             if($accountBo->enabled)
@@ -54,15 +54,6 @@ class IndexLogic extends AppLogic
             $responder->code = ExcpCode::INVALID_LOGIN;
         }
 
-    }
-
-
-    /**
-     * @return string
-     */
-    protected function getBizBOClassString()
-    {
-        return AccountBaseBO::class;
     }
 
     /**

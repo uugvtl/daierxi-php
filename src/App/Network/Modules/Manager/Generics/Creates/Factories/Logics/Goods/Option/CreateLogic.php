@@ -1,22 +1,22 @@
 <?php
-namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Brand\Cate;
-use App\Entities\Bizdos\Brand\CateBaseDO;
+namespace App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Goods\Option;
+use App\Entities\Bizdos\Goods\OptionBaseDO;
 use App\Globals\Finals\Responder;
 use App\Helpers\InstanceHelper;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Logics\AppLogic;
 /**
  * Created by PhpStorm.
  * User: leon
- * Date: 8/1/18
- * Time: 20:58
+ * Date: 12/1/18
+ * Time: 19:36
  *
- * Class AppLogic
- * @package App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Brand\Cate\Create
+ * Class CreateLogic
+ * @package App\Network\Modules\Manager\Generics\Creates\Factories\Logics\Goods\Option
  */
 class CreateLogic extends AppLogic
 {
     /**
-     * @var CateBaseDO
+     * @var OptionBaseDO
      */
     private $bizDo;
 
@@ -26,7 +26,7 @@ class CreateLogic extends AppLogic
         $store = $this->getStore();
         $rows = $this->getGenericInjecter()->getParameter()->get();
         $instanceHelper = InstanceHelper::getInstance();
-        $this->bizDo = $instanceHelper->build(CateBaseDO::class, CateBaseDO::class);
+        $this->bizDo = $instanceHelper->build(OptionBaseDO::class, OptionBaseDO::class);
         $this->bizDo->init($rows)->setCache($store->getCache());
     }
 

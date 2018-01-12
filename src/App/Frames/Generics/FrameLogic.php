@@ -8,7 +8,6 @@ use App\Globals\Stores\FormStore;
 use App\Helpers\JsonHelper;
 use App\Interfaces\Generics\IRespondable;
 use App\Unusually\BizLogicExceptions;
-
 /**
  * 用来生成 Sqlang 和 Store 相关类的工厂类
  * Created by PhpStorm.
@@ -30,6 +29,16 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * @var BaseStore
      */
     private $store;
+
+    /**
+     * @var string
+     */
+    private $bizDOPrefix;
+
+    /**
+     * @var string
+     */
+    private $bizBOPrefix;
 
     /**
      * @var bool
@@ -59,6 +68,28 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
     final protected function autoCommit($auto)
     {
         $this->autocommit=(bool)$auto;
+        return $this;
+    }
+
+    /**
+     * 设置 bizDO 类名称
+     * @param string $bizDOPrefix
+     * @return $this
+     */
+    final protected function setBizDOPrefix($bizDOPrefix=ClassConst::CLASS_PREFIX)
+    {
+        $this->bizDOPrefix = $bizDOPrefix;
+        return $this;
+    }
+
+    /**
+     * 设置 bizBO 类名称
+     * @param string $bizBOPrefix
+     * @return $this
+     */
+    final protected function setBizBOPrefix($bizBOPrefix=ClassConst::CLASS_PREFIX)
+    {
+        $this->bizBOPrefix = $bizBOPrefix;
         return $this;
     }
 
@@ -141,11 +172,12 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * 获取BizDo类的全名
      * @return string
      */
-    protected function getBizDOClassString()
+    final protected function getBizDOClassString()
     {
+        $this->bizDOPrefix || $this->setBizDOPrefix();
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getCtrlActPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActPath().BACKSLASH.$this->bizDOPrefix;
         $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZDO_CATALOG.BACKSLASH.$path.ClassConst::DO_SUFFIX;
         return $classname;
     }
@@ -154,11 +186,12 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * 获取BizBo类的全名
      * @return string
      */
-    protected function getBizBOClassString()
+    final protected function getBizBOClassString()
     {
+        $this->bizBOPrefix || $this->setBizBOPrefix();
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
-        $path = $genericInjecter->getDistributer()->getCtrlActPath();
+        $path = $genericInjecter->getDistributer()->getCtrlActPath().BACKSLASH.$this->bizBOPrefix;
         $classname = $package.BACKSLASH.ClassConst::ENTITY_CATALOG.BACKSLASH.ClassConst::BIZBO_CATALOG.BACKSLASH.$path.ClassConst::DO_SUFFIX;
         return $classname;
     }
