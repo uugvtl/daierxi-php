@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Legals\Area\Street;
-use App\Network\Legals\Area\StreetLegal;
+use App\Network\Legals\Area\StreetBaseLegal;
 use Phalcon\Validation\Validator\Numericality;
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ use Phalcon\Validation\Validator\Numericality;
  * Class AppLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Area\Street\Modify
  */
-class ModifyLegal extends StreetLegal
+class ModifyBaseLegal extends StreetBaseLegal
 {
     protected function run()
     {

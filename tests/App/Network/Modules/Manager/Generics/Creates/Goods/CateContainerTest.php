@@ -33,14 +33,14 @@ class CateContainerTest extends AppUnitTest
             $distributer->init('Goods\Cate', 'Create', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 
-    public function test_update_for_save()
+    public function test_modify_for_save()
     {
         /** arrange */
             $params = [
@@ -68,7 +68,7 @@ class CateContainerTest extends AppUnitTest
     /**
      * 还原数据
      */
-    public function test_delete_for_save()
+    public function test_remove_for_save()
     {
         /** arrange */
             $params = [86];

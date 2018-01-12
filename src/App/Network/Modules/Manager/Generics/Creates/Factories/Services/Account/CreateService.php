@@ -1,7 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Services\Account;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Services\AppService;
-use App\Network\Legals\Account\ManagerLegal;
+use App\Network\Legals\Account\ManagerBaseLegal;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -15,6 +15,6 @@ class CreateService extends AppService
 {
     protected function getLegalClassString()
     {
-        return ManagerLegal::class;
+        return ManagerBaseLegal::class;
     }
 }

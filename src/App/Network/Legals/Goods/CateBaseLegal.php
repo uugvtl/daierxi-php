@@ -13,7 +13,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Class CateLegal
  * @package App\Network\Legals\Goods
  */
-class CateLegal extends BaseLegal
+class CateBaseLegal extends BaseLegal
 {
     protected function run()
     {

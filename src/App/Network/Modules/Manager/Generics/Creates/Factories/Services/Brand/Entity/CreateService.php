@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Services\Brand\Entity;
-use App\Network\Legals\Brand\EntityLegal;
+use App\Network\Legals\Brand\EntityBaseLegal;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
@@ -15,6 +15,6 @@ class CreateService extends AppService
 {
     protected function getLegalClassString()
     {
-        return EntityLegal::class;
+        return EntityBaseLegal::class;
     }
 }

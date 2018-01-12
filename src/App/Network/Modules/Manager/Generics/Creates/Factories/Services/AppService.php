@@ -10,7 +10,7 @@ use App\Network\Generics\Creates\GenericService;
  * Class CreateService
  * @package App\Network\Modules\Manager\Generics\Creates\Factories\Services
  */
-abstract class AppService extends GenericService
+class AppService extends GenericService
 {
 
     protected function madeLogicInstance()

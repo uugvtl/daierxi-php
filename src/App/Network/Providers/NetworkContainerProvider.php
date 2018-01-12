@@ -16,13 +16,29 @@ use App\Providers\BaseContainerProvider;
 abstract class NetworkContainerProvider extends BaseContainerProvider implements INetworkContainerProvider
 {
     /**
-     * 获取 GenericContainer 类名的字符串
+     * @var string
+     */
+    private $containerPrefix;
+
+    /**
+     * 设置 要使用的 Container类前辍名称
      * @param string $containerPrefix
+     * @return $this
+     */
+    final public function setGenericContainerPrefix($containerPrefix=ClassConst::GENERIC_PREFIX)
+    {
+        $this->containerPrefix = $containerPrefix;
+        return $this;
+    }
+
+    /**
+     * 获取 GenericContainer 类名的字符串
      * @return string
      */
-    final protected function getGenericContainerString($containerPrefix=ClassConst::GENERIC_PREFIX)
+    final protected function getGenericContainerString()
     {
-        $documentString = $containerPrefix.ClassConst::CONTAINER_SUFFIX;
+        $this->containerPrefix || $this->setGenericContainerPrefix();
+        $documentString = $this->containerPrefix.ClassConst::CONTAINER_SUFFIX;
         $containerString = PackageGenericConst::PACKAGE.BACKSLASH . $documentString;
 
         return $containerString;

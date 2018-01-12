@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Legals\Brand\Cate;
-use App\Network\Legals\Brand\CateLegal;
+use App\Network\Legals\Brand\CateBaseLegal;
 use Phalcon\Validation\Validator\Numericality;
 
 /**
@@ -12,7 +12,7 @@ use Phalcon\Validation\Validator\Numericality;
  * Class AppLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Brand\Cate\Modify
  */
-class ModifyLegal extends CateLegal
+class ModifyBaseLegal extends CateBaseLegal
 {
     protected function run()
     {

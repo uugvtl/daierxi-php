@@ -2,7 +2,6 @@
 namespace App\Console\Providers;
 use App\Console\Modules\Mission\Generics\Crontabs\PackageCrontabConst;
 use App\Console\Modules\Mission\Generics\Initializes\PackageInitializeConst;
-use App\Datasets\Consts\ClassConst;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -16,13 +15,13 @@ class MissionContainerProvider extends ConsoleContainerProvider
 {
     public function getInitContainer(array $condz=[])
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageInitializeConst::PACKAGE, $containerString, $condz);
     }
 
     public function getCronContainer(array $condz=[])
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageCrontabConst::PACKAGE, $containerString, $condz);
     }
 }

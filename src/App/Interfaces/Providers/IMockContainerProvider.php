@@ -9,4 +9,12 @@ namespace App\Interfaces\Providers;
  * Interface IMockContainerProvider
  * @package App\Interfaces\Providers
  */
-interface IMockContainerProvider {}
+interface IMockContainerProvider
+{
+    /**
+     * 设置 要使用的 Container类前辍名称
+     * @param string $containerPrefix
+     * @return $this
+     */
+    public function setGenericContainerPrefix($containerPrefix);
+}

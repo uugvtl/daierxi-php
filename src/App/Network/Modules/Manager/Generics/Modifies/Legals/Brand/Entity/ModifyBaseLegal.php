@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Modifies\Legals\Brand\Entity;
-use App\Network\Legals\Brand\EntityLegal;
+use App\Network\Legals\Brand\EntityBaseLegal;
 use Phalcon\Validation\Validator\Numericality;
 
 /**
@@ -12,7 +12,7 @@ use Phalcon\Validation\Validator\Numericality;
  * Class AppLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Brand\Entity\Modify
  */
-class ModifyLegal extends EntityLegal
+class ModifyBaseLegal extends EntityBaseLegal
 {
     protected function run()
     {

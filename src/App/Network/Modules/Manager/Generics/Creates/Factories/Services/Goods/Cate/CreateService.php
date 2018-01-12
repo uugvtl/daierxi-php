@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Services\Goods\Cate;
-use App\Network\Legals\Goods\CateLegal;
+use App\Network\Legals\Goods\CateBaseLegal;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
@@ -15,6 +15,6 @@ class CreateService extends AppService
 {
     protected function getLegalClassString()
     {
-        return CateLegal::class;
+        return CateBaseLegal::class;
     }
 }

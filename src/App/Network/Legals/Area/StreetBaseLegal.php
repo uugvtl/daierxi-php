@@ -13,7 +13,7 @@ use Phalcon\Validation\Validator\PresenceOf;
  * Class StreetLegal
  * @package App\Network\Legals\Area
  */
-class StreetLegal extends BaseLegal
+class StreetBaseLegal extends BaseLegal
 {
     protected function run()
     {

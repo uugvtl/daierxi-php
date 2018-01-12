@@ -1,6 +1,5 @@
 <?php
 namespace App\Network\Providers;
-use App\Datasets\Consts\ClassConst;
 use App\Network\Modules\Frontend\Generics\Creates\PackageCreateConst;
 use App\Network\Modules\Frontend\Generics\Exports\PackageExportConst;
 use App\Network\Modules\Frontend\Generics\Modifies\PackageModifyConst;
@@ -20,20 +19,20 @@ class FrontendContainerProvider extends NetworkContainerProvider
 {
     public function getExportContainer(array $condz= [])
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageExportConst::PACKAGE, $containerString, $condz);
     }
 
     public function getPrintContainer(array $condz= [])
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackagePrintConst::PACKAGE, $containerString, $condz);
 
     }
 
     public function getQueryContainer(array $condz= [])
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageQueryConst::PACKAGE, $containerString, $condz);
 
     }
@@ -45,21 +44,21 @@ class FrontendContainerProvider extends NetworkContainerProvider
 
     public function getCreateContainer(array $posts)
     {
-        $containerString = $this->getGenericContainerString(ClassConst::PERSIST_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageCreateConst::PACKAGE, $containerString, $posts);
 
     }
 
     public function getCommitContainer(array $posts)
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageModifyConst::PACKAGE, $containerString, $posts);
 
     }
 
     public function getRemoveContainer(array $aId=[])
     {
-        $containerString = $this->getGenericContainerString(ClassConst::GENERIC_PREFIX);
+        $containerString = $this->getGenericContainerString();
         return $this->madeContainer(PackageRemoveConst::PACKAGE, $containerString, $aId);
     }
 }

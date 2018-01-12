@@ -30,7 +30,7 @@ class AccountContainerTest extends AppUnitTest
             $distributer->init('Account', 'Create', ClassConst::CLASS_PREFIX);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->getCreateContainer($params);
+            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassConst::PERSIST_PREFIX)->getCreateContainer($params);
         /** assert */
             $container->getGenericInjecter()->useGeneralize(YES);
             $responder = $container->get();

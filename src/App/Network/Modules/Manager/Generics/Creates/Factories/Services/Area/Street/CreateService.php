@@ -1,6 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Generics\Creates\Factories\Services\Area\Street;
-use App\Network\Legals\Area\StreetLegal;
+use App\Network\Legals\Area\StreetBaseLegal;
 use App\Network\Modules\Manager\Generics\Creates\Factories\Services\AppService;
 /**
  * Created by PhpStorm.
@@ -15,6 +15,6 @@ class CreateService extends AppService
 {
     protected function getLegalClassString()
     {
-        return StreetLegal::class;
+        return StreetBaseLegal::class;
     }
 }
