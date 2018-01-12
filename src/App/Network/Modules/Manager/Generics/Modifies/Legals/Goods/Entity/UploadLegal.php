@@ -17,22 +17,22 @@ class UploadLegal extends BaseLegal
 {
     protected function run()
     {
-        $verifyFields = ['goods_image'];
-        $verifyMessage = [
+        $aVerifyFields = ['goods_image'];
+        $aVerifyMessage = [
             'goods_image'      => $this->t('goods.goods', 'presence_goods_image')
         ];
 
-        $this->validation->add($verifyFields, new PresenceOf([
-            'message' => $verifyMessage
+        $this->validation->add($aVerifyFields, new PresenceOf([
+            'message' => $aVerifyMessage
         ]));
 
 
-        $verifyFields = ['goods_id'];
-        $verifyMessage=[
+        $aVerifyFields = ['goods_id'];
+        $aVerifyMessage=[
             'goods_id'        => $this->t('goods.goods', 'numericality_goods_id')
         ];
-        $this->validation->add($verifyFields, new Numericality([
-            'message'=>$verifyMessage
+        $this->validation->add($aVerifyFields, new Numericality([
+            'message'=>$aVerifyMessage
         ]));
     }
 }
