@@ -18,10 +18,18 @@ interface IGenericable
      * @return static
      */
     public function setGenericInjecter(GenericInjecter $injecter);
+//
+//    /**
+//     * @return GenericInjecter
+//     */
+//    public function getGenericInjecter();
+
 
     /**
-     * @return GenericInjecter
+     * 设置是否使用泛化实例
+     * @param bool $boolean     使用为true,否则为false
+     * @return $this
      */
-    public function getGenericInjecter();
+    public function useGeneralize($boolean=false);
 
 }

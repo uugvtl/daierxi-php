@@ -29,9 +29,31 @@ abstract class FrameGeneric extends FrameClass implements IGenericable
     /**
      * @return GenericInjecter
      */
-    final public function getGenericInjecter()
+    final protected function getGenericInjecter()
     {
         return $this->genericInjecter;
     }
+
+    /**
+     * 设置是否使用 Ctrl 与 Act 下面的泛型类
+     * @param bool $boolean             使用泛型类为true 否则为false
+     * @return $this
+     */
+    final public function useGeneralize($boolean = false)
+    {
+        $this->genericInjecter->useGeneralize($boolean);
+        return $this;
+    }
+
+
+    /**
+     * 是否使用 Ctrl 与 Act 下面的泛型类
+     * @return bool
+     */
+    final protected function hasGeneralize()
+    {
+        return $this->genericInjecter->hasGeneralize();
+    }
+
 
 }

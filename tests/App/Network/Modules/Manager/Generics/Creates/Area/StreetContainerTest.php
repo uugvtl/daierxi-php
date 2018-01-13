@@ -30,8 +30,7 @@ class StreetContainerTest extends AppUnitTest
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
         /** assert */
-            $container->getGenericInjecter()->useGeneralize(YES);
-            $responder = $container->get();
+            $responder = $container->useGeneralize(YES)->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 

@@ -76,8 +76,7 @@ class AppSigninEvent extends FrameClass
             $distributer->setCtrlString($this->getCtrlName());
             $container = $provider->init($distributer)->getQueryContainer($cookieValue);
 
-            $container->getGenericInjecter()->useGeneralize(YES);
-            $responder = $container->get();
+            $responder = $container->useGeneralize(YES)->get();
             $toggle = $responder->toggle;
         }
 
