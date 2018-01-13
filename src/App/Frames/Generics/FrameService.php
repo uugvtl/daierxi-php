@@ -3,8 +3,11 @@ namespace App\Frames\Generics;
 use App\Datasets\Consts\ClassConst;
 use App\Datasets\Consts\ClassPrefix;
 use App\Frames\FrameGeneric;
+use App\Globals\Legals\BaseLegal;
 use App\Helpers\InstanceHelper;
 use App\Interfaces\Generics\IRespondable;
+use const BACKSLASH;
+
 /**
  * 用来生成 Repository 和 Logic 相关类的工厂类
  * Created by PhpStorm.
@@ -32,7 +35,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      * @param string $baseRepositoryPrefix      基类名称前辍
      * @return $this
      */
-    final public function setBaseRepositoryPrefix($baseRepositoryPrefix=ClassPrefix::APP)
+    final protected function setBaseRepositoryPrefix($baseRepositoryPrefix=ClassPrefix::APP)
     {
         $this->invokedSetBaseRepositoryPrefixMothed = YES;
         $baseClassString = $baseRepositoryPrefix. ClassConst::REPOSITORY_SUFFIX;
@@ -45,7 +48,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      * @param string $baseLogicPrefix           基类名称前辍
      * @return $this
      */
-    final public function setBaseLogicPrefix($baseLogicPrefix=ClassPrefix::APP)
+    final protected function setBaseLogicPrefix($baseLogicPrefix=ClassPrefix::APP)
     {
         $this->invokedSetBaseLogicPrefixMothed = YES;
         $baseClassString = $baseLogicPrefix.ClassConst::LOGIC_SUFFIX;
@@ -59,7 +62,6 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      */
     protected function madeRepositoryInstance()
     {
-        $this->invokedSetBaseRepositoryPrefixMothed || $this->setBaseRepositoryPrefix();
 
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
 
@@ -76,7 +78,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
      */
     protected function madeLogicInstance()
     {
-        $this->invokedSetBaseLogicPrefixMothed || $this->setBaseLogicPrefix();
+
         $cloneGenericInjecter = $this->getGenericInjecter()->getClone();
         $logicName      = $this->getLogicClassString();
         $instanceHelper = InstanceHelper::getInstance();
@@ -85,6 +87,16 @@ abstract class FrameService extends FrameGeneric implements IRespondable
         return $logic->setGenericInjecter($cloneGenericInjecter);
     }
 
+    /**
+     * 创造 Legal 实例
+     * @return BaseLegal
+     */
+    protected function madeLegalInstance()
+    {
+        $legalName      = $this->getLegalClassString();
+        $instanceHelper = InstanceHelper::getInstance();
+        return $instanceHelper->build(BaseLegal::class, $legalName);
+    }
 
     /**
      * 得到 Repository 类的命名字符串
@@ -103,6 +115,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
         }
         else
         {
+            $this->invokedSetBaseRepositoryPrefixMothed || $this->setBaseRepositoryPrefix();
             $classname = $package.BACKSLASH.ClassConst::FACTORY_CATALOG .BACKSLASH.ClassConst::REPOSITORY_CATALOG.BACKSLASH.$genericInjecter->getBaseClassString();
 
         }
@@ -127,6 +140,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
         }
         else
         {
+            $this->invokedSetBaseLogicPrefixMothed || $this->setBaseLogicPrefix();
             $classname = $package.BACKSLASH.ClassConst::FACTORY_CATALOG .BACKSLASH.ClassConst::LOGIC_CATALOG.BACKSLASH.$genericInjecter->getBaseClassString();
         }
 
@@ -142,7 +156,7 @@ abstract class FrameService extends FrameGeneric implements IRespondable
         $genericInjecter = $this->getGenericInjecter();
         $package = $genericInjecter->getPackage();
         $path = $genericInjecter->getDistributer()->getCtrlActPath();
-        $classname = $package.BACKSLASH.ClassConst::LEGAL_CATALOG.BACKSLASH.$path. ClassConst::LEGAL_SUFFIX;
+        $classname = $package.BACKSLASH.ClassConst::LEGAL_CATALOG.BACKSLASH.$path.ClassConst::LEGAL_SUFFIX;
         return $classname;
     }
 
