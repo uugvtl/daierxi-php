@@ -597,6 +597,11 @@ final class TableConst
     const GOODS__CATE = 'vz_goods__cate';
 
     /**
+     * 商品分类与商品属性关联表
+     */
+    const GOODS_CATE__PROP = 'vz_goods_cate__prop';
+
+    /**
      * 商品分类
      */
     const GOODS_CATEGORY = 'vz_goods_category';

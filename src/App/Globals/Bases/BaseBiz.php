@@ -1,10 +1,7 @@
 <?php
 namespace App\Globals\Bases;
-use App\Datasets\ExcpCode;
 use App\Datasets\ExcpMsg;
-use App\Unusually\BizLogicExceptions;
-use App\Helpers\JsonHelper;
-
+use App\Helpers\ErrorsHelper;
 /**
  * Created by PhpStorm.
  * User: leon
@@ -61,21 +58,13 @@ abstract class BaseBiz extends BaseClass
      */
     final public function setProperty($propName, $propValue)
     {
-        try
+        if(!$this->hasProperty($propName))
         {
-            if($this->hasProperty($propName))
-                $this->properties[$propName] = $propValue;
-            else
-            {
-                $msg = sprintf(ExcpMsg::PROPERTY_NOT_IN_CLASS, __CLASS__, $propName);
-                throw new BizLogicExceptions($msg,ExcpCode::PROPERTY_NOT_IN_CLASS);
-            }
-        }catch (BizLogicExceptions $e)
-        {
-            $jsonHelper = JsonHelper::getInstance();
-            $jsonHelper->sendExcp($e);
+            $errorsHelper = ErrorsHelper::getInstance();
+            $errorsHelper->triggerError(sprintf(ExcpMsg::PROPERTY_NOT_IN_CLASS, __CLASS__, $propName));
         }
 
+        $this->properties[$propName] = $propValue;
         return $this;
     }
 
