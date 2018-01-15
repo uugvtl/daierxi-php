@@ -751,30 +751,12 @@ final class TableConst
      */
     const STREET = 'vz_street';
 
-    /**
-     * 区块信息表
-     */
-    const BLOCK = 'vz_block';
-
-    /**
-     * 区块内容信息表
-     */
-    const BLOCK_ITEM = 'vz_block_item';
 
     /**
      * 品牌
      */
     const BRAND = 'vz_brand';
 
-    /**
-     * 品牌与商品属性的关联表
-     */
-    const BRAND_PROP = 'vz_brand_prop';
-
-    /**
-     * 品牌分类
-     */
-    const BRAND_TYPE = 'vz_brand_type';
 
     /**
      * 购物车
