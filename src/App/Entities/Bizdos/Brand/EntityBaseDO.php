@@ -17,14 +17,12 @@ use App\Helpers\StringHelper;
  * @property string $brand_code             品牌标识
  * @property int    $brand_tag              品牌渠道    1-线上旗舰店，2-线下美容院
  * @property int    $brand_rank             品牌排序
- * @property int    $brand_type_id          品牌分类ID
  * @property string $brand_shop_name        总店名称
  * @property string $brand_company_name     品牌公司名称
  * @property string $alias_brand_name       品牌别名
  * @property string $brand_thumb_common     品牌展示缩略图
- * @property string $is_personal            品牌广告图
- * @property string $is_supply              品牌广告图
- * @property string $is_remove              品牌广告图
+ * @property string $is_personal            是否自主品牌
+ * @property string $is_remove              是否禁用，1是，0否
  */
 class EntityBaseDO extends BaseDO
 {
@@ -36,13 +34,11 @@ class EntityBaseDO extends BaseDO
             'brand_code',
             'brand_tag',
             'brand_rank',
-            'brand_type_id',
             'brand_shop_name',
             'brand_company_name',
             'alias_brand_name',
             'brand_thumb_common',
             'is_personal',
-            'is_supply',
             'is_remove',
         ];
     }

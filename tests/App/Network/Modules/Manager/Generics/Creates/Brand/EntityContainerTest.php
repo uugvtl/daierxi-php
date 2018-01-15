@@ -24,14 +24,12 @@ class EntityContainerTest extends AppUnitTest
                 'brand_code'            =>'testtesttest',
                 'brand_tag'             =>'1',
                 'brand_rank'            =>'255',
-                'brand_type_id'         =>'13',
                 'brand_shop_name'       =>'asdfsadfsadfsdfasdfdfdfdf',
                 'brand_company_name'    =>'testtesttest',
                 'channel_code'          =>'01,02',
                 'alias_brand_name'      =>'ojjsdjfdjfoasdjo',
                 'brand_thumb_common'    =>'',
                 'is_personal'           =>'1',
-                'is_supply'             =>'1',
                 'is_remove'             =>'0'
             ];
             $distributer = Distributer::getInstance();
@@ -54,14 +52,12 @@ class EntityContainerTest extends AppUnitTest
                 'brand_code'            =>'testtesttest',
                 'brand_tag'             =>'1',
                 'brand_rank'            =>'255',
-                'brand_type_id'         =>'13',
                 'brand_shop_name'       =>'asdfsadfsadfsdfasdfdfdfdf',
                 'brand_company_name'    =>'testtesttest',
                 'channel_code'          =>'01,02',
                 'alias_brand_name'      =>'ojjsdjfdjfoasdjo',
                 'brand_thumb_common'    =>'',
                 'is_personal'           =>'1',
-                'is_supply'             =>'1',
                 'is_remove'             =>'0'
             ];
             $distributer = Distributer::getInstance();
