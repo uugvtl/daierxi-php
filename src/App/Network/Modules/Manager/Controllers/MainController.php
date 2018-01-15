@@ -37,7 +37,8 @@ class MainController extends AppController
         $responder = $container->get();
 
         $treeList = $arrayHelper->list2tree($responder->data, 'id');
-        echo $jsonHelper->encode($treeList);
+        $this->response->setContent($jsonHelper->encode($treeList));
+        $this->response->send();
 
     }
 
