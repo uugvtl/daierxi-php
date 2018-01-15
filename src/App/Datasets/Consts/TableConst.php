@@ -564,17 +564,17 @@ final class TableConst
     /**
      * 系统平台的菜单与管理员关系表
      */
-    const MANAGER_GRANT_MENU = 'vz_manager_grant_menu';
+    const MANAGER_GRANT__MENU = 'vz_manager_grant__menu';
 
     /**
      * 操作项与组别的关联表
      */
-    const MANAGER_GRANT_OPERATE = 'vz_manager_grant_operate';
+    const MANAGER_GRANT__OPERATE = 'vz_manager_grant__operate';
 
     /**
      * 配方商品与组别关联表，此表为配方商品授权表
      */
-    const MANAGER_GRANT_RECIPE = 'vz_manager_grant_recipe';
+    const MANAGER_GRANT__RECIPE = 'vz_manager_grant__recipe';
 
     /**
      * 商品表
