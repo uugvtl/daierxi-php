@@ -29,10 +29,6 @@ final class ClassPrefix
      */
     const OUTPUT            = 'Output';
 
-    /**
-     * 有持久化功能时用到的类前辍
-     */
-    const PERSIST           = 'Persist';
 
     /**
      * GENERIC 类前辍

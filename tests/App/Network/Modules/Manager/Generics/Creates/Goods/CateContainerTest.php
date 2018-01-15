@@ -33,7 +33,7 @@ class CateContainerTest extends AppUnitTest
             $distributer->init('Goods\Cate', 'Create', ClassPrefix::APP);
         /** act */
             $provider = ManagerContainerProvider::getInstance();
-            $container = $provider->init($distributer)->setGenericContainerPrefix(ClassPrefix::PERSIST)->getCreateContainer($params);
+            $container = $provider->init($distributer)->getCreateContainer($params);
         /** assert */
             $responder = $container->useGeneralize(YES)->get();
             $this->assertTrue($responder->toggle, $responder->msg);

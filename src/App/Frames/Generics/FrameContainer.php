@@ -61,7 +61,7 @@ abstract class FrameContainer extends FrameGeneric implements IRespondable
     }
 
 
-    protected function getServiceClassString()
+    private function getServiceClassString()
     {
 
         $genericInjecter = $this->getGenericInjecter();

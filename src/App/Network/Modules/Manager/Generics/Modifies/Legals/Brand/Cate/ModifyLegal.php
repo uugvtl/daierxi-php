@@ -12,7 +12,7 @@ use Phalcon\Validation\Validator\Numericality;
  * Class AppLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Brand\Cate\Modify
  */
-class ModifyBaseLegal extends CateBaseLegal
+class ModifyLegal extends CateBaseLegal
 {
     protected function run()
     {

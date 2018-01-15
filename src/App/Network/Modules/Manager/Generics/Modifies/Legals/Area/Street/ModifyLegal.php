@@ -11,7 +11,7 @@ use Phalcon\Validation\Validator\Numericality;
  * Class AppLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Area\Street\Modify
  */
-class ModifyBaseLegal extends StreetBaseLegal
+class ModifyLegal extends StreetBaseLegal
 {
     protected function run()
     {

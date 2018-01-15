@@ -12,7 +12,7 @@ use Phalcon\Validation\Validator\Numericality;
  * Class AppLegal
  * @package App\Network\Modules\Manager\Generics\Modifies\Legals\Brand\Entity\Modify
  */
-class ModifyBaseLegal extends EntityBaseLegal
+class ModifyLegal extends EntityBaseLegal
 {
     protected function run()
     {
