@@ -28,13 +28,13 @@ class GroupLogic extends AppLogic
         $instanceHelper = InstanceHelper::getInstance();
 
         $grants = explode(',', $rows['grant']);
-        $group_id = $rows['group_id'];
+        $team_id = $rows['team_id'];
         if(is_array($grants))
         {
             foreach ($grants as $manager_id)
             {
                 $arguments = [
-                    'group_id'  =>$group_id,
+                    'team_id'  =>$team_id,
                     'manager_id'=>$manager_id
                 ];
                 $bizDo = $instanceHelper->build(ManagerBaseDO::class, ManagerBaseDO::class);

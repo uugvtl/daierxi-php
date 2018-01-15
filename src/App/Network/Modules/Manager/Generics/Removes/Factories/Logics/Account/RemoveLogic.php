@@ -27,7 +27,7 @@ class RemoveLogic extends AppLogic
             $sqlHelper = SqlHelper::getInstance();
             $quoteIds = $sqlHelper->getSplitQuote($aIds);
             $where = " AND manager_id IN ({$quoteIds})";
-            $this->sql = $sqlHelper->getDeleteString(TableConst::MANAGER, $where);
+            $this->sql = $sqlHelper->getDeleteString(TableConst::MANAGER_PROFILE, $where);
 
         }
     }
@@ -43,7 +43,7 @@ class RemoveLogic extends AppLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(TableConst::MANAGER);
+                $cache->updateCacheDependencies(TableConst::MANAGER_PROFILE);
 
             }
         }

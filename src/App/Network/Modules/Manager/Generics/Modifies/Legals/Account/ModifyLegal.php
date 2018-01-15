@@ -23,9 +23,9 @@ class ModifyLegal extends BaseLegal
             ]
         ]));
 
-        $this->validation->add(['group_id','manager_id'], new Numericality([
+        $this->validation->add(['team_id','manager_id'], new Numericality([
             'message'=>[
-                'group_id'      => $this->t('account', 'numericality_group_id'),
+                'team_id'      => $this->t('account', 'numericality_team_id'),
                 'manager_id'      => $this->t('account', 'numericality_manager_id')
             ]
         ]));

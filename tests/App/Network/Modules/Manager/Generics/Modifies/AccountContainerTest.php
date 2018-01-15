@@ -36,7 +36,7 @@ class AccountContainerTest extends AppUnitTest
     {
         /** arrange */
             $params = [
-                'group_id'=>25,
+                'team_id'=>25,
                 'grant'=>'2,5,6'
             ];
             $distributer = Distributer::getInstance();

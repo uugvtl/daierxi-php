@@ -17,15 +17,15 @@ class GroupLegal extends BaseLegal
 {
     protected function run()
     {
-        $this->validation->add(['grant', 'group_id'], new PresenceOf([
+        $this->validation->add(['grant', 'team_id'], new PresenceOf([
             'message' => [
                 'grant'         => $this->t('account', 'presence_manager_id')
             ]
         ]));
 
-        $this->validation->add(['group_id'], new Numericality([
+        $this->validation->add(['team_id'], new Numericality([
             'message'=>[
-                'group_id'      => $this->t('account', 'numericality_manager_group_id')
+                'team_id'      => $this->t('account', 'numericality_manager_team_id')
             ]
         ]));
     }

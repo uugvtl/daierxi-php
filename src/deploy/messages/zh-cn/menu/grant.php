@@ -6,5 +6,5 @@
  * Time: 09:18
  */
 return [
-    'presence_group_ids'    =>'组别：不能为空，请重新输入',
+    'presence_team_ids'    =>'组别：不能为空，请重新输入',
 ];

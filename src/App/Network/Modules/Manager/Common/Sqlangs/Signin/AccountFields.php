@@ -19,7 +19,7 @@ class AccountFields extends BaseFields
             'm.manager_name account_name',
             'm.manager_id',
             'm.manager_name',
-            'm.group_id',
+            'm.team_id',
             'm.enabled',
             'mg.group_name'
         ];

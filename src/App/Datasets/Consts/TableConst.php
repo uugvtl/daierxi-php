@@ -540,12 +540,12 @@ final class TableConst
     /**
      * 管理员表，主要是公司人员来操作亲朋系统时使用
      */
-    const MANAGER = 'vz_manager';
+    const MANAGER_PROFILE = 'vz_manager_profile';
 
     /**
      * 管理员组别表，用来区分权限用
      */
-    const MANAGER_GROUP = 'vz_manager_group';
+    const MANAGER_TEAM = 'vz_manager_team';
     /**
      * 管理员菜单表
      */
@@ -554,12 +554,7 @@ final class TableConst
     /**
      * 菜单表与操作表的关联表，多对多；vz_manager_menu与vz_manager_operate两个表的关联表
      */
-    const MANAGER_MENU_OP = 'vz_manager_menu_op';
-
-    /**
-     * 导航列表，菜单父类
-     */
-    const MANAGER_NAV = 'vz_manager_nav';
+    const MANAGER_MENU__OPERATE = 'vz_manager_menu__operate';
 
     /**
      * 此表为操作类，主要是记录本系统有多少种操作，操作指的是新增，编辑，删除，导出等等这些内容。
@@ -570,11 +565,6 @@ final class TableConst
      * 系统平台的菜单与管理员关系表
      */
     const MANAGER_GRANT_MENU = 'vz_manager_grant_menu';
-
-    /**
-     * 导航表与组别的关联表
-     */
-    const MANAGER_GRANT_NAV = 'vz_manager_grant_nav';
 
     /**
      * 操作项与组别的关联表

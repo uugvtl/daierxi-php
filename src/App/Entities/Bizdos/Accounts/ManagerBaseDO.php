@@ -14,7 +14,7 @@ use App\Helpers\StringHelper;
  * @package App\Entities\Bizdos\Accounts
  * @property int    $manager_id     公司员工ID，也叫系统管理员ID
  * @property string $manager_name   公司员工账号，也叫系统管理员账号
- * @property int    $group_id       公司员工所在权限组ID
+ * @property int    $team_id        公司员工所在权限组ID
  * @property int    $enabled        是否启用，1：启用，0：停用
  * @property string $real_name      真实姓名
  * @property string $birthday       出生日期
@@ -27,7 +27,7 @@ class ManagerBaseDO extends BaseDO
         return [
             'manager_id',
             'manager_name',
-            'group_id',
+            'team_id',
             'enabled',
             'real_name',
             'birthday'
@@ -46,7 +46,7 @@ class ManagerBaseDO extends BaseDO
     {
         $sqlHelper = SqlHelper::getInstance();
 
-        $table = TableConst::MANAGER;
+        $table = TableConst::MANAGER_PROFILE;
 
         $fields = $this->getProperties();
         $fields['namehash'] = md5($this->manager_name);
@@ -66,7 +66,7 @@ class ManagerBaseDO extends BaseDO
 
     public function submit()
     {
-        $table = TableConst::MANAGER;
+        $table = TableConst::MANAGER_PROFILE;
 
         $stringHelper = StringHelper::getInstance();
         $sqlHelper = SqlHelper::getInstance();

@@ -24,7 +24,7 @@ class AccountContainerTest extends AppUnitTest
                 'password'      =>'123456',
                 'real_name'     =>'测试工程师',
                 'birthday'      =>'1982-03-10',
-                'group_id'      =>'43',
+                'team_id'      =>'43',
             ];
             $distributer = Distributer::getInstance();
             $distributer->init('Account', 'Create', ClassPrefix::APP);
@@ -45,7 +45,7 @@ class AccountContainerTest extends AppUnitTest
                 'password'      =>'123456',
                 'real_name'     =>'测试工程师1',
                 'birthday'      =>'1982-03-10',
-                'group_id'      =>'43',
+                'team_id'      =>'43',
             ];
             $distributer = Distributer::getInstance();
             $distributer->init('Account', 'Modify', ClassPrefix::APP);

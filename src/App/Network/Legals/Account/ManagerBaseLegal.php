@@ -23,9 +23,9 @@ class ManagerBaseLegal extends BaseLegal
             ]
         ]));
 
-        $this->validation->add(['group_id'], new Numericality([
+        $this->validation->add(['team_id'], new Numericality([
             'message'=>[
-                'group_id'      => $this->t('account', 'numericality_group_id')
+                'team_id'      => $this->t('account', 'numericality_team_id')
             ]
         ]));
     }

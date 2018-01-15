@@ -16,12 +16,12 @@ class AccountTable extends BaseTable
     protected function afterInstance()
     {
 
-        $mTable = TableConst::MANAGER;
-        $mgTable= TableConst::MANAGER_GROUP;
+        $mTable = TableConst::MANAGER_PROFILE;
+        $mgTable= TableConst::MANAGER_TEAM;
 
         $this->joinTable = "    {$mTable} m 
                             LEFT JOIN
-                                {$mgTable} mg ON m.group_id=mg.group_id";
+                                {$mgTable} mg ON m.team_id=mg.team_id";
 
         $this->tableList = [$mTable, $mgTable];
     }

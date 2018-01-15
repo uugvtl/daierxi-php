@@ -23,7 +23,7 @@ class EnabledDO extends BaseEnabledDO
     {
         if($this->items)
         {
-            $table = TableConst::MANAGER;
+            $table = TableConst::MANAGER_PROFILE;
             $stringHelper = StringHelper::getInstance();
 
             $ids = explode(',', $this->items);
