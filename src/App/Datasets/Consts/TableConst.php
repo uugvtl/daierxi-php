@@ -592,21 +592,6 @@ final class TableConst
     const GOODS = 'vz_goods';
 
     /**
-     * 商品与其分类的关联表
-     */
-    const GOODS__CATE = 'vz_goods__cate';
-
-    /**
-     * 商品分类与商品属性关联表
-     */
-    const GOODS_CATE__PROP = 'vz_goods_cate__prop';
-
-    /**
-     * 商品分类
-     */
-    const GOODS_CATEGORY = 'vz_goods_category';
-
-    /**
      * 商品图片
      */
     const GOODS_IMAGE = 'vz_goods_image';
@@ -772,4 +757,9 @@ final class TableConst
      * 进货车
      */
     const SUPPLY_CART = 'vz_supply_cart';
+
+    /**
+     * 商品分类
+     */
+    const CATEGORY = 'vz_category';
 }
