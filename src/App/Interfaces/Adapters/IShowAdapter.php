@@ -15,17 +15,17 @@ interface IShowAdapter
      * 导出文件
      * @return void
      */
-    public function show();
+    function show();
 
     /**
      * @param string $docname
      * @return static
      */
-    public function setDocname($docname);
+    function setDocname($docname);
 
     /**
      * @return string
      */
-    public function getDocname();
+    function getDocname();
 
 }

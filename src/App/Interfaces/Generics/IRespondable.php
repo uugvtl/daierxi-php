@@ -11,5 +11,5 @@ interface IRespondable extends IGetable
     /**
      * @return Responder
      */
-    public function get();
+    function get();
 }

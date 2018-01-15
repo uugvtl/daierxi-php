@@ -15,12 +15,12 @@ interface IExportAdapter extends IShowAdapter
      * @param array $columns
      * @return static
      */
-    public function setColumns(array $columns);
+    function setColumns(array $columns);
 
 
     /**
      * @param array $data
      * @return static
      */
-    public function setData(array $data);
+    function setData(array $data);
 }

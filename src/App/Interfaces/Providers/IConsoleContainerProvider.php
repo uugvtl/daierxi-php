@@ -17,12 +17,12 @@ interface IConsoleContainerProvider  extends IMockContainerProvider
      * @param array $condz
      * @return FrameContainer
      */
-    public function getInitContainer(array $condz=[]);
+    function getInitContainer(array $condz=[]);
 
     /**
      * 排程数据运行
      * @param array $condz
      * @return FrameContainer
      */
-    public function getCronContainer(array $condz=[]);
+    function getCronContainer(array $condz=[]);
 }

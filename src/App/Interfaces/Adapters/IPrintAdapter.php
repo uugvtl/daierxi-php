@@ -22,7 +22,7 @@ interface IPrintAdapter extends IShowAdapter
      *
      * @return $this
      */
-    public function addPage($orientation='', $format='', $keepmargins=false, $tocpage=false);
+    function addPage($orientation='', $format='', $keepmargins=false, $tocpage=false);
 
     /**
      * Reset pointer to the last document page.
@@ -32,7 +32,7 @@ interface IPrintAdapter extends IShowAdapter
      * @see setPage(), getPage(), getNumPages()
      * @return $this
      */
-    public function lastPage($resetmargins=false);
+    function lastPage($resetmargins=false);
 
     /**
      * 设置字体
@@ -41,7 +41,7 @@ interface IPrintAdapter extends IShowAdapter
      * @param float $size       Font size in points. The default value is the current size. If no size has been specified since the beginning of the document, the value taken is 12
      * @return static
      */
-    public function setFont($family, $style='', $size=null);
+    function setFont($family, $style='', $size=null);
 
     /**
      * 设置字号
@@ -49,7 +49,7 @@ interface IPrintAdapter extends IShowAdapter
      * @param boolean $out  if true output the font size command, otherwise only set the font properties.
      * @return $this
      */
-    public function setFontSize($size, $out=true);
+    function setFontSize($size, $out=true);
 
 
     /**
@@ -66,5 +66,5 @@ interface IPrintAdapter extends IShowAdapter
      *
      * @return $this
      */
-    public function writeHTML($html, $ln=true, $fill=false, $reseth=false, $cell=false, $align='');
+    function writeHTML($html, $ln=true, $fill=false, $reseth=false, $cell=false, $align='');
 }

@@ -16,13 +16,13 @@ interface IPreservable extends IGetable
     /**
      * @return SqlangInjecter
      */
-    public function get();
+    function get();
 
     /**
      * 设置 sqlang 的相关目录名称
      * @param $sqlangCatalog
      * @return $this
      */
-    public function setSqlangCatalog($sqlangCatalog);
+    function setSqlangCatalog($sqlangCatalog);
 
 }

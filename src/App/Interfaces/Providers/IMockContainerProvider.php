@@ -16,5 +16,5 @@ interface IMockContainerProvider
      * @param string $containerPrefix
      * @return $this
      */
-    public function setGenericContainerPrefix($containerPrefix);
+    function setGenericContainerPrefix($containerPrefix);
 }

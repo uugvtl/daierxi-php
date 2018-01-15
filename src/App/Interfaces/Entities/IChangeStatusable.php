@@ -15,101 +15,101 @@ interface IChangeStatusable
      * 设置状态为：已取消
      * @return static
      */
-    public function changeCancelStatus();
+    function changeCancelStatus();
 
     /**
      * 设置状态为：订单关闭
      * @return static
      */
-    public function changeCloseStatus();
+    function changeCloseStatus();
 
     /**
      * 设置状态为：确认(待配货)
      * @return static
      */
-    public function changeConfirmStatus();
+    function changeConfirmStatus();
 
     /**
      * 设置状态为：已发货
      * @return static
      */
-    public function changeDeliveryStatus();
+    function changeDeliveryStatus();
 
     /**
      * 设置状态为：无退货订单完成
      * @return static
      */
-    public function changeFinishAllStatus();
+    function changeFinishAllStatus();
 
     /**
      * 设置状态为：部分退货订单完成
      * @return static
      */
-    public function changeFinishPartStatus();
+    function changeFinishPartStatus();
 
     /**
      * 设置状态为：已服务(美容院项目订单用)
      * @return static
      */
-    public function changeHasServiceStatus();
+    function changeHasServiceStatus();
 
     /**
      * 设置状态为：已付定金(美容院项目订单用)
      * @return static
      */
-    public function changePaidDepositStatus();
+    function changePaidDepositStatus();
 
     /**
      * 设置状态为：已付款
      * @return static
      */
-    public function changePaidStatus();
+    function changePaidStatus();
 
     /**
      * 设置状态为：已配货
      * @return static
      */
-    public function changePrepareStatus();
+    function changePrepareStatus();
 
     /**
      * 设置状态为：已收货
      * @return static
      */
-    public function changeReceiptStatus();
+    function changeReceiptStatus();
 
     /**
      * 设置状态为：已退款
      * @return static
      */
-    public function changeRefundedStatus();
+    function changeRefundedStatus();
 
     /**
      * 设置状态为：退款处理中
      * @return static
      */
-    public function changeRefundingStatus();
+    function changeRefundingStatus();
 
     /**
      * 设置状态为：全部商品已退货完成
      * @return static
      */
-    public function changeReturnedAllStatus();
+    function changeReturnedAllStatus();
 
     /**
      * 设置状态为：部分商品已退货完成
      * @return static
      */
-    public function changeReturnedPartStatus();
+    function changeReturnedPartStatus();
 
     /**
      * 设置状态为：退货处理中
      * @return static
      */
-    public function changeReturningStatus();
+    function changeReturningStatus();
 
     /**
      * 设置状态为：未付款
      * @return static
      */
-    public function changeUnpaidStatus();
+    function changeUnpaidStatus();
 }

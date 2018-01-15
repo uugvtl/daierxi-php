@@ -16,5 +16,5 @@ interface IPrintable extends IGetable
     /**
      * @return IShowAdapter
      */
-    public function get();
+    function get();
 }

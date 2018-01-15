@@ -16,5 +16,5 @@ interface IExportable extends IGetable
     /**
      * @return IShowAdapter
      */
-    public function get();
+    function get();
 }

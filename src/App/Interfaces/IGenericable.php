@@ -17,12 +17,7 @@ interface IGenericable
      * @param GenericInjecter $injecter
      * @return static
      */
-    public function setGenericInjecter(GenericInjecter $injecter);
-//
-//    /**
-//     * @return GenericInjecter
-//     */
-//    public function getGenericInjecter();
+    function setGenericInjecter(GenericInjecter $injecter);
 
 
     /**
@@ -30,6 +25,6 @@ interface IGenericable
      * @param bool $boolean     使用为true,否则为false
      * @return $this
      */
-    public function useGeneralize($boolean=false);
+    function useGeneralize($boolean=false);
 
 }

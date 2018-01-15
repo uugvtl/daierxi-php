@@ -15,5 +15,5 @@ interface IGetable
      * 程序入口启动
      * @return mixed
      */
-    public function get();
+    function get();
 }
