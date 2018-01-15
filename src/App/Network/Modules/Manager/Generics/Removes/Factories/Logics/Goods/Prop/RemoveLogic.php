@@ -41,7 +41,7 @@ class RemoveLogic extends AppLogic
             if($toggle)
             {
                 $responder->toggle = (boolean)$toggle;
-                $cache->updateCacheDependencies(TableConst::GOODS_CATEGORY);
+                $cache->updateCacheDependencies(TableConst::GOODS_PROP);
 
             }
         }
