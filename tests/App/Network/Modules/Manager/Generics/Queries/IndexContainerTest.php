@@ -15,7 +15,7 @@ use AppUnitTest;
  */
 class IndexContainerTest extends AppUnitTest
 {
-    public function test_get_list_for_default()
+    public function test_get_list_for_index()
     {
         /** arrange */
             $params = [
