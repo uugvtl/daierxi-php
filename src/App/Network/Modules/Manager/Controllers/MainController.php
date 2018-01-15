@@ -1,5 +1,7 @@
 <?php
 namespace App\Network\Modules\Manager\Controllers;
+use App\Helpers\ArrayHelper;
+use App\Helpers\JsonHelper;
 use App\Network\Modules\Manager\Common\AppController;
 use Phalcon\Mvc\View;
 
@@ -19,5 +21,38 @@ class MainController extends AppController
         $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
         $this->view->enable();
         $this->view->setTemplateAfter('after/main');
+    }
+
+    /**
+     * 获取超级管理员的菜单列表
+     */
+    public function menuAction()
+    {
+        $arrayHelper = ArrayHelper::getInstance();
+        $jsonHelper = JsonHelper::getInstance();
+
+        $condz = $this->getSearchParams();
+
+        $container = $this->provider->getQueryContainer($condz);
+        $responder = $container->get();
+
+        $treeList = $arrayHelper->list2tree($responder->data, 'id');
+        echo $jsonHelper->encode($treeList);
+
+    }
+
+    /**
+     * 获取超级管理员的操作项列表
+     */
+    public function moAction()
+    {
+
+        $condz = $this->getSearchParams();
+
+        $container = $this->provider->getQueryContainer($condz);
+        $responder = $container->get();
+        $this->toJsonData($responder);
+
+
     }
 }

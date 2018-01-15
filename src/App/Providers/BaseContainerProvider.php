@@ -61,7 +61,7 @@ abstract class BaseContainerProvider extends BaseClass implements IMockContainer
 
         $instanceHelper = InstanceHelper::getInstance();
         $container = $instanceHelper->build(FrameContainer::class, $classname);
-        $container->setGenericInjecter($genericInjecter->init($container));
+        $container->setGenericInjecter($genericInjecter);
 
         return $container;
 

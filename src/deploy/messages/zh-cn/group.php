@@ -6,6 +6,6 @@
  * Time: 10:16
  */
 return array(
-    'presence_group_name'       =>'分组名称：不能为空，请重新输入',
+    'presence_team_name'       =>'分组名称：不能为空，请重新输入',
     'numericality_team_id'     =>'分组ID：必须为数字，请重新输入'//管理员的分组ID：必须为数字，请重新输入
 );

@@ -569,7 +569,7 @@ final class TableConst
     /**
      * 操作项与组别的关联表
      */
-    const MANAGER_GRANT__OPERATE = 'vz_manager_grant__operate';
+    const MANAGER_GRANT__MO = 'vz_manager_grant__mo';
 
     /**
      * 配方商品与组别关联表，此表为配方商品授权表

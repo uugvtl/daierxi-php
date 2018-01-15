@@ -1,6 +1,6 @@
 <?php
 namespace App\Globals\Events;
-use Phalcon\Exception;
+use Exception;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
 /**
