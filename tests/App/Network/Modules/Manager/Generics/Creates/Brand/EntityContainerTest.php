@@ -21,14 +21,10 @@ class EntityContainerTest extends AppUnitTest
             $params = [
                 'brand_id'              =>'1',
                 'brand_name'            =>'测试*测试*测试',
-                'brand_code'            =>'testtesttest',
-                'brand_tag'             =>'1',
+                'brand_symbol'          =>'testtesttest',
                 'brand_rank'            =>'255',
-                'brand_shop_name'       =>'asdfsadfsadfsdfasdfdfdfdf',
-                'brand_company_name'    =>'testtesttest',
-                'channel_code'          =>'01,02',
-                'alias_brand_name'      =>'ojjsdjfdjfoasdjo',
-                'brand_thumb_common'    =>'',
+                'company_name'          =>'testtesttest',
+                'alias_name'            =>'ojjsdjfdjfoasdjo',
                 'is_personal'           =>'1',
                 'is_remove'             =>'0'
             ];
@@ -49,14 +45,10 @@ class EntityContainerTest extends AppUnitTest
             $params = [
                 'brand_id'              =>'1',
                 'brand_name'            =>'测试*测试*测试1',
-                'brand_code'            =>'testtesttest',
-                'brand_tag'             =>'1',
+                'brand_symbol'          =>'testtesttest',
                 'brand_rank'            =>'255',
-                'brand_shop_name'       =>'asdfsadfsadfsdfasdfdfdfdf',
-                'brand_company_name'    =>'testtesttest',
-                'channel_code'          =>'01,02',
-                'alias_brand_name'      =>'ojjsdjfdjfoasdjo',
-                'brand_thumb_common'    =>'',
+                'company_name'          =>'testtesttest',
+                'alias_name'            =>'ojjsdjfdjfoasdjo',
                 'is_personal'           =>'1',
                 'is_remove'             =>'0'
             ];
