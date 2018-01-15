@@ -26,7 +26,7 @@ class MainContainerTest extends AppUnitTest
             $provider = ManagerContainerProvider::getInstance();
             $container = $provider->init($distributer)->getQueryContainer($params);
         /** assert */
-            $responder = $container->useGeneralize(NO)->get();
+            $responder = $container->get();
             $this->assertTrue($responder->toggle, $responder->msg);
     }
 

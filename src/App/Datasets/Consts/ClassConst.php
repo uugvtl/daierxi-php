@@ -128,6 +128,16 @@ final class ClassConst
     const BO_SUFFIX         = 'BO';
 
     /**
+     * VO 类所在的目录
+     */
+    const BIZVO_CATALOG     = 'Bizvos';
+
+    /**
+     * VO 类后辍
+     */
+    const VO_SUFFIX         = 'VO';
+
+    /**
      * Fields 类后辍
      */
     const FIELDS_SUFFIX     = 'Fields';

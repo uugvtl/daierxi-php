@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leon
- * Date: 12/1/18
- * Time: 22:21
- */
-
 namespace App\Datasets\Consts;
-
 /**
  * Created by PhpStorm.
  * User: leon
@@ -23,6 +15,11 @@ final class ClassPrefix
      * 泛化实例类的默认类名称前辍
      */
     const APP               = 'App';
+
+    /**
+     * 默认控制器与动作名称 类前辍
+     */
+    const INDEX             = 'Index';
 
     /**
      * 有出库功能时用到的类前辍

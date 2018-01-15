@@ -25,7 +25,6 @@ abstract class AppController extends ComController
 
         $signinEvent = SigninEvent::getInstance();
         $toggle = $signinEvent->init($this)
-            ->setCtrlName('Index')
             ->beforeExecuteRoute($dispatcher, ManagerContainerProvider::class);
 
         if(!$toggle)

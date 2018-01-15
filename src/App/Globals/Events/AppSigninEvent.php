@@ -1,5 +1,6 @@
 <?php
 namespace App\Globals\Events;
+use App\Datasets\Consts\ClassPrefix;
 use App\Frames\FrameClass;
 use App\Helpers\CookiesHelper;
 use App\Helpers\ErrorsHelper;
@@ -24,11 +25,6 @@ class AppSigninEvent extends FrameClass
      */
     private $ctrl;
 
-    /**
-     * 控制器名称
-     * @var string
-     */
-    private $ctrlName;
 
     final public function init(...$args)
     {
@@ -46,16 +42,6 @@ class AppSigninEvent extends FrameClass
         return $this;
     }
 
-    /**
-     * 设置控制器名称，
-     * @param string $ctrlName
-     * @return $this
-     */
-    final public function setCtrlName($ctrlName)
-    {
-        $this->ctrlName = $ctrlName;
-        return $this;
-    }
 
     /**
      * 没有登入状态时，访问登入后的地址，
@@ -73,8 +59,7 @@ class AppSigninEvent extends FrameClass
             $instanceHelper = InstanceHelper::getInstance();
             $provider = $instanceHelper->build(NetworkContainerProvider::class, $providerClassString);
             $distributer = $this->getCtrl()->madeDistributer($dispatcher);
-//            $distributer->setCtrlString($this->getCtrlName());
-            $distributer->setCtrlString('Index')->setActString('Index');
+            $distributer->setCtrlString(ClassPrefix::INDEX)->setActString(ClassPrefix::INDEX);
             $container = $provider->init($distributer)->getQueryContainer($cookieValue);
 
             $responder = $container->useGeneralize(YES)->get();
@@ -93,11 +78,4 @@ class AppSigninEvent extends FrameClass
         return $this->ctrl;
     }
 
-    /**
-     * @return string
-     */
-    final protected function getCtrlName()
-    {
-        return $this->ctrlName;
-    }
 }
