@@ -17,10 +17,7 @@ class AccountFields extends BaseFields
         $this->fields = [
             'm.manager_id account_id',
             'm.manager_name account_name',
-            'm.manager_id',
-            'm.manager_name',
             'm.team_id',
-            'm.enabled',
             'mg.team_name'
         ];
     }

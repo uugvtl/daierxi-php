@@ -1,5 +1,6 @@
 <?php
 namespace App\Network\Modules\Manager\Common;
+use App\Entities\Bizbos\Signin\AccountBaseBO;
 use App\Network\Modules\Manager\Events\SigninEvent;
 use App\Network\Providers\ManagerContainerProvider;
 use Phalcon\Mvc\Dispatcher;
@@ -12,6 +13,7 @@ use Phalcon\Mvc\Dispatcher;
  *
  * Class AppController
  * @package App\Network\Modules\Manager\Common
+ * @property-read AccountBaseBO $account
  */
 abstract class AppController extends ComController
 {
