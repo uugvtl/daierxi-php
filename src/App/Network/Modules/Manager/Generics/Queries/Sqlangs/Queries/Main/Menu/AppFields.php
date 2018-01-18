@@ -18,8 +18,7 @@ class AppFields extends BaseFields
             'menu_id id',
             'pid',
             'text',
-            'route_name',
-            'superiors',
+            'name',
             'depth',
             'pos',
             'leaf'
