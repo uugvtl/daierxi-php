@@ -1,16 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leon
- * Date: 15/1/18
- * Time: 23:04
- */
-
 namespace App\Network\Modules\Manager\Generics\Queries\Sqlangs\Queries\Main\Mo;
-
-
 use App\Globals\Sqlangs\BaseFields;
-
 /**
  * Created by PhpStorm.
  * User: leon
