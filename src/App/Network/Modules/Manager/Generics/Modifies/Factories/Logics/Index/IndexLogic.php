@@ -22,6 +22,15 @@ class IndexLogic extends AppLogic
 
     use AccountTrait;
 
+    public function get()
+    {
+        $this->beforeBegin();
+        $responder = Responder::getInstance();
+        $this->run($responder);
+        $this->afterEnd();
+        return $responder;
+    }
+
     protected function run(Responder $responder)
     {
         $sqlangInjecter = $this->getRepositpry()->get();

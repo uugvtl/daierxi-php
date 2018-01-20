@@ -207,7 +207,7 @@ abstract class FrameLogic extends FrameGeneric implements IRespondable
      * @param Responder $responder
      * @return void
      */
-    private function commit(Responder $responder)
+    protected function commit(Responder $responder)
     {
         $this->getStore()->getCache()->getDao()->autocommit(YES);
         $this->run($responder);
