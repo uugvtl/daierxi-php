@@ -51,7 +51,7 @@ class AppSigninEvent extends FrameClass
      */
     public function beforeExecuteRoute(Dispatcher $dispatcher, $providerClassString)
     {
-        $toggle = true;
+        $toggle = false;
         $cookiesHelper = CookiesHelper::getInstance();
         $cookieValue = $cookiesHelper->setCookies($this->cookies)->getLoginCookie(LOGIN_MANAGER);
         if($cookieValue)

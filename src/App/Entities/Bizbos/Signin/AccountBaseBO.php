@@ -13,6 +13,7 @@ use App\Globals\Bizes\BaseBO;
  * @property string $account_name   帐号名称，也叫系统管理员账号
  * @property int    $team_id        公司员工所在权限组ID
  * @property string $team_name      分组名称，或者为角色名称
+ * @property bool   $enabled        是否启用状态，启用为true,否则为false
  */
 class AccountBaseBO extends BaseBO
 {
@@ -22,7 +23,8 @@ class AccountBaseBO extends BaseBO
             'account_id',
             'account_name',
             'team_id',
-            'team_name'
+            'team_name',
+            'enabled'
         ];
     }
 }
