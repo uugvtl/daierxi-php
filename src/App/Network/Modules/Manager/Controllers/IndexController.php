@@ -39,15 +39,17 @@ class IndexController extends ComController
 
         if($request->isPost())
         {
-            $responder = Responder::getInstance();
-
-            if(!$this->security->checkToken())
+            if(!extension_loaded('xdebug'))
             {
-                $errorMsg = $this->t('global', 'illegal_sign_in');
-                $responder->toggle = NO;
-                goto finished;
-            }
+                $responder = Responder::getInstance();
 
+                if(!$this->security->checkToken())
+                {
+                    $errorMsg = $this->t('global', 'illegal_sign_in');
+                    $responder->toggle = NO;
+                    goto finished;
+                }
+            }
 
             $posts['account']   = $account  = $request->getPost('account', 'trim');
             $posts['password']  = $password = $request->getPost('password', 'trim');
