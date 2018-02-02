@@ -83,5 +83,6 @@ class IndexLogic extends AppLogic
         $this->cookies->set($cookieName, $json, $expire, '/',false);
         setcookie('manager_name', urlencode($accountBo->account_name), $expire, '/');
         setcookie('manager_id', $accountBo->account_id, $expire, '/'); // 如果 跨域需要设置 SESSION_COOKIE_DOMAIN
+        setcookie('language', 'zh', $expire, '/'); // 如果 跨域需要设置 SESSION_COOKIE_DOMAIN
     }
 }

@@ -104,9 +104,10 @@ class IndexController extends ComController
         if ($cookies->has($cookieName)) {
             $expire = time() - 1;
             $cookies->delete($cookieName);
-            $cookies->set($cookieName, '', $expire, '/', null, SESSION_COOKIE_DOMAIN);
-            setcookie('manager_name', '', $expire, '/', SESSION_COOKIE_DOMAIN);
-            setcookie('manager_id', '', $expire, '/', SESSION_COOKIE_DOMAIN);
+            $cookies->set($cookieName, '', $expire, '/');
+            setcookie('manager_name', '', $expire, '/');
+            setcookie('manager_id', '', $expire, '/');
+            setcookie('language', '', $expire, '/');
         }
 
         $this->response->redirect();
