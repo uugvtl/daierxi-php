@@ -5,6 +5,6 @@
  * Date: 16/9/6
  * Time: 20:03
  */
-define('SESSION_COOKIE_DOMAIN', '.daierxi.lc');
+define('SESSION_COOKIE_DOMAIN', '.brightdot.lc');
 ini_set("session.cookie_domain",SESSION_COOKIE_DOMAIN);
 session_name(md5(SESSION_COOKIE_DOMAIN));

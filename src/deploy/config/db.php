@@ -4,6 +4,6 @@ return array(
     'host'      => 'localhost',
     'username'  => 'weizhu',
     'password'  => '123456',
-    'name'      => 'weizhu',
+    'name'      => 'brightdot',
     'charset'   => 'utf8'
 );
